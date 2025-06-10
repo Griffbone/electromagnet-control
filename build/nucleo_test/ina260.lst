@@ -1,0 +1,776 @@
+ARM GAS  /tmp/ccAQandw.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.arch armv7e-m
+   3              		.fpu fpv5-d16
+   4              		.eabi_attribute 28, 1
+   5              		.eabi_attribute 20, 1
+   6              		.eabi_attribute 21, 1
+   7              		.eabi_attribute 23, 3
+   8              		.eabi_attribute 24, 1
+   9              		.eabi_attribute 25, 1
+  10              		.eabi_attribute 26, 1
+  11              		.eabi_attribute 30, 1
+  12              		.eabi_attribute 34, 1
+  13              		.eabi_attribute 18, 4
+  14              		.file	"ina260.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.file 1 "src/drivers/ina260/ina260.c"
+  19              		.section	.text.uint16_to_uint8,"ax",%progbits
+  20              		.align	1
+  21              		.global	uint16_to_uint8
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	uint16_to_uint8:
+  27              	.LVL0:
+  28              	.LFB147:
+   1:src/drivers/ina260/ina260.c **** #include "ina260.h"
+   2:src/drivers/ina260/ina260.c **** #include "stm32h7xx_hal.h"
+   3:src/drivers/ina260/ina260.c **** 
+   4:src/drivers/ina260/ina260.c **** /**
+   5:src/drivers/ina260/ina260.c ****  * @brief Break a UINT16 into two uint8s
+   6:src/drivers/ina260/ina260.c ****  *
+   7:src/drivers/ina260/ina260.c ****  * @param in uint16 value
+   8:src/drivers/ina260/ina260.c ****  * @param msb pointer to uint8 to write most significant byte
+   9:src/drivers/ina260/ina260.c ****  * @param lsb pointer to uint8 to write least significant byte
+  10:src/drivers/ina260/ina260.c ****  */
+  11:src/drivers/ina260/ina260.c **** uint8_t uint16_to_uint8(uint16_t in, uint8_t *msb, uint8_t *lsb) {
+  29              		.loc 1 11 66 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+  12:src/drivers/ina260/ina260.c ****     *msb = (in >> 8) & 0xFF;
+  34              		.loc 1 12 5 view .LVU1
+  35              		.loc 1 12 10 is_stmt 0 view .LVU2
+  36 0000 030A     		lsrs	r3, r0, #8
+  37 0002 0B70     		strb	r3, [r1]
+  13:src/drivers/ina260/ina260.c ****     *lsb = in & 0xFF;
+  38              		.loc 1 13 5 is_stmt 1 view .LVU3
+  39              		.loc 1 13 10 is_stmt 0 view .LVU4
+  40 0004 1070     		strb	r0, [r2]
+  14:src/drivers/ina260/ina260.c **** 
+  15:src/drivers/ina260/ina260.c ****     return 0;
+  41              		.loc 1 15 5 is_stmt 1 view .LVU5
+  16:src/drivers/ina260/ina260.c **** }
+  42              		.loc 1 16 1 is_stmt 0 view .LVU6
+ARM GAS  /tmp/ccAQandw.s 			page 2
+
+
+  43 0006 0020     		movs	r0, #0
+  44              	.LVL1:
+  45              		.loc 1 16 1 view .LVU7
+  46 0008 7047     		bx	lr
+  47              		.cfi_endproc
+  48              	.LFE147:
+  50              		.section	.text.uint8_to_uin16t,"ax",%progbits
+  51              		.align	1
+  52              		.global	uint8_to_uin16t
+  53              		.syntax unified
+  54              		.thumb
+  55              		.thumb_func
+  57              	uint8_to_uin16t:
+  58              	.LVL2:
+  59              	.LFB148:
+  17:src/drivers/ina260/ina260.c **** 
+  18:src/drivers/ina260/ina260.c **** /**
+  19:src/drivers/ina260/ina260.c ****  * @brief Combine two UINT8 to a UINT16
+  20:src/drivers/ina260/ina260.c ****  *
+  21:src/drivers/ina260/ina260.c ****  * @param msb most significant byte
+  22:src/drivers/ina260/ina260.c ****  * @param lsb least significant byte
+  23:src/drivers/ina260/ina260.c ****  * @param out pointer to uint16 to write combined uint16
+  24:src/drivers/ina260/ina260.c ****  */
+  25:src/drivers/ina260/ina260.c **** uint8_t uint8_to_uin16t(uint8_t msb, uint8_t lsb, uint16_t *out) {
+  60              		.loc 1 25 66 is_stmt 1 view -0
+  61              		.cfi_startproc
+  62              		@ args = 0, pretend = 0, frame = 0
+  63              		@ frame_needed = 0, uses_anonymous_args = 0
+  64              		@ link register save eliminated.
+  26:src/drivers/ina260/ina260.c ****     *out = (msb << 8) | lsb;
+  65              		.loc 1 26 5 view .LVU9
+  66              		.loc 1 26 23 is_stmt 0 view .LVU10
+  67 0000 41EA0021 		orr	r1, r1, r0, lsl #8
+  68              	.LVL3:
+  69              		.loc 1 26 10 view .LVU11
+  70 0004 1180     		strh	r1, [r2]	@ movhi
+  27:src/drivers/ina260/ina260.c **** 
+  28:src/drivers/ina260/ina260.c ****     return 0;
+  71              		.loc 1 28 5 is_stmt 1 view .LVU12
+  29:src/drivers/ina260/ina260.c **** }
+  72              		.loc 1 29 1 is_stmt 0 view .LVU13
+  73 0006 0020     		movs	r0, #0
+  74              	.LVL4:
+  75              		.loc 1 29 1 view .LVU14
+  76 0008 7047     		bx	lr
+  77              		.cfi_endproc
+  78              	.LFE148:
+  80              		.section	.text.ina260_write_reg,"ax",%progbits
+  81              		.align	1
+  82              		.global	ina260_write_reg
+  83              		.syntax unified
+  84              		.thumb
+  85              		.thumb_func
+  87              	ina260_write_reg:
+  88              	.LVL5:
+  89              	.LFB152:
+  30:src/drivers/ina260/ina260.c **** 
+ARM GAS  /tmp/ccAQandw.s 			page 3
+
+
+  31:src/drivers/ina260/ina260.c **** ina260_err_t ina260_init(ina260_device_t *device) {
+  32:src/drivers/ina260/ina260.c ****     uint8_t ret;
+  33:src/drivers/ina260/ina260.c ****     uint16_t reg_value;
+  34:src/drivers/ina260/ina260.c ****     
+  35:src/drivers/ina260/ina260.c ****     // Perform power-on reset 
+  36:src/drivers/ina260/ina260.c ****     ret = ina260_write_reg(device, INA260_REG_CONFIG, INA260_RESET);
+  37:src/drivers/ina260/ina260.c **** 
+  38:src/drivers/ina260/ina260.c ****     if (ret != INA260_ERR_OK) {
+  39:src/drivers/ina260/ina260.c ****         return ret;
+  40:src/drivers/ina260/ina260.c ****     }
+  41:src/drivers/ina260/ina260.c **** 
+  42:src/drivers/ina260/ina260.c ****     // Read and confirm manufacturer ID
+  43:src/drivers/ina260/ina260.c ****     ret = ina260_read_reg(device, INA260_REG_MANUFACTURER_ID, &reg_value);
+  44:src/drivers/ina260/ina260.c **** 
+  45:src/drivers/ina260/ina260.c ****     if (ret != INA260_ERR_OK) {
+  46:src/drivers/ina260/ina260.c ****         return ret;
+  47:src/drivers/ina260/ina260.c ****     } 
+  48:src/drivers/ina260/ina260.c **** 
+  49:src/drivers/ina260/ina260.c ****     if (reg_value != INA260_MANUFACTURER_ID) {
+  50:src/drivers/ina260/ina260.c ****         return INA260_ERR_DEVID;
+  51:src/drivers/ina260/ina260.c ****     }
+  52:src/drivers/ina260/ina260.c **** 
+  53:src/drivers/ina260/ina260.c ****     // Write config register 
+  54:src/drivers/ina260/ina260.c ****     reg_value = 0x0000;
+  55:src/drivers/ina260/ina260.c ****     reg_value |= device->power_mode;
+  56:src/drivers/ina260/ina260.c ****     reg_value |= device->curr_conv_time;
+  57:src/drivers/ina260/ina260.c ****     reg_value |= device->volt_conv_time;
+  58:src/drivers/ina260/ina260.c ****     reg_value |= device->average_mode;
+  59:src/drivers/ina260/ina260.c ****     reg_value |= (0x06 << 12);
+  60:src/drivers/ina260/ina260.c **** 
+  61:src/drivers/ina260/ina260.c ****     ret = ina260_write_reg(device, INA260_REG_CONFIG, reg_value);
+  62:src/drivers/ina260/ina260.c **** 
+  63:src/drivers/ina260/ina260.c ****     if (ret != INA260_ERR_OK) {
+  64:src/drivers/ina260/ina260.c ****         return ret;
+  65:src/drivers/ina260/ina260.c ****     }
+  66:src/drivers/ina260/ina260.c **** 
+  67:src/drivers/ina260/ina260.c ****     return INA260_ERR_OK;
+  68:src/drivers/ina260/ina260.c **** }
+  69:src/drivers/ina260/ina260.c **** 
+  70:src/drivers/ina260/ina260.c **** ina260_err_t ina260_read_voltage(ina260_device_t *device, float *voltage) {
+  71:src/drivers/ina260/ina260.c ****     ina260_err_t ret;
+  72:src/drivers/ina260/ina260.c ****     uint16_t raw_voltage;
+  73:src/drivers/ina260/ina260.c **** 
+  74:src/drivers/ina260/ina260.c ****     // Read voltage register    
+  75:src/drivers/ina260/ina260.c ****     ret = ina260_read_reg(device, INA260_REG_BUS_VOLTAGE, &raw_voltage);
+  76:src/drivers/ina260/ina260.c **** 
+  77:src/drivers/ina260/ina260.c ****     if (ret != INA260_ERR_OK) {
+  78:src/drivers/ina260/ina260.c ****         return ret;
+  79:src/drivers/ina260/ina260.c ****     }
+  80:src/drivers/ina260/ina260.c **** 
+  81:src/drivers/ina260/ina260.c ****     // Turn into a float
+  82:src/drivers/ina260/ina260.c ****     *voltage = ((int16_t) raw_voltage) * 1.25f;
+  83:src/drivers/ina260/ina260.c **** 
+  84:src/drivers/ina260/ina260.c ****     return INA260_ERR_OK;
+  85:src/drivers/ina260/ina260.c **** }
+  86:src/drivers/ina260/ina260.c **** 
+  87:src/drivers/ina260/ina260.c **** ina260_err_t ina260_read_current(ina260_device_t *device, float *current) { 
+ARM GAS  /tmp/ccAQandw.s 			page 4
+
+
+  88:src/drivers/ina260/ina260.c ****     ina260_err_t ret;
+  89:src/drivers/ina260/ina260.c ****     uint16_t raw_current;
+  90:src/drivers/ina260/ina260.c **** 
+  91:src/drivers/ina260/ina260.c ****     // Read current register    
+  92:src/drivers/ina260/ina260.c ****     ret = ina260_read_reg(device, INA260_REG_CURRENT, &raw_current);
+  93:src/drivers/ina260/ina260.c **** 
+  94:src/drivers/ina260/ina260.c ****     if (ret != INA260_ERR_OK) {
+  95:src/drivers/ina260/ina260.c ****         return ret;
+  96:src/drivers/ina260/ina260.c ****     }
+  97:src/drivers/ina260/ina260.c **** 
+  98:src/drivers/ina260/ina260.c ****     // Turn into a float
+  99:src/drivers/ina260/ina260.c ****     *current = ((int16_t) raw_current) * 1.25f;
+ 100:src/drivers/ina260/ina260.c **** 
+ 101:src/drivers/ina260/ina260.c ****     return INA260_ERR_OK;
+ 102:src/drivers/ina260/ina260.c **** }
+ 103:src/drivers/ina260/ina260.c **** 
+ 104:src/drivers/ina260/ina260.c **** ina260_err_t ina260_write_reg(ina260_device_t *device, uint8_t reg, uint16_t value) {
+  90              		.loc 1 104 85 is_stmt 1 view -0
+  91              		.cfi_startproc
+  92              		@ args = 0, pretend = 0, frame = 8
+  93              		@ frame_needed = 0, uses_anonymous_args = 0
+  94              		.loc 1 104 85 is_stmt 0 view .LVU16
+  95 0000 10B5     		push	{r4, lr}
+  96              	.LCFI0:
+  97              		.cfi_def_cfa_offset 8
+  98              		.cfi_offset 4, -8
+  99              		.cfi_offset 14, -4
+ 100 0002 84B0     		sub	sp, sp, #16
+ 101              	.LCFI1:
+ 102              		.cfi_def_cfa_offset 24
+ 103 0004 0446     		mov	r4, r0
+ 104 0006 1046     		mov	r0, r2
+ 105              	.LVL6:
+ 105:src/drivers/ina260/ina260.c ****     uint8_t ret;
+ 106              		.loc 1 105 5 is_stmt 1 view .LVU17
+ 106:src/drivers/ina260/ina260.c **** 
+ 107:src/drivers/ina260/ina260.c ****     // Create transmit data
+ 108:src/drivers/ina260/ina260.c ****     uint8_t tx[3]; 
+ 107              		.loc 1 108 5 view .LVU18
+ 109:src/drivers/ina260/ina260.c ****     tx[0] = reg; 
+ 108              		.loc 1 109 5 view .LVU19
+ 109              		.loc 1 109 11 is_stmt 0 view .LVU20
+ 110 0008 8DF80C10 		strb	r1, [sp, #12]
+ 110:src/drivers/ina260/ina260.c ****     uint16_to_uint8(value, &tx[1], &tx[2]);
+ 111              		.loc 1 110 5 is_stmt 1 view .LVU21
+ 112 000c 0DF10E02 		add	r2, sp, #14
+ 113              	.LVL7:
+ 114              		.loc 1 110 5 is_stmt 0 view .LVU22
+ 115 0010 0DF10D01 		add	r1, sp, #13
+ 116              	.LVL8:
+ 117              		.loc 1 110 5 view .LVU23
+ 118 0014 FFF7FEFF 		bl	uint16_to_uint8
+ 119              	.LVL9:
+ 111:src/drivers/ina260/ina260.c **** 
+ 112:src/drivers/ina260/ina260.c ****     // Transmit data on I2C
+ 113:src/drivers/ina260/ina260.c ****     ret = HAL_I2C_Master_Transmit(device->hi2c, device->i2c_addr << 1, tx, 3, device->i2c_timeout);
+ 120              		.loc 1 113 5 is_stmt 1 view .LVU24
+ARM GAS  /tmp/ccAQandw.s 			page 5
+
+
+ 121              		.loc 1 113 55 is_stmt 0 view .LVU25
+ 122 0018 217B     		ldrb	r1, [r4, #12]	@ zero_extendqisi2
+ 123              		.loc 1 113 11 view .LVU26
+ 124 001a A368     		ldr	r3, [r4, #8]
+ 125 001c 0093     		str	r3, [sp]
+ 126 001e 0323     		movs	r3, #3
+ 127 0020 03AA     		add	r2, sp, #12
+ 128 0022 4900     		lsls	r1, r1, #1
+ 129 0024 2069     		ldr	r0, [r4, #16]
+ 130 0026 FFF7FEFF 		bl	HAL_I2C_Master_Transmit
+ 131              	.LVL10:
+ 114:src/drivers/ina260/ina260.c ****     
+ 115:src/drivers/ina260/ina260.c ****     if (ret != HAL_OK) {
+ 132              		.loc 1 115 5 is_stmt 1 view .LVU27
+ 133              		.loc 1 115 8 is_stmt 0 view .LVU28
+ 134 002a 08B9     		cbnz	r0, .L7
+ 135              	.L4:
+ 116:src/drivers/ina260/ina260.c ****         return INA260_ERR_HAL;
+ 117:src/drivers/ina260/ina260.c ****     }
+ 118:src/drivers/ina260/ina260.c **** 
+ 119:src/drivers/ina260/ina260.c ****     return INA260_ERR_OK;
+ 120:src/drivers/ina260/ina260.c **** }
+ 136              		.loc 1 120 1 view .LVU29
+ 137 002c 04B0     		add	sp, sp, #16
+ 138              	.LCFI2:
+ 139              		.cfi_remember_state
+ 140              		.cfi_def_cfa_offset 8
+ 141              		@ sp needed
+ 142 002e 10BD     		pop	{r4, pc}
+ 143              	.LVL11:
+ 144              	.L7:
+ 145              	.LCFI3:
+ 146              		.cfi_restore_state
+ 116:src/drivers/ina260/ina260.c ****         return INA260_ERR_HAL;
+ 147              		.loc 1 116 16 view .LVU30
+ 148 0030 0120     		movs	r0, #1
+ 149 0032 FBE7     		b	.L4
+ 150              		.cfi_endproc
+ 151              	.LFE152:
+ 153              		.section	.text.ina260_read_reg,"ax",%progbits
+ 154              		.align	1
+ 155              		.global	ina260_read_reg
+ 156              		.syntax unified
+ 157              		.thumb
+ 158              		.thumb_func
+ 160              	ina260_read_reg:
+ 161              	.LVL12:
+ 162              	.LFB153:
+ 121:src/drivers/ina260/ina260.c **** 
+ 122:src/drivers/ina260/ina260.c **** ina260_err_t ina260_read_reg(ina260_device_t *device, uint8_t reg, uint16_t *value) {
+ 163              		.loc 1 122 85 is_stmt 1 view -0
+ 164              		.cfi_startproc
+ 165              		@ args = 0, pretend = 0, frame = 16
+ 166              		@ frame_needed = 0, uses_anonymous_args = 0
+ 167              		.loc 1 122 85 is_stmt 0 view .LVU32
+ 168 0000 30B5     		push	{r4, r5, lr}
+ 169              	.LCFI4:
+ARM GAS  /tmp/ccAQandw.s 			page 6
+
+
+ 170              		.cfi_def_cfa_offset 12
+ 171              		.cfi_offset 4, -12
+ 172              		.cfi_offset 5, -8
+ 173              		.cfi_offset 14, -4
+ 174 0002 87B0     		sub	sp, sp, #28
+ 175              	.LCFI5:
+ 176              		.cfi_def_cfa_offset 40
+ 177 0004 0446     		mov	r4, r0
+ 178 0006 1546     		mov	r5, r2
+ 179 0008 8DF80F10 		strb	r1, [sp, #15]
+ 123:src/drivers/ina260/ina260.c ****     uint8_t rx[2];
+ 180              		.loc 1 123 5 is_stmt 1 view .LVU33
+ 124:src/drivers/ina260/ina260.c ****     uint8_t ret;
+ 181              		.loc 1 124 5 view .LVU34
+ 125:src/drivers/ina260/ina260.c **** 
+ 126:src/drivers/ina260/ina260.c ****     // Write register address to device
+ 127:src/drivers/ina260/ina260.c ****     ret = HAL_I2C_Master_Transmit(device->hi2c, device->i2c_addr << 1, &reg, 1, device->i2c_timeout
+ 182              		.loc 1 127 5 view .LVU35
+ 183              		.loc 1 127 55 is_stmt 0 view .LVU36
+ 184 000c 017B     		ldrb	r1, [r0, #12]	@ zero_extendqisi2
+ 185              	.LVL13:
+ 186              		.loc 1 127 11 view .LVU37
+ 187 000e 8368     		ldr	r3, [r0, #8]
+ 188 0010 0093     		str	r3, [sp]
+ 189 0012 0123     		movs	r3, #1
+ 190 0014 0DF10F02 		add	r2, sp, #15
+ 191              	.LVL14:
+ 192              		.loc 1 127 11 view .LVU38
+ 193 0018 9940     		lsls	r1, r1, r3
+ 194 001a 0069     		ldr	r0, [r0, #16]
+ 195              	.LVL15:
+ 196              		.loc 1 127 11 view .LVU39
+ 197 001c FFF7FEFF 		bl	HAL_I2C_Master_Transmit
+ 198              	.LVL16:
+ 128:src/drivers/ina260/ina260.c **** 
+ 129:src/drivers/ina260/ina260.c ****     if (ret != HAL_OK) {
+ 199              		.loc 1 129 5 is_stmt 1 view .LVU40
+ 200              		.loc 1 129 8 is_stmt 0 view .LVU41
+ 201 0020 18B1     		cbz	r0, .L13
+ 130:src/drivers/ina260/ina260.c ****         return INA260_ERR_HAL;
+ 202              		.loc 1 130 16 view .LVU42
+ 203 0022 0124     		movs	r4, #1
+ 204              	.LVL17:
+ 205              	.L9:
+ 131:src/drivers/ina260/ina260.c ****     }
+ 132:src/drivers/ina260/ina260.c **** 
+ 133:src/drivers/ina260/ina260.c ****     // Read two bytes 
+ 134:src/drivers/ina260/ina260.c ****     ret = HAL_I2C_Master_Receive(device->hi2c, device->i2c_addr << 1, rx, 2, device->i2c_timeout);
+ 135:src/drivers/ina260/ina260.c ****   
+ 136:src/drivers/ina260/ina260.c ****     if (ret != HAL_OK) {
+ 137:src/drivers/ina260/ina260.c ****         return INA260_ERR_HAL;
+ 138:src/drivers/ina260/ina260.c ****     }
+ 139:src/drivers/ina260/ina260.c **** 
+ 140:src/drivers/ina260/ina260.c ****     // Combine to uint16
+ 141:src/drivers/ina260/ina260.c ****     uint8_to_uin16t(rx[0], rx[1], value);
+ 142:src/drivers/ina260/ina260.c **** 
+ 143:src/drivers/ina260/ina260.c ****     return INA260_ERR_OK;
+ARM GAS  /tmp/ccAQandw.s 			page 7
+
+
+ 144:src/drivers/ina260/ina260.c **** }...
+ 206              		.loc 1 144 1 view .LVU43
+ 207 0024 2046     		mov	r0, r4
+ 208 0026 07B0     		add	sp, sp, #28
+ 209              	.LCFI6:
+ 210              		.cfi_remember_state
+ 211              		.cfi_def_cfa_offset 12
+ 212              		@ sp needed
+ 213 0028 30BD     		pop	{r4, r5, pc}
+ 214              	.LVL18:
+ 215              	.L13:
+ 216              	.LCFI7:
+ 217              		.cfi_restore_state
+ 134:src/drivers/ina260/ina260.c ****     ret = HAL_I2C_Master_Receive(device->hi2c, device->i2c_addr << 1, rx, 2, device->i2c_timeout);
+ 218              		.loc 1 134 5 is_stmt 1 view .LVU44
+ 134:src/drivers/ina260/ina260.c ****     ret = HAL_I2C_Master_Receive(device->hi2c, device->i2c_addr << 1, rx, 2, device->i2c_timeout);
+ 219              		.loc 1 134 54 is_stmt 0 view .LVU45
+ 220 002a 217B     		ldrb	r1, [r4, #12]	@ zero_extendqisi2
+ 134:src/drivers/ina260/ina260.c ****     ret = HAL_I2C_Master_Receive(device->hi2c, device->i2c_addr << 1, rx, 2, device->i2c_timeout);
+ 221              		.loc 1 134 11 view .LVU46
+ 222 002c A368     		ldr	r3, [r4, #8]
+ 223 002e 0093     		str	r3, [sp]
+ 224 0030 0223     		movs	r3, #2
+ 225 0032 05AA     		add	r2, sp, #20
+ 226 0034 4900     		lsls	r1, r1, #1
+ 227 0036 2069     		ldr	r0, [r4, #16]
+ 228              	.LVL19:
+ 134:src/drivers/ina260/ina260.c ****     ret = HAL_I2C_Master_Receive(device->hi2c, device->i2c_addr << 1, rx, 2, device->i2c_timeout);
+ 229              		.loc 1 134 11 view .LVU47
+ 230 0038 FFF7FEFF 		bl	HAL_I2C_Master_Receive
+ 231              	.LVL20:
+ 136:src/drivers/ina260/ina260.c ****     if (ret != HAL_OK) {
+ 232              		.loc 1 136 5 is_stmt 1 view .LVU48
+ 136:src/drivers/ina260/ina260.c ****     if (ret != HAL_OK) {
+ 233              		.loc 1 136 8 is_stmt 0 view .LVU49
+ 234 003c 0446     		mov	r4, r0
+ 235              	.LVL21:
+ 136:src/drivers/ina260/ina260.c ****     if (ret != HAL_OK) {
+ 236              		.loc 1 136 8 view .LVU50
+ 237 003e 08B1     		cbz	r0, .L14
+ 137:src/drivers/ina260/ina260.c ****         return INA260_ERR_HAL;
+ 238              		.loc 1 137 16 view .LVU51
+ 239 0040 0124     		movs	r4, #1
+ 240 0042 EFE7     		b	.L9
+ 241              	.L14:
+ 141:src/drivers/ina260/ina260.c ****     uint8_to_uin16t(rx[0], rx[1], value);
+ 242              		.loc 1 141 5 is_stmt 1 view .LVU52
+ 243 0044 2A46     		mov	r2, r5
+ 244 0046 9DF81510 		ldrb	r1, [sp, #21]	@ zero_extendqisi2
+ 245 004a 9DF81400 		ldrb	r0, [sp, #20]	@ zero_extendqisi2
+ 246              	.LVL22:
+ 141:src/drivers/ina260/ina260.c ****     uint8_to_uin16t(rx[0], rx[1], value);
+ 247              		.loc 1 141 5 is_stmt 0 view .LVU53
+ 248 004e FFF7FEFF 		bl	uint8_to_uin16t
+ 249              	.LVL23:
+ 143:src/drivers/ina260/ina260.c ****     return INA260_ERR_OK;
+ 250              		.loc 1 143 5 is_stmt 1 view .LVU54
+ARM GAS  /tmp/ccAQandw.s 			page 8
+
+
+ 143:src/drivers/ina260/ina260.c ****     return INA260_ERR_OK;
+ 251              		.loc 1 143 12 is_stmt 0 view .LVU55
+ 252 0052 E7E7     		b	.L9
+ 253              		.cfi_endproc
+ 254              	.LFE153:
+ 256              		.section	.text.ina260_init,"ax",%progbits
+ 257              		.align	1
+ 258              		.global	ina260_init
+ 259              		.syntax unified
+ 260              		.thumb
+ 261              		.thumb_func
+ 263              	ina260_init:
+ 264              	.LVL24:
+ 265              	.LFB149:
+  31:src/drivers/ina260/ina260.c **** ina260_err_t ina260_init(ina260_device_t *device) {
+ 266              		.loc 1 31 51 is_stmt 1 view -0
+ 267              		.cfi_startproc
+ 268              		@ args = 0, pretend = 0, frame = 8
+ 269              		@ frame_needed = 0, uses_anonymous_args = 0
+  31:src/drivers/ina260/ina260.c **** ina260_err_t ina260_init(ina260_device_t *device) {
+ 270              		.loc 1 31 51 is_stmt 0 view .LVU57
+ 271 0000 10B5     		push	{r4, lr}
+ 272              	.LCFI8:
+ 273              		.cfi_def_cfa_offset 8
+ 274              		.cfi_offset 4, -8
+ 275              		.cfi_offset 14, -4
+ 276 0002 82B0     		sub	sp, sp, #8
+ 277              	.LCFI9:
+ 278              		.cfi_def_cfa_offset 16
+ 279 0004 0446     		mov	r4, r0
+  32:src/drivers/ina260/ina260.c ****     uint8_t ret;
+ 280              		.loc 1 32 5 is_stmt 1 view .LVU58
+  33:src/drivers/ina260/ina260.c ****     uint16_t reg_value;
+ 281              		.loc 1 33 5 view .LVU59
+  36:src/drivers/ina260/ina260.c ****     ret = ina260_write_reg(device, INA260_REG_CONFIG, INA260_RESET);
+ 282              		.loc 1 36 5 view .LVU60
+  36:src/drivers/ina260/ina260.c ****     ret = ina260_write_reg(device, INA260_REG_CONFIG, INA260_RESET);
+ 283              		.loc 1 36 11 is_stmt 0 view .LVU61
+ 284 0006 4FF40042 		mov	r2, #32768
+ 285 000a 0021     		movs	r1, #0
+ 286 000c FFF7FEFF 		bl	ina260_write_reg
+ 287              	.LVL25:
+  38:src/drivers/ina260/ina260.c ****     if (ret != INA260_ERR_OK) {
+ 288              		.loc 1 38 5 is_stmt 1 view .LVU62
+  38:src/drivers/ina260/ina260.c ****     if (ret != INA260_ERR_OK) {
+ 289              		.loc 1 38 8 is_stmt 0 view .LVU63
+ 290 0010 0346     		mov	r3, r0
+ 291 0012 10B1     		cbz	r0, .L19
+ 292              	.LVL26:
+ 293              	.L16:
+  68:src/drivers/ina260/ina260.c **** }
+ 294              		.loc 1 68 1 view .LVU64
+ 295 0014 1846     		mov	r0, r3
+ 296 0016 02B0     		add	sp, sp, #8
+ 297              	.LCFI10:
+ 298              		.cfi_remember_state
+ 299              		.cfi_def_cfa_offset 8
+ARM GAS  /tmp/ccAQandw.s 			page 9
+
+
+ 300              		@ sp needed
+ 301 0018 10BD     		pop	{r4, pc}
+ 302              	.LVL27:
+ 303              	.L19:
+ 304              	.LCFI11:
+ 305              		.cfi_restore_state
+  43:src/drivers/ina260/ina260.c ****     ret = ina260_read_reg(device, INA260_REG_MANUFACTURER_ID, &reg_value);
+ 306              		.loc 1 43 5 is_stmt 1 view .LVU65
+  43:src/drivers/ina260/ina260.c ****     ret = ina260_read_reg(device, INA260_REG_MANUFACTURER_ID, &reg_value);
+ 307              		.loc 1 43 11 is_stmt 0 view .LVU66
+ 308 001a 0DF10602 		add	r2, sp, #6
+ 309 001e FE21     		movs	r1, #254
+ 310 0020 2046     		mov	r0, r4
+ 311              	.LVL28:
+  43:src/drivers/ina260/ina260.c ****     ret = ina260_read_reg(device, INA260_REG_MANUFACTURER_ID, &reg_value);
+ 312              		.loc 1 43 11 view .LVU67
+ 313 0022 FFF7FEFF 		bl	ina260_read_reg
+ 314              	.LVL29:
+  45:src/drivers/ina260/ina260.c ****     if (ret != INA260_ERR_OK) {
+ 315              		.loc 1 45 5 is_stmt 1 view .LVU68
+  45:src/drivers/ina260/ina260.c ****     if (ret != INA260_ERR_OK) {
+ 316              		.loc 1 45 8 is_stmt 0 view .LVU69
+ 317 0026 0346     		mov	r3, r0
+ 318 0028 0028     		cmp	r0, #0
+ 319 002a F3D1     		bne	.L16
+  49:src/drivers/ina260/ina260.c ****     if (reg_value != INA260_MANUFACTURER_ID) {
+ 320              		.loc 1 49 5 is_stmt 1 view .LVU70
+  49:src/drivers/ina260/ina260.c ****     if (reg_value != INA260_MANUFACTURER_ID) {
+ 321              		.loc 1 49 19 is_stmt 0 view .LVU71
+ 322 002c BDF80620 		ldrh	r2, [sp, #6]
+  49:src/drivers/ina260/ina260.c ****     if (reg_value != INA260_MANUFACTURER_ID) {
+ 323              		.loc 1 49 8 view .LVU72
+ 324 0030 45F24943 		movw	r3, #21577
+ 325 0034 9A42     		cmp	r2, r3
+ 326 0036 01D0     		beq	.L20
+  50:src/drivers/ina260/ina260.c ****         return INA260_ERR_DEVID;
+ 327              		.loc 1 50 16 view .LVU73
+ 328 0038 0223     		movs	r3, #2
+ 329 003a EBE7     		b	.L16
+ 330              	.L20:
+  54:src/drivers/ina260/ina260.c ****     reg_value = 0x0000;
+ 331              		.loc 1 54 5 is_stmt 1 view .LVU74
+  54:src/drivers/ina260/ina260.c ****     reg_value = 0x0000;
+ 332              		.loc 1 54 15 is_stmt 0 view .LVU75
+ 333 003c 0021     		movs	r1, #0
+ 334 003e ADF80610 		strh	r1, [sp, #6]	@ movhi
+  55:src/drivers/ina260/ina260.c ****     reg_value |= device->power_mode;
+ 335              		.loc 1 55 5 is_stmt 1 view .LVU76
+  55:src/drivers/ina260/ina260.c ****     reg_value |= device->power_mode;
+ 336              		.loc 1 55 24 is_stmt 0 view .LVU77
+ 337 0042 2288     		ldrh	r2, [r4]
+  55:src/drivers/ina260/ina260.c ****     reg_value |= device->power_mode;
+ 338              		.loc 1 55 15 view .LVU78
+ 339 0044 ADF80620 		strh	r2, [sp, #6]	@ movhi
+  56:src/drivers/ina260/ina260.c ****     reg_value |= device->curr_conv_time;
+ 340              		.loc 1 56 5 is_stmt 1 view .LVU79
+  56:src/drivers/ina260/ina260.c ****     reg_value |= device->curr_conv_time;
+ARM GAS  /tmp/ccAQandw.s 			page 10
+
+
+ 341              		.loc 1 56 24 is_stmt 0 view .LVU80
+ 342 0048 6388     		ldrh	r3, [r4, #2]
+  56:src/drivers/ina260/ina260.c ****     reg_value |= device->curr_conv_time;
+ 343              		.loc 1 56 15 view .LVU81
+ 344 004a 1A43     		orrs	r2, r2, r3
+ 345 004c ADF80620 		strh	r2, [sp, #6]	@ movhi
+  57:src/drivers/ina260/ina260.c ****     reg_value |= device->volt_conv_time;
+ 346              		.loc 1 57 5 is_stmt 1 view .LVU82
+  57:src/drivers/ina260/ina260.c ****     reg_value |= device->volt_conv_time;
+ 347              		.loc 1 57 24 is_stmt 0 view .LVU83
+ 348 0050 A388     		ldrh	r3, [r4, #4]
+  57:src/drivers/ina260/ina260.c ****     reg_value |= device->volt_conv_time;
+ 349              		.loc 1 57 15 view .LVU84
+ 350 0052 1A43     		orrs	r2, r2, r3
+ 351 0054 ADF80620 		strh	r2, [sp, #6]	@ movhi
+  58:src/drivers/ina260/ina260.c ****     reg_value |= device->average_mode;
+ 352              		.loc 1 58 5 is_stmt 1 view .LVU85
+  58:src/drivers/ina260/ina260.c ****     reg_value |= device->average_mode;
+ 353              		.loc 1 58 24 is_stmt 0 view .LVU86
+ 354 0058 E388     		ldrh	r3, [r4, #6]
+  58:src/drivers/ina260/ina260.c ****     reg_value |= device->average_mode;
+ 355              		.loc 1 58 15 view .LVU87
+ 356 005a 1A43     		orrs	r2, r2, r3
+ 357 005c ADF80620 		strh	r2, [sp, #6]	@ movhi
+  59:src/drivers/ina260/ina260.c ****     reg_value |= (0x06 << 12);
+ 358              		.loc 1 59 5 is_stmt 1 view .LVU88
+  59:src/drivers/ina260/ina260.c ****     reg_value |= (0x06 << 12);
+ 359              		.loc 1 59 15 is_stmt 0 view .LVU89
+ 360 0060 42F4C042 		orr	r2, r2, #24576
+ 361 0064 ADF80620 		strh	r2, [sp, #6]	@ movhi
+  61:src/drivers/ina260/ina260.c ****     ret = ina260_write_reg(device, INA260_REG_CONFIG, reg_value);
+ 362              		.loc 1 61 5 is_stmt 1 view .LVU90
+  61:src/drivers/ina260/ina260.c ****     ret = ina260_write_reg(device, INA260_REG_CONFIG, reg_value);
+ 363              		.loc 1 61 11 is_stmt 0 view .LVU91
+ 364 0068 2046     		mov	r0, r4
+ 365              	.LVL30:
+  61:src/drivers/ina260/ina260.c ****     ret = ina260_write_reg(device, INA260_REG_CONFIG, reg_value);
+ 366              		.loc 1 61 11 view .LVU92
+ 367 006a FFF7FEFF 		bl	ina260_write_reg
+ 368              	.LVL31:
+ 369 006e 0346     		mov	r3, r0
+ 370              	.LVL32:
+  63:src/drivers/ina260/ina260.c ****     if (ret != INA260_ERR_OK) {
+ 371              		.loc 1 63 5 is_stmt 1 view .LVU93
+ 372 0070 D0E7     		b	.L16
+ 373              		.cfi_endproc
+ 374              	.LFE149:
+ 376              		.section	.text.ina260_read_voltage,"ax",%progbits
+ 377              		.align	1
+ 378              		.global	ina260_read_voltage
+ 379              		.syntax unified
+ 380              		.thumb
+ 381              		.thumb_func
+ 383              	ina260_read_voltage:
+ 384              	.LVL33:
+ 385              	.LFB150:
+  70:src/drivers/ina260/ina260.c **** ina260_err_t ina260_read_voltage(ina260_device_t *device, float *voltage) {
+ARM GAS  /tmp/ccAQandw.s 			page 11
+
+
+ 386              		.loc 1 70 75 view -0
+ 387              		.cfi_startproc
+ 388              		@ args = 0, pretend = 0, frame = 8
+ 389              		@ frame_needed = 0, uses_anonymous_args = 0
+  70:src/drivers/ina260/ina260.c **** ina260_err_t ina260_read_voltage(ina260_device_t *device, float *voltage) {
+ 390              		.loc 1 70 75 is_stmt 0 view .LVU95
+ 391 0000 10B5     		push	{r4, lr}
+ 392              	.LCFI12:
+ 393              		.cfi_def_cfa_offset 8
+ 394              		.cfi_offset 4, -8
+ 395              		.cfi_offset 14, -4
+ 396 0002 82B0     		sub	sp, sp, #8
+ 397              	.LCFI13:
+ 398              		.cfi_def_cfa_offset 16
+ 399 0004 0C46     		mov	r4, r1
+  71:src/drivers/ina260/ina260.c ****     ina260_err_t ret;
+ 400              		.loc 1 71 5 is_stmt 1 view .LVU96
+  72:src/drivers/ina260/ina260.c ****     uint16_t raw_voltage;
+ 401              		.loc 1 72 5 view .LVU97
+  75:src/drivers/ina260/ina260.c ****     ret = ina260_read_reg(device, INA260_REG_BUS_VOLTAGE, &raw_voltage);
+ 402              		.loc 1 75 5 view .LVU98
+  75:src/drivers/ina260/ina260.c ****     ret = ina260_read_reg(device, INA260_REG_BUS_VOLTAGE, &raw_voltage);
+ 403              		.loc 1 75 11 is_stmt 0 view .LVU99
+ 404 0006 0DF10602 		add	r2, sp, #6
+ 405 000a 0221     		movs	r1, #2
+ 406              	.LVL34:
+  75:src/drivers/ina260/ina260.c ****     ret = ina260_read_reg(device, INA260_REG_BUS_VOLTAGE, &raw_voltage);
+ 407              		.loc 1 75 11 view .LVU100
+ 408 000c FFF7FEFF 		bl	ina260_read_reg
+ 409              	.LVL35:
+  77:src/drivers/ina260/ina260.c ****     if (ret != INA260_ERR_OK) {
+ 410              		.loc 1 77 5 is_stmt 1 view .LVU101
+  77:src/drivers/ina260/ina260.c ****     if (ret != INA260_ERR_OK) {
+ 411              		.loc 1 77 8 is_stmt 0 view .LVU102
+ 412 0010 58B9     		cbnz	r0, .L22
+  82:src/drivers/ina260/ina260.c ****     *voltage = ((int16_t) raw_voltage) * 1.25f;
+ 413              		.loc 1 82 5 is_stmt 1 view .LVU103
+  82:src/drivers/ina260/ina260.c ****     *voltage = ((int16_t) raw_voltage) * 1.25f;
+ 414              		.loc 1 82 17 is_stmt 0 view .LVU104
+ 415 0012 BDF90630 		ldrsh	r3, [sp, #6]
+ 416 0016 07EE903A 		vmov	s15, r3	@ int
+  82:src/drivers/ina260/ina260.c ****     *voltage = ((int16_t) raw_voltage) * 1.25f;
+ 417              		.loc 1 82 40 view .LVU105
+ 418 001a F8EEE77A 		vcvt.f32.s32	s15, s15
+ 419 001e B7EE047A 		vmov.f32	s14, #1.25e+0
+ 420 0022 67EE877A 		vmul.f32	s15, s15, s14
+  82:src/drivers/ina260/ina260.c ****     *voltage = ((int16_t) raw_voltage) * 1.25f;
+ 421              		.loc 1 82 14 view .LVU106
+ 422 0026 C4ED007A 		vstr.32	s15, [r4]
+  84:src/drivers/ina260/ina260.c ****     return INA260_ERR_OK;
+ 423              		.loc 1 84 5 is_stmt 1 view .LVU107
+ 424              	.L22:
+  85:src/drivers/ina260/ina260.c **** }
+ 425              		.loc 1 85 1 is_stmt 0 view .LVU108
+ 426 002a 02B0     		add	sp, sp, #8
+ 427              	.LCFI14:
+ 428              		.cfi_def_cfa_offset 8
+ARM GAS  /tmp/ccAQandw.s 			page 12
+
+
+ 429              		@ sp needed
+ 430 002c 10BD     		pop	{r4, pc}
+  85:src/drivers/ina260/ina260.c **** }
+ 431              		.loc 1 85 1 view .LVU109
+ 432              		.cfi_endproc
+ 433              	.LFE150:
+ 435              		.section	.text.ina260_read_current,"ax",%progbits
+ 436              		.align	1
+ 437              		.global	ina260_read_current
+ 438              		.syntax unified
+ 439              		.thumb
+ 440              		.thumb_func
+ 442              	ina260_read_current:
+ 443              	.LVL36:
+ 444              	.LFB151:
+  87:src/drivers/ina260/ina260.c **** ina260_err_t ina260_read_current(ina260_device_t *device, float *current) { 
+ 445              		.loc 1 87 75 is_stmt 1 view -0
+ 446              		.cfi_startproc
+ 447              		@ args = 0, pretend = 0, frame = 8
+ 448              		@ frame_needed = 0, uses_anonymous_args = 0
+  87:src/drivers/ina260/ina260.c **** ina260_err_t ina260_read_current(ina260_device_t *device, float *current) { 
+ 449              		.loc 1 87 75 is_stmt 0 view .LVU111
+ 450 0000 10B5     		push	{r4, lr}
+ 451              	.LCFI15:
+ 452              		.cfi_def_cfa_offset 8
+ 453              		.cfi_offset 4, -8
+ 454              		.cfi_offset 14, -4
+ 455 0002 82B0     		sub	sp, sp, #8
+ 456              	.LCFI16:
+ 457              		.cfi_def_cfa_offset 16
+ 458 0004 0C46     		mov	r4, r1
+  88:src/drivers/ina260/ina260.c ****     ina260_err_t ret;
+ 459              		.loc 1 88 5 is_stmt 1 view .LVU112
+  89:src/drivers/ina260/ina260.c ****     uint16_t raw_current;
+ 460              		.loc 1 89 5 view .LVU113
+  92:src/drivers/ina260/ina260.c ****     ret = ina260_read_reg(device, INA260_REG_CURRENT, &raw_current);
+ 461              		.loc 1 92 5 view .LVU114
+  92:src/drivers/ina260/ina260.c ****     ret = ina260_read_reg(device, INA260_REG_CURRENT, &raw_current);
+ 462              		.loc 1 92 11 is_stmt 0 view .LVU115
+ 463 0006 0DF10602 		add	r2, sp, #6
+ 464 000a 0121     		movs	r1, #1
+ 465              	.LVL37:
+  92:src/drivers/ina260/ina260.c ****     ret = ina260_read_reg(device, INA260_REG_CURRENT, &raw_current);
+ 466              		.loc 1 92 11 view .LVU116
+ 467 000c FFF7FEFF 		bl	ina260_read_reg
+ 468              	.LVL38:
+  94:src/drivers/ina260/ina260.c ****     if (ret != INA260_ERR_OK) {
+ 469              		.loc 1 94 5 is_stmt 1 view .LVU117
+  94:src/drivers/ina260/ina260.c ****     if (ret != INA260_ERR_OK) {
+ 470              		.loc 1 94 8 is_stmt 0 view .LVU118
+ 471 0010 58B9     		cbnz	r0, .L25
+  99:src/drivers/ina260/ina260.c ****     *current = ((int16_t) raw_current) * 1.25f;
+ 472              		.loc 1 99 5 is_stmt 1 view .LVU119
+  99:src/drivers/ina260/ina260.c ****     *current = ((int16_t) raw_current) * 1.25f;
+ 473              		.loc 1 99 17 is_stmt 0 view .LVU120
+ 474 0012 BDF90630 		ldrsh	r3, [sp, #6]
+ 475 0016 07EE903A 		vmov	s15, r3	@ int
+ARM GAS  /tmp/ccAQandw.s 			page 13
+
+
+  99:src/drivers/ina260/ina260.c ****     *current = ((int16_t) raw_current) * 1.25f;
+ 476              		.loc 1 99 40 view .LVU121
+ 477 001a F8EEE77A 		vcvt.f32.s32	s15, s15
+ 478 001e B7EE047A 		vmov.f32	s14, #1.25e+0
+ 479 0022 67EE877A 		vmul.f32	s15, s15, s14
+  99:src/drivers/ina260/ina260.c ****     *current = ((int16_t) raw_current) * 1.25f;
+ 480              		.loc 1 99 14 view .LVU122
+ 481 0026 C4ED007A 		vstr.32	s15, [r4]
+ 101:src/drivers/ina260/ina260.c ****     return INA260_ERR_OK;
+ 482              		.loc 1 101 5 is_stmt 1 view .LVU123
+ 483              	.L25:
+ 102:src/drivers/ina260/ina260.c **** }
+ 484              		.loc 1 102 1 is_stmt 0 view .LVU124
+ 485 002a 02B0     		add	sp, sp, #8
+ 486              	.LCFI17:
+ 487              		.cfi_def_cfa_offset 8
+ 488              		@ sp needed
+ 489 002c 10BD     		pop	{r4, pc}
+ 102:src/drivers/ina260/ina260.c **** }
+ 490              		.loc 1 102 1 view .LVU125
+ 491              		.cfi_endproc
+ 492              	.LFE151:
+ 494              		.text
+ 495              	.Letext0:
+ 496              		.file 2 "/usr/lib/gcc/arm-none-eabi/12.2.1/include/stdint.h"
+ 497              		.file 3 "src/drivers/ina260/ina260.h"
+ 498              		.file 4 "external/drivers/cmsis/include/stm32h723xx.h"
+ 499              		.file 5 "external/drivers/stm32h7xx/include/stm32h7xx_hal_def.h"
+ 500              		.file 6 "external/drivers/stm32h7xx/include/stm32h7xx_hal_dma.h"
+ 501              		.file 7 "external/drivers/stm32h7xx/include/stm32h7xx_hal_i2c.h"
+ARM GAS  /tmp/ccAQandw.s 			page 14
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 ina260.c
+     /tmp/ccAQandw.s:20     .text.uint16_to_uint8:00000000 $t
+     /tmp/ccAQandw.s:26     .text.uint16_to_uint8:00000000 uint16_to_uint8
+     /tmp/ccAQandw.s:51     .text.uint8_to_uin16t:00000000 $t
+     /tmp/ccAQandw.s:57     .text.uint8_to_uin16t:00000000 uint8_to_uin16t
+     /tmp/ccAQandw.s:81     .text.ina260_write_reg:00000000 $t
+     /tmp/ccAQandw.s:87     .text.ina260_write_reg:00000000 ina260_write_reg
+     /tmp/ccAQandw.s:154    .text.ina260_read_reg:00000000 $t
+     /tmp/ccAQandw.s:160    .text.ina260_read_reg:00000000 ina260_read_reg
+     /tmp/ccAQandw.s:257    .text.ina260_init:00000000 $t
+     /tmp/ccAQandw.s:263    .text.ina260_init:00000000 ina260_init
+     /tmp/ccAQandw.s:377    .text.ina260_read_voltage:00000000 $t
+     /tmp/ccAQandw.s:383    .text.ina260_read_voltage:00000000 ina260_read_voltage
+     /tmp/ccAQandw.s:436    .text.ina260_read_current:00000000 $t
+     /tmp/ccAQandw.s:442    .text.ina260_read_current:00000000 ina260_read_current
+
+UNDEFINED SYMBOLS
+HAL_I2C_Master_Transmit
+HAL_I2C_Master_Receive

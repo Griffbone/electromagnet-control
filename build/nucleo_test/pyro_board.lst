@@ -1,0 +1,265 @@
+ARM GAS  /tmp/cc6QFRhc.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.arch armv7e-m
+   3              		.fpu fpv5-d16
+   4              		.eabi_attribute 28, 1
+   5              		.eabi_attribute 20, 1
+   6              		.eabi_attribute 21, 1
+   7              		.eabi_attribute 23, 3
+   8              		.eabi_attribute 24, 1
+   9              		.eabi_attribute 25, 1
+  10              		.eabi_attribute 26, 1
+  11              		.eabi_attribute 30, 1
+  12              		.eabi_attribute 34, 1
+  13              		.eabi_attribute 18, 4
+  14              		.file	"pyro_board.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.file 1 "src/drivers/pyro_board/pyro_board.c"
+  19              		.section	.text.pyro_board_write,"ax",%progbits
+  20              		.align	1
+  21              		.weak	pyro_board_write
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	pyro_board_write:
+  27              	.LVL0:
+  28              	.LFB2:
+   1:src/drivers/pyro_board/pyro_board.c **** #include "pyro_board.h"
+   2:src/drivers/pyro_board/pyro_board.c **** 
+   3:src/drivers/pyro_board/pyro_board.c **** pyro_board_err_t pyro_board_fire_channel(pyro_board_device_t *device,
+   4:src/drivers/pyro_board/pyro_board.c ****                                             uint8_t channel, uint8_t force) {
+   5:src/drivers/pyro_board/pyro_board.c ****   if (force > 1) {
+   6:src/drivers/pyro_board/pyro_board.c ****     return PYRO_BOARD_ERR_BAD_INPUT; // Force should be 0 or 1, false or true
+   7:src/drivers/pyro_board/pyro_board.c ****   }
+   8:src/drivers/pyro_board/pyro_board.c ****   if (channel > 7) {
+   9:src/drivers/pyro_board/pyro_board.c ****     return PYRO_BOARD_ERR_BAD_INPUT; // Channel is restricted between 0-7
+  10:src/drivers/pyro_board/pyro_board.c ****   }
+  11:src/drivers/pyro_board/pyro_board.c **** 
+  12:src/drivers/pyro_board/pyro_board.c ****   uint8_t command[2] = {force, channel};
+  13:src/drivers/pyro_board/pyro_board.c ****   uint8_t ret; 
+  14:src/drivers/pyro_board/pyro_board.c **** 
+  15:src/drivers/pyro_board/pyro_board.c ****   ret = pyro_board_write(device, command, 2);
+  16:src/drivers/pyro_board/pyro_board.c **** 
+  17:src/drivers/pyro_board/pyro_board.c ****   if (ret != PYRO_BOARD_ERR_OK) {
+  18:src/drivers/pyro_board/pyro_board.c ****     return ret;
+  19:src/drivers/pyro_board/pyro_board.c ****   }
+  20:src/drivers/pyro_board/pyro_board.c **** 
+  21:src/drivers/pyro_board/pyro_board.c ****   return PYRO_BOARD_ERR_OK;
+  22:src/drivers/pyro_board/pyro_board.c **** }
+  23:src/drivers/pyro_board/pyro_board.c **** 
+  24:src/drivers/pyro_board/pyro_board.c **** pyro_board_err_t pyro_board_read_continuity(pyro_board_device_t *device,
+  25:src/drivers/pyro_board/pyro_board.c ****                                                uint8_t *continuity) {
+  26:src/drivers/pyro_board/pyro_board.c ****   uint8_t ret;
+  27:src/drivers/pyro_board/pyro_board.c ****   ret = pyro_board_read_byte(device, continuity);
+  28:src/drivers/pyro_board/pyro_board.c ****   
+  29:src/drivers/pyro_board/pyro_board.c ****   if (ret != PYRO_BOARD_ERR_OK) {
+  30:src/drivers/pyro_board/pyro_board.c ****     return ret;
+ARM GAS  /tmp/cc6QFRhc.s 			page 2
+
+
+  31:src/drivers/pyro_board/pyro_board.c ****   }
+  32:src/drivers/pyro_board/pyro_board.c ****   
+  33:src/drivers/pyro_board/pyro_board.c ****   return PYRO_BOARD_ERR_OK;
+  34:src/drivers/pyro_board/pyro_board.c **** }
+  35:src/drivers/pyro_board/pyro_board.c **** 
+  36:src/drivers/pyro_board/pyro_board.c **** __attribute__((weak)) pyro_board_err_t
+  37:src/drivers/pyro_board/pyro_board.c **** pyro_board_write(pyro_board_device_t *device, uint8_t* data, uint8_t len) {
+  29              		.loc 1 37 75 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+  38:src/drivers/pyro_board/pyro_board.c ****   return PYRO_BOARD_ERR_OK;
+  34              		.loc 1 38 3 view .LVU1
+  39:src/drivers/pyro_board/pyro_board.c **** }
+  35              		.loc 1 39 1 is_stmt 0 view .LVU2
+  36 0000 0020     		movs	r0, #0
+  37              	.LVL1:
+  38              		.loc 1 39 1 view .LVU3
+  39 0002 7047     		bx	lr
+  40              		.cfi_endproc
+  41              	.LFE2:
+  43              		.section	.text.pyro_board_fire_channel,"ax",%progbits
+  44              		.align	1
+  45              		.global	pyro_board_fire_channel
+  46              		.syntax unified
+  47              		.thumb
+  48              		.thumb_func
+  50              	pyro_board_fire_channel:
+  51              	.LVL2:
+  52              	.LFB0:
+   4:src/drivers/pyro_board/pyro_board.c ****   if (force > 1) {
+  53              		.loc 1 4 77 is_stmt 1 view -0
+  54              		.cfi_startproc
+  55              		@ args = 0, pretend = 0, frame = 8
+  56              		@ frame_needed = 0, uses_anonymous_args = 0
+   5:src/drivers/pyro_board/pyro_board.c ****     return PYRO_BOARD_ERR_BAD_INPUT; // Force should be 0 or 1, false or true
+  57              		.loc 1 5 3 view .LVU5
+   5:src/drivers/pyro_board/pyro_board.c ****     return PYRO_BOARD_ERR_BAD_INPUT; // Force should be 0 or 1, false or true
+  58              		.loc 1 5 6 is_stmt 0 view .LVU6
+  59 0000 012A     		cmp	r2, #1
+  60 0002 10D8     		bhi	.L4
+   8:src/drivers/pyro_board/pyro_board.c ****     return PYRO_BOARD_ERR_BAD_INPUT; // Channel is restricted between 0-7
+  61              		.loc 1 8 3 is_stmt 1 view .LVU7
+   8:src/drivers/pyro_board/pyro_board.c ****     return PYRO_BOARD_ERR_BAD_INPUT; // Channel is restricted between 0-7
+  62              		.loc 1 8 6 is_stmt 0 view .LVU8
+  63 0004 0729     		cmp	r1, #7
+  64 0006 01D9     		bls	.L10
+   9:src/drivers/pyro_board/pyro_board.c ****   }
+  65              		.loc 1 9 12 view .LVU9
+  66 0008 0120     		movs	r0, #1
+  67              	.LVL3:
+  22:src/drivers/pyro_board/pyro_board.c **** 
+  68              		.loc 1 22 1 view .LVU10
+  69 000a 7047     		bx	lr
+  70              	.LVL4:
+  71              	.L10:
+ARM GAS  /tmp/cc6QFRhc.s 			page 3
+
+
+   4:src/drivers/pyro_board/pyro_board.c ****   if (force > 1) {
+  72              		.loc 1 4 77 view .LVU11
+  73 000c 00B5     		push	{lr}
+  74              	.LCFI0:
+  75              		.cfi_def_cfa_offset 4
+  76              		.cfi_offset 14, -4
+  77 000e 83B0     		sub	sp, sp, #12
+  78              	.LCFI1:
+  79              		.cfi_def_cfa_offset 16
+  12:src/drivers/pyro_board/pyro_board.c ****   uint8_t ret; 
+  80              		.loc 1 12 3 is_stmt 1 view .LVU12
+  12:src/drivers/pyro_board/pyro_board.c ****   uint8_t ret; 
+  81              		.loc 1 12 11 is_stmt 0 view .LVU13
+  82 0010 8DF80420 		strb	r2, [sp, #4]
+  83 0014 8DF80510 		strb	r1, [sp, #5]
+  13:src/drivers/pyro_board/pyro_board.c **** 
+  84              		.loc 1 13 3 is_stmt 1 view .LVU14
+  15:src/drivers/pyro_board/pyro_board.c **** 
+  85              		.loc 1 15 3 view .LVU15
+  15:src/drivers/pyro_board/pyro_board.c **** 
+  86              		.loc 1 15 9 is_stmt 0 view .LVU16
+  87 0018 0222     		movs	r2, #2
+  88              	.LVL5:
+  15:src/drivers/pyro_board/pyro_board.c **** 
+  89              		.loc 1 15 9 view .LVU17
+  90 001a 01A9     		add	r1, sp, #4
+  91              	.LVL6:
+  15:src/drivers/pyro_board/pyro_board.c **** 
+  92              		.loc 1 15 9 view .LVU18
+  93 001c FFF7FEFF 		bl	pyro_board_write
+  94              	.LVL7:
+  17:src/drivers/pyro_board/pyro_board.c ****     return ret;
+  95              		.loc 1 17 3 is_stmt 1 view .LVU19
+  22:src/drivers/pyro_board/pyro_board.c **** 
+  96              		.loc 1 22 1 is_stmt 0 view .LVU20
+  97 0020 03B0     		add	sp, sp, #12
+  98              	.LCFI2:
+  99              		.cfi_def_cfa_offset 4
+ 100              		@ sp needed
+ 101 0022 5DF804FB 		ldr	pc, [sp], #4
+ 102              	.LVL8:
+ 103              	.L4:
+ 104              	.LCFI3:
+ 105              		.cfi_def_cfa_offset 0
+ 106              		.cfi_restore 14
+   6:src/drivers/pyro_board/pyro_board.c ****   }
+ 107              		.loc 1 6 12 view .LVU21
+ 108 0026 0120     		movs	r0, #1
+ 109              	.LVL9:
+   6:src/drivers/pyro_board/pyro_board.c ****   }
+ 110              		.loc 1 6 12 view .LVU22
+ 111 0028 7047     		bx	lr
+ 112              		.cfi_endproc
+ 113              	.LFE0:
+ 115              		.section	.text.pyro_board_read_byte,"ax",%progbits
+ 116              		.align	1
+ 117              		.weak	pyro_board_read_byte
+ARM GAS  /tmp/cc6QFRhc.s 			page 4
+
+
+ 118              		.syntax unified
+ 119              		.thumb
+ 120              		.thumb_func
+ 122              	pyro_board_read_byte:
+ 123              	.LVL10:
+ 124              	.LFB3:
+  40:src/drivers/pyro_board/pyro_board.c **** 
+  41:src/drivers/pyro_board/pyro_board.c **** __attribute__((weak)) pyro_board_err_t
+  42:src/drivers/pyro_board/pyro_board.c **** pyro_board_read_byte(pyro_board_device_t *device, uint8_t *byte) {
+ 125              		.loc 1 42 66 is_stmt 1 view -0
+ 126              		.cfi_startproc
+ 127              		@ args = 0, pretend = 0, frame = 0
+ 128              		@ frame_needed = 0, uses_anonymous_args = 0
+ 129              		@ link register save eliminated.
+  43:src/drivers/pyro_board/pyro_board.c ****   return PYRO_BOARD_ERR_OK;
+ 130              		.loc 1 43 3 view .LVU24
+  44:src/drivers/pyro_board/pyro_board.c **** }
+ 131              		.loc 1 44 1 is_stmt 0 view .LVU25
+ 132 0000 0020     		movs	r0, #0
+ 133              	.LVL11:
+ 134              		.loc 1 44 1 view .LVU26
+ 135 0002 7047     		bx	lr
+ 136              		.cfi_endproc
+ 137              	.LFE3:
+ 139              		.section	.text.pyro_board_read_continuity,"ax",%progbits
+ 140              		.align	1
+ 141              		.global	pyro_board_read_continuity
+ 142              		.syntax unified
+ 143              		.thumb
+ 144              		.thumb_func
+ 146              	pyro_board_read_continuity:
+ 147              	.LVL12:
+ 148              	.LFB1:
+  25:src/drivers/pyro_board/pyro_board.c ****   uint8_t ret;
+ 149              		.loc 1 25 69 is_stmt 1 view -0
+ 150              		.cfi_startproc
+ 151              		@ args = 0, pretend = 0, frame = 0
+ 152              		@ frame_needed = 0, uses_anonymous_args = 0
+  25:src/drivers/pyro_board/pyro_board.c ****   uint8_t ret;
+ 153              		.loc 1 25 69 is_stmt 0 view .LVU28
+ 154 0000 08B5     		push	{r3, lr}
+ 155              	.LCFI4:
+ 156              		.cfi_def_cfa_offset 8
+ 157              		.cfi_offset 3, -8
+ 158              		.cfi_offset 14, -4
+  26:src/drivers/pyro_board/pyro_board.c ****   ret = pyro_board_read_byte(device, continuity);
+ 159              		.loc 1 26 3 is_stmt 1 view .LVU29
+  27:src/drivers/pyro_board/pyro_board.c ****   
+ 160              		.loc 1 27 3 view .LVU30
+  27:src/drivers/pyro_board/pyro_board.c ****   
+ 161              		.loc 1 27 9 is_stmt 0 view .LVU31
+ 162 0002 FFF7FEFF 		bl	pyro_board_read_byte
+ 163              	.LVL13:
+  29:src/drivers/pyro_board/pyro_board.c ****     return ret;
+ 164              		.loc 1 29 3 is_stmt 1 view .LVU32
+  34:src/drivers/pyro_board/pyro_board.c **** 
+ 165              		.loc 1 34 1 is_stmt 0 view .LVU33
+ARM GAS  /tmp/cc6QFRhc.s 			page 5
+
+
+ 166 0006 08BD     		pop	{r3, pc}
+ 167              		.cfi_endproc
+ 168              	.LFE1:
+ 170              		.text
+ 171              	.Letext0:
+ 172              		.file 2 "/usr/lib/gcc/arm-none-eabi/12.2.1/include/stdint.h"
+ 173              		.file 3 "src/drivers/pyro_board/pyro_board.h"
+ARM GAS  /tmp/cc6QFRhc.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 pyro_board.c
+     /tmp/cc6QFRhc.s:20     .text.pyro_board_write:00000000 $t
+     /tmp/cc6QFRhc.s:26     .text.pyro_board_write:00000000 pyro_board_write
+     /tmp/cc6QFRhc.s:44     .text.pyro_board_fire_channel:00000000 $t
+     /tmp/cc6QFRhc.s:50     .text.pyro_board_fire_channel:00000000 pyro_board_fire_channel
+     /tmp/cc6QFRhc.s:116    .text.pyro_board_read_byte:00000000 $t
+     /tmp/cc6QFRhc.s:122    .text.pyro_board_read_byte:00000000 pyro_board_read_byte
+     /tmp/cc6QFRhc.s:140    .text.pyro_board_read_continuity:00000000 $t
+     /tmp/cc6QFRhc.s:146    .text.pyro_board_read_continuity:00000000 pyro_board_read_continuity
+
+NO UNDEFINED SYMBOLS

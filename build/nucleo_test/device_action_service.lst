@@ -1,0 +1,712 @@
+ARM GAS  /tmp/ccsFsv51.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.arch armv7e-m
+   3              		.fpu fpv5-d16
+   4              		.eabi_attribute 28, 1
+   5              		.eabi_attribute 20, 1
+   6              		.eabi_attribute 21, 1
+   7              		.eabi_attribute 23, 3
+   8              		.eabi_attribute 24, 1
+   9              		.eabi_attribute 25, 1
+  10              		.eabi_attribute 26, 1
+  11              		.eabi_attribute 30, 1
+  12              		.eabi_attribute 34, 1
+  13              		.eabi_attribute 18, 4
+  14              		.file	"device_action_service.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.file 1 "src/services/device_action_service/device_action_service.c"
+  19              		.section	.text.device_action_check_tc_integrity,"ax",%progbits
+  20              		.align	1
+  21              		.global	device_action_check_tc_integrity
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	device_action_check_tc_integrity:
+  27              	.LVL0:
+  28              	.LFB147:
+   1:src/services/device_action_service/device_action_service.c **** #include "device_action_service.h"
+   2:src/services/device_action_service/device_action_service.c **** 
+   3:src/services/device_action_service/device_action_service.c **** service_err_t device_action_check_tc_integrity(const packet_t *input_packet, uint8_t *data_buffer, 
+  29              		.loc 1 3 133 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		.loc 1 3 133 is_stmt 0 view .LVU1
+  34 0000 08B5     		push	{r3, lr}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 8
+  37              		.cfi_offset 3, -8
+  38              		.cfi_offset 14, -4
+   4:src/services/device_action_service/device_action_service.c ****   // Check if packet is intended for this service
+   5:src/services/device_action_service/device_action_service.c ****   if (input_packet->service != SERVICE_DEFINITION_DEVICE_ACTION) {
+  39              		.loc 1 5 3 is_stmt 1 view .LVU2
+  40              		.loc 1 5 19 is_stmt 0 view .LVU3
+  41 0002 037B     		ldrb	r3, [r0, #12]	@ zero_extendqisi2
+  42              		.loc 1 5 6 view .LVU4
+  43 0004 052B     		cmp	r3, #5
+  44 0006 0AD1     		bne	.L3
+   6:src/services/device_action_service/device_action_service.c ****     return SERVICE_ERROR_BAD_TC_SERVICE;
+   7:src/services/device_action_service/device_action_service.c ****   }
+   8:src/services/device_action_service/device_action_service.c **** 
+   9:src/services/device_action_service/device_action_service.c ****   // Check data matches expectations
+  10:src/services/device_action_service/device_action_service.c ****   if (input_packet->data_flag == 0 || input_packet->data_length == 0 || input_packet->data == NULL)
+  45              		.loc 1 10 3 is_stmt 1 view .LVU5
+  46              		.loc 1 10 19 is_stmt 0 view .LVU6
+  47 0008 8378     		ldrb	r3, [r0, #2]	@ zero_extendqisi2
+  48              		.loc 1 10 6 view .LVU7
+ARM GAS  /tmp/ccsFsv51.s 			page 2
+
+
+  49 000a 53B1     		cbz	r3, .L4
+  50              		.loc 1 10 51 discriminator 1 view .LVU8
+  51 000c C389     		ldrh	r3, [r0, #14]
+  52              		.loc 1 10 36 discriminator 1 view .LVU9
+  53 000e 53B1     		cbz	r3, .L5
+  54              		.loc 1 10 85 discriminator 2 view .LVU10
+  55 0010 0369     		ldr	r3, [r0, #16]
+  56              		.loc 1 10 70 discriminator 2 view .LVU11
+  57 0012 53B1     		cbz	r3, .L6
+  11:src/services/device_action_service/device_action_service.c ****     return SERVICE_ERROR_BAD_TC_MALFORMED_DATA;
+  12:src/services/device_action_service/device_action_service.c ****   }
+  13:src/services/device_action_service/device_action_service.c **** 
+  14:src/services/device_action_service/device_action_service.c ****   // Get data field
+  15:src/services/device_action_service/device_action_service.c ****   packet_err_t packet_status = packet_get_data(input_packet, data_buffer, data_buffer_size);
+  58              		.loc 1 15 3 is_stmt 1 view .LVU12
+  59              		.loc 1 15 32 is_stmt 0 view .LVU13
+  60 0014 FFF7FEFF 		bl	packet_get_data
+  61              	.LVL1:
+  16:src/services/device_action_service/device_action_service.c ****   if (packet_status != PACKET_OK) {
+  62              		.loc 1 16 3 is_stmt 1 view .LVU14
+  63              		.loc 1 16 6 is_stmt 0 view .LVU15
+  64 0018 10B1     		cbz	r0, .L2
+  17:src/services/device_action_service/device_action_service.c ****     return SERVICE_ERROR_BAD_TC_PACKET_READ_FAILED;
+  65              		.loc 1 17 12 view .LVU16
+  66 001a 0620     		movs	r0, #6
+  67              	.LVL2:
+  68              		.loc 1 17 12 view .LVU17
+  69 001c 00E0     		b	.L2
+  70              	.LVL3:
+  71              	.L3:
+   6:src/services/device_action_service/device_action_service.c ****   }
+  72              		.loc 1 6 12 view .LVU18
+  73 001e 0420     		movs	r0, #4
+  74              	.LVL4:
+  75              	.L2:
+  18:src/services/device_action_service/device_action_service.c ****   }
+  19:src/services/device_action_service/device_action_service.c **** 
+  20:src/services/device_action_service/device_action_service.c ****   return SERVICE_ERROR_OK;
+  21:src/services/device_action_service/device_action_service.c **** }
+  76              		.loc 1 21 1 view .LVU19
+  77 0020 08BD     		pop	{r3, pc}
+  78              	.LVL5:
+  79              	.L4:
+  11:src/services/device_action_service/device_action_service.c ****   }
+  80              		.loc 1 11 12 view .LVU20
+  81 0022 0720     		movs	r0, #7
+  82              	.LVL6:
+  11:src/services/device_action_service/device_action_service.c ****   }
+  83              		.loc 1 11 12 view .LVU21
+  84 0024 FCE7     		b	.L2
+  85              	.LVL7:
+  86              	.L5:
+  11:src/services/device_action_service/device_action_service.c ****   }
+  87              		.loc 1 11 12 view .LVU22
+  88 0026 0720     		movs	r0, #7
+  89              	.LVL8:
+  11:src/services/device_action_service/device_action_service.c ****   }
+ARM GAS  /tmp/ccsFsv51.s 			page 3
+
+
+  90              		.loc 1 11 12 view .LVU23
+  91 0028 FAE7     		b	.L2
+  92              	.LVL9:
+  93              	.L6:
+  11:src/services/device_action_service/device_action_service.c ****   }
+  94              		.loc 1 11 12 view .LVU24
+  95 002a 0720     		movs	r0, #7
+  96              	.LVL10:
+  11:src/services/device_action_service/device_action_service.c ****   }
+  97              		.loc 1 11 12 view .LVU25
+  98 002c F8E7     		b	.L2
+  99              		.cfi_endproc
+ 100              	.LFE147:
+ 102              		.section	.text.service_input_checks,"ax",%progbits
+ 103              		.align	1
+ 104              		.global	service_input_checks
+ 105              		.syntax unified
+ 106              		.thumb
+ 107              		.thumb_func
+ 109              	service_input_checks:
+ 110              	.LVL11:
+ 111              	.LFB148:
+  22:src/services/device_action_service/device_action_service.c **** 
+  23:src/services/device_action_service/device_action_service.c **** service_err_t service_input_checks(device_action_service_t *service, const packet_t *input_packet, 
+  24:src/services/device_action_service/device_action_service.c ****                                    uint8_t *output_count) {
+ 112              		.loc 1 24 59 is_stmt 1 view -0
+ 113              		.cfi_startproc
+ 114              		@ args = 4, pretend = 0, frame = 0
+ 115              		@ frame_needed = 0, uses_anonymous_args = 0
+ 116              		@ link register save eliminated.
+  25:src/services/device_action_service/device_action_service.c ****   if (service == NULL || input_packet == NULL || output_packets == NULL || output_count == NULL) {
+ 117              		.loc 1 25 3 view .LVU27
+ 118              		.loc 1 25 6 is_stmt 0 view .LVU28
+ 119 0000 0029     		cmp	r1, #0
+ 120 0002 18BF     		it	ne
+ 121 0004 0028     		cmpne	r0, #0
+ 122 0006 09D0     		beq	.L11
+ 123              		.loc 1 25 89 discriminator 1 view .LVU29
+ 124 0008 009A     		ldr	r2, [sp]
+ 125              	.LVL12:
+ 126              		.loc 1 25 89 discriminator 1 view .LVU30
+ 127 000a B2FA82F2 		clz	r2, r2
+ 128 000e 5209     		lsrs	r2, r2, #5
+ 129              		.loc 1 25 73 discriminator 1 view .LVU31
+ 130 0010 33B1     		cbz	r3, .L12
+ 131 0012 2AB9     		cbnz	r2, .L12
+  26:src/services/device_action_service/device_action_service.c ****     return SERVICE_ERROR_INVALID_ARGUMENT;
+  27:src/services/device_action_service/device_action_service.c ****   }
+  28:src/services/device_action_service/device_action_service.c **** 
+  29:src/services/device_action_service/device_action_service.c ****   if (!service->service_initiated) {
+ 132              		.loc 1 29 3 is_stmt 1 view .LVU32
+ 133              		.loc 1 29 15 is_stmt 0 view .LVU33
+ 134 0014 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
+ 135              	.LVL13:
+ 136              		.loc 1 29 6 view .LVU34
+ 137 0016 2BB1     		cbz	r3, .L13
+  30:src/services/device_action_service/device_action_service.c ****     return SERVICE_ERROR_NOT_INITIALIZED;
+ARM GAS  /tmp/ccsFsv51.s 			page 4
+
+
+  31:src/services/device_action_service/device_action_service.c ****   }
+  32:src/services/device_action_service/device_action_service.c ****   return SERVICE_ERROR_OK;
+ 138              		.loc 1 32 10 view .LVU35
+ 139 0018 0020     		movs	r0, #0
+ 140              	.LVL14:
+ 141              		.loc 1 32 10 view .LVU36
+ 142 001a 7047     		bx	lr
+ 143              	.LVL15:
+ 144              	.L11:
+  26:src/services/device_action_service/device_action_service.c ****     return SERVICE_ERROR_INVALID_ARGUMENT;
+ 145              		.loc 1 26 12 view .LVU37
+ 146 001c 0120     		movs	r0, #1
+ 147              	.LVL16:
+  26:src/services/device_action_service/device_action_service.c ****     return SERVICE_ERROR_INVALID_ARGUMENT;
+ 148              		.loc 1 26 12 view .LVU38
+ 149 001e 7047     		bx	lr
+ 150              	.LVL17:
+ 151              	.L12:
+  26:src/services/device_action_service/device_action_service.c ****     return SERVICE_ERROR_INVALID_ARGUMENT;
+ 152              		.loc 1 26 12 view .LVU39
+ 153 0020 0120     		movs	r0, #1
+ 154              	.LVL18:
+  26:src/services/device_action_service/device_action_service.c ****     return SERVICE_ERROR_INVALID_ARGUMENT;
+ 155              		.loc 1 26 12 view .LVU40
+ 156 0022 7047     		bx	lr
+ 157              	.LVL19:
+ 158              	.L13:
+  30:src/services/device_action_service/device_action_service.c ****     return SERVICE_ERROR_NOT_INITIALIZED;
+ 159              		.loc 1 30 12 view .LVU41
+ 160 0024 0320     		movs	r0, #3
+ 161              	.LVL20:
+  33:src/services/device_action_service/device_action_service.c **** }
+ 162              		.loc 1 33 1 view .LVU42
+ 163 0026 7047     		bx	lr
+ 164              		.cfi_endproc
+ 165              	.LFE148:
+ 167              		.section	.text.device_action_service_init,"ax",%progbits
+ 168              		.align	1
+ 169              		.global	device_action_service_init
+ 170              		.syntax unified
+ 171              		.thumb
+ 172              		.thumb_func
+ 174              	device_action_service_init:
+ 175              	.LVL21:
+ 176              	.LFB149:
+  34:src/services/device_action_service/device_action_service.c **** 
+  35:src/services/device_action_service/device_action_service.c **** service_err_t device_action_service_init(device_action_service_t *service) {
+ 177              		.loc 1 35 76 is_stmt 1 view -0
+ 178              		.cfi_startproc
+ 179              		@ args = 0, pretend = 0, frame = 0
+ 180              		@ frame_needed = 0, uses_anonymous_args = 0
+ 181              		@ link register save eliminated.
+  36:src/services/device_action_service/device_action_service.c ****   if (service == NULL) {
+ 182              		.loc 1 36 3 view .LVU44
+ 183              		.loc 1 36 6 is_stmt 0 view .LVU45
+ 184 0000 38B1     		cbz	r0, .L16
+  37:src/services/device_action_service/device_action_service.c ****     return SERVICE_ERROR_INVALID_ARGUMENT;
+ARM GAS  /tmp/ccsFsv51.s 			page 5
+
+
+  38:src/services/device_action_service/device_action_service.c ****   }
+  39:src/services/device_action_service/device_action_service.c **** 
+  40:src/services/device_action_service/device_action_service.c ****   // Check consumed managers are initialized
+  41:src/services/device_action_service/device_action_service.c ****   if (service->device_manager == NULL || !service->device_manager->device_manager_initialized) {
+ 185              		.loc 1 41 3 is_stmt 1 view .LVU46
+ 186              		.loc 1 41 14 is_stmt 0 view .LVU47
+ 187 0002 4268     		ldr	r2, [r0, #4]
+ 188              		.loc 1 41 6 view .LVU48
+ 189 0004 3AB1     		cbz	r2, .L17
+ 190              		.loc 1 41 66 discriminator 1 view .LVU49
+ 191 0006 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 192              		.loc 1 41 39 discriminator 1 view .LVU50
+ 193 0008 3AB1     		cbz	r2, .L18
+  42:src/services/device_action_service/device_action_service.c ****     return SERVICE_ERROR_INITIALIZATION_FAILED;
+  43:src/services/device_action_service/device_action_service.c ****   }
+  44:src/services/device_action_service/device_action_service.c **** 
+  45:src/services/device_action_service/device_action_service.c ****   service->service_initiated = true;
+ 194              		.loc 1 45 3 is_stmt 1 view .LVU51
+ 195              		.loc 1 45 30 is_stmt 0 view .LVU52
+ 196 000a 0122     		movs	r2, #1
+ 197 000c 0270     		strb	r2, [r0]
+  46:src/services/device_action_service/device_action_service.c ****   return SERVICE_ERROR_OK;
+ 198              		.loc 1 46 3 is_stmt 1 view .LVU53
+ 199              		.loc 1 46 10 is_stmt 0 view .LVU54
+ 200 000e 0020     		movs	r0, #0
+ 201              	.LVL22:
+ 202              		.loc 1 46 10 view .LVU55
+ 203 0010 7047     		bx	lr
+ 204              	.LVL23:
+ 205              	.L16:
+  37:src/services/device_action_service/device_action_service.c ****     return SERVICE_ERROR_INVALID_ARGUMENT;
+ 206              		.loc 1 37 12 view .LVU56
+ 207 0012 0120     		movs	r0, #1
+ 208              	.LVL24:
+  37:src/services/device_action_service/device_action_service.c ****     return SERVICE_ERROR_INVALID_ARGUMENT;
+ 209              		.loc 1 37 12 view .LVU57
+ 210 0014 7047     		bx	lr
+ 211              	.LVL25:
+ 212              	.L17:
+  42:src/services/device_action_service/device_action_service.c ****     return SERVICE_ERROR_INITIALIZATION_FAILED;
+ 213              		.loc 1 42 12 view .LVU58
+ 214 0016 0220     		movs	r0, #2
+ 215              	.LVL26:
+  42:src/services/device_action_service/device_action_service.c ****     return SERVICE_ERROR_INITIALIZATION_FAILED;
+ 216              		.loc 1 42 12 view .LVU59
+ 217 0018 7047     		bx	lr
+ 218              	.LVL27:
+ 219              	.L18:
+  42:src/services/device_action_service/device_action_service.c ****     return SERVICE_ERROR_INITIALIZATION_FAILED;
+ 220              		.loc 1 42 12 view .LVU60
+ 221 001a 0220     		movs	r0, #2
+ 222              	.LVL28:
+  47:src/services/device_action_service/device_action_service.c **** }
+ 223              		.loc 1 47 1 view .LVU61
+ 224 001c 7047     		bx	lr
+ 225              		.cfi_endproc
+ 226              	.LFE149:
+ARM GAS  /tmp/ccsFsv51.s 			page 6
+
+
+ 228              		.section	.text.device_action_process_telecommand,"ax",%progbits
+ 229              		.align	1
+ 230              		.global	device_action_process_telecommand
+ 231              		.syntax unified
+ 232              		.thumb
+ 233              		.thumb_func
+ 235              	device_action_process_telecommand:
+ 236              	.LVL29:
+ 237              	.LFB150:
+  48:src/services/device_action_service/device_action_service.c **** 
+  49:src/services/device_action_service/device_action_service.c **** service_err_t device_action_process_telecommand(device_action_service_t *service, const packet_t *i
+  50:src/services/device_action_service/device_action_service.c ****                                                 uint8_t *output_count) {
+ 238              		.loc 1 50 72 is_stmt 1 view -0
+ 239              		.cfi_startproc
+ 240              		@ args = 4, pretend = 0, frame = 0
+ 241              		@ frame_needed = 1, uses_anonymous_args = 0
+ 242              		.loc 1 50 72 is_stmt 0 view .LVU63
+ 243 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+ 244              	.LCFI1:
+ 245              		.cfi_def_cfa_offset 28
+ 246              		.cfi_offset 4, -28
+ 247              		.cfi_offset 5, -24
+ 248              		.cfi_offset 6, -20
+ 249              		.cfi_offset 7, -16
+ 250              		.cfi_offset 8, -12
+ 251              		.cfi_offset 9, -8
+ 252              		.cfi_offset 14, -4
+ 253 0004 83B0     		sub	sp, sp, #12
+ 254              	.LCFI2:
+ 255              		.cfi_def_cfa_offset 40
+ 256 0006 02AF     		add	r7, sp, #8
+ 257              	.LCFI3:
+ 258              		.cfi_def_cfa 7, 32
+ 259 0008 0646     		mov	r6, r0
+ 260 000a 0D46     		mov	r5, r1
+  51:src/services/device_action_service/device_action_service.c **** 
+  52:src/services/device_action_service/device_action_service.c ****   service_err_t ret = service_input_checks(service, input_packet, max_outputs, output_packets, outp
+ 261              		.loc 1 52 3 is_stmt 1 view .LVU64
+ 262              		.loc 1 52 23 is_stmt 0 view .LVU65
+ 263 000c 3C6A     		ldr	r4, [r7, #32]
+ 264 000e 0094     		str	r4, [sp]
+ 265 0010 FFF7FEFF 		bl	service_input_checks
+ 266              	.LVL30:
+  53:src/services/device_action_service/device_action_service.c ****   if (ret == SERVICE_ERROR_OK) {
+ 267              		.loc 1 53 3 is_stmt 1 view .LVU66
+ 268              		.loc 1 53 6 is_stmt 0 view .LVU67
+ 269 0014 0446     		mov	r4, r0
+ 270 0016 20B1     		cbz	r0, .L37
+ 271              	.LVL31:
+ 272              	.L20:
+  54:src/services/device_action_service/device_action_service.c **** 
+  55:src/services/device_action_service/device_action_service.c ****     // Process packet data
+  56:src/services/device_action_service/device_action_service.c ****     uint8_t data_buffer[PACKET_MAX_DATA_LENGTH];
+  57:src/services/device_action_service/device_action_service.c ****     ret = device_action_check_tc_integrity(input_packet, data_buffer, PACKET_MAX_DATA_LENGTH);
+  58:src/services/device_action_service/device_action_service.c ****     if (ret == SERVICE_ERROR_OK) {
+  59:src/services/device_action_service/device_action_service.c ****       // Translate between subservice and device
+  60:src/services/device_action_service/device_action_service.c ****       uint8_t device_for_action = DEVICE_LIST_NUMBER_OF_DEVICES;
+ARM GAS  /tmp/ccsFsv51.s 			page 7
+
+
+  61:src/services/device_action_service/device_action_service.c ****       switch (input_packet->subservice) {
+  62:src/services/device_action_service/device_action_service.c ****       case DEVICE_ACTION_SUBSERVICE_GPS:
+  63:src/services/device_action_service/device_action_service.c ****         break;
+  64:src/services/device_action_service/device_action_service.c ****       case DEVICE_ACTION_SUBSERVICE_BAROMETER:
+  65:src/services/device_action_service/device_action_service.c ****         device_for_action = DEVICE_LIST_BMP581;
+  66:src/services/device_action_service/device_action_service.c ****       case DEVICE_ACTION_SUBSERVICE_IMU:
+  67:src/services/device_action_service/device_action_service.c ****         break;
+  68:src/services/device_action_service/device_action_service.c ****       case DEVICE_ACTION_SUBSERVICE_CAMERAS:
+  69:src/services/device_action_service/device_action_service.c ****         break;
+  70:src/services/device_action_service/device_action_service.c ****       case DEVICE_ACTION_SUBSERVICE_SMD_IMU:
+  71:src/services/device_action_service/device_action_service.c ****         device_for_action = DEVICE_LIST_ICM45686;
+  72:src/services/device_action_service/device_action_service.c ****       case DEVICE_ACTION_SUBSERVICE_X_BEE:
+  73:src/services/device_action_service/device_action_service.c ****         break;
+  74:src/services/device_action_service/device_action_service.c ****       case DEVICE_ACTION_SUBSERVICE_MAGNETOMETER:
+  75:src/services/device_action_service/device_action_service.c ****         device_for_action = DEVICE_LIST_LIS3MDL;
+  76:src/services/device_action_service/device_action_service.c ****       case DEVICE_ACTION_SUBSERVICE_INA260:
+  77:src/services/device_action_service/device_action_service.c ****         if (data_buffer[1] == 0) {
+  78:src/services/device_action_service/device_action_service.c ****           device_for_action = DEVICE_LIST_INA260_1;
+  79:src/services/device_action_service/device_action_service.c ****         } else if (data_buffer[1] == 1) {
+  80:src/services/device_action_service/device_action_service.c ****           device_for_action = DEVICE_LIST_INA260_2;
+  81:src/services/device_action_service/device_action_service.c ****         } else if (data_buffer[1] == 2) {
+  82:src/services/device_action_service/device_action_service.c ****           device_for_action = DEVICE_LIST_INA260_3;
+  83:src/services/device_action_service/device_action_service.c ****         } else {
+  84:src/services/device_action_service/device_action_service.c ****           ret = SERVICE_ERROR_BAD_TC_MALFORMED_DATA;
+  85:src/services/device_action_service/device_action_service.c ****         }
+  86:src/services/device_action_service/device_action_service.c ****       case DEVICE_ACTION_SUBSERVICE_LORA:
+  87:src/services/device_action_service/device_action_service.c ****         break;
+  88:src/services/device_action_service/device_action_service.c ****       case DEVICE_ACTION_SUBSERVICE_TEMPERATURE:
+  89:src/services/device_action_service/device_action_service.c ****         break;
+  90:src/services/device_action_service/device_action_service.c ****       case DEVICE_ACTION_SUBSERVICE_PYRO:
+  91:src/services/device_action_service/device_action_service.c ****         break;
+  92:src/services/device_action_service/device_action_service.c ****       case DEVICE_ACTION_SUBSERVICE_IGNITER:
+  93:src/services/device_action_service/device_action_service.c ****         break;
+  94:src/services/device_action_service/device_action_service.c ****       case DEVICE_ACTION_SUBSERVICE_NUMBER_OF_SUBSERVICES:
+  95:src/services/device_action_service/device_action_service.c ****         break;
+  96:src/services/device_action_service/device_action_service.c ****       default:
+  97:src/services/device_action_service/device_action_service.c ****         ret = SERVICE_ERROR_BAD_TC_SUBSERVICE;
+  98:src/services/device_action_service/device_action_service.c ****       }
+  99:src/services/device_action_service/device_action_service.c **** 
+ 100:src/services/device_action_service/device_action_service.c ****       if (ret == SERVICE_ERROR_OK && device_for_action <= DEVICE_LIST_NUMBER_OF_DEVICES) {
+ 101:src/services/device_action_service/device_action_service.c ****         // Check if we were asked to reset a device
+ 102:src/services/device_action_service/device_action_service.c ****         if (data_buffer[0] == DEVICE_ACTION_RESET) {
+ 103:src/services/device_action_service/device_action_service.c ****           service->device_manager->force_reset[device_for_action] = true;
+ 104:src/services/device_action_service/device_action_service.c ****           device_manager_poll_devices(service->device_manager);
+ 105:src/services/device_action_service/device_action_service.c ****         } else if (data_buffer[0] == DEVICE_ACTION_FORCE_READ) {
+ 106:src/services/device_action_service/device_action_service.c ****           service->device_manager->force_read[device_for_action] = true;
+ 107:src/services/device_action_service/device_action_service.c ****           device_manager_poll_devices(service->device_manager);
+ 108:src/services/device_action_service/device_action_service.c ****         } else {
+ 109:src/services/device_action_service/device_action_service.c ****           ret = SERVICE_ERROR_BAD_TC_MALFORMED_DATA;
+ 110:src/services/device_action_service/device_action_service.c ****           // Here is we deal with unique device actions
+ 111:src/services/device_action_service/device_action_service.c ****         }
+ 112:src/services/device_action_service/device_action_service.c ****       }
+ 113:src/services/device_action_service/device_action_service.c ****     }
+ 114:src/services/device_action_service/device_action_service.c ****   }
+ 115:src/services/device_action_service/device_action_service.c ****   return ret;
+ 273              		.loc 1 115 3 is_stmt 1 view .LVU68
+ 116:src/services/device_action_service/device_action_service.c **** }
+ARM GAS  /tmp/ccsFsv51.s 			page 8
+
+
+ 274              		.loc 1 116 1 is_stmt 0 view .LVU69
+ 275 0018 2046     		mov	r0, r4
+ 276 001a 0437     		adds	r7, r7, #4
+ 277              	.LCFI4:
+ 278              		.cfi_remember_state
+ 279              		.cfi_def_cfa_offset 28
+ 280 001c BD46     		mov	sp, r7
+ 281              	.LCFI5:
+ 282              		.cfi_def_cfa_register 13
+ 283              		@ sp needed
+ 284 001e BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 285              	.LVL32:
+ 286              	.L37:
+ 287              	.LCFI6:
+ 288              		.cfi_restore_state
+ 289              	.LBB2:
+  53:src/services/device_action_service/device_action_service.c ****   if (ret == SERVICE_ERROR_OK) {
+ 290              		.loc 1 53 32 discriminator 1 view .LVU70
+ 291 0022 E946     		mov	r9, sp
+  56:src/services/device_action_service/device_action_service.c ****     ret = device_action_check_tc_integrity(input_packet, data_buffer, PACKET_MAX_DATA_LENGTH);
+ 292              		.loc 1 56 5 is_stmt 1 discriminator 1 view .LVU71
+ 293              	.LVL33:
+  56:src/services/device_action_service/device_action_service.c ****     ret = device_action_check_tc_integrity(input_packet, data_buffer, PACKET_MAX_DATA_LENGTH);
+ 294              		.loc 1 56 13 is_stmt 0 discriminator 1 view .LVU72
+ 295 0024 ADF5803D 		sub	sp, sp, #65536
+ 296 0028 0DF10808 		add	r8, sp, #8
+ 297              	.LVL34:
+  57:src/services/device_action_service/device_action_service.c ****     if (ret == SERVICE_ERROR_OK) {
+ 298              		.loc 1 57 5 is_stmt 1 discriminator 1 view .LVU73
+  57:src/services/device_action_service/device_action_service.c ****     if (ret == SERVICE_ERROR_OK) {
+ 299              		.loc 1 57 11 is_stmt 0 discriminator 1 view .LVU74
+ 300 002c 4FF6FF72 		movw	r2, #65535
+ 301 0030 4146     		mov	r1, r8
+ 302 0032 2846     		mov	r0, r5
+ 303              	.LVL35:
+  57:src/services/device_action_service/device_action_service.c ****     if (ret == SERVICE_ERROR_OK) {
+ 304              		.loc 1 57 11 discriminator 1 view .LVU75
+ 305 0034 FFF7FEFF 		bl	device_action_check_tc_integrity
+ 306              	.LVL36:
+  58:src/services/device_action_service/device_action_service.c ****       // Translate between subservice and device
+ 307              		.loc 1 58 5 is_stmt 1 discriminator 1 view .LVU76
+  58:src/services/device_action_service/device_action_service.c ****       // Translate between subservice and device
+ 308              		.loc 1 58 8 is_stmt 0 discriminator 1 view .LVU77
+ 309 0038 0446     		mov	r4, r0
+ 310 003a 08BB     		cbnz	r0, .L21
+ 311              	.LBB3:
+  60:src/services/device_action_service/device_action_service.c ****       switch (input_packet->subservice) {
+ 312              		.loc 1 60 7 is_stmt 1 view .LVU78
+ 313              	.LVL37:
+  61:src/services/device_action_service/device_action_service.c ****       case DEVICE_ACTION_SUBSERVICE_GPS:
+ 314              		.loc 1 61 7 view .LVU79
+  61:src/services/device_action_service/device_action_service.c ****       case DEVICE_ACTION_SUBSERVICE_GPS:
+ 315              		.loc 1 61 27 is_stmt 0 view .LVU80
+ 316 003c 6B7B     		ldrb	r3, [r5, #13]	@ zero_extendqisi2
+  61:src/services/device_action_service/device_action_service.c ****       case DEVICE_ACTION_SUBSERVICE_GPS:
+ 317              		.loc 1 61 7 view .LVU81
+ 318 003e 5A1E     		subs	r2, r3, #1
+ARM GAS  /tmp/ccsFsv51.s 			page 9
+
+
+ 319 0040 0C2A     		cmp	r2, #12
+ 320 0042 25D8     		bhi	.L22
+ 321 0044 DFE802F0 		tbb	[pc, r2]
+ 322              	.L24:
+ 323 0048 11       		.byte	(.L23-.L24)/2
+ 324 0049 12       		.byte	(.L28-.L24)/2
+ 325 004a 11       		.byte	(.L23-.L24)/2
+ 326 004b 11       		.byte	(.L23-.L24)/2
+ 327 004c 1E       		.byte	(.L27-.L24)/2
+ 328 004d 11       		.byte	(.L23-.L24)/2
+ 329 004e 20       		.byte	(.L30-.L24)/2
+ 330 004f 07       		.byte	(.L25-.L24)/2
+ 331 0050 11       		.byte	(.L23-.L24)/2
+ 332 0051 11       		.byte	(.L23-.L24)/2
+ 333 0052 11       		.byte	(.L23-.L24)/2
+ 334 0053 11       		.byte	(.L23-.L24)/2
+ 335 0054 11       		.byte	(.L23-.L24)/2
+ 336 0055 00       		.p2align 1
+ 337              	.L25:
+ 338 0056 0623     		movs	r3, #6
+ 339              	.L26:
+ 340              	.LVL38:
+  77:src/services/device_action_service/device_action_service.c ****           device_for_action = DEVICE_LIST_INA260_1;
+ 341              		.loc 1 77 9 is_stmt 1 view .LVU82
+  77:src/services/device_action_service/device_action_service.c ****           device_for_action = DEVICE_LIST_INA260_1;
+ 342              		.loc 1 77 24 is_stmt 0 view .LVU83
+ 343 0058 98F80120 		ldrb	r2, [r8, #1]	@ zero_extendqisi2
+  77:src/services/device_action_service/device_action_service.c ****           device_for_action = DEVICE_LIST_INA260_1;
+ 344              		.loc 1 77 12 view .LVU84
+ 345 005c DAB1     		cbz	r2, .L31
+  79:src/services/device_action_service/device_action_service.c ****           device_for_action = DEVICE_LIST_INA260_2;
+ 346              		.loc 1 79 16 is_stmt 1 view .LVU85
+  79:src/services/device_action_service/device_action_service.c ****           device_for_action = DEVICE_LIST_INA260_2;
+ 347              		.loc 1 79 19 is_stmt 0 view .LVU86
+ 348 005e 012A     		cmp	r2, #1
+ 349 0060 1BD0     		beq	.L32
+  81:src/services/device_action_service/device_action_service.c ****           device_for_action = DEVICE_LIST_INA260_3;
+ 350              		.loc 1 81 16 is_stmt 1 view .LVU87
+  81:src/services/device_action_service/device_action_service.c ****           device_for_action = DEVICE_LIST_INA260_3;
+ 351              		.loc 1 81 19 is_stmt 0 view .LVU88
+ 352 0062 022A     		cmp	r2, #2
+ 353 0064 12D0     		beq	.L38
+  84:src/services/device_action_service/device_action_service.c ****         }
+ 354              		.loc 1 84 15 view .LVU89
+ 355 0066 0724     		movs	r4, #7
+ 356 0068 00E0     		b	.L28
+ 357              	.LVL39:
+ 358              	.L23:
+  61:src/services/device_action_service/device_action_service.c ****       case DEVICE_ACTION_SUBSERVICE_GPS:
+ 359              		.loc 1 61 7 view .LVU90
+ 360 006a 0623     		movs	r3, #6
+ 361              	.LVL40:
+ 362              	.L28:
+ 100:src/services/device_action_service/device_action_service.c ****         // Check if we were asked to reset a device
+ 363              		.loc 1 100 7 is_stmt 1 view .LVU91
+ 100:src/services/device_action_service/device_action_service.c ****         // Check if we were asked to reset a device
+ 364              		.loc 1 100 10 is_stmt 0 view .LVU92
+ARM GAS  /tmp/ccsFsv51.s 			page 10
+
+
+ 365 006c 062B     		cmp	r3, #6
+ 366 006e 98BF     		it	ls
+ 367 0070 002C     		cmpls	r4, #0
+ 368 0072 05D1     		bne	.L21
+ 102:src/services/device_action_service/device_action_service.c ****           service->device_manager->force_reset[device_for_action] = true;
+ 369              		.loc 1 102 9 is_stmt 1 view .LVU93
+ 102:src/services/device_action_service/device_action_service.c ****           service->device_manager->force_reset[device_for_action] = true;
+ 370              		.loc 1 102 24 is_stmt 0 view .LVU94
+ 371 0074 98F80020 		ldrb	r2, [r8]	@ zero_extendqisi2
+ 102:src/services/device_action_service/device_action_service.c ****           service->device_manager->force_reset[device_for_action] = true;
+ 372              		.loc 1 102 12 view .LVU95
+ 373 0078 012A     		cmp	r2, #1
+ 374 007a 10D0     		beq	.L39
+ 105:src/services/device_action_service/device_action_service.c ****           service->device_manager->force_read[device_for_action] = true;
+ 375              		.loc 1 105 16 is_stmt 1 view .LVU96
+ 105:src/services/device_action_service/device_action_service.c ****           service->device_manager->force_read[device_for_action] = true;
+ 376              		.loc 1 105 19 is_stmt 0 view .LVU97
+ 377 007c C2B1     		cbz	r2, .L40
+ 109:src/services/device_action_service/device_action_service.c ****           // Here is we deal with unique device actions
+ 378              		.loc 1 109 15 view .LVU98
+ 379 007e 0724     		movs	r4, #7
+ 380              	.LVL41:
+ 381              	.L21:
+ 109:src/services/device_action_service/device_action_service.c ****           // Here is we deal with unique device actions
+ 382              		.loc 1 109 15 view .LVU99
+ 383              	.LBE3:
+ 384 0080 CD46     		mov	sp, r9
+ 385 0082 C9E7     		b	.L20
+ 386              	.LVL42:
+ 387              	.L27:
+ 388              	.LBB4:
+  71:src/services/device_action_service/device_action_service.c ****       case DEVICE_ACTION_SUBSERVICE_X_BEE:
+ 389              		.loc 1 71 9 is_stmt 1 view .LVU100
+  71:src/services/device_action_service/device_action_service.c ****       case DEVICE_ACTION_SUBSERVICE_X_BEE:
+ 390              		.loc 1 71 27 is_stmt 0 view .LVU101
+ 391 0084 0346     		mov	r3, r0
+ 392 0086 F1E7     		b	.L28
+ 393              	.LVL43:
+ 394              	.L30:
+  75:src/services/device_action_service/device_action_service.c ****       case DEVICE_ACTION_SUBSERVICE_INA260:
+ 395              		.loc 1 75 27 view .LVU102
+ 396 0088 0123     		movs	r3, #1
+ 397 008a E5E7     		b	.L26
+ 398              	.LVL44:
+ 399              	.L38:
+  82:src/services/device_action_service/device_action_service.c ****         } else {
+ 400              		.loc 1 82 29 view .LVU103
+ 401 008c 0523     		movs	r3, #5
+ 402              	.LVL45:
+  82:src/services/device_action_service/device_action_service.c ****         } else {
+ 403              		.loc 1 82 29 view .LVU104
+ 404 008e EDE7     		b	.L28
+ 405              	.LVL46:
+ 406              	.L22:
+  97:src/services/device_action_service/device_action_service.c ****       }
+ 407              		.loc 1 97 9 is_stmt 1 view .LVU105
+  60:src/services/device_action_service/device_action_service.c ****       switch (input_packet->subservice) {
+ARM GAS  /tmp/ccsFsv51.s 			page 11
+
+
+ 408              		.loc 1 60 15 is_stmt 0 view .LVU106
+ 409 0090 0623     		movs	r3, #6
+  97:src/services/device_action_service/device_action_service.c ****       }
+ 410              		.loc 1 97 13 view .LVU107
+ 411 0092 0524     		movs	r4, #5
+ 412 0094 EAE7     		b	.L28
+ 413              	.LVL47:
+ 414              	.L31:
+  78:src/services/device_action_service/device_action_service.c ****         } else if (data_buffer[1] == 1) {
+ 415              		.loc 1 78 29 view .LVU108
+ 416 0096 0323     		movs	r3, #3
+ 417              	.LVL48:
+  78:src/services/device_action_service/device_action_service.c ****         } else if (data_buffer[1] == 1) {
+ 418              		.loc 1 78 29 view .LVU109
+ 419 0098 E8E7     		b	.L28
+ 420              	.LVL49:
+ 421              	.L32:
+  80:src/services/device_action_service/device_action_service.c ****         } else if (data_buffer[1] == 2) {
+ 422              		.loc 1 80 29 view .LVU110
+ 423 009a 0423     		movs	r3, #4
+ 424              	.LVL50:
+  80:src/services/device_action_service/device_action_service.c ****         } else if (data_buffer[1] == 2) {
+ 425              		.loc 1 80 29 view .LVU111
+ 426 009c E6E7     		b	.L28
+ 427              	.LVL51:
+ 428              	.L39:
+ 103:src/services/device_action_service/device_action_service.c ****           device_manager_poll_devices(service->device_manager);
+ 429              		.loc 1 103 11 is_stmt 1 view .LVU112
+ 103:src/services/device_action_service/device_action_service.c ****           device_manager_poll_devices(service->device_manager);
+ 430              		.loc 1 103 18 is_stmt 0 view .LVU113
+ 431 009e 7268     		ldr	r2, [r6, #4]
+ 103:src/services/device_action_service/device_action_service.c ****           device_manager_poll_devices(service->device_manager);
+ 432              		.loc 1 103 67 view .LVU114
+ 433 00a0 1A44     		add	r2, r2, r3
+ 434 00a2 0123     		movs	r3, #1
+ 435              	.LVL52:
+ 103:src/services/device_action_service/device_action_service.c ****           device_manager_poll_devices(service->device_manager);
+ 436              		.loc 1 103 67 view .LVU115
+ 437 00a4 82F8E830 		strb	r3, [r2, #232]
+ 104:src/services/device_action_service/device_action_service.c ****         } else if (data_buffer[0] == DEVICE_ACTION_FORCE_READ) {
+ 438              		.loc 1 104 11 is_stmt 1 view .LVU116
+ 439 00a8 7068     		ldr	r0, [r6, #4]
+ 440 00aa FFF7FEFF 		bl	device_manager_poll_devices
+ 441              	.LVL53:
+ 442 00ae E7E7     		b	.L21
+ 443              	.LVL54:
+ 444              	.L40:
+ 106:src/services/device_action_service/device_action_service.c ****           device_manager_poll_devices(service->device_manager);
+ 445              		.loc 1 106 11 view .LVU117
+ 106:src/services/device_action_service/device_action_service.c ****           device_manager_poll_devices(service->device_manager);
+ 446              		.loc 1 106 18 is_stmt 0 view .LVU118
+ 447 00b0 7268     		ldr	r2, [r6, #4]
+ 106:src/services/device_action_service/device_action_service.c ****           device_manager_poll_devices(service->device_manager);
+ 448              		.loc 1 106 66 view .LVU119
+ 449 00b2 1A44     		add	r2, r2, r3
+ 450 00b4 0123     		movs	r3, #1
+ 451              	.LVL55:
+ARM GAS  /tmp/ccsFsv51.s 			page 12
+
+
+ 106:src/services/device_action_service/device_action_service.c ****           device_manager_poll_devices(service->device_manager);
+ 452              		.loc 1 106 66 view .LVU120
+ 453 00b6 82F8E230 		strb	r3, [r2, #226]
+ 107:src/services/device_action_service/device_action_service.c ****         } else {
+ 454              		.loc 1 107 11 is_stmt 1 view .LVU121
+ 455 00ba 7068     		ldr	r0, [r6, #4]
+ 456 00bc FFF7FEFF 		bl	device_manager_poll_devices
+ 457              	.LVL56:
+ 458 00c0 DEE7     		b	.L21
+ 459              	.LBE4:
+ 460              	.LBE2:
+ 461              		.cfi_endproc
+ 462              	.LFE150:
+ 464              		.text
+ 465              	.Letext0:
+ 466              		.file 2 "/usr/lib/gcc/arm-none-eabi/12.2.1/include/stdint.h"
+ 467              		.file 3 "external/drivers/cmsis/include/stm32h723xx.h"
+ 468              		.file 4 "external/drivers/stm32h7xx/include/stm32h7xx_hal_def.h"
+ 469              		.file 5 "external/drivers/stm32h7xx/include/stm32h7xx_hal_dma.h"
+ 470              		.file 6 "external/drivers/stm32h7xx/include/stm32h7xx_hal_tim.h"
+ 471              		.file 7 "src/drivers/us_timer/us_timer.h"
+ 472              		.file 8 "src/drivers/bmp581/bmp581.h"
+ 473              		.file 9 "src/drivers/icm45686/icm45686.h"
+ 474              		.file 10 "src/drivers/ina260/ina260.h"
+ 475              		.file 11 "src/drivers/lis3mdl/lis3mdl.h"
+ 476              		.file 12 "src/managers/device_manager/device_manager.h"
+ 477              		.file 13 "src/falafel/falafel.h"
+ 478              		.file 14 "src/service_administrator/service_definitions.h"
+ 479              		.file 15 "src/services/device_action_service/device_action_service.h"
+ARM GAS  /tmp/ccsFsv51.s 			page 13
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 device_action_service.c
+     /tmp/ccsFsv51.s:20     .text.device_action_check_tc_integrity:00000000 $t
+     /tmp/ccsFsv51.s:26     .text.device_action_check_tc_integrity:00000000 device_action_check_tc_integrity
+     /tmp/ccsFsv51.s:103    .text.service_input_checks:00000000 $t
+     /tmp/ccsFsv51.s:109    .text.service_input_checks:00000000 service_input_checks
+     /tmp/ccsFsv51.s:168    .text.device_action_service_init:00000000 $t
+     /tmp/ccsFsv51.s:174    .text.device_action_service_init:00000000 device_action_service_init
+     /tmp/ccsFsv51.s:229    .text.device_action_process_telecommand:00000000 $t
+     /tmp/ccsFsv51.s:235    .text.device_action_process_telecommand:00000000 device_action_process_telecommand
+     /tmp/ccsFsv51.s:323    .text.device_action_process_telecommand:00000048 $d
+     /tmp/ccsFsv51.s:336    .text.device_action_process_telecommand:00000055 $d
+     /tmp/ccsFsv51.s:336    .text.device_action_process_telecommand:00000056 $t
+
+UNDEFINED SYMBOLS
+packet_get_data
+device_manager_poll_devices

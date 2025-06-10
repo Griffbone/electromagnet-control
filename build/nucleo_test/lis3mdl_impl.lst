@@ -1,0 +1,569 @@
+ARM GAS  /tmp/ccDTw5pV.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.arch armv7e-m
+   3              		.fpu fpv5-d16
+   4              		.eabi_attribute 28, 1
+   5              		.eabi_attribute 20, 1
+   6              		.eabi_attribute 21, 1
+   7              		.eabi_attribute 23, 3
+   8              		.eabi_attribute 24, 1
+   9              		.eabi_attribute 25, 1
+  10              		.eabi_attribute 26, 1
+  11              		.eabi_attribute 30, 1
+  12              		.eabi_attribute 34, 1
+  13              		.eabi_attribute 18, 4
+  14              		.file	"lis3mdl_impl.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.file 1 "src/drivers/lis3mdl/lis3mdl_impl.c"
+  19              		.section	.text.lis3mdl_write_byte,"ax",%progbits
+  20              		.align	1
+  21              		.global	lis3mdl_write_byte
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	lis3mdl_write_byte:
+  27              	.LVL0:
+  28              	.LFB147:
+   1:src/drivers/lis3mdl/lis3mdl_impl.c **** #include "lis3mdl.h"
+   2:src/drivers/lis3mdl/lis3mdl_impl.c **** #include "stm32h7xx_hal.h"
+   3:src/drivers/lis3mdl/lis3mdl_impl.c **** 
+   4:src/drivers/lis3mdl/lis3mdl_impl.c **** /**
+   5:src/drivers/lis3mdl/lis3mdl_impl.c ****  * @brief Write to a single LIS3MDL register
+   6:src/drivers/lis3mdl/lis3mdl_impl.c ****  *
+   7:src/drivers/lis3mdl/lis3mdl_impl.c ****  * This function performs a single register write on a LIS2MDL device though the
+   8:src/drivers/lis3mdl/lis3mdl_impl.c ****  * STM32 SPI HAL.
+   9:src/drivers/lis3mdl/lis3mdl_impl.c ****  * @param device pointer to a lis3mdl_device structure
+  10:src/drivers/lis3mdl/lis3mdl_impl.c ****  * @param reg register to write to
+  11:src/drivers/lis3mdl/lis3mdl_impl.c ****  * @param data data to write to register
+  12:src/drivers/lis3mdl/lis3mdl_impl.c ****  */
+  13:src/drivers/lis3mdl/lis3mdl_impl.c **** lis3mdl_err_t lis3mdl_write_byte(lis3mdl_device_t *device, uint8_t reg,
+  14:src/drivers/lis3mdl/lis3mdl_impl.c ****                                  uint8_t data) {
+  29              		.loc 1 14 48 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 8
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		.loc 1 14 48 is_stmt 0 view .LVU1
+  34 0000 10B5     		push	{r4, lr}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 8
+  37              		.cfi_offset 4, -8
+  38              		.cfi_offset 14, -4
+  39 0002 82B0     		sub	sp, sp, #8
+  40              	.LCFI1:
+  41              		.cfi_def_cfa_offset 16
+  42 0004 0446     		mov	r4, r0
+  15:src/drivers/lis3mdl/lis3mdl_impl.c ****   uint8_t tx[2] = {reg, data};
+  43              		.loc 1 15 3 is_stmt 1 view .LVU2
+ARM GAS  /tmp/ccDTw5pV.s 			page 2
+
+
+  44              		.loc 1 15 11 is_stmt 0 view .LVU3
+  45 0006 8DF80410 		strb	r1, [sp, #4]
+  46 000a 8DF80520 		strb	r2, [sp, #5]
+  16:src/drivers/lis3mdl/lis3mdl_impl.c **** 
+  17:src/drivers/lis3mdl/lis3mdl_impl.c ****   HAL_GPIO_WritePin(device->cs_gpio_port, device->cs_gpio_pin, GPIO_PIN_RESET);
+  47              		.loc 1 17 3 is_stmt 1 view .LVU4
+  48 000e 0022     		movs	r2, #0
+  49              	.LVL1:
+  50              		.loc 1 17 3 is_stmt 0 view .LVU5
+  51 0010 818A     		ldrh	r1, [r0, #20]
+  52              	.LVL2:
+  53              		.loc 1 17 3 view .LVU6
+  54 0012 0069     		ldr	r0, [r0, #16]
+  55              	.LVL3:
+  56              		.loc 1 17 3 view .LVU7
+  57 0014 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  58              	.LVL4:
+  18:src/drivers/lis3mdl/lis3mdl_impl.c ****   HAL_SPI_Transmit(device->hspi, tx, 2, device->spi_timeout);
+  59              		.loc 1 18 3 is_stmt 1 view .LVU8
+  60 0018 A368     		ldr	r3, [r4, #8]
+  61 001a 0222     		movs	r2, #2
+  62 001c 01A9     		add	r1, sp, #4
+  63 001e E068     		ldr	r0, [r4, #12]
+  64 0020 FFF7FEFF 		bl	HAL_SPI_Transmit
+  65              	.LVL5:
+  19:src/drivers/lis3mdl/lis3mdl_impl.c ****   HAL_GPIO_WritePin(device->cs_gpio_port, device->cs_gpio_pin, GPIO_PIN_SET);
+  66              		.loc 1 19 3 view .LVU9
+  67 0024 0122     		movs	r2, #1
+  68 0026 A18A     		ldrh	r1, [r4, #20]
+  69 0028 2069     		ldr	r0, [r4, #16]
+  70 002a FFF7FEFF 		bl	HAL_GPIO_WritePin
+  71              	.LVL6:
+  20:src/drivers/lis3mdl/lis3mdl_impl.c **** 
+  21:src/drivers/lis3mdl/lis3mdl_impl.c ****   return LIS3MDL_ERR_OK;
+  72              		.loc 1 21 3 view .LVU10
+  22:src/drivers/lis3mdl/lis3mdl_impl.c **** }
+  73              		.loc 1 22 1 is_stmt 0 view .LVU11
+  74 002e 0020     		movs	r0, #0
+  75 0030 02B0     		add	sp, sp, #8
+  76              	.LCFI2:
+  77              		.cfi_def_cfa_offset 8
+  78              		@ sp needed
+  79 0032 10BD     		pop	{r4, pc}
+  80              		.loc 1 22 1 view .LVU12
+  81              		.cfi_endproc
+  82              	.LFE147:
+  84              		.section	.text.lis3mdl_read_byte,"ax",%progbits
+  85              		.align	1
+  86              		.global	lis3mdl_read_byte
+  87              		.syntax unified
+  88              		.thumb
+  89              		.thumb_func
+  91              	lis3mdl_read_byte:
+  92              	.LVL7:
+  93              	.LFB148:
+  23:src/drivers/lis3mdl/lis3mdl_impl.c **** 
+  24:src/drivers/lis3mdl/lis3mdl_impl.c **** /**
+ARM GAS  /tmp/ccDTw5pV.s 			page 3
+
+
+  25:src/drivers/lis3mdl/lis3mdl_impl.c ****  * @brief Read a single LIS3MDL register
+  26:src/drivers/lis3mdl/lis3mdl_impl.c ****  *
+  27:src/drivers/lis3mdl/lis3mdl_impl.c ****  * This function performs a single register read on a LIS3MDL device through the
+  28:src/drivers/lis3mdl/lis3mdl_impl.c ****  * STM32 SPI HAL.
+  29:src/drivers/lis3mdl/lis3mdl_impl.c ****  * @param device pointer to a lis3mdl_device structure
+  30:src/drivers/lis3mdl/lis3mdl_impl.c ****  * @param reg register to read
+  31:src/drivers/lis3mdl/lis3mdl_impl.c ****  * @param data pointer to buffer to store read byte
+  32:src/drivers/lis3mdl/lis3mdl_impl.c ****  */
+  33:src/drivers/lis3mdl/lis3mdl_impl.c **** lis3mdl_err_t lis3mdl_read_byte(lis3mdl_device_t *device, uint8_t reg,
+  34:src/drivers/lis3mdl/lis3mdl_impl.c ****                                 uint8_t *data) {
+  94              		.loc 1 34 48 is_stmt 1 view -0
+  95              		.cfi_startproc
+  96              		@ args = 0, pretend = 0, frame = 8
+  97              		@ frame_needed = 0, uses_anonymous_args = 0
+  98              		.loc 1 34 48 is_stmt 0 view .LVU14
+  99 0000 70B5     		push	{r4, r5, r6, lr}
+ 100              	.LCFI3:
+ 101              		.cfi_def_cfa_offset 16
+ 102              		.cfi_offset 4, -16
+ 103              		.cfi_offset 5, -12
+ 104              		.cfi_offset 6, -8
+ 105              		.cfi_offset 14, -4
+ 106 0002 84B0     		sub	sp, sp, #16
+ 107              	.LCFI4:
+ 108              		.cfi_def_cfa_offset 32
+ 109 0004 0446     		mov	r4, r0
+ 110 0006 1646     		mov	r6, r2
+  35:src/drivers/lis3mdl/lis3mdl_impl.c ****   uint8_t tx[2] = {0x80 | reg, 0x00};
+ 111              		.loc 1 35 3 is_stmt 1 view .LVU15
+ 112              		.loc 1 35 11 is_stmt 0 view .LVU16
+ 113 0008 61F07F01 		orn	r1, r1, #127
+ 114              	.LVL8:
+ 115              		.loc 1 35 11 view .LVU17
+ 116 000c 8DF80C10 		strb	r1, [sp, #12]
+ 117 0010 0025     		movs	r5, #0
+ 118 0012 8DF80D50 		strb	r5, [sp, #13]
+  36:src/drivers/lis3mdl/lis3mdl_impl.c ****   uint8_t rx[2];
+ 119              		.loc 1 36 3 is_stmt 1 view .LVU18
+  37:src/drivers/lis3mdl/lis3mdl_impl.c **** 
+  38:src/drivers/lis3mdl/lis3mdl_impl.c ****   HAL_GPIO_WritePin(device->cs_gpio_port, device->cs_gpio_pin, GPIO_PIN_RESET);
+ 120              		.loc 1 38 3 view .LVU19
+ 121 0016 2A46     		mov	r2, r5
+ 122              	.LVL9:
+ 123              		.loc 1 38 3 is_stmt 0 view .LVU20
+ 124 0018 818A     		ldrh	r1, [r0, #20]
+ 125 001a 0069     		ldr	r0, [r0, #16]
+ 126              	.LVL10:
+ 127              		.loc 1 38 3 view .LVU21
+ 128 001c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 129              	.LVL11:
+  39:src/drivers/lis3mdl/lis3mdl_impl.c ****   HAL_SPI_TransmitReceive(device->hspi, tx, rx, 2, device->spi_timeout);
+ 130              		.loc 1 39 3 is_stmt 1 view .LVU22
+ 131 0020 A368     		ldr	r3, [r4, #8]
+ 132 0022 0093     		str	r3, [sp]
+ 133 0024 0223     		movs	r3, #2
+ 134 0026 02AA     		add	r2, sp, #8
+ 135 0028 03A9     		add	r1, sp, #12
+ARM GAS  /tmp/ccDTw5pV.s 			page 4
+
+
+ 136 002a E068     		ldr	r0, [r4, #12]
+ 137 002c FFF7FEFF 		bl	HAL_SPI_TransmitReceive
+ 138              	.LVL12:
+  40:src/drivers/lis3mdl/lis3mdl_impl.c ****   HAL_GPIO_WritePin(device->cs_gpio_port, device->cs_gpio_pin, GPIO_PIN_SET);
+ 139              		.loc 1 40 3 view .LVU23
+ 140 0030 0122     		movs	r2, #1
+ 141 0032 A18A     		ldrh	r1, [r4, #20]
+ 142 0034 2069     		ldr	r0, [r4, #16]
+ 143 0036 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 144              	.LVL13:
+  41:src/drivers/lis3mdl/lis3mdl_impl.c **** 
+  42:src/drivers/lis3mdl/lis3mdl_impl.c ****   *data = rx[1];
+ 145              		.loc 1 42 3 view .LVU24
+ 146              		.loc 1 42 13 is_stmt 0 view .LVU25
+ 147 003a 9DF80930 		ldrb	r3, [sp, #9]	@ zero_extendqisi2
+ 148              		.loc 1 42 9 view .LVU26
+ 149 003e 3370     		strb	r3, [r6]
+  43:src/drivers/lis3mdl/lis3mdl_impl.c ****   return LIS3MDL_ERR_OK;
+ 150              		.loc 1 43 3 is_stmt 1 view .LVU27
+  44:src/drivers/lis3mdl/lis3mdl_impl.c **** }
+ 151              		.loc 1 44 1 is_stmt 0 view .LVU28
+ 152 0040 2846     		mov	r0, r5
+ 153 0042 04B0     		add	sp, sp, #16
+ 154              	.LCFI5:
+ 155              		.cfi_def_cfa_offset 16
+ 156              		@ sp needed
+ 157 0044 70BD     		pop	{r4, r5, r6, pc}
+ 158              		.loc 1 44 1 view .LVU29
+ 159              		.cfi_endproc
+ 160              	.LFE148:
+ 162              		.section	.text.lis3mdl_write_block,"ax",%progbits
+ 163              		.align	1
+ 164              		.global	lis3mdl_write_block
+ 165              		.syntax unified
+ 166              		.thumb
+ 167              		.thumb_func
+ 169              	lis3mdl_write_block:
+ 170              	.LVL14:
+ 171              	.LFB149:
+  45:src/drivers/lis3mdl/lis3mdl_impl.c **** 
+  46:src/drivers/lis3mdl/lis3mdl_impl.c **** /**
+  47:src/drivers/lis3mdl/lis3mdl_impl.c ****  * @brief Write to multile LIS3MDL registers
+  48:src/drivers/lis3mdl/lis3mdl_impl.c ****  *
+  49:src/drivers/lis3mdl/lis3mdl_impl.c ****  * This function perfomrs a multiple-write on an LIS3MDL device through the
+  50:src/drivers/lis3mdl/lis3mdl_impl.c ****  *STM32 SPI HAL. The function takes in the first register and uses the
+  51:src/drivers/lis3mdl/lis3mdl_impl.c ****  *auto-incrementation function of the LIS3MDL to write to consecutive registers
+  52:src/drivers/lis3mdl/lis3mdl_impl.c ****  * @param device pointer to a lis3mdl_device structure
+  53:src/drivers/lis3mdl/lis3mdl_impl.c ****  * @param start_reg first register to write to
+  54:src/drivers/lis3mdl/lis3mdl_impl.c ****  * @param bytes number of bytes to write
+  55:src/drivers/lis3mdl/lis3mdl_impl.c ****  * @param data pointer to buffer with data to write
+  56:src/drivers/lis3mdl/lis3mdl_impl.c ****  * @warning no error checking is performed. Make sure to allocate appropriate
+  57:src/drivers/lis3mdl/lis3mdl_impl.c ****  *buffer sizes for all inputs.
+  58:src/drivers/lis3mdl/lis3mdl_impl.c ****  **/
+  59:src/drivers/lis3mdl/lis3mdl_impl.c **** lis3mdl_err_t lis3mdl_write_block(lis3mdl_device_t *device, uint8_t start_reg,
+  60:src/drivers/lis3mdl/lis3mdl_impl.c ****                                   uint8_t bytes, uint8_t *data) {
+ 172              		.loc 1 60 65 is_stmt 1 view -0
+ 173              		.cfi_startproc
+ARM GAS  /tmp/ccDTw5pV.s 			page 5
+
+
+ 174              		@ args = 0, pretend = 0, frame = 0
+ 175              		@ frame_needed = 1, uses_anonymous_args = 0
+ 176              		.loc 1 60 65 is_stmt 0 view .LVU31
+ 177 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 178              	.LCFI6:
+ 179              		.cfi_def_cfa_offset 24
+ 180              		.cfi_offset 3, -24
+ 181              		.cfi_offset 4, -20
+ 182              		.cfi_offset 5, -16
+ 183              		.cfi_offset 6, -12
+ 184              		.cfi_offset 7, -8
+ 185              		.cfi_offset 14, -4
+ 186 0002 00AF     		add	r7, sp, #0
+ 187              	.LCFI7:
+ 188              		.cfi_def_cfa_register 7
+ 189 0004 0646     		mov	r6, r0
+ 190 0006 1446     		mov	r4, r2
+  61:src/drivers/lis3mdl/lis3mdl_impl.c ****   uint8_t tx[bytes + 1];
+ 191              		.loc 1 61 3 is_stmt 1 view .LVU32
+ 192              	.LVL15:
+ 193              		.loc 1 61 11 is_stmt 0 view .LVU33
+ 194 0008 0832     		adds	r2, r2, #8
+ 195              	.LVL16:
+ 196              		.loc 1 61 11 view .LVU34
+ 197 000a 02F4FC72 		and	r2, r2, #504
+ 198 000e ADEB020D 		sub	sp, sp, r2
+ 199 0012 6D46     		mov	r5, sp
+ 200              	.LVL17:
+  62:src/drivers/lis3mdl/lis3mdl_impl.c **** 
+  63:src/drivers/lis3mdl/lis3mdl_impl.c ****   for (int i = 1; i <= bytes; i++) {
+ 201              		.loc 1 63 3 is_stmt 1 view .LVU35
+ 202              	.LBB2:
+ 203              		.loc 1 63 8 view .LVU36
+ 204              		.loc 1 63 12 is_stmt 0 view .LVU37
+ 205 0014 4FF0010C 		mov	ip, #1
+ 206              		.loc 1 63 3 view .LVU38
+ 207 0018 07E0     		b	.L6
+ 208              	.LVL18:
+ 209              	.L7:
+  64:src/drivers/lis3mdl/lis3mdl_impl.c ****     tx[i] = data[i - 1];
+ 210              		.loc 1 64 5 is_stmt 1 discriminator 3 view .LVU39
+ 211              		.loc 1 64 17 is_stmt 0 discriminator 3 view .LVU40
+ 212 001a 03EB0C0E 		add	lr, r3, ip
+ 213 001e 1EF801EC 		ldrb	lr, [lr, #-1]	@ zero_extendqisi2
+ 214              		.loc 1 64 11 discriminator 3 view .LVU41
+ 215 0022 05F80CE0 		strb	lr, [r5, ip]
+  63:src/drivers/lis3mdl/lis3mdl_impl.c ****     tx[i] = data[i - 1];
+ 216              		.loc 1 63 32 is_stmt 1 discriminator 3 view .LVU42
+ 217 0026 0CF1010C 		add	ip, ip, #1
+ 218              	.LVL19:
+ 219              	.L6:
+  63:src/drivers/lis3mdl/lis3mdl_impl.c ****     tx[i] = data[i - 1];
+ 220              		.loc 1 63 21 discriminator 1 view .LVU43
+ 221 002a 6445     		cmp	r4, ip
+ 222 002c F5DA     		bge	.L7
+ 223              	.LBE2:
+  65:src/drivers/lis3mdl/lis3mdl_impl.c ****   }
+ARM GAS  /tmp/ccDTw5pV.s 			page 6
+
+
+  66:src/drivers/lis3mdl/lis3mdl_impl.c **** 
+  67:src/drivers/lis3mdl/lis3mdl_impl.c ****   tx[0] = 0x40 | start_reg;
+ 224              		.loc 1 67 3 view .LVU44
+ 225              		.loc 1 67 9 is_stmt 0 view .LVU45
+ 226 002e 41F04001 		orr	r1, r1, #64
+ 227              	.LVL20:
+ 228              		.loc 1 67 9 view .LVU46
+ 229 0032 2970     		strb	r1, [r5]
+  68:src/drivers/lis3mdl/lis3mdl_impl.c **** 
+  69:src/drivers/lis3mdl/lis3mdl_impl.c ****   HAL_GPIO_WritePin(device->cs_gpio_port, device->cs_gpio_pin, GPIO_PIN_RESET);
+ 230              		.loc 1 69 3 is_stmt 1 view .LVU47
+ 231 0034 0022     		movs	r2, #0
+ 232 0036 B18A     		ldrh	r1, [r6, #20]
+ 233 0038 3069     		ldr	r0, [r6, #16]
+ 234              	.LVL21:
+ 235              		.loc 1 69 3 is_stmt 0 view .LVU48
+ 236 003a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 237              	.LVL22:
+  70:src/drivers/lis3mdl/lis3mdl_impl.c ****   HAL_SPI_Transmit(device->hspi, tx, bytes + 1, device->spi_timeout);
+ 238              		.loc 1 70 3 is_stmt 1 view .LVU49
+ 239 003e B368     		ldr	r3, [r6, #8]
+ 240 0040 621C     		adds	r2, r4, #1
+ 241 0042 2946     		mov	r1, r5
+ 242 0044 F068     		ldr	r0, [r6, #12]
+ 243 0046 FFF7FEFF 		bl	HAL_SPI_Transmit
+ 244              	.LVL23:
+  71:src/drivers/lis3mdl/lis3mdl_impl.c ****   HAL_GPIO_WritePin(device->cs_gpio_port, device->cs_gpio_pin, GPIO_PIN_SET);
+ 245              		.loc 1 71 3 view .LVU50
+ 246 004a 0122     		movs	r2, #1
+ 247 004c B18A     		ldrh	r1, [r6, #20]
+ 248 004e 3069     		ldr	r0, [r6, #16]
+ 249 0050 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 250              	.LVL24:
+  72:src/drivers/lis3mdl/lis3mdl_impl.c **** 
+  73:src/drivers/lis3mdl/lis3mdl_impl.c ****   return LIS3MDL_ERR_OK;
+ 251              		.loc 1 73 3 view .LVU51
+  74:src/drivers/lis3mdl/lis3mdl_impl.c **** }
+ 252              		.loc 1 74 1 is_stmt 0 view .LVU52
+ 253 0054 0020     		movs	r0, #0
+ 254 0056 BD46     		mov	sp, r7
+ 255              	.LCFI8:
+ 256              		.cfi_def_cfa_register 13
+ 257              		@ sp needed
+ 258 0058 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 259              		.loc 1 74 1 view .LVU53
+ 260              		.cfi_endproc
+ 261              	.LFE149:
+ 263              		.section	.text.lis3mdl_read_block,"ax",%progbits
+ 264              		.align	1
+ 265              		.global	lis3mdl_read_block
+ 266              		.syntax unified
+ 267              		.thumb
+ 268              		.thumb_func
+ 270              	lis3mdl_read_block:
+ 271              	.LVL25:
+ 272              	.LFB150:
+  75:src/drivers/lis3mdl/lis3mdl_impl.c **** 
+ARM GAS  /tmp/ccDTw5pV.s 			page 7
+
+
+  76:src/drivers/lis3mdl/lis3mdl_impl.c **** /**
+  77:src/drivers/lis3mdl/lis3mdl_impl.c ****  * @brief Read multiple LIS3MDL registers
+  78:src/drivers/lis3mdl/lis3mdl_impl.c ****  *
+  79:src/drivers/lis3mdl/lis3mdl_impl.c ****  * This function performs a mulitple-read on an LIS3MDL device through the STM32
+  80:src/drivers/lis3mdl/lis3mdl_impl.c ****  * SPI HAL. The function takes in the first register and uses the
+  81:src/drivers/lis3mdl/lis3mdl_impl.c ****  * auto-incrementation function of the LIS3MDL to read consecutive registers.
+  82:src/drivers/lis3mdl/lis3mdl_impl.c ****  * @param device pointer to a lis3mdl_device structure
+  83:src/drivers/lis3mdl/lis3mdl_impl.c ****  * @param start_reg first register to read
+  84:src/drivers/lis3mdl/lis3mdl_impl.c ****  * @param bytes number of consecutive registers to read
+  85:src/drivers/lis3mdl/lis3mdl_impl.c ****  * @param data pointer to buffer to store read bytes
+  86:src/drivers/lis3mdl/lis3mdl_impl.c ****  * @warning no error checking is performed. Make sure to allocate appropriate
+  87:src/drivers/lis3mdl/lis3mdl_impl.c ****  * buffer sizes for all inputs.
+  88:src/drivers/lis3mdl/lis3mdl_impl.c ****  */
+  89:src/drivers/lis3mdl/lis3mdl_impl.c **** lis3mdl_err_t lis3mdl_read_block(lis3mdl_device_t *device, uint8_t start_reg,
+  90:src/drivers/lis3mdl/lis3mdl_impl.c ****                                  uint8_t bytes, uint8_t *data) {
+ 273              		.loc 1 90 64 is_stmt 1 view -0
+ 274              		.cfi_startproc
+ 275              		@ args = 0, pretend = 0, frame = 0
+ 276              		@ frame_needed = 1, uses_anonymous_args = 0
+ 277              		.loc 1 90 64 is_stmt 0 view .LVU55
+ 278 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+ 279              	.LCFI9:
+ 280              		.cfi_def_cfa_offset 28
+ 281              		.cfi_offset 4, -28
+ 282              		.cfi_offset 5, -24
+ 283              		.cfi_offset 6, -20
+ 284              		.cfi_offset 7, -16
+ 285              		.cfi_offset 8, -12
+ 286              		.cfi_offset 9, -8
+ 287              		.cfi_offset 14, -4
+ 288 0004 83B0     		sub	sp, sp, #12
+ 289              	.LCFI10:
+ 290              		.cfi_def_cfa_offset 40
+ 291 0006 02AF     		add	r7, sp, #8
+ 292              	.LCFI11:
+ 293              		.cfi_def_cfa 7, 32
+ 294 0008 8146     		mov	r9, r0
+ 295 000a 1446     		mov	r4, r2
+ 296 000c 1D46     		mov	r5, r3
+  91:src/drivers/lis3mdl/lis3mdl_impl.c ****   uint8_t tx[bytes + 1];
+ 297              		.loc 1 91 3 is_stmt 1 view .LVU56
+ 298              	.LVL26:
+ 299              		.loc 1 91 11 is_stmt 0 view .LVU57
+ 300 000e 02F10803 		add	r3, r2, #8
+ 301              	.LVL27:
+ 302              		.loc 1 91 11 view .LVU58
+ 303 0012 03F4FC73 		and	r3, r3, #504
+ 304 0016 ADEB030D 		sub	sp, sp, r3
+ 305 001a 0DF10808 		add	r8, sp, #8
+ 306              	.LVL28:
+  92:src/drivers/lis3mdl/lis3mdl_impl.c ****   uint8_t rx[bytes + 1];
+ 307              		.loc 1 92 3 is_stmt 1 view .LVU59
+ 308              		.loc 1 92 11 is_stmt 0 view .LVU60
+ 309 001e ADEB030D 		sub	sp, sp, r3
+ 310 0022 02AE     		add	r6, sp, #8
+ 311              	.LVL29:
+  93:src/drivers/lis3mdl/lis3mdl_impl.c **** 
+ARM GAS  /tmp/ccDTw5pV.s 			page 8
+
+
+  94:src/drivers/lis3mdl/lis3mdl_impl.c ****   for (int i = 1; i <= bytes; i++) {
+ 312              		.loc 1 94 3 is_stmt 1 view .LVU61
+ 313              	.LBB3:
+ 314              		.loc 1 94 8 view .LVU62
+ 315              		.loc 1 94 12 is_stmt 0 view .LVU63
+ 316 0024 4FF0010C 		mov	ip, #1
+ 317              		.loc 1 94 3 view .LVU64
+ 318 0028 04E0     		b	.L10
+ 319              	.LVL30:
+ 320              	.L11:
+  95:src/drivers/lis3mdl/lis3mdl_impl.c ****     tx[i] = 0x00;
+ 321              		.loc 1 95 5 is_stmt 1 discriminator 3 view .LVU65
+ 322              		.loc 1 95 11 is_stmt 0 discriminator 3 view .LVU66
+ 323 002a 0023     		movs	r3, #0
+ 324 002c 08F80C30 		strb	r3, [r8, ip]
+  94:src/drivers/lis3mdl/lis3mdl_impl.c ****     tx[i] = 0x00;
+ 325              		.loc 1 94 32 is_stmt 1 discriminator 3 view .LVU67
+ 326 0030 0CF1010C 		add	ip, ip, #1
+ 327              	.LVL31:
+ 328              	.L10:
+  94:src/drivers/lis3mdl/lis3mdl_impl.c ****     tx[i] = 0x00;
+ 329              		.loc 1 94 21 discriminator 1 view .LVU68
+ 330 0034 6445     		cmp	r4, ip
+ 331 0036 F8DA     		bge	.L11
+ 332              	.LBE3:
+  96:src/drivers/lis3mdl/lis3mdl_impl.c ****   }
+  97:src/drivers/lis3mdl/lis3mdl_impl.c **** 
+  98:src/drivers/lis3mdl/lis3mdl_impl.c ****   tx[0] = 0xC0 | start_reg;
+ 333              		.loc 1 98 3 view .LVU69
+ 334              		.loc 1 98 9 is_stmt 0 view .LVU70
+ 335 0038 61F03F01 		orn	r1, r1, #63
+ 336              	.LVL32:
+ 337              		.loc 1 98 9 view .LVU71
+ 338 003c 88F80010 		strb	r1, [r8]
+  99:src/drivers/lis3mdl/lis3mdl_impl.c **** 
+ 100:src/drivers/lis3mdl/lis3mdl_impl.c ****   HAL_GPIO_WritePin(device->cs_gpio_port, device->cs_gpio_pin, GPIO_PIN_RESET);
+ 339              		.loc 1 100 3 is_stmt 1 view .LVU72
+ 340 0040 0022     		movs	r2, #0
+ 341              	.LVL33:
+ 342              		.loc 1 100 3 is_stmt 0 view .LVU73
+ 343 0042 B9F81410 		ldrh	r1, [r9, #20]
+ 344 0046 D9F81000 		ldr	r0, [r9, #16]
+ 345              	.LVL34:
+ 346              		.loc 1 100 3 view .LVU74
+ 347 004a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 348              	.LVL35:
+ 101:src/drivers/lis3mdl/lis3mdl_impl.c ****   HAL_SPI_TransmitReceive(device->hspi, tx, rx, bytes + 1, device->spi_timeout);
+ 349              		.loc 1 101 3 is_stmt 1 view .LVU75
+ 350 004e D9F80830 		ldr	r3, [r9, #8]
+ 351 0052 0093     		str	r3, [sp]
+ 352 0054 631C     		adds	r3, r4, #1
+ 353 0056 3246     		mov	r2, r6
+ 354 0058 4146     		mov	r1, r8
+ 355 005a D9F80C00 		ldr	r0, [r9, #12]
+ 356 005e FFF7FEFF 		bl	HAL_SPI_TransmitReceive
+ 357              	.LVL36:
+ 102:src/drivers/lis3mdl/lis3mdl_impl.c ****   HAL_GPIO_WritePin(device->cs_gpio_port, device->cs_gpio_pin, GPIO_PIN_SET);
+ARM GAS  /tmp/ccDTw5pV.s 			page 9
+
+
+ 358              		.loc 1 102 3 view .LVU76
+ 359 0062 0122     		movs	r2, #1
+ 360 0064 B9F81410 		ldrh	r1, [r9, #20]
+ 361 0068 D9F81000 		ldr	r0, [r9, #16]
+ 362 006c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 363              	.LVL37:
+ 103:src/drivers/lis3mdl/lis3mdl_impl.c **** 
+ 104:src/drivers/lis3mdl/lis3mdl_impl.c ****   for (int i = 0; i < bytes; i++) {
+ 364              		.loc 1 104 3 view .LVU77
+ 365              	.LBB4:
+ 366              		.loc 1 104 8 view .LVU78
+ 367              		.loc 1 104 12 is_stmt 0 view .LVU79
+ 368 0070 0021     		movs	r1, #0
+ 369              		.loc 1 104 3 view .LVU80
+ 370 0072 03E0     		b	.L12
+ 371              	.LVL38:
+ 372              	.L13:
+ 105:src/drivers/lis3mdl/lis3mdl_impl.c ****     data[i] = rx[i + 1];
+ 373              		.loc 1 105 5 is_stmt 1 discriminator 3 view .LVU81
+ 374              		.loc 1 105 20 is_stmt 0 discriminator 3 view .LVU82
+ 375 0074 481C     		adds	r0, r1, #1
+ 376              		.loc 1 105 17 discriminator 3 view .LVU83
+ 377 0076 325C     		ldrb	r2, [r6, r0]	@ zero_extendqisi2
+ 378              		.loc 1 105 13 discriminator 3 view .LVU84
+ 379 0078 6A54     		strb	r2, [r5, r1]
+ 104:src/drivers/lis3mdl/lis3mdl_impl.c ****     data[i] = rx[i + 1];
+ 380              		.loc 1 104 31 is_stmt 1 discriminator 3 view .LVU85
+ 381              	.LVL39:
+ 104:src/drivers/lis3mdl/lis3mdl_impl.c ****     data[i] = rx[i + 1];
+ 382              		.loc 1 104 31 is_stmt 0 discriminator 3 view .LVU86
+ 383 007a 0146     		mov	r1, r0
+ 384              	.LVL40:
+ 385              	.L12:
+ 104:src/drivers/lis3mdl/lis3mdl_impl.c ****     data[i] = rx[i + 1];
+ 386              		.loc 1 104 21 is_stmt 1 discriminator 1 view .LVU87
+ 387 007c 8C42     		cmp	r4, r1
+ 388 007e F9DC     		bgt	.L13
+ 389              	.LBE4:
+ 106:src/drivers/lis3mdl/lis3mdl_impl.c ****   }
+ 107:src/drivers/lis3mdl/lis3mdl_impl.c **** 
+ 108:src/drivers/lis3mdl/lis3mdl_impl.c ****   return LIS3MDL_ERR_OK;
+ 390              		.loc 1 108 3 view .LVU88
+ 109:src/drivers/lis3mdl/lis3mdl_impl.c **** }...
+ 391              		.loc 1 109 1 is_stmt 0 view .LVU89
+ 392 0080 0020     		movs	r0, #0
+ 393 0082 0437     		adds	r7, r7, #4
+ 394              	.LCFI12:
+ 395              		.cfi_def_cfa_offset 28
+ 396 0084 BD46     		mov	sp, r7
+ 397              	.LCFI13:
+ 398              		.cfi_def_cfa_register 13
+ 399              		@ sp needed
+ 400 0086 BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 401              		.loc 1 109 1 view .LVU90
+ 402              		.cfi_endproc
+ 403              	.LFE150:
+ 405              		.text
+ARM GAS  /tmp/ccDTw5pV.s 			page 10
+
+
+ 406              	.Letext0:
+ 407              		.file 2 "/usr/lib/gcc/arm-none-eabi/12.2.1/include/stdint.h"
+ 408              		.file 3 "src/drivers/lis3mdl/lis3mdl.h"
+ 409              		.file 4 "external/drivers/cmsis/include/stm32h723xx.h"
+ 410              		.file 5 "external/drivers/stm32h7xx/include/stm32h7xx_hal_def.h"
+ 411              		.file 6 "external/drivers/stm32h7xx/include/stm32h7xx_hal_gpio.h"
+ 412              		.file 7 "external/drivers/stm32h7xx/include/stm32h7xx_hal_dma.h"
+ 413              		.file 8 "external/drivers/stm32h7xx/include/stm32h7xx_hal_spi.h"
+ARM GAS  /tmp/ccDTw5pV.s 			page 11
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lis3mdl_impl.c
+     /tmp/ccDTw5pV.s:20     .text.lis3mdl_write_byte:00000000 $t
+     /tmp/ccDTw5pV.s:26     .text.lis3mdl_write_byte:00000000 lis3mdl_write_byte
+     /tmp/ccDTw5pV.s:85     .text.lis3mdl_read_byte:00000000 $t
+     /tmp/ccDTw5pV.s:91     .text.lis3mdl_read_byte:00000000 lis3mdl_read_byte
+     /tmp/ccDTw5pV.s:163    .text.lis3mdl_write_block:00000000 $t
+     /tmp/ccDTw5pV.s:169    .text.lis3mdl_write_block:00000000 lis3mdl_write_block
+     /tmp/ccDTw5pV.s:264    .text.lis3mdl_read_block:00000000 $t
+     /tmp/ccDTw5pV.s:270    .text.lis3mdl_read_block:00000000 lis3mdl_read_block
+
+UNDEFINED SYMBOLS
+HAL_GPIO_WritePin
+HAL_SPI_Transmit
+HAL_SPI_TransmitReceive

@@ -1,0 +1,1127 @@
+ARM GAS  /tmp/ccJ4w9yt.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.arch armv7e-m
+   3              		.fpu fpv5-d16
+   4              		.eabi_attribute 28, 1
+   5              		.eabi_attribute 20, 1
+   6              		.eabi_attribute 21, 1
+   7              		.eabi_attribute 23, 3
+   8              		.eabi_attribute 24, 1
+   9              		.eabi_attribute 25, 1
+  10              		.eabi_attribute 26, 1
+  11              		.eabi_attribute 30, 1
+  12              		.eabi_attribute 34, 1
+  13              		.eabi_attribute 18, 4
+  14              		.file	"main_test.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.file 1 "test/main_test.c"
+  19              		.section	.rodata.main.str1.4,"aMS",%progbits,1
+  20              		.align	2
+  21              	.LC0:
+  22 0000 1B6300   		.ascii	"\033c\000"
+  23 0003 00       		.align	2
+  24              	.LC1:
+  25 0004 506F6C6C 		.ascii	"Polling result: %d\012\015\000"
+  25      696E6720 
+  25      72657375 
+  25      6C743A20 
+  25      25640A0D 
+  26 0019 000000   		.align	2
+  27              	.LC2:
+  28 001c 4C617374 		.ascii	"Last polled times:\012\015\000"
+  28      20706F6C 
+  28      6C656420 
+  28      74696D65 
+  28      733A0A0D 
+  29 0031 000000   		.align	2
+  30              	.LC3:
+  31 0034 252E3266 		.ascii	"%.2f \000"
+  31      2000
+  32 003a 0000     		.align	2
+  33              	.LC4:
+  34 003c 0D00     		.ascii	"\015\000"
+  35 003e 0000     		.align	2
+  36              	.LC5:
+  37 0040 53656E73 		.ascii	"Sensor error status:\012\015\000"
+  37      6F722065 
+  37      72726F72 
+  37      20737461 
+  37      7475733A 
+  38 0057 00       		.align	2
+  39              	.LC6:
+  40 0058 25642000 		.ascii	"%d \000"
+  41              		.align	2
+  42              	.LC7:
+  43 005c 0D0A0D00 		.ascii	"\015\012\015\000"
+  44              		.section	.text.main,"ax",%progbits
+ARM GAS  /tmp/ccJ4w9yt.s 			page 2
+
+
+  45              		.align	1
+  46              		.global	main
+  47              		.syntax unified
+  48              		.thumb
+  49              		.thumb_func
+  51              	main:
+  52              	.LFB147:
+   1:test/main_test.c **** /* STANDARD LIBRARY IMPORTS */
+   2:test/main_test.c **** #include <stdio.h>
+   3:test/main_test.c **** 
+   4:test/main_test.c **** /* SYSTEM IMPORTS*/
+   5:test/main_test.c **** #include "falafel/falafel.h"
+   6:test/main_test.c **** #include "low_level/memcpy_s.h"
+   7:test/main_test.c **** #include "low_level/type_definitions.h"
+   8:test/main_test.c **** 
+   9:test/main_test.c **** /* HAL IMPORTS*/
+  10:test/main_test.c **** #include "system/gpio.h"
+  11:test/main_test.c **** #include "system/i2c.h"
+  12:test/main_test.c **** #include "system/init.h"
+  13:test/main_test.c **** #include "system/usart.h"
+  14:test/main_test.c **** // #include "system/rtc.h"
+  15:test/main_test.c **** #include "system/spi.h"
+  16:test/main_test.c **** #include "system/tim.h"
+  17:test/main_test.c **** 
+  18:test/main_test.c **** /* DRIVER IMPORTS*/
+  19:test/main_test.c **** #include "drivers/adis16577/adis16577.h"
+  20:test/main_test.c **** #include "drivers/bmp581/bmp581.h"
+  21:test/main_test.c **** #include "drivers/icm45686/icm45686.h"
+  22:test/main_test.c **** #include "drivers/ina260/ina260.h"
+  23:test/main_test.c **** #include "drivers/lis3mdl/lis3mdl.h"
+  24:test/main_test.c **** #include "drivers/pyro_board/pyro_board.h"
+  25:test/main_test.c **** #include "drivers/us_timer/us_timer.h"
+  26:test/main_test.c **** 
+  27:test/main_test.c **** /* MANAGER IMPORTS*/
+  28:test/main_test.c **** #include "managers/device_manager/device_manager.h"
+  29:test/main_test.c **** 
+  30:test/main_test.c **** // /* ==================== Timer Declarations ==================== */
+  31:test/main_test.c **** us_timer_device_t us_timer;
+  32:test/main_test.c **** us_timer_device_t us_timer_device_manager;
+  33:test/main_test.c **** 
+  34:test/main_test.c **** /* ==================== On-Board Hardware Declarations ==================== */
+  35:test/main_test.c **** icm45686_device_t icm45686;    // Surface-mount IMU
+  36:test/main_test.c **** lis3mdl_device_t magnetometer; // Surface-mount magnetometer
+  37:test/main_test.c **** bmp581_device_t bmp581;        // Surface-mount barometer
+  38:test/main_test.c **** // GPS
+  39:test/main_test.c **** // WIO-E5
+  40:test/main_test.c **** // Flash
+  41:test/main_test.c **** // SD Card
+  42:test/main_test.c **** 
+  43:test/main_test.c **** /* ==================== Off-Board Hardware Declarations ==================== */
+  44:test/main_test.c **** ina260_device_t ina_3v3_ch1; // 3V3 (radio module) INA
+  45:test/main_test.c **** ina260_device_t ina_3v3_ch2; // 3V3 (XBee/Pyro board) INA
+  46:test/main_test.c **** ina260_device_t ina_3v3_ch3; // 3V3 (ADCS board) INA
+  47:test/main_test.c **** ina260_device_t ina_5v;      // 5V INA (carrier board modules, Pi)
+  48:test/main_test.c **** 
+  49:test/main_test.c **** pyro_board_device_t pyro_board; // Pyro board
+  50:test/main_test.c **** adis16577_device_t adis;        // Chassis-mount IMU
+ARM GAS  /tmp/ccJ4w9yt.s 			page 3
+
+
+  51:test/main_test.c **** // XBee
+  52:test/main_test.c **** // Ignitor board
+  53:test/main_test.c **** 
+  54:test/main_test.c **** /* ==================== Manager Declarations ==================== */
+  55:test/main_test.c **** device_manager_t device_manager;
+  56:test/main_test.c **** 
+  57:test/main_test.c **** int main(void) {
+  53              		.loc 1 57 16 view -0
+  54              		.cfi_startproc
+  55              		@ args = 0, pretend = 0, frame = 0
+  56              		@ frame_needed = 0, uses_anonymous_args = 0
+  57 0000 2DE9F84F 		push	{r3, r4, r5, r6, r7, r8, r9, r10, fp, lr}
+  58              	.LCFI0:
+  59              		.cfi_def_cfa_offset 40
+  60              		.cfi_offset 3, -40
+  61              		.cfi_offset 4, -36
+  62              		.cfi_offset 5, -32
+  63              		.cfi_offset 6, -28
+  64              		.cfi_offset 7, -24
+  65              		.cfi_offset 8, -20
+  66              		.cfi_offset 9, -16
+  67              		.cfi_offset 10, -12
+  68              		.cfi_offset 11, -8
+  69              		.cfi_offset 14, -4
+  58:test/main_test.c ****   init();
+  70              		.loc 1 58 3 view .LVU1
+  71 0004 FFF7FEFF 		bl	init
+  72              	.LVL0:
+  59:test/main_test.c **** 
+  60:test/main_test.c ****   HAL_Delay(1000);
+  73              		.loc 1 60 3 view .LVU2
+  74 0008 4FF47A70 		mov	r0, #1000
+  75 000c FFF7FEFF 		bl	HAL_Delay
+  76              	.LVL1:
+  61:test/main_test.c ****   printf("\033c"); // reset terminal TODO: get rid of this when we have the CLI
+  77              		.loc 1 61 3 view .LVU3
+  78 0010 6B48     		ldr	r0, .L10
+  79 0012 FFF7FEFF 		bl	printf
+  80              	.LVL2:
+  62:test/main_test.c **** 
+  63:test/main_test.c ****   /* ==================== Timer Initializations ==================== */
+  64:test/main_test.c ****   us_timer.htim = &htim2;
+  81              		.loc 1 64 3 view .LVU4
+  82              		.loc 1 64 17 is_stmt 0 view .LVU5
+  83 0016 6B4E     		ldr	r6, .L10+4
+  84 0018 6B4B     		ldr	r3, .L10+8
+  85 001a 3360     		str	r3, [r6]
+  65:test/main_test.c ****   us_timer_init(&us_timer);
+  86              		.loc 1 65 3 is_stmt 1 view .LVU6
+  87 001c 3046     		mov	r0, r6
+  88 001e FFF7FEFF 		bl	us_timer_init
+  89              	.LVL3:
+  66:test/main_test.c **** 
+  67:test/main_test.c ****   us_timer_device_manager.htim = &htim5;
+  90              		.loc 1 67 3 view .LVU7
+  91              		.loc 1 67 32 is_stmt 0 view .LVU8
+  92 0022 6A4D     		ldr	r5, .L10+12
+ARM GAS  /tmp/ccJ4w9yt.s 			page 4
+
+
+  93 0024 6A4B     		ldr	r3, .L10+16
+  94 0026 2B60     		str	r3, [r5]
+  68:test/main_test.c ****   us_timer_init(&us_timer_device_manager);
+  95              		.loc 1 68 3 is_stmt 1 view .LVU9
+  96 0028 2846     		mov	r0, r5
+  97 002a FFF7FEFF 		bl	us_timer_init
+  98              	.LVL4:
+  69:test/main_test.c **** 
+  70:test/main_test.c ****   /* ==================== On-Board Hardware Initializations ==================== */
+  71:test/main_test.c ****   // ICM-45686 (SDM IMU)
+  72:test/main_test.c ****   icm45686.gyro_pwr_mode = ICM45686_GYRO_MODE_LN;
+  99              		.loc 1 72 3 view .LVU10
+ 100              		.loc 1 72 26 is_stmt 0 view .LVU11
+ 101 002e 694C     		ldr	r4, .L10+20
+ 102 0030 0C23     		movs	r3, #12
+ 103 0032 2370     		strb	r3, [r4]
+  73:test/main_test.c ****   icm45686.accel_pwr_mode = ICM45686_ACCEL_MODE_LN;
+ 104              		.loc 1 73 3 is_stmt 1 view .LVU12
+ 105              		.loc 1 73 27 is_stmt 0 view .LVU13
+ 106 0034 0323     		movs	r3, #3
+ 107 0036 6370     		strb	r3, [r4, #1]
+  74:test/main_test.c ****   icm45686.gyro_fs = ICM45686_GYRO_FS_4000DPS;
+ 108              		.loc 1 74 3 is_stmt 1 view .LVU14
+ 109              		.loc 1 74 20 is_stmt 0 view .LVU15
+ 110 0038 0023     		movs	r3, #0
+ 111 003a A370     		strb	r3, [r4, #2]
+  75:test/main_test.c ****   icm45686.gyro_odr = ICM45686_GYRO_ODR_3200HZ;
+ 112              		.loc 1 75 3 is_stmt 1 view .LVU16
+ 113              		.loc 1 75 21 is_stmt 0 view .LVU17
+ 114 003c 0422     		movs	r2, #4
+ 115 003e E270     		strb	r2, [r4, #3]
+  76:test/main_test.c ****   icm45686.accel_fs = ICM45686_ACCEL_FS_32G;
+ 116              		.loc 1 76 3 is_stmt 1 view .LVU18
+ 117              		.loc 1 76 21 is_stmt 0 view .LVU19
+ 118 0040 2374     		strb	r3, [r4, #16]
+  77:test/main_test.c ****   icm45686.accel_odr = ICM45686_ACCEL_ODR_3200HZ;
+ 119              		.loc 1 77 3 is_stmt 1 view .LVU20
+ 120              		.loc 1 77 22 is_stmt 0 view .LVU21
+ 121 0042 6274     		strb	r2, [r4, #17]
+  78:test/main_test.c **** 
+  79:test/main_test.c ****   // LIS3MDL Magnetometer
+  80:test/main_test.c ****   // magnetometer.cs_gpio_pin = SPI1_CS2_Pin;
+  81:test/main_test.c ****   // magnetometer.cs_gpio_port = SPI1_CS2_GPIO_Port;
+  82:test/main_test.c ****   // magnetometer.data_rate = LIS3MDL_LP_1000Hz;
+  83:test/main_test.c ****   // magnetometer.full_scale = LIS3MDL_FS_4Gauss;
+  84:test/main_test.c ****   // magnetometer.hspi = &hspi1;
+  85:test/main_test.c ****   // magnetometer.self_test = LIS3MDL_SELF_TEST_DIS;
+  86:test/main_test.c ****   // magnetometer.spi_timeout = 100;
+  87:test/main_test.c ****   // magnetometer.temp_enable = LIS3MDL_TEMP_EN;
+  88:test/main_test.c ****   // magnetometer.z_axis_mode = LIS3MDL_Z_LP;
+  89:test/main_test.c **** 
+  90:test/main_test.c ****   // BMP581 Barometer
+  91:test/main_test.c ****   bmp581.hi2c = &hi2c1;
+ 122              		.loc 1 91 3 is_stmt 1 view .LVU22
+ 123              		.loc 1 91 15 is_stmt 0 view .LVU23
+ 124 0044 DFF8DC81 		ldr	r8, .L10+100
+ 125 0048 DFF8DCE1 		ldr	lr, .L10+104
+ARM GAS  /tmp/ccJ4w9yt.s 			page 5
+
+
+ 126 004c C8F808E0 		str	lr, [r8, #8]
+  92:test/main_test.c ****   bmp581.i2c_addr = 0x76;
+ 127              		.loc 1 92 3 is_stmt 1 view .LVU24
+ 128              		.loc 1 92 19 is_stmt 0 view .LVU25
+ 129 0050 7622     		movs	r2, #118
+ 130 0052 88F80420 		strb	r2, [r8, #4]
+  93:test/main_test.c **** 
+  94:test/main_test.c ****   /* ==================== Off-Board Hardware Initializations ==================== */
+  95:test/main_test.c ****   // INA260 3V3 CH1 (radio module slot)
+  96:test/main_test.c ****   ina_3v3_ch1.average_mode = INA260_AVG_1;
+ 131              		.loc 1 96 3 is_stmt 1 view .LVU26
+ 132              		.loc 1 96 28 is_stmt 0 view .LVU27
+ 133 0056 604A     		ldr	r2, .L10+24
+ 134 0058 4FF40077 		mov	r7, #512
+ 135 005c D780     		strh	r7, [r2, #6]	@ movhi
+  97:test/main_test.c ****   ina_3v3_ch1.curr_conv_time = INA260_CURR_CONV_TIME_140US;
+ 136              		.loc 1 97 3 is_stmt 1 view .LVU28
+ 137              		.loc 1 97 30 is_stmt 0 view .LVU29
+ 138 005e 5380     		strh	r3, [r2, #2]	@ movhi
+  98:test/main_test.c ****   ina_3v3_ch1.hi2c = &hi2c1;
+ 139              		.loc 1 98 3 is_stmt 1 view .LVU30
+ 140              		.loc 1 98 20 is_stmt 0 view .LVU31
+ 141 0060 C2F810E0 		str	lr, [r2, #16]
+  99:test/main_test.c ****   ina_3v3_ch1.i2c_addr = 0x40; // TODO: this needs to be 0x46 for flight, only using this for debug
+ 142              		.loc 1 99 3 is_stmt 1 view .LVU32
+ 143              		.loc 1 99 24 is_stmt 0 view .LVU33
+ 144 0064 4FF04009 		mov	r9, #64
+ 145 0068 82F80C90 		strb	r9, [r2, #12]
+ 100:test/main_test.c ****   ina_3v3_ch1.power_mode = INA260_MODE_SHUNT_BUS_CONTINUOUS;
+ 146              		.loc 1 100 3 is_stmt 1 view .LVU34
+ 147              		.loc 1 100 26 is_stmt 0 view .LVU35
+ 148 006c 4FF0070A 		mov	r10, #7
+ 149 0070 A2F800A0 		strh	r10, [r2]	@ movhi
+ 101:test/main_test.c ****   ina_3v3_ch1.volt_conv_time = INA260_VOLT_CONV_TIME_140US;
+ 150              		.loc 1 101 3 is_stmt 1 view .LVU36
+ 151              		.loc 1 101 30 is_stmt 0 view .LVU37
+ 152 0074 9380     		strh	r3, [r2, #4]	@ movhi
+ 102:test/main_test.c ****   ina_3v3_ch1.i2c_timeout = 100;
+ 153              		.loc 1 102 3 is_stmt 1 view .LVU38
+ 154              		.loc 1 102 27 is_stmt 0 view .LVU39
+ 155 0076 4FF0640C 		mov	ip, #100
+ 156 007a C2F808C0 		str	ip, [r2, #8]
+ 103:test/main_test.c **** 
+ 104:test/main_test.c ****   // INA260 3V3 CH2 (XBee, pyro module slot)
+ 105:test/main_test.c ****   ina_3v3_ch2.average_mode = INA260_AVG_1;
+ 157              		.loc 1 105 3 is_stmt 1 view .LVU40
+ 158              		.loc 1 105 28 is_stmt 0 view .LVU41
+ 159 007e 5749     		ldr	r1, .L10+28
+ 160 0080 CF80     		strh	r7, [r1, #6]	@ movhi
+ 106:test/main_test.c ****   ina_3v3_ch2.curr_conv_time = INA260_CURR_CONV_TIME_140US;
+ 161              		.loc 1 106 3 is_stmt 1 view .LVU42
+ 162              		.loc 1 106 30 is_stmt 0 view .LVU43
+ 163 0082 4B80     		strh	r3, [r1, #2]	@ movhi
+ 107:test/main_test.c ****   ina_3v3_ch2.hi2c = &hi2c1;
+ 164              		.loc 1 107 3 is_stmt 1 view .LVU44
+ 165              		.loc 1 107 20 is_stmt 0 view .LVU45
+ 166 0084 C1F810E0 		str	lr, [r1, #16]
+ARM GAS  /tmp/ccJ4w9yt.s 			page 6
+
+
+ 108:test/main_test.c ****   ina_3v3_ch2.i2c_addr = 0x4A;
+ 167              		.loc 1 108 3 is_stmt 1 view .LVU46
+ 168              		.loc 1 108 24 is_stmt 0 view .LVU47
+ 169 0088 4A20     		movs	r0, #74
+ 170 008a 0873     		strb	r0, [r1, #12]
+ 109:test/main_test.c ****   ina_3v3_ch2.power_mode = INA260_MODE_SHUNT_BUS_CONTINUOUS;
+ 171              		.loc 1 109 3 is_stmt 1 view .LVU48
+ 172              		.loc 1 109 26 is_stmt 0 view .LVU49
+ 173 008c A1F800A0 		strh	r10, [r1]	@ movhi
+ 110:test/main_test.c ****   ina_3v3_ch2.volt_conv_time = INA260_VOLT_CONV_TIME_140US;
+ 174              		.loc 1 110 3 is_stmt 1 view .LVU50
+ 175              		.loc 1 110 30 is_stmt 0 view .LVU51
+ 176 0090 8B80     		strh	r3, [r1, #4]	@ movhi
+ 111:test/main_test.c ****   ina_3v3_ch2.i2c_timeout = 100;
+ 177              		.loc 1 111 3 is_stmt 1 view .LVU52
+ 178              		.loc 1 111 27 is_stmt 0 view .LVU53
+ 179 0092 C1F808C0 		str	ip, [r1, #8]
+ 112:test/main_test.c **** 
+ 113:test/main_test.c ****   // INA260 3V3 CH3 (ADCS board [me when I measure the current consumption of
+ 114:test/main_test.c ****   // this board, thereby increasing the current consumption of the board :)])
+ 115:test/main_test.c ****   ina_3v3_ch3.average_mode = INA260_AVG_1;
+ 180              		.loc 1 115 3 is_stmt 1 view .LVU54
+ 181              		.loc 1 115 28 is_stmt 0 view .LVU55
+ 182 0096 5248     		ldr	r0, .L10+32
+ 183 0098 C780     		strh	r7, [r0, #6]	@ movhi
+ 116:test/main_test.c ****   ina_3v3_ch3.curr_conv_time = INA260_CURR_CONV_TIME_140US;
+ 184              		.loc 1 116 3 is_stmt 1 view .LVU56
+ 185              		.loc 1 116 30 is_stmt 0 view .LVU57
+ 186 009a 4380     		strh	r3, [r0, #2]	@ movhi
+ 117:test/main_test.c ****   ina_3v3_ch3.hi2c = &hi2c1;
+ 187              		.loc 1 117 3 is_stmt 1 view .LVU58
+ 188              		.loc 1 117 20 is_stmt 0 view .LVU59
+ 189 009c C0F810E0 		str	lr, [r0, #16]
+ 118:test/main_test.c ****   ina_3v3_ch3.i2c_addr = 0x4E;
+ 190              		.loc 1 118 3 is_stmt 1 view .LVU60
+ 191              		.loc 1 118 24 is_stmt 0 view .LVU61
+ 192 00a0 4E21     		movs	r1, #78
+ 193 00a2 0173     		strb	r1, [r0, #12]
+ 119:test/main_test.c ****   ina_3v3_ch3.power_mode = INA260_MODE_SHUNT_BUS_CONTINUOUS;
+ 194              		.loc 1 119 3 is_stmt 1 view .LVU62
+ 195              		.loc 1 119 26 is_stmt 0 view .LVU63
+ 196 00a4 A0F800A0 		strh	r10, [r0]	@ movhi
+ 120:test/main_test.c ****   ina_3v3_ch3.volt_conv_time = INA260_VOLT_CONV_TIME_140US;
+ 197              		.loc 1 120 3 is_stmt 1 view .LVU64
+ 198              		.loc 1 120 30 is_stmt 0 view .LVU65
+ 199 00a8 8380     		strh	r3, [r0, #4]	@ movhi
+ 121:test/main_test.c ****   ina_3v3_ch3.i2c_timeout = 100;
+ 200              		.loc 1 121 3 is_stmt 1 view .LVU66
+ 201              		.loc 1 121 27 is_stmt 0 view .LVU67
+ 202 00aa C0F808C0 		str	ip, [r0, #8]
+ 122:test/main_test.c **** 
+ 123:test/main_test.c ****   // INA260 5V (carrier board modules, Pi)
+ 124:test/main_test.c ****   ina_5v.average_mode = INA260_AVG_1;
+ 203              		.loc 1 124 3 is_stmt 1 view .LVU68
+ 204              		.loc 1 124 23 is_stmt 0 view .LVU69
+ 205 00ae 4D49     		ldr	r1, .L10+36
+ 206 00b0 CF80     		strh	r7, [r1, #6]	@ movhi
+ARM GAS  /tmp/ccJ4w9yt.s 			page 7
+
+
+ 125:test/main_test.c ****   ina_5v.curr_conv_time = INA260_CURR_CONV_TIME_140US;
+ 207              		.loc 1 125 3 is_stmt 1 view .LVU70
+ 208              		.loc 1 125 25 is_stmt 0 view .LVU71
+ 209 00b2 4B80     		strh	r3, [r1, #2]	@ movhi
+ 126:test/main_test.c ****   ina_5v.hi2c = &hi2c1;
+ 210              		.loc 1 126 3 is_stmt 1 view .LVU72
+ 211              		.loc 1 126 15 is_stmt 0 view .LVU73
+ 212 00b4 C1F810E0 		str	lr, [r1, #16]
+ 127:test/main_test.c ****   ina_5v.i2c_addr = 0x45;
+ 213              		.loc 1 127 3 is_stmt 1 view .LVU74
+ 214              		.loc 1 127 19 is_stmt 0 view .LVU75
+ 215 00b8 4FF0450B 		mov	fp, #69
+ 216 00bc 81F80CB0 		strb	fp, [r1, #12]
+ 128:test/main_test.c ****   ina_5v.power_mode = INA260_MODE_SHUNT_BUS_CONTINUOUS;
+ 217              		.loc 1 128 3 is_stmt 1 view .LVU76
+ 218              		.loc 1 128 21 is_stmt 0 view .LVU77
+ 219 00c0 A1F800A0 		strh	r10, [r1]	@ movhi
+ 129:test/main_test.c ****   ina_5v.volt_conv_time = INA260_VOLT_CONV_TIME_140US;
+ 220              		.loc 1 129 3 is_stmt 1 view .LVU78
+ 221              		.loc 1 129 25 is_stmt 0 view .LVU79
+ 222 00c4 8B80     		strh	r3, [r1, #4]	@ movhi
+ 130:test/main_test.c ****   ina_5v.i2c_timeout = 100;
+ 223              		.loc 1 130 3 is_stmt 1 view .LVU80
+ 224              		.loc 1 130 22 is_stmt 0 view .LVU81
+ 225 00c6 C1F808C0 		str	ip, [r1, #8]
+ 131:test/main_test.c **** 
+ 132:test/main_test.c ****   // Pyro board
+ 133:test/main_test.c ****   pyro_board.hi2c = &hi2c1;
+ 226              		.loc 1 133 3 is_stmt 1 view .LVU82
+ 227              		.loc 1 133 19 is_stmt 0 view .LVU83
+ 228 00ca 4749     		ldr	r1, .L10+40
+ 229 00cc C1F800E0 		str	lr, [r1]
+ 134:test/main_test.c ****   pyro_board.i2c_address = 0x70;
+ 230              		.loc 1 134 3 is_stmt 1 view .LVU84
+ 231              		.loc 1 134 26 is_stmt 0 view .LVU85
+ 232 00d0 4FF0700E 		mov	lr, #112
+ 233 00d4 81F804E0 		strb	lr, [r1, #4]
+ 135:test/main_test.c ****   pyro_board.i2c_timeout_ms = 100;
+ 234              		.loc 1 135 3 is_stmt 1 view .LVU86
+ 235              		.loc 1 135 29 is_stmt 0 view .LVU87
+ 236 00d8 C1F808C0 		str	ip, [r1, #8]
+ 136:test/main_test.c **** 
+ 137:test/main_test.c ****   // ADIS16577 IMU
+ 138:test/main_test.c ****   adis.hspi = &hspi1;
+ 237              		.loc 1 138 3 is_stmt 1 view .LVU88
+ 238              		.loc 1 138 13 is_stmt 0 view .LVU89
+ 239 00dc 4349     		ldr	r1, .L10+44
+ 240 00de DFF84CE1 		ldr	lr, .L10+108
+ 241 00e2 C1F80CE0 		str	lr, [r1, #12]
+ 139:test/main_test.c ****   adis.us_timer = &us_timer;
+ 242              		.loc 1 139 3 is_stmt 1 view .LVU90
+ 243              		.loc 1 139 17 is_stmt 0 view .LVU91
+ 244 00e6 CE61     		str	r6, [r1, #28]
+ 140:test/main_test.c ****   adis.cs_gpio_pin = ADIS_CS_Pin;
+ 245              		.loc 1 140 3 is_stmt 1 view .LVU92
+ 246              		.loc 1 140 20 is_stmt 0 view .LVU93
+ 247 00e8 A1F81490 		strh	r9, [r1, #20]	@ movhi
+ARM GAS  /tmp/ccJ4w9yt.s 			page 8
+
+
+ 141:test/main_test.c ****   adis.cs_gpio_port = ADIS_CS_GPIO_Port;
+ 248              		.loc 1 141 3 is_stmt 1 view .LVU94
+ 249              		.loc 1 141 21 is_stmt 0 view .LVU95
+ 250 00ec 404E     		ldr	r6, .L10+48
+ 251 00ee 0E61     		str	r6, [r1, #16]
+ 142:test/main_test.c ****   adis.spi_timeout = 100;
+ 252              		.loc 1 142 3 is_stmt 1 view .LVU96
+ 253              		.loc 1 142 20 is_stmt 0 view .LVU97
+ 254 00f0 C1F818C0 		str	ip, [r1, #24]
+ 143:test/main_test.c ****   adis.sync_mode = ADIS16577_SYNC_INTERN;
+ 255              		.loc 1 143 3 is_stmt 1 view .LVU98
+ 256              		.loc 1 143 18 is_stmt 0 view .LVU99
+ 257 00f4 8B80     		strh	r3, [r1, #4]	@ movhi
+ 144:test/main_test.c ****   adis.burst_data_length = ADIS16577_BURST_32;
+ 258              		.loc 1 144 3 is_stmt 1 view .LVU100
+ 259              		.loc 1 144 26 is_stmt 0 view .LVU101
+ 260 00f6 CF80     		strh	r7, [r1, #6]	@ movhi
+ 145:test/main_test.c ****   adis.burst_out_sel = ADIS16577_OUT_GYR_ACC;
+ 261              		.loc 1 145 3 is_stmt 1 view .LVU102
+ 262              		.loc 1 145 22 is_stmt 0 view .LVU103
+ 263 00f8 0B81     		strh	r3, [r1, #8]	@ movhi
+ 146:test/main_test.c ****   adis.gsens_en = ADIS16577_GSENS_EN;
+ 264              		.loc 1 146 3 is_stmt 1 view .LVU104
+ 265              		.loc 1 146 17 is_stmt 0 view .LVU105
+ 266 00fa 8026     		movs	r6, #128
+ 267 00fc 4E81     		strh	r6, [r1, #10]	@ movhi
+ 147:test/main_test.c **** 
+ 148:test/main_test.c ****   /* ==================== Manager Initializations ==================== */
+ 149:test/main_test.c ****   // Device manager
+ 150:test/main_test.c ****   device_manager.us_timer = &us_timer_device_manager;
+ 268              		.loc 1 150 3 is_stmt 1 view .LVU106
+ 269              		.loc 1 150 27 is_stmt 0 view .LVU107
+ 270 00fe 3D49     		ldr	r1, .L10+52
+ 271 0100 4D60     		str	r5, [r1, #4]
+ 151:test/main_test.c ****   device_manager.icm45686 = &icm45686;
+ 272              		.loc 1 151 3 is_stmt 1 view .LVU108
+ 273              		.loc 1 151 27 is_stmt 0 view .LVU109
+ 274 0102 8C60     		str	r4, [r1, #8]
+ 152:test/main_test.c ****   device_manager.lis3mdl = &magnetometer;
+ 275              		.loc 1 152 3 is_stmt 1 view .LVU110
+ 276              		.loc 1 152 26 is_stmt 0 view .LVU111
+ 277 0104 3C4C     		ldr	r4, .L10+56
+ 278 0106 8C64     		str	r4, [r1, #72]
+ 153:test/main_test.c ****   device_manager.bmp581 = &bmp581;
+ 279              		.loc 1 153 3 is_stmt 1 view .LVU112
+ 280              		.loc 1 153 25 is_stmt 0 view .LVU113
+ 281 0108 C1F87080 		str	r8, [r1, #112]
+ 154:test/main_test.c ****   device_manager.ina260[0] = &ina_3v3_ch1;
+ 282              		.loc 1 154 3 is_stmt 1 view .LVU114
+ 283              		.loc 1 154 28 is_stmt 0 view .LVU115
+ 284 010c C1F88820 		str	r2, [r1, #136]
+ 155:test/main_test.c ****   device_manager.ina260[1] = &ina_3v3_ch1;
+ 285              		.loc 1 155 3 is_stmt 1 view .LVU116
+ 286              		.loc 1 155 28 is_stmt 0 view .LVU117
+ 287 0110 C1F88C20 		str	r2, [r1, #140]
+ 156:test/main_test.c ****   device_manager.ina260[2] = &ina_3v3_ch3;
+ 288              		.loc 1 156 3 is_stmt 1 view .LVU118
+ARM GAS  /tmp/ccJ4w9yt.s 			page 9
+
+
+ 289              		.loc 1 156 28 is_stmt 0 view .LVU119
+ 290 0114 C1F89000 		str	r0, [r1, #144]
+ 157:test/main_test.c ****   // TODO: put the fourth INA in there (♥◡w◡)
+ 158:test/main_test.c **** 
+ 159:test/main_test.c ****   for(uint8_t i = 0; i < DEVICE_LIST_NUMBER_OF_DEVICES; i++){
+ 291              		.loc 1 159 3 is_stmt 1 view .LVU120
+ 292              	.LBB2:
+ 293              		.loc 1 159 7 view .LVU121
+ 294              	.LVL5:
+ 295              		.loc 1 159 3 is_stmt 0 view .LVU122
+ 296 0118 0CE0     		b	.L2
+ 297              	.LVL6:
+ 298              	.L3:
+ 160:test/main_test.c ****     device_manager.stale_times_us[i] = 10000000;
+ 299              		.loc 1 160 5 is_stmt 1 discriminator 3 view .LVU123
+ 300              		.loc 1 160 38 is_stmt 0 discriminator 3 view .LVU124
+ 301 011a 364A     		ldr	r2, .L10+52
+ 302 011c 03F12A01 		add	r1, r3, #42
+ 303 0120 02EB8101 		add	r1, r2, r1, lsl #2
+ 304 0124 3548     		ldr	r0, .L10+60
+ 305 0126 4860     		str	r0, [r1, #4]
+ 161:test/main_test.c ****     device_manager.retry_times[i]  = 1;
+ 306              		.loc 1 161 5 is_stmt 1 discriminator 3 view .LVU125
+ 307              		.loc 1 161 36 is_stmt 0 discriminator 3 view .LVU126
+ 308 0128 1A44     		add	r2, r2, r3
+ 309 012a 0121     		movs	r1, #1
+ 310 012c 82F8DC10 		strb	r1, [r2, #220]
+ 159:test/main_test.c ****     device_manager.stale_times_us[i] = 10000000;
+ 311              		.loc 1 159 58 is_stmt 1 discriminator 3 view .LVU127
+ 312 0130 0B44     		add	r3, r3, r1
+ 313              	.LVL7:
+ 159:test/main_test.c ****     device_manager.stale_times_us[i] = 10000000;
+ 314              		.loc 1 159 58 is_stmt 0 discriminator 3 view .LVU128
+ 315 0132 DBB2     		uxtb	r3, r3
+ 316              	.LVL8:
+ 317              	.L2:
+ 159:test/main_test.c ****     device_manager.stale_times_us[i] = 10000000;
+ 318              		.loc 1 159 24 is_stmt 1 discriminator 1 view .LVU129
+ 319 0134 052B     		cmp	r3, #5
+ 320 0136 F0D9     		bls	.L3
+ 321              	.LBE2:
+ 162:test/main_test.c ****   }
+ 163:test/main_test.c **** 
+ 164:test/main_test.c ****   device_manager.stale_times_us[DEVICE_LIST_INA260_2] = 5000000;
+ 322              		.loc 1 164 3 view .LVU130
+ 323              		.loc 1 164 55 is_stmt 0 view .LVU131
+ 324 0138 2E48     		ldr	r0, .L10+52
+ 325 013a 314B     		ldr	r3, .L10+64
+ 326              	.LVL9:
+ 327              		.loc 1 164 55 view .LVU132
+ 328 013c C0F8BC30 		str	r3, [r0, #188]
+ 165:test/main_test.c ****   
+ 166:test/main_test.c ****   /* =========================== PROGRAM START =========================== */
+ 167:test/main_test.c ****   device_manager_error_t device_manager_ret = device_manager_init(&device_manager);
+ 329              		.loc 1 167 3 is_stmt 1 view .LVU133
+ 330              		.loc 1 167 47 is_stmt 0 view .LVU134
+ 331 0140 FFF7FEFF 		bl	device_manager_init
+ARM GAS  /tmp/ccJ4w9yt.s 			page 10
+
+
+ 332              	.LVL10:
+ 333 0144 30E0     		b	.L8
+ 334              	.LVL11:
+ 335              	.L5:
+ 336              	.LBB3:
+ 168:test/main_test.c ****   device_manager_error_t device_manager_poll_ret;
+ 169:test/main_test.c **** 
+ 170:test/main_test.c ****   float voltage; 
+ 171:test/main_test.c ****   float current;
+ 172:test/main_test.c **** 
+ 173:test/main_test.c ****   uint16_t val;
+ 174:test/main_test.c **** 
+ 175:test/main_test.c ****   // Forever loop! 
+ 176:test/main_test.c ****   while (1) {
+ 177:test/main_test.c ****     device_manager_poll_ret = device_manager_poll_devices(&device_manager);
+ 178:test/main_test.c ****     printf("Polling result: %d\n\r", device_manager_poll_ret);
+ 179:test/main_test.c ****     printf("Last polled times:\n\r");
+ 180:test/main_test.c ****     for (uint8_t i = 0; i < DEVICE_LIST_NUMBER_OF_DEVICES; i++) {
+ 181:test/main_test.c ****       printf("%.2f ", device_manager.past_tick_times[i]/1000000.f);
+ 337              		.loc 1 181 7 is_stmt 1 discriminator 3 view .LVU135
+ 338              		.loc 1 181 53 is_stmt 0 discriminator 3 view .LVU136
+ 339 0146 04F13002 		add	r2, r4, #48
+ 340 014a 2A4B     		ldr	r3, .L10+52
+ 341 014c 03EB8203 		add	r3, r3, r2, lsl #2
+ 342 0150 D3ED017A 		vldr.32	s15, [r3, #4]	@ int
+ 343              		.loc 1 181 56 discriminator 3 view .LVU137
+ 344 0154 F8EE677A 		vcvt.f32.u32	s15, s15
+ 345 0158 DFED2A6A 		vldr.32	s13, .L10+68
+ 346 015c 87EEA67A 		vdiv.f32	s14, s15, s13
+ 347              		.loc 1 181 7 discriminator 3 view .LVU138
+ 348 0160 B7EEC77A 		vcvt.f64.f32	d7, s14
+ 349 0164 53EC172B 		vmov	r2, r3, d7
+ 350 0168 2748     		ldr	r0, .L10+72
+ 351 016a FFF7FEFF 		bl	printf
+ 352              	.LVL12:
+ 180:test/main_test.c ****       printf("%.2f ", device_manager.past_tick_times[i]/1000000.f);
+ 353              		.loc 1 180 61 is_stmt 1 discriminator 3 view .LVU139
+ 354 016e 0134     		adds	r4, r4, #1
+ 355              	.LVL13:
+ 180:test/main_test.c ****       printf("%.2f ", device_manager.past_tick_times[i]/1000000.f);
+ 356              		.loc 1 180 61 is_stmt 0 discriminator 3 view .LVU140
+ 357 0170 E4B2     		uxtb	r4, r4
+ 358              	.LVL14:
+ 359              	.L4:
+ 180:test/main_test.c ****       printf("%.2f ", device_manager.past_tick_times[i]/1000000.f);
+ 360              		.loc 1 180 27 is_stmt 1 discriminator 1 view .LVU141
+ 361 0172 052C     		cmp	r4, #5
+ 362 0174 E7D9     		bls	.L5
+ 363              	.LBE3:
+ 182:test/main_test.c ****     }
+ 183:test/main_test.c ****     printf("\r\n");
+ 364              		.loc 1 183 5 view .LVU142
+ 365 0176 2548     		ldr	r0, .L10+76
+ 366 0178 FFF7FEFF 		bl	puts
+ 367              	.LVL15:
+ 184:test/main_test.c ****     printf("Sensor error status:\n\r");
+ 368              		.loc 1 184 5 view .LVU143
+ARM GAS  /tmp/ccJ4w9yt.s 			page 11
+
+
+ 369 017c 2448     		ldr	r0, .L10+80
+ 370 017e FFF7FEFF 		bl	printf
+ 371              	.LVL16:
+ 185:test/main_test.c ****         for (uint8_t i = 0; i < DEVICE_LIST_NUMBER_OF_DEVICES; i++) {
+ 372              		.loc 1 185 9 view .LVU144
+ 373              	.LBB4:
+ 374              		.loc 1 185 14 view .LVU145
+ 375              		.loc 1 185 22 is_stmt 0 view .LVU146
+ 376 0182 0024     		movs	r4, #0
+ 377              	.LVL17:
+ 378              		.loc 1 185 9 view .LVU147
+ 379 0184 08E0     		b	.L6
+ 380              	.LVL18:
+ 381              	.L7:
+ 186:test/main_test.c ****       printf("%d ", device_manager.failure_state[i]);
+ 382              		.loc 1 186 7 is_stmt 1 discriminator 3 view .LVU148
+ 383              		.loc 1 186 49 is_stmt 0 discriminator 3 view .LVU149
+ 384 0186 1B4B     		ldr	r3, .L10+52
+ 385 0188 2344     		add	r3, r3, r4
+ 386              		.loc 1 186 7 discriminator 3 view .LVU150
+ 387 018a 93F8EE10 		ldrb	r1, [r3, #238]	@ zero_extendqisi2
+ 388 018e 2148     		ldr	r0, .L10+84
+ 389 0190 FFF7FEFF 		bl	printf
+ 390              	.LVL19:
+ 185:test/main_test.c ****         for (uint8_t i = 0; i < DEVICE_LIST_NUMBER_OF_DEVICES; i++) {
+ 391              		.loc 1 185 65 is_stmt 1 discriminator 3 view .LVU151
+ 392 0194 0134     		adds	r4, r4, #1
+ 393              	.LVL20:
+ 185:test/main_test.c ****         for (uint8_t i = 0; i < DEVICE_LIST_NUMBER_OF_DEVICES; i++) {
+ 394              		.loc 1 185 65 is_stmt 0 discriminator 3 view .LVU152
+ 395 0196 E4B2     		uxtb	r4, r4
+ 396              	.LVL21:
+ 397              	.L6:
+ 185:test/main_test.c ****         for (uint8_t i = 0; i < DEVICE_LIST_NUMBER_OF_DEVICES; i++) {
+ 398              		.loc 1 185 31 is_stmt 1 discriminator 1 view .LVU153
+ 399 0198 052C     		cmp	r4, #5
+ 400 019a F4D9     		bls	.L7
+ 401              	.LBE4:
+ 187:test/main_test.c ****     }
+ 188:test/main_test.c ****     // printf("Forced read array:\r\n");
+ 189:test/main_test.c ****     // for (uint8_t i = 0; i < DEVICE_LIST_NUMBER_OF_DEVICES; i++) {
+ 190:test/main_test.c ****     //   printf("%d ", device_manager.force_read[i]);
+ 191:test/main_test.c ****     // }
+ 192:test/main_test.c ****     // printf("Forced reset array:\r\n");
+ 193:test/main_test.c ****     // for (uint8_t i = 0; i < DEVICE_LIST_NUMBER_OF_DEVICES; i++) {
+ 194:test/main_test.c ****     //   printf("%d ", device_manager.force_reset[i]);
+ 195:test/main_test.c ****     // }
+ 196:test/main_test.c ****     printf("\r\n\r\n");
+ 402              		.loc 1 196 5 view .LVU154
+ 403 019c 1E48     		ldr	r0, .L10+88
+ 404 019e FFF7FEFF 		bl	puts
+ 405              	.LVL22:
+ 197:test/main_test.c ****     
+ 198:test/main_test.c ****     HAL_Delay(100);
+ 406              		.loc 1 198 5 view .LVU155
+ 407 01a2 6420     		movs	r0, #100
+ 408 01a4 FFF7FEFF 		bl	HAL_Delay
+ARM GAS  /tmp/ccJ4w9yt.s 			page 12
+
+
+ 409              	.LVL23:
+ 176:test/main_test.c ****     device_manager_poll_ret = device_manager_poll_devices(&device_manager);
+ 410              		.loc 1 176 9 view .LVU156
+ 411              	.L8:
+ 168:test/main_test.c **** 
+ 412              		.loc 1 168 3 view .LVU157
+ 170:test/main_test.c ****   float current;
+ 413              		.loc 1 170 3 view .LVU158
+ 171:test/main_test.c **** 
+ 414              		.loc 1 171 3 view .LVU159
+ 173:test/main_test.c **** 
+ 415              		.loc 1 173 3 view .LVU160
+ 176:test/main_test.c ****     device_manager_poll_ret = device_manager_poll_devices(&device_manager);
+ 416              		.loc 1 176 3 view .LVU161
+ 177:test/main_test.c ****     printf("Polling result: %d\n\r", device_manager_poll_ret);
+ 417              		.loc 1 177 5 view .LVU162
+ 177:test/main_test.c ****     printf("Polling result: %d\n\r", device_manager_poll_ret);
+ 418              		.loc 1 177 31 is_stmt 0 view .LVU163
+ 419 01a8 1248     		ldr	r0, .L10+52
+ 420 01aa FFF7FEFF 		bl	device_manager_poll_devices
+ 421              	.LVL24:
+ 422 01ae 0146     		mov	r1, r0
+ 423              	.LVL25:
+ 178:test/main_test.c ****     printf("Last polled times:\n\r");
+ 424              		.loc 1 178 5 is_stmt 1 view .LVU164
+ 425 01b0 1A48     		ldr	r0, .L10+92
+ 426 01b2 FFF7FEFF 		bl	printf
+ 427              	.LVL26:
+ 179:test/main_test.c ****     for (uint8_t i = 0; i < DEVICE_LIST_NUMBER_OF_DEVICES; i++) {
+ 428              		.loc 1 179 5 view .LVU165
+ 429 01b6 1A48     		ldr	r0, .L10+96
+ 430 01b8 FFF7FEFF 		bl	printf
+ 431              	.LVL27:
+ 180:test/main_test.c ****       printf("%.2f ", device_manager.past_tick_times[i]/1000000.f);
+ 432              		.loc 1 180 5 view .LVU166
+ 433              	.LBB5:
+ 180:test/main_test.c ****       printf("%.2f ", device_manager.past_tick_times[i]/1000000.f);
+ 434              		.loc 1 180 10 view .LVU167
+ 180:test/main_test.c ****       printf("%.2f ", device_manager.past_tick_times[i]/1000000.f);
+ 435              		.loc 1 180 18 is_stmt 0 view .LVU168
+ 436 01bc 0024     		movs	r4, #0
+ 180:test/main_test.c ****       printf("%.2f ", device_manager.past_tick_times[i]/1000000.f);
+ 437              		.loc 1 180 5 view .LVU169
+ 438 01be D8E7     		b	.L4
+ 439              	.L11:
+ 440              		.align	2
+ 441              	.L10:
+ 442 01c0 00000000 		.word	.LC0
+ 443 01c4 00000000 		.word	us_timer
+ 444 01c8 00000000 		.word	htim2
+ 445 01cc 00000000 		.word	us_timer_device_manager
+ 446 01d0 00000000 		.word	htim5
+ 447 01d4 00000000 		.word	icm45686
+ 448 01d8 00000000 		.word	ina_3v3_ch1
+ 449 01dc 00000000 		.word	ina_3v3_ch2
+ 450 01e0 00000000 		.word	ina_3v3_ch3
+ 451 01e4 00000000 		.word	ina_5v
+ARM GAS  /tmp/ccJ4w9yt.s 			page 13
+
+
+ 452 01e8 00000000 		.word	pyro_board
+ 453 01ec 00000000 		.word	adis
+ 454 01f0 00080258 		.word	1476528128
+ 455 01f4 00000000 		.word	device_manager
+ 456 01f8 00000000 		.word	magnetometer
+ 457 01fc 80969800 		.word	10000000
+ 458 0200 404B4C00 		.word	5000000
+ 459 0204 00247449 		.word	1232348160
+ 460 0208 34000000 		.word	.LC3
+ 461 020c 3C000000 		.word	.LC4
+ 462 0210 40000000 		.word	.LC5
+ 463 0214 58000000 		.word	.LC6
+ 464 0218 5C000000 		.word	.LC7
+ 465 021c 04000000 		.word	.LC1
+ 466 0220 1C000000 		.word	.LC2
+ 467 0224 00000000 		.word	bmp581
+ 468 0228 00000000 		.word	hi2c1
+ 469 022c 00000000 		.word	hspi1
+ 470              	.LBE5:
+ 471              		.cfi_endproc
+ 472              	.LFE147:
+ 474              		.section	.text._write,"ax",%progbits
+ 475              		.align	1
+ 476              		.global	_write
+ 477              		.syntax unified
+ 478              		.thumb
+ 479              		.thumb_func
+ 481              	_write:
+ 482              	.LVL28:
+ 483              	.LFB148:
+ 199:test/main_test.c ****   }
+ 200:test/main_test.c ****   return 0;
+ 201:test/main_test.c **** }
+ 202:test/main_test.c **** 
+ 203:test/main_test.c **** int _write(int file, char *ptr, int len) {
+ 484              		.loc 1 203 42 is_stmt 1 view -0
+ 485              		.cfi_startproc
+ 486              		@ args = 0, pretend = 0, frame = 0
+ 487              		@ frame_needed = 0, uses_anonymous_args = 0
+ 488              		.loc 1 203 42 is_stmt 0 view .LVU171
+ 489 0000 10B5     		push	{r4, lr}
+ 490              	.LCFI1:
+ 491              		.cfi_def_cfa_offset 8
+ 492              		.cfi_offset 4, -8
+ 493              		.cfi_offset 14, -4
+ 494 0002 1446     		mov	r4, r2
+ 204:test/main_test.c ****   HAL_UART_Transmit(&huart3, (uint8_t *)ptr, len, HAL_MAX_DELAY);
+ 495              		.loc 1 204 3 is_stmt 1 view .LVU172
+ 496 0004 4FF0FF33 		mov	r3, #-1
+ 497 0008 92B2     		uxth	r2, r2
+ 498              	.LVL29:
+ 499              		.loc 1 204 3 is_stmt 0 view .LVU173
+ 500 000a 0248     		ldr	r0, .L14
+ 501              	.LVL30:
+ 502              		.loc 1 204 3 view .LVU174
+ 503 000c FFF7FEFF 		bl	HAL_UART_Transmit
+ 504              	.LVL31:
+ARM GAS  /tmp/ccJ4w9yt.s 			page 14
+
+
+ 205:test/main_test.c ****   return len;
+ 505              		.loc 1 205 3 is_stmt 1 view .LVU175
+ 206:test/main_test.c **** }
+ 506              		.loc 1 206 1 is_stmt 0 view .LVU176
+ 507 0010 2046     		mov	r0, r4
+ 508 0012 10BD     		pop	{r4, pc}
+ 509              	.LVL32:
+ 510              	.L15:
+ 511              		.loc 1 206 1 view .LVU177
+ 512              		.align	2
+ 513              	.L14:
+ 514 0014 00000000 		.word	huart3
+ 515              		.cfi_endproc
+ 516              	.LFE148:
+ 518              		.section	.rodata.i2c_scan.str1.4,"aMS",%progbits,1
+ 519              		.align	2
+ 520              	.LC8:
+ 521 0000 4E6F2063 		.ascii	"No contact on %x\015\012\000"
+ 521      6F6E7461 
+ 521      6374206F 
+ 521      6E202578 
+ 521      0D0A00
+ 522 0013 00       		.align	2
+ 523              	.LC9:
+ 524 0014 44657669 		.ascii	"Device on %x\015\012\000"
+ 524      6365206F 
+ 524      6E202578 
+ 524      0D0A00
+ 525              		.section	.text.i2c_scan,"ax",%progbits
+ 526              		.align	1
+ 527              		.global	i2c_scan
+ 528              		.syntax unified
+ 529              		.thumb
+ 530              		.thumb_func
+ 532              	i2c_scan:
+ 533              	.LVL33:
+ 534              	.LFB149:
+ 207:test/main_test.c **** 
+ 208:test/main_test.c **** void i2c_scan(I2C_HandleTypeDef *hi2c) {
+ 535              		.loc 1 208 40 is_stmt 1 view -0
+ 536              		.cfi_startproc
+ 537              		@ args = 0, pretend = 0, frame = 8
+ 538              		@ frame_needed = 0, uses_anonymous_args = 0
+ 539              		.loc 1 208 40 is_stmt 0 view .LVU179
+ 540 0000 30B5     		push	{r4, r5, lr}
+ 541              	.LCFI2:
+ 542              		.cfi_def_cfa_offset 12
+ 543              		.cfi_offset 4, -12
+ 544              		.cfi_offset 5, -8
+ 545              		.cfi_offset 14, -4
+ 546 0002 85B0     		sub	sp, sp, #20
+ 547              	.LCFI3:
+ 548              		.cfi_def_cfa_offset 32
+ 549 0004 0546     		mov	r5, r0
+ 209:test/main_test.c ****   uint8_t tx = 0;
+ 550              		.loc 1 209 3 is_stmt 1 view .LVU180
+ 551              		.loc 1 209 11 is_stmt 0 view .LVU181
+ARM GAS  /tmp/ccJ4w9yt.s 			page 15
+
+
+ 552 0006 0024     		movs	r4, #0
+ 553 0008 8DF80F40 		strb	r4, [sp, #15]
+ 210:test/main_test.c **** 
+ 211:test/main_test.c ****   for (uint8_t addr = 0; addr < 128; addr++) {
+ 554              		.loc 1 211 3 is_stmt 1 view .LVU182
+ 555              	.LBB6:
+ 556              		.loc 1 211 8 view .LVU183
+ 557              	.LVL34:
+ 558              		.loc 1 211 3 is_stmt 0 view .LVU184
+ 559 000c 05E0     		b	.L17
+ 560              	.LVL35:
+ 561              	.L18:
+ 562              	.LBB7:
+ 212:test/main_test.c ****     uint8_t ret = HAL_I2C_Master_Transmit(hi2c, addr << 1, &tx, 1, 10);
+ 213:test/main_test.c ****     if (ret != HAL_OK) {
+ 214:test/main_test.c ****       printf("No contact on %x\r\n", addr);
+ 215:test/main_test.c ****     } else {
+ 216:test/main_test.c ****       printf("Device on %x\r\n", addr);
+ 563              		.loc 1 216 7 is_stmt 1 view .LVU185
+ 564 000e 2146     		mov	r1, r4
+ 565 0010 0D48     		ldr	r0, .L23
+ 566              	.LVL36:
+ 567              		.loc 1 216 7 is_stmt 0 view .LVU186
+ 568 0012 FFF7FEFF 		bl	printf
+ 569              	.LVL37:
+ 570              	.L19:
+ 571              	.LBE7:
+ 211:test/main_test.c ****     uint8_t ret = HAL_I2C_Master_Transmit(hi2c, addr << 1, &tx, 1, 10);
+ 572              		.loc 1 211 42 is_stmt 1 discriminator 2 view .LVU187
+ 573 0016 0134     		adds	r4, r4, #1
+ 574              	.LVL38:
+ 211:test/main_test.c ****     uint8_t ret = HAL_I2C_Master_Transmit(hi2c, addr << 1, &tx, 1, 10);
+ 575              		.loc 1 211 42 is_stmt 0 discriminator 2 view .LVU188
+ 576 0018 E4B2     		uxtb	r4, r4
+ 577              	.LVL39:
+ 578              	.L17:
+ 211:test/main_test.c ****     uint8_t ret = HAL_I2C_Master_Transmit(hi2c, addr << 1, &tx, 1, 10);
+ 579              		.loc 1 211 31 is_stmt 1 discriminator 1 view .LVU189
+ 580 001a 14F0800F 		tst	r4, #128
+ 581 001e 10D1     		bne	.L22
+ 582              	.LBB8:
+ 212:test/main_test.c ****     uint8_t ret = HAL_I2C_Master_Transmit(hi2c, addr << 1, &tx, 1, 10);
+ 583              		.loc 1 212 5 view .LVU190
+ 212:test/main_test.c ****     uint8_t ret = HAL_I2C_Master_Transmit(hi2c, addr << 1, &tx, 1, 10);
+ 584              		.loc 1 212 19 is_stmt 0 view .LVU191
+ 585 0020 0A23     		movs	r3, #10
+ 586 0022 0093     		str	r3, [sp]
+ 587 0024 0123     		movs	r3, #1
+ 588 0026 0DF10F02 		add	r2, sp, #15
+ 589 002a 04FA03F1 		lsl	r1, r4, r3
+ 590 002e 2846     		mov	r0, r5
+ 591 0030 FFF7FEFF 		bl	HAL_I2C_Master_Transmit
+ 592              	.LVL40:
+ 213:test/main_test.c ****       printf("No contact on %x\r\n", addr);
+ 593              		.loc 1 213 5 is_stmt 1 view .LVU192
+ 213:test/main_test.c ****       printf("No contact on %x\r\n", addr);
+ 594              		.loc 1 213 8 is_stmt 0 view .LVU193
+ARM GAS  /tmp/ccJ4w9yt.s 			page 16
+
+
+ 595 0034 0028     		cmp	r0, #0
+ 596 0036 EAD0     		beq	.L18
+ 214:test/main_test.c ****     } else {
+ 597              		.loc 1 214 7 is_stmt 1 view .LVU194
+ 598 0038 2146     		mov	r1, r4
+ 599 003a 0448     		ldr	r0, .L23+4
+ 600              	.LVL41:
+ 214:test/main_test.c ****     } else {
+ 601              		.loc 1 214 7 is_stmt 0 view .LVU195
+ 602 003c FFF7FEFF 		bl	printf
+ 603              	.LVL42:
+ 604 0040 E9E7     		b	.L19
+ 605              	.LVL43:
+ 606              	.L22:
+ 214:test/main_test.c ****     } else {
+ 607              		.loc 1 214 7 view .LVU196
+ 608              	.LBE8:
+ 609              	.LBE6:
+ 217:test/main_test.c ****     }
+ 218:test/main_test.c ****   }
+ 219:test/main_test.c **** }...
+ 610              		.loc 1 219 1 view .LVU197
+ 611 0042 05B0     		add	sp, sp, #20
+ 612              	.LCFI4:
+ 613              		.cfi_def_cfa_offset 12
+ 614              		@ sp needed
+ 615 0044 30BD     		pop	{r4, r5, pc}
+ 616              	.LVL44:
+ 617              	.L24:
+ 618              		.loc 1 219 1 view .LVU198
+ 619 0046 00BF     		.align	2
+ 620              	.L23:
+ 621 0048 14000000 		.word	.LC9
+ 622 004c 00000000 		.word	.LC8
+ 623              		.cfi_endproc
+ 624              	.LFE149:
+ 626              		.global	device_manager
+ 627              		.section	.bss.device_manager,"aw",%nobits
+ 628              		.align	3
+ 631              	device_manager:
+ 632 0000 00000000 		.space	248
+ 632      00000000 
+ 632      00000000 
+ 632      00000000 
+ 632      00000000 
+ 633              		.global	adis
+ 634              		.section	.bss.adis,"aw",%nobits
+ 635              		.align	2
+ 638              	adis:
+ 639 0000 00000000 		.space	40
+ 639      00000000 
+ 639      00000000 
+ 639      00000000 
+ 639      00000000 
+ 640              		.global	pyro_board
+ 641              		.section	.bss.pyro_board,"aw",%nobits
+ 642              		.align	2
+ARM GAS  /tmp/ccJ4w9yt.s 			page 17
+
+
+ 645              	pyro_board:
+ 646 0000 00000000 		.space	12
+ 646      00000000 
+ 646      00000000 
+ 647              		.global	ina_5v
+ 648              		.section	.bss.ina_5v,"aw",%nobits
+ 649              		.align	2
+ 652              	ina_5v:
+ 653 0000 00000000 		.space	20
+ 653      00000000 
+ 653      00000000 
+ 653      00000000 
+ 653      00000000 
+ 654              		.global	ina_3v3_ch3
+ 655              		.section	.bss.ina_3v3_ch3,"aw",%nobits
+ 656              		.align	2
+ 659              	ina_3v3_ch3:
+ 660 0000 00000000 		.space	20
+ 660      00000000 
+ 660      00000000 
+ 660      00000000 
+ 660      00000000 
+ 661              		.global	ina_3v3_ch2
+ 662              		.section	.bss.ina_3v3_ch2,"aw",%nobits
+ 663              		.align	2
+ 666              	ina_3v3_ch2:
+ 667 0000 00000000 		.space	20
+ 667      00000000 
+ 667      00000000 
+ 667      00000000 
+ 667      00000000 
+ 668              		.global	ina_3v3_ch1
+ 669              		.section	.bss.ina_3v3_ch1,"aw",%nobits
+ 670              		.align	2
+ 673              	ina_3v3_ch1:
+ 674 0000 00000000 		.space	20
+ 674      00000000 
+ 674      00000000 
+ 674      00000000 
+ 674      00000000 
+ 675              		.global	bmp581
+ 676              		.section	.bss.bmp581,"aw",%nobits
+ 677              		.align	2
+ 680              	bmp581:
+ 681 0000 00000000 		.space	12
+ 681      00000000 
+ 681      00000000 
+ 682              		.global	magnetometer
+ 683              		.section	.bss.magnetometer,"aw",%nobits
+ 684              		.align	2
+ 687              	magnetometer:
+ 688 0000 00000000 		.space	24
+ 688      00000000 
+ 688      00000000 
+ 688      00000000 
+ 688      00000000 
+ 689              		.global	icm45686
+ARM GAS  /tmp/ccJ4w9yt.s 			page 18
+
+
+ 690              		.section	.bss.icm45686,"aw",%nobits
+ 691              		.align	3
+ 694              	icm45686:
+ 695 0000 00000000 		.space	48
+ 695      00000000 
+ 695      00000000 
+ 695      00000000 
+ 695      00000000 
+ 696              		.global	us_timer_device_manager
+ 697              		.section	.bss.us_timer_device_manager,"aw",%nobits
+ 698              		.align	2
+ 701              	us_timer_device_manager:
+ 702 0000 00000000 		.space	8
+ 702      00000000 
+ 703              		.global	us_timer
+ 704              		.section	.bss.us_timer,"aw",%nobits
+ 705              		.align	2
+ 708              	us_timer:
+ 709 0000 00000000 		.space	8
+ 709      00000000 
+ 710              		.text
+ 711              	.Letext0:
+ 712              		.file 2 "/usr/include/newlib/machine/_default_types.h"
+ 713              		.file 3 "/usr/include/newlib/sys/_stdint.h"
+ 714              		.file 4 "src/falafel/falafel.h"
+ 715              		.file 5 "external/drivers/cmsis/include/stm32h723xx.h"
+ 716              		.file 6 "external/drivers/stm32h7xx/include/stm32h7xx_hal_def.h"
+ 717              		.file 7 "external/drivers/stm32h7xx/include/stm32h7xx_hal_dma.h"
+ 718              		.file 8 "external/drivers/stm32h7xx/include/stm32h7xx_hal_i2c.h"
+ 719              		.file 9 "external/drivers/stm32h7xx/include/stm32h7xx_hal_spi.h"
+ 720              		.file 10 "external/drivers/stm32h7xx/include/stm32h7xx_hal_tim.h"
+ 721              		.file 11 "external/drivers/stm32h7xx/include/stm32h7xx_hal_uart.h"
+ 722              		.file 12 "src/system/i2c.h"
+ 723              		.file 13 "src/system/usart.h"
+ 724              		.file 14 "src/system/spi.h"
+ 725              		.file 15 "src/system/tim.h"
+ 726              		.file 16 "src/drivers/us_timer/us_timer.h"
+ 727              		.file 17 "src/drivers/adis16577/adis16577.h"
+ 728              		.file 18 "src/drivers/bmp581/bmp581.h"
+ 729              		.file 19 "src/drivers/icm45686/icm45686.h"
+ 730              		.file 20 "src/drivers/ina260/ina260.h"
+ 731              		.file 21 "src/drivers/lis3mdl/lis3mdl.h"
+ 732              		.file 22 "src/drivers/pyro_board/pyro_board.h"
+ 733              		.file 23 "src/managers/device_manager/device_manager.h"
+ 734              		.file 24 "/usr/include/newlib/stdio.h"
+ 735              		.file 25 "external/drivers/stm32h7xx/include/stm32h7xx_hal.h"
+ 736              		.file 26 "src/system/init.h"
+ 737              		.file 27 "<built-in>"
+ARM GAS  /tmp/ccJ4w9yt.s 			page 19
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 main_test.c
+     /tmp/ccJ4w9yt.s:20     .rodata.main.str1.4:00000000 $d
+     /tmp/ccJ4w9yt.s:45     .text.main:00000000 $t
+     /tmp/ccJ4w9yt.s:51     .text.main:00000000 main
+     /tmp/ccJ4w9yt.s:442    .text.main:000001c0 $d
+     /tmp/ccJ4w9yt.s:708    .bss.us_timer:00000000 us_timer
+     /tmp/ccJ4w9yt.s:701    .bss.us_timer_device_manager:00000000 us_timer_device_manager
+     /tmp/ccJ4w9yt.s:694    .bss.icm45686:00000000 icm45686
+     /tmp/ccJ4w9yt.s:673    .bss.ina_3v3_ch1:00000000 ina_3v3_ch1
+     /tmp/ccJ4w9yt.s:666    .bss.ina_3v3_ch2:00000000 ina_3v3_ch2
+     /tmp/ccJ4w9yt.s:659    .bss.ina_3v3_ch3:00000000 ina_3v3_ch3
+     /tmp/ccJ4w9yt.s:652    .bss.ina_5v:00000000 ina_5v
+     /tmp/ccJ4w9yt.s:645    .bss.pyro_board:00000000 pyro_board
+     /tmp/ccJ4w9yt.s:638    .bss.adis:00000000 adis
+     /tmp/ccJ4w9yt.s:631    .bss.device_manager:00000000 device_manager
+     /tmp/ccJ4w9yt.s:687    .bss.magnetometer:00000000 magnetometer
+     /tmp/ccJ4w9yt.s:680    .bss.bmp581:00000000 bmp581
+     /tmp/ccJ4w9yt.s:475    .text._write:00000000 $t
+     /tmp/ccJ4w9yt.s:481    .text._write:00000000 _write
+     /tmp/ccJ4w9yt.s:514    .text._write:00000014 $d
+     /tmp/ccJ4w9yt.s:519    .rodata.i2c_scan.str1.4:00000000 $d
+     /tmp/ccJ4w9yt.s:526    .text.i2c_scan:00000000 $t
+     /tmp/ccJ4w9yt.s:532    .text.i2c_scan:00000000 i2c_scan
+     /tmp/ccJ4w9yt.s:621    .text.i2c_scan:00000048 $d
+     /tmp/ccJ4w9yt.s:628    .bss.device_manager:00000000 $d
+     /tmp/ccJ4w9yt.s:635    .bss.adis:00000000 $d
+     /tmp/ccJ4w9yt.s:642    .bss.pyro_board:00000000 $d
+     /tmp/ccJ4w9yt.s:649    .bss.ina_5v:00000000 $d
+     /tmp/ccJ4w9yt.s:656    .bss.ina_3v3_ch3:00000000 $d
+     /tmp/ccJ4w9yt.s:663    .bss.ina_3v3_ch2:00000000 $d
+     /tmp/ccJ4w9yt.s:670    .bss.ina_3v3_ch1:00000000 $d
+     /tmp/ccJ4w9yt.s:677    .bss.bmp581:00000000 $d
+     /tmp/ccJ4w9yt.s:684    .bss.magnetometer:00000000 $d
+     /tmp/ccJ4w9yt.s:691    .bss.icm45686:00000000 $d
+     /tmp/ccJ4w9yt.s:698    .bss.us_timer_device_manager:00000000 $d
+     /tmp/ccJ4w9yt.s:705    .bss.us_timer:00000000 $d
+
+UNDEFINED SYMBOLS
+init
+HAL_Delay
+printf
+us_timer_init
+device_manager_init
+puts
+device_manager_poll_devices
+htim2
+htim5
+hi2c1
+hspi1
+HAL_UART_Transmit
+huart3
+HAL_I2C_Master_Transmit
