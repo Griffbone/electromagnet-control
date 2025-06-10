@@ -1,0 +1,87 @@
+ARM GAS  /tmp/ccxHJRdP.s 			page 1
+
+
+   1              		.cpu cortex-m0plus
+   2              		.arch armv6s-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.file	"main.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "src/main.c"
+  18              		.section	.text.main,"ax",%progbits
+  19              		.align	1
+  20              		.global	main
+  21              		.syntax unified
+  22              		.code	16
+  23              		.thumb_func
+  25              	main:
+  26              	.LFB217:
+   1:src/main.c    **** /* SYSTEM IMPORTS*/
+   2:src/main.c    **** #include "low_level/type_definitions.h"
+   3:src/main.c    **** 
+   4:src/main.c    **** /* HAL IMPORTS*/
+   5:src/main.c    **** #include "system/init.h"
+   6:src/main.c    **** #include "system/gpio.h"
+   7:src/main.c    **** // #include "system/usart.h"
+   8:src/main.c    **** 
+   9:src/main.c    **** /* DRIVER IMPORTS*/
+  10:src/main.c    **** #include "drivers/bbpwm/bbpwm.h"
+  11:src/main.c    **** 
+  12:src/main.c    **** /* ==================== declare up BBPWM structs ==================== */
+  13:src/main.c    **** 
+  14:src/main.c    **** int main(void) {
+  27              		.loc 1 14 16 view -0
+  28              		.cfi_startproc
+  29              		@ Volatile: function does not return.
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 10B5     		push	{r4, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 4, -8
+  36              		.cfi_offset 14, -4
+  15:src/main.c    ****   init();
+  37              		.loc 1 15 3 view .LVU1
+  38 0002 FFF7FEFF 		bl	init
+  39              	.LVL0:
+  40              	.L2:
+  16:src/main.c    **** 
+  17:src/main.c    ****   /* ==================== initialize up BBPWM structs ==================== */
+  18:src/main.c    **** 
+ARM GAS  /tmp/ccxHJRdP.s 			page 2
+
+
+  19:src/main.c    ****   /* ==================== infinite while loop structs ==================== */
+  20:src/main.c    ****   while (1) {
+  41              		.loc 1 20 3 discriminator 1 view .LVU2
+  21:src/main.c    **** 
+  22:src/main.c    ****   }
+  42              		.loc 1 22 3 discriminator 1 view .LVU3
+  20:src/main.c    **** 
+  43              		.loc 1 20 9 discriminator 1 view .LVU4
+  44 0006 FEE7     		b	.L2
+  45              		.cfi_endproc
+  46              	.LFE217:
+  48              		.text
+  49              	.Letext0:
+  50              		.file 2 "src/system/init.h"
+ARM GAS  /tmp/ccxHJRdP.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+     /tmp/ccxHJRdP.s:19     .text.main:00000000 $t
+     /tmp/ccxHJRdP.s:25     .text.main:00000000 main
+
+UNDEFINED SYMBOLS
+init

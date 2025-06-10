@@ -1,2 +1,0 @@
-build/nucleo_test/on_board_operations_scheduling_service.o: \
- src/services/on_board_operations_scheduling_service/on_board_operations_scheduling_service.c

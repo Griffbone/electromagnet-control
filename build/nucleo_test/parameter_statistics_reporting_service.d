@@ -1,2 +1,0 @@
-build/nucleo_test/parameter_statistics_reporting_service.o: \
- src/services/parameter_statistics_reporting_service/parameter_statistics_reporting_service.c

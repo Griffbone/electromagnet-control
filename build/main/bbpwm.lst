@@ -1,0 +1,224 @@
+ARM GAS  /tmp/cc43vIml.s 			page 1
+
+
+   1              		.cpu cortex-m0plus
+   2              		.arch armv6s-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.file	"bbpwm.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "src/drivers/bbpwm/bbpwm.c"
+  18              		.section	.text.bbpwm_update,"ax",%progbits
+  19              		.align	1
+  20              		.global	bbpwm_update
+  21              		.syntax unified
+  22              		.code	16
+  23              		.thumb_func
+  25              	bbpwm_update:
+  26              	.LVL0:
+  27              	.LFB214:
+   1:src/drivers/bbpwm/bbpwm.c **** #include "bbpwm.h"
+   2:src/drivers/bbpwm/bbpwm.c **** 
+   3:src/drivers/bbpwm/bbpwm.c **** bbpwm_err_t bbpwm_update(bbpwm_device_t *device) {
+  28              		.loc 1 3 50 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		.loc 1 3 50 is_stmt 0 view .LVU1
+  33 0000 70B5     		push	{r4, r5, r6, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 16
+  36              		.cfi_offset 4, -16
+  37              		.cfi_offset 5, -12
+  38              		.cfi_offset 6, -8
+  39              		.cfi_offset 14, -4
+  40 0002 0400     		movs	r4, r0
+   4:src/drivers/bbpwm/bbpwm.c **** 	// Get timer counter
+   5:src/drivers/bbpwm/bbpwm.c **** 	uint16_t count = device->htim->Instance->CNT;
+  41              		.loc 1 5 2 is_stmt 1 view .LVU2
+  42              		.loc 1 5 25 is_stmt 0 view .LVU3
+  43 0004 0369     		ldr	r3, [r0, #16]
+  44              		.loc 1 5 31 view .LVU4
+  45 0006 1B68     		ldr	r3, [r3]
+  46              		.loc 1 5 41 view .LVU5
+  47 0008 5B6A     		ldr	r3, [r3, #36]
+  48              		.loc 1 5 11 view .LVU6
+  49 000a 9DB2     		uxth	r5, r3
+  50              	.LVL1:
+   6:src/drivers/bbpwm/bbpwm.c **** 
+   7:src/drivers/bbpwm/bbpwm.c **** 	// If we are on and past ton, turn off
+   8:src/drivers/bbpwm/bbpwm.c **** 	if (device->state && ((count - device->last_update) > device->ton)) {
+ARM GAS  /tmp/cc43vIml.s 			page 2
+
+
+  51              		.loc 1 8 2 is_stmt 1 view .LVU7
+  52              		.loc 1 8 12 is_stmt 0 view .LVU8
+  53 000c 0178     		ldrb	r1, [r0]
+  54              		.loc 1 8 5 view .LVU9
+  55 000e 0029     		cmp	r1, #0
+  56 0010 06D0     		beq	.L2
+  57              		.loc 1 8 39 discriminator 1 view .LVU10
+  58 0012 C088     		ldrh	r0, [r0, #6]
+  59              	.LVL2:
+  60              		.loc 1 8 31 discriminator 1 view .LVU11
+  61 0014 1A04     		lsls	r2, r3, #16
+  62 0016 120C     		lsrs	r2, r2, #16
+  63 0018 121A     		subs	r2, r2, r0
+  64              		.loc 1 8 62 discriminator 1 view .LVU12
+  65 001a 6088     		ldrh	r0, [r4, #2]
+  66              		.loc 1 8 20 discriminator 1 view .LVU13
+  67 001c 8242     		cmp	r2, r0
+  68 001e 0ADC     		bgt	.L4
+  69              	.L2:
+   9:src/drivers/bbpwm/bbpwm.c **** 		HAL_GPIO_WritePin(device->gpio_port, device->gpio_pin, GPIO_PIN_RESET);
+  10:src/drivers/bbpwm/bbpwm.c **** 		device->last_update = count;
+  11:src/drivers/bbpwm/bbpwm.c **** 	}
+  12:src/drivers/bbpwm/bbpwm.c **** 	// If we are off and past toff, turn on
+  13:src/drivers/bbpwm/bbpwm.c **** 	else if (!(device->state) && ((count - device->last_update) > device->toff)) {
+  70              		.loc 1 13 7 is_stmt 1 view .LVU14
+  71              		.loc 1 13 10 is_stmt 0 view .LVU15
+  72 0020 0029     		cmp	r1, #0
+  73 0022 06D1     		bne	.L3
+  74              		.loc 1 13 47 discriminator 1 view .LVU16
+  75 0024 E288     		ldrh	r2, [r4, #6]
+  76              		.loc 1 13 39 discriminator 1 view .LVU17
+  77 0026 1B04     		lsls	r3, r3, #16
+  78 0028 1B0C     		lsrs	r3, r3, #16
+  79 002a 9B1A     		subs	r3, r3, r2
+  80              		.loc 1 13 70 discriminator 1 view .LVU18
+  81 002c A288     		ldrh	r2, [r4, #4]
+  82              		.loc 1 13 28 discriminator 1 view .LVU19
+  83 002e 9342     		cmp	r3, r2
+  84 0030 08DC     		bgt	.L5
+  85              	.L3:
+  14:src/drivers/bbpwm/bbpwm.c **** 		HAL_GPIO_WritePin(device->gpio_port, device->gpio_pin, GPIO_PIN_SET);
+  15:src/drivers/bbpwm/bbpwm.c **** 		device->last_update = count;
+  16:src/drivers/bbpwm/bbpwm.c **** 	}
+  17:src/drivers/bbpwm/bbpwm.c **** 
+  18:src/drivers/bbpwm/bbpwm.c **** 	return BBPWM_ERR_OK;
+  86              		.loc 1 18 2 is_stmt 1 view .LVU20
+  19:src/drivers/bbpwm/bbpwm.c **** }
+  87              		.loc 1 19 1 is_stmt 0 view .LVU21
+  88 0032 0020     		movs	r0, #0
+  89              		@ sp needed
+  90              	.LVL3:
+  91              	.LVL4:
+  92              		.loc 1 19 1 view .LVU22
+  93 0034 70BD     		pop	{r4, r5, r6, pc}
+  94              	.LVL5:
+  95              	.L4:
+   9:src/drivers/bbpwm/bbpwm.c **** 		HAL_GPIO_WritePin(device->gpio_port, device->gpio_pin, GPIO_PIN_RESET);
+ARM GAS  /tmp/cc43vIml.s 			page 3
+
+
+  96              		.loc 1 9 3 is_stmt 1 view .LVU23
+  97 0036 A189     		ldrh	r1, [r4, #12]
+  98 0038 A068     		ldr	r0, [r4, #8]
+  99 003a 0022     		movs	r2, #0
+ 100 003c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 101              	.LVL6:
+  10:src/drivers/bbpwm/bbpwm.c **** 	}
+ 102              		.loc 1 10 3 view .LVU24
+  10:src/drivers/bbpwm/bbpwm.c **** 	}
+ 103              		.loc 1 10 23 is_stmt 0 view .LVU25
+ 104 0040 E580     		strh	r5, [r4, #6]
+ 105 0042 F6E7     		b	.L3
+ 106              	.L5:
+  14:src/drivers/bbpwm/bbpwm.c **** 		HAL_GPIO_WritePin(device->gpio_port, device->gpio_pin, GPIO_PIN_SET);
+ 107              		.loc 1 14 3 is_stmt 1 view .LVU26
+ 108 0044 A189     		ldrh	r1, [r4, #12]
+ 109 0046 A068     		ldr	r0, [r4, #8]
+ 110 0048 0122     		movs	r2, #1
+ 111 004a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 112              	.LVL7:
+  15:src/drivers/bbpwm/bbpwm.c **** 	}
+ 113              		.loc 1 15 3 view .LVU27
+  15:src/drivers/bbpwm/bbpwm.c **** 	}
+ 114              		.loc 1 15 23 is_stmt 0 view .LVU28
+ 115 004e E580     		strh	r5, [r4, #6]
+ 116 0050 EFE7     		b	.L3
+ 117              		.cfi_endproc
+ 118              	.LFE214:
+ 120              		.section	.text.bbpwm_set_dc,"ax",%progbits
+ 121              		.align	1
+ 122              		.global	bbpwm_set_dc
+ 123              		.syntax unified
+ 124              		.code	16
+ 125              		.thumb_func
+ 127              	bbpwm_set_dc:
+ 128              	.LVL8:
+ 129              	.LFB215:
+  20:src/drivers/bbpwm/bbpwm.c **** 
+  21:src/drivers/bbpwm/bbpwm.c **** bbpwm_err_t bbpwm_set_dc(bbpwm_device_t *device, uint8_t dc) {
+ 130              		.loc 1 21 62 is_stmt 1 view -0
+ 131              		.cfi_startproc
+ 132              		@ args = 0, pretend = 0, frame = 0
+ 133              		@ frame_needed = 0, uses_anonymous_args = 0
+ 134              		@ link register save eliminated.
+  22:src/drivers/bbpwm/bbpwm.c **** 	// Calculate ton and toff
+  23:src/drivers/bbpwm/bbpwm.c **** 	uint16_t ton = 0;
+ 135              		.loc 1 23 2 view .LVU30
+  24:src/drivers/bbpwm/bbpwm.c **** 	uint16_t toff = 0;
+ 136              		.loc 1 24 2 view .LVU31
+  25:src/drivers/bbpwm/bbpwm.c **** 
+  26:src/drivers/bbpwm/bbpwm.c **** 	// TODO: figure out the logic for how to calculate this
+  27:src/drivers/bbpwm/bbpwm.c **** 	// Need to take in actual frequency (from clock speed and prescaler) and convert to a
+  28:src/drivers/bbpwm/bbpwm.c **** 	// delta-count (amount of ticks on and amount of ticks off)
+  29:src/drivers/bbpwm/bbpwm.c **** 
+  30:src/drivers/bbpwm/bbpwm.c **** 	// Set ton and toff into device structure
+  31:src/drivers/bbpwm/bbpwm.c **** 	device->ton = ton;
+ 137              		.loc 1 31 2 view .LVU32
+ARM GAS  /tmp/cc43vIml.s 			page 4
+
+
+ 138              		.loc 1 31 14 is_stmt 0 view .LVU33
+ 139 0000 0023     		movs	r3, #0
+ 140 0002 4380     		strh	r3, [r0, #2]
+  32:src/drivers/bbpwm/bbpwm.c **** 	device->toff = toff;
+ 141              		.loc 1 32 2 is_stmt 1 view .LVU34
+ 142              		.loc 1 32 15 is_stmt 0 view .LVU35
+ 143 0004 8380     		strh	r3, [r0, #4]
+  33:src/drivers/bbpwm/bbpwm.c **** 
+  34:src/drivers/bbpwm/bbpwm.c **** 	// Return error code
+  35:src/drivers/bbpwm/bbpwm.c **** 	return BBPWM_ERR_OK;
+ 144              		.loc 1 35 2 is_stmt 1 view .LVU36
+  36:src/drivers/bbpwm/bbpwm.c **** }
+ 145              		.loc 1 36 1 is_stmt 0 view .LVU37
+ 146 0006 0020     		movs	r0, #0
+ 147              	.LVL9:
+ 148              		.loc 1 36 1 view .LVU38
+ 149              		@ sp needed
+ 150 0008 7047     		bx	lr
+ 151              		.cfi_endproc
+ 152              	.LFE215:
+ 154              		.text
+ 155              	.Letext0:
+ 156              		.file 2 "/usr/lib/gcc/arm-none-eabi/12.2.1/include/stdint.h"
+ 157              		.file 3 "external/drivers/cmsis/include/stm32c031xx.h"
+ 158              		.file 4 "external/drivers/stm32c0xx/include/stm32c0xx_hal_def.h"
+ 159              		.file 5 "external/drivers/stm32c0xx/include/stm32c0xx_hal_gpio.h"
+ 160              		.file 6 "external/drivers/stm32c0xx/include/stm32c0xx_hal_dma.h"
+ 161              		.file 7 "external/drivers/stm32c0xx/include/stm32c0xx_hal_tim.h"
+ 162              		.file 8 "src/drivers/bbpwm/bbpwm.h"
+ARM GAS  /tmp/cc43vIml.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 bbpwm.c
+     /tmp/cc43vIml.s:19     .text.bbpwm_update:00000000 $t
+     /tmp/cc43vIml.s:25     .text.bbpwm_update:00000000 bbpwm_update
+     /tmp/cc43vIml.s:121    .text.bbpwm_set_dc:00000000 $t
+     /tmp/cc43vIml.s:127    .text.bbpwm_set_dc:00000000 bbpwm_set_dc
+
+UNDEFINED SYMBOLS
+HAL_GPIO_WritePin

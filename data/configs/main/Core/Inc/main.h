@@ -27,7 +27,7 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32l4xx_hal.h"
+#include "stm32c0xx_hal.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -57,28 +57,10 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define IGNITOR_EN_Pin GPIO_PIN_13
-#define IGNITOR_EN_GPIO_Port GPIOC
-#define SHORT_DETECT_Pin GPIO_PIN_3
-#define SHORT_DETECT_GPIO_Port GPIOA
-#define SENSE_4_Pin GPIO_PIN_12
-#define SENSE_4_GPIO_Port GPIOB
-#define FIRE_4_Pin GPIO_PIN_13
-#define FIRE_4_GPIO_Port GPIOB
-#define FIRE_3_Pin GPIO_PIN_14
-#define FIRE_3_GPIO_Port GPIOB
-#define SENSE_3_Pin GPIO_PIN_15
-#define SENSE_3_GPIO_Port GPIOB
-#define SENSE_2_Pin GPIO_PIN_8
-#define SENSE_2_GPIO_Port GPIOA
-#define FIRE_2_Pin GPIO_PIN_9
-#define FIRE_2_GPIO_Port GPIOA
-#define FIRE_1_Pin GPIO_PIN_10
-#define FIRE_1_GPIO_Port GPIOA
-#define SENSE_1_Pin GPIO_PIN_11
-#define SENSE_1_GPIO_Port GPIOA
-#define IGNITOR_CTRL_Pin GPIO_PIN_12
-#define IGNITOR_CTRL_GPIO_Port GPIOA
+#define LEDPIN_Pin GPIO_PIN_5
+#define LEDPIN_GPIO_Port GPIOA
+#define BBPWM_1_Pin GPIO_PIN_9
+#define BBPWM_1_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 

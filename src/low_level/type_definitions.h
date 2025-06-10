@@ -1,8 +1,8 @@
-#ifndef TYPE_DEFINITIONS_H
-#define TYPE_DEFINITIONS_H
+#ifndef __TYPE_DEFS_H__
+#define __TYPE_DEFS_H__
 
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
 
-#endif
+#endif /* __TYPE_DEFS_H__ */
