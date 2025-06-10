@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccu2lPm9.s 			page 1
+ARM GAS  /tmp/ccI7InyM.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
   29:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****         (++) Analog mode
   30:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****         (++) Output mode
   31:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****         (++) Alternate function mode
-ARM GAS  /tmp/ccu2lPm9.s 			page 2
+ARM GAS  /tmp/ccI7InyM.s 			page 2
 
 
   32:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****         (++) External interrupt/event lines
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
   86:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****     (#) To set the level of several pins and reset level of several other pins in
   87:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****         same cycle, use HAL_GPIO_WriteMultipleStatePin().
   88:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c **** 
-ARM GAS  /tmp/ccu2lPm9.s 			page 3
+ARM GAS  /tmp/ccI7InyM.s 			page 3
 
 
   89:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****     (#) To lock pin configuration until next reset use HAL_GPIO_LockPin().
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
  143:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c **** /**
  144:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****   * @}
  145:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****   */
-ARM GAS  /tmp/ccu2lPm9.s 			page 4
+ARM GAS  /tmp/ccI7InyM.s 			page 4
 
 
  146:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c **** 
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
   51              		.loc 1 176 3 view .LVU3
  177:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****   uint32_t position = 0U;
   52              		.loc 1 177 3 view .LVU4
-ARM GAS  /tmp/ccu2lPm9.s 			page 5
+ARM GAS  /tmp/ccI7InyM.s 			page 5
 
 
   53              	.LVL1:
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
  220:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****         /* Configure the IO Speed */
  221:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****         tmp = GPIOx->OSPEEDR;
  222:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****         tmp &= ~(GPIO_OSPEEDR_OSPEED0 << (position * 2U));
-ARM GAS  /tmp/ccu2lPm9.s 			page 6
+ARM GAS  /tmp/ccI7InyM.s 			page 6
 
 
  223:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****         tmp |= (pGPIO_Init->Speed << (position * 2U));
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
   85 0024 AF58     		ldr	r7, [r5, r2]
   86              	.LVL4:
  256:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****         tmp &= ~((uint32_t)iocurrent);
-ARM GAS  /tmp/ccu2lPm9.s 			page 7
+ARM GAS  /tmp/ccI7InyM.s 			page 7
 
 
   87              		.loc 1 256 9 is_stmt 1 discriminator 20 view .LVU18
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
  132 004c A403     		lsls	r4, r4, #14
  133 004e 02D5     		bpl	.L11
  266:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****         {
-ARM GAS  /tmp/ccu2lPm9.s 			page 8
+ARM GAS  /tmp/ccI7InyM.s 			page 8
 
 
  267:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****           tmp |= iocurrent;
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
  279:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c **** 
  280:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****         tmp = EXTI->FTSR1;
  176              		.loc 1 280 9 is_stmt 1 view .LVU54
-ARM GAS  /tmp/ccu2lPm9.s 			page 9
+ARM GAS  /tmp/ccI7InyM.s 			page 9
 
 
  177              		.loc 1 280 13 is_stmt 0 view .LVU55
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
  217 008e 86E0     		b	.L25	@long jump
  218              	.LCB199:
  188:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c **** 
-ARM GAS  /tmp/ccu2lPm9.s 			page 10
+ARM GAS  /tmp/ccI7InyM.s 			page 10
 
 
  219              		.loc 1 188 5 is_stmt 1 view .LVU72
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
  257              		.loc 1 202 47 view .LVU88
  258 00b6 BF00     		lsls	r7, r7, #2
  202:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****         tmp |= ((pGPIO_Init->Alternate & 0x0FUL) << ((position & 0x07U) * 4U));
-ARM GAS  /tmp/ccu2lPm9.s 			page 11
+ARM GAS  /tmp/ccI7InyM.s 			page 11
 
 
  259              		.loc 1 202 24 view .LVU89
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
  209:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****       tmp |= ((pGPIO_Init->Mode & GPIO_MODE) << (position * 2U));
  300              		.loc 1 209 7 is_stmt 1 view .LVU103
  209:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****       tmp |= ((pGPIO_Init->Mode & GPIO_MODE) << (position * 2U));
-ARM GAS  /tmp/ccu2lPm9.s 			page 12
+ARM GAS  /tmp/ccI7InyM.s 			page 12
 
 
  301              		.loc 1 209 46 is_stmt 0 view .LVU104
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
  214:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****           (pGPIO_Init->Mode == GPIO_MODE_OUTPUT_OD) || (pGPIO_Init->Mode == GPIO_MODE_AF_OD))
  341              		.loc 1 214 53 view .LVU119
  342 0106 661E     		subs	r6, r4, #1
-ARM GAS  /tmp/ccu2lPm9.s 			page 13
+ARM GAS  /tmp/ccI7InyM.s 			page 13
 
 
  214:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****           (pGPIO_Init->Mode == GPIO_MODE_OUTPUT_OD) || (pGPIO_Init->Mode == GPIO_MODE_AF_OD))
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
  380 0124 4468     		ldr	r4, [r0, #4]
  381              	.LVL42:
  228:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****         tmp |= (((pGPIO_Init->Mode & GPIO_OUTPUT_TYPE) >> 4U) << position);
-ARM GAS  /tmp/ccu2lPm9.s 			page 14
+ARM GAS  /tmp/ccI7InyM.s 			page 14
 
 
  382              		.loc 1 228 9 is_stmt 1 view .LVU137
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
  241:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****         GPIOx->PUPDR = tmp;
  420              		.loc 1 241 9 is_stmt 1 view .LVU154
  241:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****         GPIOx->PUPDR = tmp;
-ARM GAS  /tmp/ccu2lPm9.s 			page 15
+ARM GAS  /tmp/ccI7InyM.s 			page 15
 
 
  421              		.loc 1 241 28 is_stmt 0 view .LVU155
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
  460              	.LVL51:
  251:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****         EXTI->EXTICR[position >> 2U] = tmp;
  461              		.loc 1 251 9 is_stmt 1 view .LVU171
-ARM GAS  /tmp/ccu2lPm9.s 			page 16
+ARM GAS  /tmp/ccI7InyM.s 			page 16
 
 
  251:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****         EXTI->EXTICR[position >> 2U] = tmp;
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
  508              	.L28:
  509              		.align	2
  510              	.L27:
-ARM GAS  /tmp/ccu2lPm9.s 			page 17
+ARM GAS  /tmp/ccI7InyM.s 			page 17
 
 
  511 01a8 00180240 		.word	1073879040
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
  306:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c **** 
  307:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****   /* Check the parameters */
  308:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****   assert_param(IS_GPIO_ALL_INSTANCE(GPIOx));
-ARM GAS  /tmp/ccu2lPm9.s 			page 18
+ARM GAS  /tmp/ccI7InyM.s 			page 18
 
 
  554              		.loc 1 308 3 view .LVU184
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
  337:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****       /*------------------------- GPIO Mode Configuration --------------------*/
  338:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****       /* Configure IO in Analog Mode */
  339:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****       GPIOx->MODER |= (GPIO_MODER_MODE0 << (position * 2U));
-ARM GAS  /tmp/ccu2lPm9.s 			page 19
+ARM GAS  /tmp/ccI7InyM.s 			page 19
 
 
  579              		.loc 1 339 7 is_stmt 1 view .LVU192
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
  621 004e C268     		ldr	r2, [r0, #12]
  622              		.loc 1 351 20 view .LVU211
  623 0050 AA43     		bics	r2, r5
-ARM GAS  /tmp/ccu2lPm9.s 			page 20
+ARM GAS  /tmp/ccI7InyM.s 			page 20
 
 
  624 0052 C260     		str	r2, [r0, #12]
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
  663              	.LVL61:
  322:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****       if (tmp == (GPIO_GET_INDEX(GPIOx) << (8U * (position & 0x03U))))
  664              		.loc 1 322 7 is_stmt 1 view .LVU226
-ARM GAS  /tmp/ccu2lPm9.s 			page 21
+ARM GAS  /tmp/ccI7InyM.s 			page 21
 
 
  322:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****       if (tmp == (GPIO_GET_INDEX(GPIOx) << (8U * (position & 0x03U))))
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
  707 00ae B3E7     		b	.L32
  708              	.L37:
  709 00b0 0221     		movs	r1, #2
-ARM GAS  /tmp/ccu2lPm9.s 			page 22
+ARM GAS  /tmp/ccI7InyM.s 			page 22
 
 
  710 00b2 8846     		mov	r8, r1
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
  751 00e4 8C43     		bics	r4, r1
  752 00e6 6C60     		str	r4, [r5, #4]
  333:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****         EXTI->EXTICR[position >> 2U] &= ~tmp;
-ARM GAS  /tmp/ccu2lPm9.s 			page 23
+ARM GAS  /tmp/ccI7InyM.s 			page 23
 
 
  753              		.loc 1 333 9 is_stmt 1 view .LVU252
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
  366:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****  ===============================================================================
  367:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****                        ##### IO operation functions #####
  368:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****  ===============================================================================
-ARM GAS  /tmp/ccu2lPm9.s 			page 24
+ARM GAS  /tmp/ccI7InyM.s 			page 24
 
 
  369:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c **** 
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
  819 000a 0020     		movs	r0, #0
  820              	.LVL71:
  394:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****   }
-ARM GAS  /tmp/ccu2lPm9.s 			page 25
+ARM GAS  /tmp/ccI7InyM.s 			page 25
 
 
  821              		.loc 1 394 15 view .LVU268
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
  424:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****   {
  425:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****     GPIOx->BRR = (uint32_t)GPIO_Pin;
  426:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****   }
-ARM GAS  /tmp/ccu2lPm9.s 			page 26
+ARM GAS  /tmp/ccI7InyM.s 			page 26
 
 
  427:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c **** }
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
  451:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c **** 
  452:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****   tmp = (((uint32_t)PinReset << 16) | PinSet);
  881              		.loc 1 452 3 view .LVU284
-ARM GAS  /tmp/ccu2lPm9.s 			page 27
+ARM GAS  /tmp/ccI7InyM.s 			page 27
 
 
  882              		.loc 1 452 30 is_stmt 0 view .LVU285
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
  473:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****   GPIOx->BSRR = ((odr & GPIO_Pin) << GPIO_NUMBER) | (~odr & GPIO_Pin);
  918              		.loc 1 473 3 is_stmt 1 view .LVU295
  919              		.loc 1 473 23 is_stmt 0 view .LVU296
-ARM GAS  /tmp/ccu2lPm9.s 			page 28
+ARM GAS  /tmp/ccI7InyM.s 			page 28
 
 
  920 0002 1300     		movs	r3, r2
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
  960 0006 0192     		str	r2, [sp, #4]
  490:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c **** 
  491:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****   /* Check the parameters */
-ARM GAS  /tmp/ccu2lPm9.s 			page 29
+ARM GAS  /tmp/ccI7InyM.s 			page 29
 
 
  492:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****   assert_param(IS_GPIO_LOCK_INSTANCE(GPIOx));
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
  994              		.loc 1 512 1 view .LVU323
  995 0024 02B0     		add	sp, sp, #8
  996              		@ sp needed
-ARM GAS  /tmp/ccu2lPm9.s 			page 30
+ARM GAS  /tmp/ccI7InyM.s 			page 30
 
 
  997 0026 7047     		bx	lr
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
  1022              		@ link register save eliminated.
  542:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****   /* Prevent unused argument(s) compilation warning */
  543:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****   UNUSED(GPIO_Pin);
-ARM GAS  /tmp/ccu2lPm9.s 			page 31
+ARM GAS  /tmp/ccI7InyM.s 			page 31
 
 
  1023              		.loc 1 543 3 view .LVU327
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
  1061              	.LFB221:
  520:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****   /* EXTI line interrupt detected */
  1062              		.loc 1 520 1 is_stmt 1 view -0
-ARM GAS  /tmp/ccu2lPm9.s 			page 32
+ARM GAS  /tmp/ccI7InyM.s 			page 32
 
 
  1063              		.cfi_startproc
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
  1105 0020 024B     		ldr	r3, .L63
  1106 0022 1C61     		str	r4, [r3, #16]
  531:external/drivers/stm32c0xx/src/stm32c0xx_hal_gpio.c ****   }
-ARM GAS  /tmp/ccu2lPm9.s 			page 33
+ARM GAS  /tmp/ccI7InyM.s 			page 33
 
 
  1107              		.loc 1 531 5 view .LVU345
@@ -1940,33 +1940,33 @@ ARM GAS  /tmp/ccu2lPm9.s 			page 1
  1123              		.file 3 "external/drivers/cmsis/include/stm32c031xx.h"
  1124              		.file 4 "external/drivers/stm32c0xx/include/stm32c0xx_hal_def.h"
  1125              		.file 5 "external/drivers/stm32c0xx/include/stm32c0xx_hal_gpio.h"
-ARM GAS  /tmp/ccu2lPm9.s 			page 34
+ARM GAS  /tmp/ccI7InyM.s 			page 34
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32c0xx_hal_gpio.c
-     /tmp/ccu2lPm9.s:19     .text.HAL_GPIO_Init:00000000 $t
-     /tmp/ccu2lPm9.s:25     .text.HAL_GPIO_Init:00000000 HAL_GPIO_Init
-     /tmp/ccu2lPm9.s:511    .text.HAL_GPIO_Init:000001a8 $d
-     /tmp/ccu2lPm9.s:520    .text.HAL_GPIO_DeInit:00000000 $t
-     /tmp/ccu2lPm9.s:526    .text.HAL_GPIO_DeInit:00000000 HAL_GPIO_DeInit
-     /tmp/ccu2lPm9.s:777    .text.HAL_GPIO_DeInit:000000fc $d
-     /tmp/ccu2lPm9.s:786    .text.HAL_GPIO_ReadPin:00000000 $t
-     /tmp/ccu2lPm9.s:792    .text.HAL_GPIO_ReadPin:00000000 HAL_GPIO_ReadPin
-     /tmp/ccu2lPm9.s:827    .text.HAL_GPIO_WritePin:00000000 $t
-     /tmp/ccu2lPm9.s:833    .text.HAL_GPIO_WritePin:00000000 HAL_GPIO_WritePin
-     /tmp/ccu2lPm9.s:864    .text.HAL_GPIO_WriteMultipleStatePin:00000000 $t
-     /tmp/ccu2lPm9.s:870    .text.HAL_GPIO_WriteMultipleStatePin:00000000 HAL_GPIO_WriteMultipleStatePin
-     /tmp/ccu2lPm9.s:898    .text.HAL_GPIO_TogglePin:00000000 $t
-     /tmp/ccu2lPm9.s:904    .text.HAL_GPIO_TogglePin:00000000 HAL_GPIO_TogglePin
-     /tmp/ccu2lPm9.s:938    .text.HAL_GPIO_LockPin:00000000 $t
-     /tmp/ccu2lPm9.s:944    .text.HAL_GPIO_LockPin:00000000 HAL_GPIO_LockPin
-     /tmp/ccu2lPm9.s:1009   .text.HAL_GPIO_EXTI_Rising_Callback:00000000 $t
-     /tmp/ccu2lPm9.s:1015   .text.HAL_GPIO_EXTI_Rising_Callback:00000000 HAL_GPIO_EXTI_Rising_Callback
-     /tmp/ccu2lPm9.s:1031   .text.HAL_GPIO_EXTI_Falling_Callback:00000000 $t
-     /tmp/ccu2lPm9.s:1037   .text.HAL_GPIO_EXTI_Falling_Callback:00000000 HAL_GPIO_EXTI_Falling_Callback
-     /tmp/ccu2lPm9.s:1053   .text.HAL_GPIO_EXTI_IRQHandler:00000000 $t
-     /tmp/ccu2lPm9.s:1059   .text.HAL_GPIO_EXTI_IRQHandler:00000000 HAL_GPIO_EXTI_IRQHandler
-     /tmp/ccu2lPm9.s:1116   .text.HAL_GPIO_EXTI_IRQHandler:0000002c $d
+     /tmp/ccI7InyM.s:19     .text.HAL_GPIO_Init:00000000 $t
+     /tmp/ccI7InyM.s:25     .text.HAL_GPIO_Init:00000000 HAL_GPIO_Init
+     /tmp/ccI7InyM.s:511    .text.HAL_GPIO_Init:000001a8 $d
+     /tmp/ccI7InyM.s:520    .text.HAL_GPIO_DeInit:00000000 $t
+     /tmp/ccI7InyM.s:526    .text.HAL_GPIO_DeInit:00000000 HAL_GPIO_DeInit
+     /tmp/ccI7InyM.s:777    .text.HAL_GPIO_DeInit:000000fc $d
+     /tmp/ccI7InyM.s:786    .text.HAL_GPIO_ReadPin:00000000 $t
+     /tmp/ccI7InyM.s:792    .text.HAL_GPIO_ReadPin:00000000 HAL_GPIO_ReadPin
+     /tmp/ccI7InyM.s:827    .text.HAL_GPIO_WritePin:00000000 $t
+     /tmp/ccI7InyM.s:833    .text.HAL_GPIO_WritePin:00000000 HAL_GPIO_WritePin
+     /tmp/ccI7InyM.s:864    .text.HAL_GPIO_WriteMultipleStatePin:00000000 $t
+     /tmp/ccI7InyM.s:870    .text.HAL_GPIO_WriteMultipleStatePin:00000000 HAL_GPIO_WriteMultipleStatePin
+     /tmp/ccI7InyM.s:898    .text.HAL_GPIO_TogglePin:00000000 $t
+     /tmp/ccI7InyM.s:904    .text.HAL_GPIO_TogglePin:00000000 HAL_GPIO_TogglePin
+     /tmp/ccI7InyM.s:938    .text.HAL_GPIO_LockPin:00000000 $t
+     /tmp/ccI7InyM.s:944    .text.HAL_GPIO_LockPin:00000000 HAL_GPIO_LockPin
+     /tmp/ccI7InyM.s:1009   .text.HAL_GPIO_EXTI_Rising_Callback:00000000 $t
+     /tmp/ccI7InyM.s:1015   .text.HAL_GPIO_EXTI_Rising_Callback:00000000 HAL_GPIO_EXTI_Rising_Callback
+     /tmp/ccI7InyM.s:1031   .text.HAL_GPIO_EXTI_Falling_Callback:00000000 $t
+     /tmp/ccI7InyM.s:1037   .text.HAL_GPIO_EXTI_Falling_Callback:00000000 HAL_GPIO_EXTI_Falling_Callback
+     /tmp/ccI7InyM.s:1053   .text.HAL_GPIO_EXTI_IRQHandler:00000000 $t
+     /tmp/ccI7InyM.s:1059   .text.HAL_GPIO_EXTI_IRQHandler:00000000 HAL_GPIO_EXTI_IRQHandler
+     /tmp/ccI7InyM.s:1116   .text.HAL_GPIO_EXTI_IRQHandler:0000002c $d
 
 NO UNDEFINED SYMBOLS

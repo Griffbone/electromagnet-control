@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccR8TRhZ.s 			page 1
+ARM GAS  /tmp/ccZ2HL5r.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -21,8 +21,10 @@ ARM GAS  /tmp/ccR8TRhZ.s 			page 1
   18              		.section	.rodata.main.str1.4,"aMS",%progbits,1
   19              		.align	2
   20              	.LC1:
-  21 0000 25640D0A 		.ascii	"%d\015\012\000"
-  21      00
+  21 0000 68656C6C 		.ascii	"hello world\015\012\000"
+  21      6F20776F 
+  21      726C640D 
+  21      0A00
   22              		.section	.text.main,"ax",%progbits
   23              		.align	1
   24              		.global	main
@@ -48,159 +50,125 @@ ARM GAS  /tmp/ccR8TRhZ.s 			page 1
   15:src/main.c    **** int main(void) {
   31              		.loc 1 15 16 view -0
   32              		.cfi_startproc
-  33              		@ args = 0, pretend = 0, frame = 0
+  33              		@ args = 0, pretend = 0, frame = 16
   34              		@ frame_needed = 0, uses_anonymous_args = 0
-  35 0000 10B5     		push	{r4, lr}
+  35 0000 30B5     		push	{r4, r5, lr}
   36              	.LCFI0:
-  37              		.cfi_def_cfa_offset 8
-  38              		.cfi_offset 4, -8
-  39              		.cfi_offset 14, -4
+  37              		.cfi_def_cfa_offset 12
+  38              		.cfi_offset 4, -12
+  39              		.cfi_offset 5, -8
+  40              		.cfi_offset 14, -4
+ARM GAS  /tmp/ccZ2HL5r.s 			page 2
+
+
+  41 0002 85B0     		sub	sp, sp, #20
+  42              	.LCFI1:
+  43              		.cfi_def_cfa_offset 32
   16:src/main.c    ****   init();
-  40              		.loc 1 16 3 view .LVU1
-  41 0002 FFF7FEFF 		bl	init
-ARM GAS  /tmp/ccR8TRhZ.s 			page 2
-
-
-  42              	.LVL0:
+  44              		.loc 1 16 3 view .LVU1
+  45 0004 FFF7FEFF 		bl	init
+  46              	.LVL0:
   17:src/main.c    **** 
   18:src/main.c    ****   // Initialize timer
   19:src/main.c    ****   HAL_TIM_Base_Start(&htim1);
-  43              		.loc 1 19 3 view .LVU2
-  44 0006 0748     		ldr	r0, .L3
-  45 0008 FFF7FEFF 		bl	HAL_TIM_Base_Start
-  46              	.LVL1:
-  47              	.L2:
+  47              		.loc 1 19 3 view .LVU2
+  48 0008 0E48     		ldr	r0, .L3
+  49 000a FFF7FEFF 		bl	HAL_TIM_Base_Start
+  50              	.LVL1:
   20:src/main.c    **** 
   21:src/main.c    ****   /* ==================== initialize up BBPWM structs ==================== */
   22:src/main.c    **** 
   23:src/main.c    ****   /* ==================== infinite while loop structs ==================== */
-  24:src/main.c    ****   while (1) {
-  48              		.loc 1 24 3 discriminator 1 view .LVU3
-  49              	.LBB2:
-  25:src/main.c    ****     uint16_t count = htim1.Instance->CNT;
-  50              		.loc 1 25 5 discriminator 1 view .LVU4
-  51              		.loc 1 25 27 is_stmt 0 discriminator 1 view .LVU5
-  52 000c 054B     		ldr	r3, .L3
-  53 000e 1B68     		ldr	r3, [r3]
-  54              		.loc 1 25 36 discriminator 1 view .LVU6
-  55 0010 596A     		ldr	r1, [r3, #36]
-  56              	.LVL2:
-  26:src/main.c    **** 
-  27:src/main.c    ****     printf("%d\r\n", count);
-  57              		.loc 1 27 5 is_stmt 1 discriminator 1 view .LVU7
-  58 0012 0904     		lsls	r1, r1, #16
-  59              	.LVL3:
-  60              		.loc 1 27 5 is_stmt 0 discriminator 1 view .LVU8
-  61 0014 090C     		lsrs	r1, r1, #16
-  62 0016 0448     		ldr	r0, .L3+4
-  63 0018 FFF7FEFF 		bl	printf
-  64              	.LVL4:
-  28:src/main.c    **** 
-  29:src/main.c    ****     HAL_Delay(100);
-  65              		.loc 1 29 5 is_stmt 1 discriminator 1 view .LVU9
-  66 001c 6420     		movs	r0, #100
-  67 001e FFF7FEFF 		bl	HAL_Delay
-  68              	.LVL5:
-  69              	.LBE2:
-  24:src/main.c    ****     uint16_t count = htim1.Instance->CNT;
-  70              		.loc 1 24 9 discriminator 1 view .LVU10
-  71 0022 F3E7     		b	.L2
-  72              	.L4:
-  73              		.align	2
-  74              	.L3:
-  75 0024 00000000 		.word	htim1
-  76 0028 00000000 		.word	.LC1
-  77              		.cfi_endproc
-  78              	.LFE217:
-  80              		.section	.text._write,"ax",%progbits
-  81              		.align	1
-  82              		.global	_write
-  83              		.syntax unified
-  84              		.code	16
-  85              		.thumb_func
-ARM GAS  /tmp/ccR8TRhZ.s 			page 3
+  24:src/main.c    ****   const char msg[] = "hello world\r\n";
+  51              		.loc 1 24 3 view .LVU3
+  52              		.loc 1 24 14 is_stmt 0 view .LVU4
+  53 000e 6A46     		mov	r2, sp
+  54 0010 0D4B     		ldr	r3, .L3+4
+  55 0012 1800     		movs	r0, r3
+  56 0014 38C8     		ldmia	r0!, {r3, r4, r5}
+  57 0016 38C2     		stmia	r2!, {r3, r4, r5}
+  58 0018 0388     		ldrh	r3, [r0]
+  59 001a 1380     		strh	r3, [r2]
+  60              	.L2:
+  25:src/main.c    **** 
+  26:src/main.c    ****   while (1) {
+  61              		.loc 1 26 3 is_stmt 1 discriminator 1 view .LVU5
+  62              	.LBB2:
+  27:src/main.c    ****     uint16_t count = htim1.Instance->CNT;
+  63              		.loc 1 27 5 discriminator 1 view .LVU6
+  64              		.loc 1 27 27 is_stmt 0 discriminator 1 view .LVU7
+  65 001c 094B     		ldr	r3, .L3
+  66 001e 1B68     		ldr	r3, [r3]
+  67              		.loc 1 27 36 discriminator 1 view .LVU8
+  68 0020 5B6A     		ldr	r3, [r3, #36]
+  28:src/main.c    ****     HAL_UART_Transmit(&huart2, (uint8_t *)msg, sizeof(msg) - 1, HAL_MAX_DELAY);
+  69              		.loc 1 28 5 is_stmt 1 discriminator 1 view .LVU9
+  70 0022 0123     		movs	r3, #1
+  71 0024 0948     		ldr	r0, .L3+8
+  72 0026 5B42     		rsbs	r3, r3, #0
+  73 0028 0D22     		movs	r2, #13
+  74 002a 6946     		mov	r1, sp
+  75 002c FFF7FEFF 		bl	HAL_UART_Transmit
+  76              	.LVL2:
+  29:src/main.c    **** 
+  30:src/main.c    ****   //  printf("hello world\r\n");
+  31:src/main.c    ****   //  printf("%d\r\n", count);
+  32:src/main.c    ****     HAL_GPIO_TogglePin(LEDPIN_GPIO_Port, LEDPIN_Pin);
+  77              		.loc 1 32 5 discriminator 1 view .LVU10
+  78 0030 A020     		movs	r0, #160
+  79 0032 2021     		movs	r1, #32
+  80 0034 C005     		lsls	r0, r0, #23
+ARM GAS  /tmp/ccZ2HL5r.s 			page 3
 
 
-  87              	_write:
-  88              	.LVL6:
-  89              	.LFB218:
-  30:src/main.c    ****   }
-  31:src/main.c    ****   return 0;
-  32:src/main.c    **** }
-  33:src/main.c    **** 
-  34:src/main.c    **** int _write(int file, char *ptr, int len) {
-  90              		.loc 1 34 42 view -0
-  91              		.cfi_startproc
-  92              		@ args = 0, pretend = 0, frame = 0
-  93              		@ frame_needed = 0, uses_anonymous_args = 0
-  94              		.loc 1 34 42 is_stmt 0 view .LVU12
-  95 0000 10B5     		push	{r4, lr}
-  96              	.LCFI1:
-  97              		.cfi_def_cfa_offset 8
-  98              		.cfi_offset 4, -8
-  99              		.cfi_offset 14, -4
- 100 0002 1400     		movs	r4, r2
-  35:src/main.c    ****   HAL_UART_Transmit(&huart2, (uint8_t *)ptr, len, HAL_MAX_DELAY);
- 101              		.loc 1 35 3 is_stmt 1 view .LVU13
- 102 0004 0123     		movs	r3, #1
- 103 0006 92B2     		uxth	r2, r2
- 104              	.LVL7:
- 105              		.loc 1 35 3 is_stmt 0 view .LVU14
- 106 0008 0248     		ldr	r0, .L6
- 107              	.LVL8:
- 108              		.loc 1 35 3 view .LVU15
- 109 000a 5B42     		rsbs	r3, r3, #0
- 110 000c FFF7FEFF 		bl	HAL_UART_Transmit
- 111              	.LVL9:
-  36:src/main.c    ****   return len;
- 112              		.loc 1 36 3 is_stmt 1 view .LVU16
-  37:src/main.c    **** }...
- 113              		.loc 1 37 1 is_stmt 0 view .LVU17
- 114 0010 2000     		movs	r0, r4
- 115              		@ sp needed
- 116              	.LVL10:
- 117              		.loc 1 37 1 view .LVU18
- 118 0012 10BD     		pop	{r4, pc}
- 119              	.L7:
- 120              		.align	2
- 121              	.L6:
- 122 0014 00000000 		.word	huart2
- 123              		.cfi_endproc
- 124              	.LFE218:
- 126              		.text
- 127              	.Letext0:
- 128              		.file 2 "/usr/lib/gcc/arm-none-eabi/12.2.1/include/stdint.h"
- 129              		.file 3 "external/drivers/cmsis/include/stm32c031xx.h"
- 130              		.file 4 "external/drivers/stm32c0xx/include/stm32c0xx_hal_def.h"
- 131              		.file 5 "external/drivers/stm32c0xx/include/stm32c0xx_hal_dma.h"
- 132              		.file 6 "external/drivers/stm32c0xx/include/stm32c0xx_hal_tim.h"
- 133              		.file 7 "external/drivers/stm32c0xx/include/stm32c0xx_hal_uart.h"
- 134              		.file 8 "src/system/tim.h"
- 135              		.file 9 "src/system/usart.h"
- 136              		.file 10 "/usr/include/newlib/stdio.h"
-ARM GAS  /tmp/ccR8TRhZ.s 			page 4
-
-
- 137              		.file 11 "external/drivers/stm32c0xx/include/stm32c0xx_hal.h"
- 138              		.file 12 "src/system/init.h"
-ARM GAS  /tmp/ccR8TRhZ.s 			page 5
+  81 0036 FFF7FEFF 		bl	HAL_GPIO_TogglePin
+  82              	.LVL3:
+  33:src/main.c    ****     HAL_Delay(1000);
+  83              		.loc 1 33 5 discriminator 1 view .LVU11
+  84 003a FA20     		movs	r0, #250
+  85 003c 8000     		lsls	r0, r0, #2
+  86 003e FFF7FEFF 		bl	HAL_Delay
+  87              	.LVL4:
+  88              	.LBE2:
+  26:src/main.c    ****     uint16_t count = htim1.Instance->CNT;
+  89              		.loc 1 26 9 discriminator 1 view .LVU12
+  90 0042 EBE7     		b	.L2
+  91              	.L4:
+  92              		.align	2
+  93              	.L3:
+  94 0044 00000000 		.word	htim1
+  95 0048 00000000 		.word	.LC1
+  96 004c 00000000 		.word	huart2
+  97              		.cfi_endproc
+  98              	.LFE217:
+ 100              		.text
+ 101              	.Letext0:
+ 102              		.file 2 "/usr/lib/gcc/arm-none-eabi/12.2.1/include/stdint.h"
+ 103              		.file 3 "external/drivers/cmsis/include/stm32c031xx.h"
+ 104              		.file 4 "external/drivers/stm32c0xx/include/stm32c0xx_hal_def.h"
+ 105              		.file 5 "external/drivers/stm32c0xx/include/stm32c0xx_hal_dma.h"
+ 106              		.file 6 "external/drivers/stm32c0xx/include/stm32c0xx_hal_tim.h"
+ 107              		.file 7 "external/drivers/stm32c0xx/include/stm32c0xx_hal_uart.h"
+ 108              		.file 8 "src/system/tim.h"
+ 109              		.file 9 "src/system/usart.h"
+ 110              		.file 10 "external/drivers/stm32c0xx/include/stm32c0xx_hal.h"
+ 111              		.file 11 "external/drivers/stm32c0xx/include/stm32c0xx_hal_gpio.h"
+ 112              		.file 12 "src/system/init.h"
+ARM GAS  /tmp/ccZ2HL5r.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-     /tmp/ccR8TRhZ.s:19     .rodata.main.str1.4:00000000 $d
-     /tmp/ccR8TRhZ.s:23     .text.main:00000000 $t
-     /tmp/ccR8TRhZ.s:29     .text.main:00000000 main
-     /tmp/ccR8TRhZ.s:75     .text.main:00000024 $d
-     /tmp/ccR8TRhZ.s:81     .text._write:00000000 $t
-     /tmp/ccR8TRhZ.s:87     .text._write:00000000 _write
-     /tmp/ccR8TRhZ.s:122    .text._write:00000014 $d
+     /tmp/ccZ2HL5r.s:19     .rodata.main.str1.4:00000000 $d
+     /tmp/ccZ2HL5r.s:23     .text.main:00000000 $t
+     /tmp/ccZ2HL5r.s:29     .text.main:00000000 main
+     /tmp/ccZ2HL5r.s:94     .text.main:00000044 $d
 
 UNDEFINED SYMBOLS
 init
 HAL_TIM_Base_Start
-printf
+HAL_UART_Transmit
+HAL_GPIO_TogglePin
 HAL_Delay
 htim1
-HAL_UART_Transmit
 huart2

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccKEb1ke.s 			page 1
+ARM GAS  /tmp/ccYmH5Nh.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
   30:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   [..]
   31:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     The Timer Extended features include:
   32:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     (#) Complementary outputs with programmable dead-time for :
-ARM GAS  /tmp/ccKEb1ke.s 			page 2
+ARM GAS  /tmp/ccYmH5Nh.s 			page 2
 
 
   33:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****         (++) Output Compare
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
   87:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   */
   88:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
   89:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** /** @defgroup TIMEx TIMEx
-ARM GAS  /tmp/ccKEb1ke.s 			page 3
+ARM GAS  /tmp/ccYmH5Nh.s 			page 3
 
 
   90:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   * @brief TIM Extended HAL module driver
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  144:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   * @note   When the timer instance is initialized in Hall Sensor Interface mode,
  145:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   *         timer channels 1 and channel 2 are reserved and cannot be used for
  146:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   *         other purpose.
-ARM GAS  /tmp/ccKEb1ke.s 			page 4
+ARM GAS  /tmp/ccYmH5Nh.s 			page 4
 
 
  147:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   * @param  htim TIM Hall Sensor Interface handle
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  201:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   /* Reset the IC1PSC Bits */
  202:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   htim->Instance->CCMR1 &= ~TIM_CCMR1_IC1PSC;
  203:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   /* Set the IC1PSC value */
-ARM GAS  /tmp/ccKEb1ke.s 			page 5
+ARM GAS  /tmp/ccYmH5Nh.s 			page 5
 
 
  204:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   htim->Instance->CCMR1 |= sConfig->IC1Prescaler;
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  258:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   htim->State = HAL_TIM_STATE_BUSY;
  259:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  260:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   /* Disable the TIM Peripheral Clock */
-ARM GAS  /tmp/ccKEb1ke.s 			page 6
+ARM GAS  /tmp/ccYmH5Nh.s 			page 6
 
 
  261:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   __HAL_TIM_DISABLE(htim);
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  315:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   /* Prevent unused argument(s) compilation warning */
  316:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   UNUSED(htim);
  317:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
-ARM GAS  /tmp/ccKEb1ke.s 			page 7
+ARM GAS  /tmp/ccYmH5Nh.s 			page 7
 
 
  318:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   /* NOTE : This function should not be modified, when the callback is needed,
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  372:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  373:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   /* Return function status */
  374:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   return HAL_OK;
-ARM GAS  /tmp/ccKEb1ke.s 			page 8
+ARM GAS  /tmp/ccYmH5Nh.s 			page 8
 
 
  375:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** }
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  429:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  430:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   /* Set the TIM channels state */
  431:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   TIM_CHANNEL_STATE_SET(htim, TIM_CHANNEL_1, HAL_TIM_CHANNEL_STATE_BUSY);
-ARM GAS  /tmp/ccKEb1ke.s 			page 9
+ARM GAS  /tmp/ccYmH5Nh.s 			page 9
 
 
  432:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   TIM_CHANNEL_STATE_SET(htim, TIM_CHANNEL_2, HAL_TIM_CHANNEL_STATE_BUSY);
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  486:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   TIM_CHANNEL_N_STATE_SET(htim, TIM_CHANNEL_1, HAL_TIM_CHANNEL_STATE_READY);
  487:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   TIM_CHANNEL_N_STATE_SET(htim, TIM_CHANNEL_2, HAL_TIM_CHANNEL_STATE_READY);
  488:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
-ARM GAS  /tmp/ccKEb1ke.s 			page 10
+ARM GAS  /tmp/ccYmH5Nh.s 			page 10
 
 
  489:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   /* Return function status */
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  543:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  544:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   /* Enable the DMA channel for Capture 1*/
  545:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   if (HAL_DMA_Start_IT(htim->hdma[TIM_DMA_ID_CC1], (uint32_t)&htim->Instance->CCR1, (uint32_t)pData
-ARM GAS  /tmp/ccKEb1ke.s 			page 11
+ARM GAS  /tmp/ccYmH5Nh.s 			page 11
 
 
  546:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   {
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  600:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   return HAL_OK;
  601:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** }
  602:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
-ARM GAS  /tmp/ccKEb1ke.s 			page 12
+ARM GAS  /tmp/ccYmH5Nh.s 			page 12
 
 
  603:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** /**
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  657:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   /* Enable the Main Output */
  658:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   __HAL_TIM_MOE_ENABLE(htim);
  659:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
-ARM GAS  /tmp/ccKEb1ke.s 			page 13
+ARM GAS  /tmp/ccYmH5Nh.s 			page 13
 
 
  660:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   /* Enable the Peripheral, except in trigger mode where enable is automatically done with trigger 
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  714:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   * @param  Channel TIM Channel to be enabled
  715:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   *          This parameter can be one of the following values:
  716:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
-ARM GAS  /tmp/ccKEb1ke.s 			page 14
+ARM GAS  /tmp/ccYmH5Nh.s 			page 14
 
 
  717:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  771:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  772:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     /* Enable the Capture compare channel N */
  773:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     TIM_CCxNChannelCmd(htim->Instance, Channel, TIM_CCxN_ENABLE);
-ARM GAS  /tmp/ccKEb1ke.s 			page 15
+ARM GAS  /tmp/ccYmH5Nh.s 			page 15
 
 
  774:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  828:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       __HAL_TIM_DISABLE_IT(htim, TIM_IT_CC2);
  829:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       break;
  830:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     }
-ARM GAS  /tmp/ccKEb1ke.s 			page 16
+ARM GAS  /tmp/ccYmH5Nh.s 			page 16
 
 
  831:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  885:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** {
  886:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   HAL_StatusTypeDef status = HAL_OK;
  887:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   uint32_t tmpsmcr;
-ARM GAS  /tmp/ccKEb1ke.s 			page 17
+ARM GAS  /tmp/ccYmH5Nh.s 			page 17
 
 
  888:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  942:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       /* Set the DMA error callback */
  943:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       htim->hdma[TIM_DMA_ID_CC2]->XferErrorCallback = TIM_DMAErrorCCxN ;
  944:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
-ARM GAS  /tmp/ccKEb1ke.s 			page 18
+ARM GAS  /tmp/ccYmH5Nh.s 			page 18
 
 
  945:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       /* Enable the DMA channel */
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  999:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     }
 1000:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     else
 1001:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     {
-ARM GAS  /tmp/ccKEb1ke.s 			page 19
+ARM GAS  /tmp/ccYmH5Nh.s 			page 19
 
 
 1002:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       __HAL_TIM_ENABLE(htim);
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1056:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       break;
 1057:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   }
 1058:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
-ARM GAS  /tmp/ccKEb1ke.s 			page 20
+ARM GAS  /tmp/ccYmH5Nh.s 			page 20
 
 
 1059:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   if (status == HAL_OK)
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1113:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   * @brief  Starts the PWM signal generation on the complementary output.
 1114:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   * @param  htim TIM handle
 1115:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   * @param  Channel TIM Channel to be enabled
-ARM GAS  /tmp/ccKEb1ke.s 			page 21
+ARM GAS  /tmp/ccYmH5Nh.s 			page 21
 
 
 1116:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   *          This parameter can be one of the following values:
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1170:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   * @retval HAL status
 1171:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   */
 1172:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** HAL_StatusTypeDef HAL_TIMEx_PWMN_Stop(TIM_HandleTypeDef *htim, uint32_t Channel)
-ARM GAS  /tmp/ccKEb1ke.s 			page 22
+ARM GAS  /tmp/ccYmH5Nh.s 			page 22
 
 
 1173:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** {
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1227:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       break;
 1228:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     }
 1229:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
-ARM GAS  /tmp/ccKEb1ke.s 			page 23
+ARM GAS  /tmp/ccYmH5Nh.s 			page 23
 
 
 1230:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     case TIM_CHANNEL_2:
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1284:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   *          This parameter can be one of the following values:
 1285:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   *            @arg TIM_CHANNEL_1: TIM Channel 1 selected
 1286:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   *            @arg TIM_CHANNEL_2: TIM Channel 2 selected
-ARM GAS  /tmp/ccKEb1ke.s 			page 24
+ARM GAS  /tmp/ccYmH5Nh.s 			page 24
 
 
 1287:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   *            @arg TIM_CHANNEL_3: TIM Channel 3 selected
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1341:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     /* Disable the Peripheral */
 1342:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     __HAL_TIM_DISABLE(htim);
 1343:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
-ARM GAS  /tmp/ccKEb1ke.s 			page 25
+ARM GAS  /tmp/ccYmH5Nh.s 			page 25
 
 
 1344:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     /* Set the TIM complementary channel state */
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1398:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     {
 1399:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       /* Set the DMA compare callbacks */
 1400:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       htim->hdma[TIM_DMA_ID_CC1]->XferCpltCallback = TIM_DMADelayPulseNCplt;
-ARM GAS  /tmp/ccKEb1ke.s 			page 26
+ARM GAS  /tmp/ccYmH5Nh.s 			page 26
 
 
 1401:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       htim->hdma[TIM_DMA_ID_CC1]->XferHalfCpltCallback = TIM_DMADelayPulseHalfCplt;
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1455:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       /* Enable the TIM Capture/Compare 3 DMA request */
 1456:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       __HAL_TIM_ENABLE_DMA(htim, TIM_DMA_CC3);
 1457:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       break;
-ARM GAS  /tmp/ccKEb1ke.s 			page 27
+ARM GAS  /tmp/ccYmH5Nh.s 			page 27
 
 
 1458:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     }
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1512:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     case TIM_CHANNEL_1:
 1513:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     {
 1514:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       /* Disable the TIM Capture/Compare 1 DMA request */
-ARM GAS  /tmp/ccKEb1ke.s 			page 28
+ARM GAS  /tmp/ccYmH5Nh.s 			page 28
 
 
 1515:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       __HAL_TIM_DISABLE_DMA(htim, TIM_DMA_CC1);
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1569:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****                 ##### Timer Complementary One Pulse functions #####
 1570:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   ==============================================================================
 1571:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   [..]
-ARM GAS  /tmp/ccKEb1ke.s 			page 29
+ARM GAS  /tmp/ccYmH5Nh.s 			page 29
 
 
 1572:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     This section provides functions allowing to:
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1626:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
 1627:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   /* Return function status */
 1628:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   return HAL_OK;
-ARM GAS  /tmp/ccKEb1ke.s 			page 30
+ARM GAS  /tmp/ccYmH5Nh.s 			page 30
 
 
 1629:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** }
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1683:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** {
 1684:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   uint32_t input_channel = (OutputChannel == TIM_CHANNEL_1) ? TIM_CHANNEL_2 : TIM_CHANNEL_1;
 1685:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   HAL_TIM_ChannelStateTypeDef channel_1_state = TIM_CHANNEL_STATE_GET(htim, TIM_CHANNEL_1);
-ARM GAS  /tmp/ccKEb1ke.s 			page 31
+ARM GAS  /tmp/ccYmH5Nh.s 			page 31
 
 
 1686:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   HAL_TIM_ChannelStateTypeDef channel_2_state = TIM_CHANNEL_STATE_GET(htim, TIM_CHANNEL_2);
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1740:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
 1741:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   /* Check the parameters */
 1742:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   assert_param(IS_TIM_CCXN_INSTANCE(htim->Instance, OutputChannel));
-ARM GAS  /tmp/ccKEb1ke.s 			page 32
+ARM GAS  /tmp/ccYmH5Nh.s 			page 32
 
 
 1743:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1797:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   * @brief  Configure the TIM commutation event sequence.
 1798:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   * @note  This function is mandatory to use the commutation event in order to
 1799:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   *        update the configuration at each commutation detection on the TRGI input of the Timer,
-ARM GAS  /tmp/ccKEb1ke.s 			page 33
+ARM GAS  /tmp/ccYmH5Nh.s 			page 33
 
 
 1800:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   *        the typical use of this feature is with the use of another Timer(interface Timer)
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1854:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   /* Disable Commutation DMA request */
 1855:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   __HAL_TIM_DISABLE_DMA(htim, TIM_DMA_COM);
 1856:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
-ARM GAS  /tmp/ccKEb1ke.s 			page 34
+ARM GAS  /tmp/ccYmH5Nh.s 			page 34
 
 
 1857:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   __HAL_UNLOCK(htim);
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1911:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   /* Select the Capture Compare preload feature */
 1912:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   htim->Instance->CR2 |= TIM_CR2_CCPC;
 1913:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   /* Select the Commutation event source */
-ARM GAS  /tmp/ccKEb1ke.s 			page 35
+ARM GAS  /tmp/ccYmH5Nh.s 			page 35
 
 
 1914:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   htim->Instance->CR2 &= ~TIM_CR2_CCUS;
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1968:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** #else
 1969:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   if ((InputTrigger == TIM_TS_ITR0) || (InputTrigger == TIM_TS_ITR1) ||
 1970:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       (InputTrigger == TIM_TS_ITR2) || (InputTrigger == TIM_TS_ITR3))
-ARM GAS  /tmp/ccKEb1ke.s 			page 36
+ARM GAS  /tmp/ccYmH5Nh.s 			page 36
 
 
 1971:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** #endif /* USB_BASE */
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 2025:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   htim->State = HAL_TIM_STATE_BUSY;
 2026:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
 2027:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   /* Get the TIMx CR2 register value */
-ARM GAS  /tmp/ccKEb1ke.s 			page 37
+ARM GAS  /tmp/ccYmH5Nh.s 			page 37
 
 
 2028:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   tmpcr2 = htim->Instance->CR2;
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 2082:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   */
 2083:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** HAL_StatusTypeDef HAL_TIMEx_ConfigBreakDeadTime(TIM_HandleTypeDef *htim,
 2084:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****                                                 const TIM_BreakDeadTimeConfigTypeDef *sBreakDeadTim
-ARM GAS  /tmp/ccKEb1ke.s 			page 38
+ARM GAS  /tmp/ccYmH5Nh.s 			page 38
 
 
 2085:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** {
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 2139:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       /* Check the parameters */
 2140:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       assert_param(IS_TIM_BREAK2_AFMODE(sBreakDeadTimeConfig->Break2AFMode));
 2141:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
-ARM GAS  /tmp/ccKEb1ke.s 			page 39
+ARM GAS  /tmp/ccYmH5Nh.s 			page 39
 
 
 2142:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       /* Set BREAK2 AF mode */
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 2196:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     }
 2197:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
 2198:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     default:
-ARM GAS  /tmp/ccKEb1ke.s 			page 40
+ARM GAS  /tmp/ccYmH5Nh.s 			page 40
 
 
 2199:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     {
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 2253:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
 2254:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** /**
 2255:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   * @brief  Configures the TIMx Remapping input capabilities.
-ARM GAS  /tmp/ccKEb1ke.s 			page 41
+ARM GAS  /tmp/ccYmH5Nh.s 			page 41
 
 
 2256:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   * @param  htim TIM handle.
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 2310:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   *            @arg TIM_TIM16_TI1_LSI:                TIM16 TI1 is connected to LSI
 2311:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   *            @arg TIM_TIM16_TI1_LSE:                TIM16 TI1 is connected to LSE
 2312:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   *            @arg TIM_TIM16_TI1_MCO2:               TIM16 TI1 is connected to MCO2
-ARM GAS  /tmp/ccKEb1ke.s 			page 42
+ARM GAS  /tmp/ccYmH5Nh.s 			page 42
 
 
 2313:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   *
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 2367:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   assert_param(IS_TIM_GROUPCH5(Channels));
 2368:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
 2369:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   /* Process Locked */
-ARM GAS  /tmp/ccKEb1ke.s 			page 43
+ARM GAS  /tmp/ccYmH5Nh.s 			page 43
 
 
 2370:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   __HAL_LOCK(htim);
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 2424:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
 2425:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     case TIM_BREAKINPUT_BRK2:
 2426:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     {
-ARM GAS  /tmp/ccKEb1ke.s 			page 44
+ARM GAS  /tmp/ccYmH5Nh.s 			page 44
 
 
 2427:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       /* Check initial conditions */
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 2481:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****             {
 2482:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****               return HAL_TIMEOUT;
 2483:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****             }
-ARM GAS  /tmp/ccKEb1ke.s 			page 45
+ARM GAS  /tmp/ccYmH5Nh.s 			page 45
 
 
 2484:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****           }
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 2538:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   */
 2539:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
 2540:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** /**
-ARM GAS  /tmp/ccKEb1ke.s 			page 46
+ARM GAS  /tmp/ccYmH5Nh.s 			page 46
 
 
 2541:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   * @brief  Hall commutation changed callback in non-blocking mode
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 2595:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****             the HAL_TIMEx_Break2Callback could be implemented in the user file
 2596:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****    */
 2597:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** }
-ARM GAS  /tmp/ccKEb1ke.s 			page 47
+ARM GAS  /tmp/ccYmH5Nh.s 			page 47
 
 
 2598:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** /**
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 2652:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** /**
 2653:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   * @}
 2654:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   */
-ARM GAS  /tmp/ccKEb1ke.s 			page 48
+ARM GAS  /tmp/ccYmH5Nh.s 			page 48
 
 
 2655:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 2709:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   if (hdma == htim->hdma[TIM_DMA_ID_CC1])
 2710:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   {
 2711:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     htim->Channel = HAL_TIM_ACTIVE_CHANNEL_1;
-ARM GAS  /tmp/ccKEb1ke.s 			page 49
+ARM GAS  /tmp/ccYmH5Nh.s 			page 49
 
 
 2712:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 2766:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   TIM_HandleTypeDef *htim = (TIM_HandleTypeDef *)((DMA_HandleTypeDef *)hdma)->Parent;
 2767:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
 2768:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   if (hdma == htim->hdma[TIM_DMA_ID_CC1])
-ARM GAS  /tmp/ccKEb1ke.s 			page 50
+ARM GAS  /tmp/ccYmH5Nh.s 			page 50
 
 
 2769:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   {
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 2812:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
 2813:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   tmp = TIM_CCER_CC1NE << (Channel & 0x1FU); /* 0x1FU = 31 bits max shift */
   38              		.loc 1 2813 3 view .LVU3
-ARM GAS  /tmp/ccKEb1ke.s 			page 51
+ARM GAS  /tmp/ccYmH5Nh.s 			page 51
 
 
   39              		.loc 1 2813 36 is_stmt 0 view .LVU4
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
   86              		.cfi_def_cfa_offset 8
   87              		.cfi_offset 4, -8
   88              		.cfi_offset 14, -4
-ARM GAS  /tmp/ccKEb1ke.s 			page 52
+ARM GAS  /tmp/ccYmH5Nh.s 			page 52
 
 
 2766:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 2795:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  126              		.loc 1 2795 1 view .LVU34
  127 0020 10BD     		pop	{r4, pc}
-ARM GAS  /tmp/ccKEb1ke.s 			page 53
+ARM GAS  /tmp/ccYmH5Nh.s 			page 53
 
 
  128              	.LVL10:
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 2706:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   TIM_HandleTypeDef *htim = (TIM_HandleTypeDef *)((DMA_HandleTypeDef *)hdma)->Parent;
  174              		.loc 1 2706 1 is_stmt 0 view .LVU45
  175 0000 10B5     		push	{r4, lr}
-ARM GAS  /tmp/ccKEb1ke.s 			page 54
+ARM GAS  /tmp/ccYmH5Nh.s 			page 54
 
 
  176              	.LCFI2:
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  213              		.loc 1 2753 3 is_stmt 0 view .LVU62
  214 001e FFF7FEFF 		bl	HAL_TIM_PWM_PulseFinishedCallback
  215              	.LVL14:
-ARM GAS  /tmp/ccKEb1ke.s 			page 55
+ARM GAS  /tmp/ccYmH5Nh.s 			page 55
 
 
 2756:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** }
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  254 0044 4533     		adds	r3, r3, #69
  255 0046 0122     		movs	r2, #1
  256 0048 E254     		strb	r2, [r4, r3]
-ARM GAS  /tmp/ccKEb1ke.s 			page 56
+ARM GAS  /tmp/ccYmH5Nh.s 			page 56
 
 
  257 004a E7E7     		b	.L11
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  301              	.LVL17:
  302              	.LFB216:
  299:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   /* Prevent unused argument(s) compilation warning */
-ARM GAS  /tmp/ccKEb1ke.s 			page 57
+ARM GAS  /tmp/ccYmH5Nh.s 			page 57
 
 
  303              		.loc 1 299 1 view -0
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  164:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   assert_param(IS_TIM_AUTORELOAD_PRELOAD(htim->Init.AutoReloadPreload));
  350              		.loc 1 164 3 view .LVU101
  165:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   assert_param(IS_TIM_IC_POLARITY(sConfig->IC1Polarity));
-ARM GAS  /tmp/ccKEb1ke.s 			page 58
+ARM GAS  /tmp/ccYmH5Nh.s 			page 58
 
 
  351              		.loc 1 165 3 view .LVU102
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  202:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   /* Set the IC1PSC value */
  388              		.loc 1 202 7 is_stmt 0 view .LVU120
  389 002e 2268     		ldr	r2, [r4]
-ARM GAS  /tmp/ccKEb1ke.s 			page 59
+ARM GAS  /tmp/ccYmH5Nh.s 			page 59
 
 
  202:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   /* Set the IC1PSC value */
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  211:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  427              		.loc 1 211 17 view .LVU138
  428 0058 9368     		ldr	r3, [r2, #8]
-ARM GAS  /tmp/ccKEb1ke.s 			page 60
+ARM GAS  /tmp/ccYmH5Nh.s 			page 60
 
 
  211:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  465              		.loc 1 222 3 is_stmt 1 view .LVU156
  222:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   OC_Config.OCPolarity = TIM_OCPOLARITY_HIGH;
  466              		.loc 1 222 25 is_stmt 0 view .LVU157
-ARM GAS  /tmp/ccKEb1ke.s 			page 61
+ARM GAS  /tmp/ccYmH5Nh.s 			page 61
 
 
  467 0080 0493     		str	r3, [sp, #16]
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  504 00a8 0A3A     		subs	r2, r2, #10
  505 00aa A354     		strb	r3, [r4, r2]
  238:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   TIM_CHANNEL_N_STATE_SET(htim, TIM_CHANNEL_1, HAL_TIM_CHANNEL_STATE_READY);
-ARM GAS  /tmp/ccKEb1ke.s 			page 62
+ARM GAS  /tmp/ccYmH5Nh.s 			page 62
 
 
  506              		.loc 1 238 3 view .LVU175
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  546              		.loc 1 158 12 view .LVU189
  547 00ce F5E7     		b	.L20
  548              	.L25:
-ARM GAS  /tmp/ccKEb1ke.s 			page 63
+ARM GAS  /tmp/ccYmH5Nh.s 			page 63
 
 
  549              		.align	2
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  600              		.loc 1 258 3 view .LVU196
  258:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  601              		.loc 1 258 15 is_stmt 0 view .LVU197
-ARM GAS  /tmp/ccKEb1ke.s 			page 64
+ARM GAS  /tmp/ccYmH5Nh.s 			page 64
 
 
  602 0004 3D23     		movs	r3, #61
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  282:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  644              		.loc 1 282 3 discriminator 5 view .LVU210
  645 003c 0132     		adds	r2, r2, #1
-ARM GAS  /tmp/ccKEb1ke.s 			page 65
+ARM GAS  /tmp/ccYmH5Nh.s 			page 65
 
 
  646 003e A354     		strb	r3, [r4, r2]
@@ -3898,7 +3898,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  692              		.cfi_offset 14, -4
  693 0002 0400     		movs	r4, r0
  330:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   HAL_TIM_ChannelStateTypeDef channel_1_state = TIM_CHANNEL_STATE_GET(htim, TIM_CHANNEL_1);
-ARM GAS  /tmp/ccKEb1ke.s 			page 66
+ARM GAS  /tmp/ccYmH5Nh.s 			page 66
 
 
  694              		.loc 1 330 3 is_stmt 1 view .LVU221
@@ -3958,7 +3958,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  733              		.loc 1 345 12 view .LVU236
  734 002c 1000     		movs	r0, r2
  735              	.LVL39:
-ARM GAS  /tmp/ccKEb1ke.s 			page 67
+ARM GAS  /tmp/ccYmH5Nh.s 			page 67
 
 
  345:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   }
@@ -4018,7 +4018,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  775              		.loc 1 360 3 is_stmt 1 view .LVU251
  360:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   {
  776              		.loc 1 360 7 is_stmt 0 view .LVU252
-ARM GAS  /tmp/ccKEb1ke.s 			page 68
+ARM GAS  /tmp/ccYmH5Nh.s 			page 68
 
 
  777 004c 2368     		ldr	r3, [r4]
@@ -4078,7 +4078,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  818 007e 0020     		movs	r0, #0
  819 0080 00E0     		b	.L32
  820              	.LVL52:
-ARM GAS  /tmp/ccKEb1ke.s 			page 69
+ARM GAS  /tmp/ccYmH5Nh.s 			page 69
 
 
  821              	.L35:
@@ -4138,7 +4138,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  383:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   /* Check the parameters */
  870              		.loc 1 383 1 is_stmt 0 view .LVU273
  871 0000 10B5     		push	{r4, lr}
-ARM GAS  /tmp/ccKEb1ke.s 			page 70
+ARM GAS  /tmp/ccYmH5Nh.s 			page 70
 
 
  872              	.LCFI7:
@@ -4198,7 +4198,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  399:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  915              		.loc 1 399 3 discriminator 5 view .LVU285
  916 0036 0132     		adds	r2, r2, #1
-ARM GAS  /tmp/ccKEb1ke.s 			page 71
+ARM GAS  /tmp/ccYmH5Nh.s 			page 71
 
 
  917 0038 A354     		strb	r3, [r4, r2]
@@ -4258,7 +4258,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  414:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   HAL_TIM_ChannelStateTypeDef complementary_channel_1_state = TIM_CHANNEL_N_STATE_GET(htim, TIM_CHA
  964              		.loc 1 414 31 is_stmt 0 view .LVU295
  965 000a 0133     		adds	r3, r3, #1
-ARM GAS  /tmp/ccKEb1ke.s 			page 72
+ARM GAS  /tmp/ccYmH5Nh.s 			page 72
 
 
  966 000c E35C     		ldrb	r3, [r4, r3]
@@ -4318,7 +4318,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  1006 0032 3D32     		adds	r2, r2, #61
  1007              	.LVL71:
  431:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   TIM_CHANNEL_STATE_SET(htim, TIM_CHANNEL_2, HAL_TIM_CHANNEL_STATE_BUSY);
-ARM GAS  /tmp/ccKEb1ke.s 			page 73
+ARM GAS  /tmp/ccYmH5Nh.s 			page 73
 
 
  1008              		.loc 1 431 3 view .LVU310
@@ -4378,7 +4378,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  1047              		.loc 1 445 6 view .LVU325
  1048 0056 114A     		ldr	r2, .L57
  1049 0058 9342     		cmp	r3, r2
-ARM GAS  /tmp/ccKEb1ke.s 			page 74
+ARM GAS  /tmp/ccYmH5Nh.s 			page 74
 
 
  1050 005a 08D0     		beq	.L49
@@ -4438,7 +4438,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  1091              		.loc 1 427 12 view .LVU338
  1092 008a 0120     		movs	r0, #1
  1093              	.LVL83:
-ARM GAS  /tmp/ccKEb1ke.s 			page 75
+ARM GAS  /tmp/ccYmH5Nh.s 			page 75
 
 
  1094              	.L48:
@@ -4498,7 +4498,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  1143              		.cfi_offset 4, -8
  1144              		.cfi_offset 14, -4
  1145 0002 0400     		movs	r4, r0
-ARM GAS  /tmp/ccKEb1ke.s 			page 76
+ARM GAS  /tmp/ccYmH5Nh.s 			page 76
 
 
  470:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
@@ -4558,7 +4558,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  1188 003c 0532     		adds	r2, r2, #5
  1189 003e A354     		strb	r3, [r4, r2]
  487:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
-ARM GAS  /tmp/ccKEb1ke.s 			page 77
+ARM GAS  /tmp/ccYmH5Nh.s 			page 77
 
 
  1190              		.loc 1 487 3 discriminator 5 view .LVU358
@@ -4618,7 +4618,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  1238 0008 3E23     		movs	r3, #62
  1239 000a C35C     		ldrb	r3, [r0, r3]
  1240 000c D8B2     		uxtb	r0, r3
-ARM GAS  /tmp/ccKEb1ke.s 			page 78
+ARM GAS  /tmp/ccYmH5Nh.s 			page 78
 
 
  1241              	.LVL94:
@@ -4678,7 +4678,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  1279              		.loc 1 524 7 is_stmt 1 view .LVU382
  1280 0030 0223     		movs	r3, #2
  1281 0032 063A     		subs	r2, r2, #6
-ARM GAS  /tmp/ccKEb1ke.s 			page 79
+ARM GAS  /tmp/ccYmH5Nh.s 			page 79
 
 
  1282 0034 A354     		strb	r3, [r4, r2]
@@ -4738,7 +4738,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  1319              		.loc 1 545 7 view .LVU399
  1320 005a 606A     		ldr	r0, [r4, #36]
  1321 005c 3B00     		movs	r3, r7
-ARM GAS  /tmp/ccKEb1ke.s 			page 80
+ARM GAS  /tmp/ccYmH5Nh.s 			page 80
 
 
  1322 005e 3200     		movs	r2, r6
@@ -4798,7 +4798,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  557:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     {
  1364              		.loc 1 557 9 discriminator 1 view .LVU412
  1365 0096 0739     		subs	r1, r1, #7
-ARM GAS  /tmp/ccKEb1ke.s 			page 81
+ARM GAS  /tmp/ccYmH5Nh.s 			page 81
 
 
  1366 0098 8A42     		cmp	r2, r1
@@ -4858,7 +4858,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  1410              	.L73:
  1411 00b8 00000000 		.word	TIM_DMACaptureCplt
  1412 00bc 00000000 		.word	TIM_DMACaptureHalfCplt
-ARM GAS  /tmp/ccKEb1ke.s 			page 82
+ARM GAS  /tmp/ccYmH5Nh.s 			page 82
 
 
  1413 00c0 00000000 		.word	TIM_DMAError
@@ -4918,7 +4918,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  593:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  1461              		.loc 1 593 3 is_stmt 1 view .LVU431
  593:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
-ARM GAS  /tmp/ccKEb1ke.s 			page 83
+ARM GAS  /tmp/ccYmH5Nh.s 			page 83
 
 
  1462              		.loc 1 593 3 view .LVU432
@@ -4978,7 +4978,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  1510              	HAL_TIMEx_OCN_Start:
  1511              	.LVL120:
  1512              	.LFB224:
-ARM GAS  /tmp/ccKEb1ke.s 			page 84
+ARM GAS  /tmp/ccYmH5Nh.s 			page 84
 
 
  639:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   uint32_t tmpsmcr;
@@ -5038,7 +5038,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  1554 0024 0422     		movs	r2, #4
  1555 0026 FFF7FEFF 		bl	TIM_CCxNChannelCmd
  1556              	.LVL122:
-ARM GAS  /tmp/ccKEb1ke.s 			page 85
+ARM GAS  /tmp/ccYmH5Nh.s 			page 85
 
 
  658:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
@@ -5098,7 +5098,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  1600              	.L94:
  646:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   {
  1601              		.loc 1 646 7 discriminator 4 view .LVU465
-ARM GAS  /tmp/ccKEb1ke.s 			page 86
+ARM GAS  /tmp/ccYmH5Nh.s 			page 86
 
 
  1602 0066 4523     		movs	r3, #69
@@ -5158,7 +5158,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  663:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     if (!IS_TIM_SLAVEMODE_TRIGGER_ENABLED(tmpsmcr))
  1647              		.loc 1 663 29 is_stmt 0 view .LVU475
  1648 00a2 9A68     		ldr	r2, [r3, #8]
-ARM GAS  /tmp/ccKEb1ke.s 			page 87
+ARM GAS  /tmp/ccYmH5Nh.s 			page 87
 
 
  663:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     if (!IS_TIM_SLAVEMODE_TRIGGER_ENABLED(tmpsmcr))
@@ -5218,7 +5218,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  1692              	.L98:
  1693 00cc 002C0140 		.word	1073818624
  1694 00d0 00040040 		.word	1073742848
-ARM GAS  /tmp/ccKEb1ke.s 			page 88
+ARM GAS  /tmp/ccYmH5Nh.s 			page 88
 
 
  1695 00d4 07000100 		.word	65543
@@ -5278,7 +5278,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  698:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  1743              		.loc 1 698 3 discriminator 3 view .LVU495
  1744 0020 5A6C     		ldr	r2, [r3, #68]
-ARM GAS  /tmp/ccKEb1ke.s 			page 89
+ARM GAS  /tmp/ccYmH5Nh.s 			page 89
 
 
  1745 0022 1549     		ldr	r1, .L109+8
@@ -5338,7 +5338,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  1787              		.loc 1 704 3 discriminator 2 view .LVU507
  1788 0050 042D     		cmp	r5, #4
  1789 0052 05D0     		beq	.L107
-ARM GAS  /tmp/ccKEb1ke.s 			page 90
+ARM GAS  /tmp/ccYmH5Nh.s 			page 90
 
 
  704:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
@@ -5398,7 +5398,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  723:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   uint32_t tmpsmcr;
  1840              		.loc 1 723 3 is_stmt 1 view .LVU514
  1841              	.LVL138:
-ARM GAS  /tmp/ccKEb1ke.s 			page 91
+ARM GAS  /tmp/ccYmH5Nh.s 			page 91
 
 
  724:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
@@ -5458,7 +5458,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  1882 0030 8020     		movs	r0, #128
  1883 0032 0343     		orrs	r3, r0
  1884 0034 D360     		str	r3, [r2, #12]
-ARM GAS  /tmp/ccKEb1ke.s 			page 92
+ARM GAS  /tmp/ccYmH5Nh.s 			page 92
 
 
  773:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
@@ -5518,7 +5518,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  1928 0072 5A1E     		subs	r2, r3, #1
  1929 0074 9341     		sbcs	r3, r3, r2
  1930 0076 DBB2     		uxtb	r3, r3
-ARM GAS  /tmp/ccKEb1ke.s 			page 93
+ARM GAS  /tmp/ccYmH5Nh.s 			page 93
 
 
  1931 0078 CCE7     		b	.L113
@@ -5578,7 +5578,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  1975              	.LVL143:
  1976              	.L132:
  736:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
-ARM GAS  /tmp/ccKEb1ke.s 			page 94
+ARM GAS  /tmp/ccYmH5Nh.s 			page 94
 
 
  1977              		.loc 1 736 3 view .LVU550
@@ -5638,7 +5638,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  781:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       if (!IS_TIM_SLAVEMODE_TRIGGER_ENABLED(tmpsmcr))
  2018              		.loc 1 781 15 view .LVU564
  2019 00da 0B49     		ldr	r1, .L134+8
-ARM GAS  /tmp/ccKEb1ke.s 			page 95
+ARM GAS  /tmp/ccYmH5Nh.s 			page 95
 
 
  2020 00dc 0A40     		ands	r2, r1
@@ -5698,7 +5698,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  2065              	.LFE226:
  2067              		.section	.text.HAL_TIMEx_OCN_Stop_IT,"ax",%progbits
  2068              		.align	1
-ARM GAS  /tmp/ccKEb1ke.s 			page 96
+ARM GAS  /tmp/ccYmH5Nh.s 			page 96
 
 
  2069              		.global	HAL_TIMEx_OCN_Stop_IT
@@ -5758,7 +5758,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  2114              		.loc 1 821 7 is_stmt 1 view .LVU583
  2115 0016 0268     		ldr	r2, [r0]
  2116 0018 D368     		ldr	r3, [r2, #12]
-ARM GAS  /tmp/ccKEb1ke.s 			page 97
+ARM GAS  /tmp/ccYmH5Nh.s 			page 97
 
 
  2117 001a 0221     		movs	r1, #2
@@ -5818,7 +5818,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  2156 003e 196A     		ldr	r1, [r3, #32]
  2157 0040 1F4A     		ldr	r2, .L151+4
  2158 0042 1142     		tst	r1, r2
-ARM GAS  /tmp/ccKEb1ke.s 			page 98
+ARM GAS  /tmp/ccYmH5Nh.s 			page 98
 
 
  2159 0044 07D1     		bne	.L142
@@ -5878,7 +5878,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  2202              		.loc 1 828 7 is_stmt 1 view .LVU609
  2203 007e 0268     		ldr	r2, [r0]
  2204 0080 D368     		ldr	r3, [r2, #12]
-ARM GAS  /tmp/ccKEb1ke.s 			page 99
+ARM GAS  /tmp/ccYmH5Nh.s 			page 99
 
 
  2205 0082 0421     		movs	r1, #4
@@ -5938,7 +5938,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  863:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   }
  2248              		.loc 1 863 5 discriminator 6 view .LVU621
  2249 00b2 4623     		movs	r3, #70
-ARM GAS  /tmp/ccKEb1ke.s 			page 100
+ARM GAS  /tmp/ccYmH5Nh.s 			page 100
 
 
  2250 00b4 0122     		movs	r2, #1
@@ -5998,7 +5998,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  2298              	.LVL172:
  893:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   {
  2299              		.loc 1 893 7 discriminator 1 view .LVU630
-ARM GAS  /tmp/ccKEb1ke.s 			page 101
+ARM GAS  /tmp/ccYmH5Nh.s 			page 101
 
 
  2300 000e 845C     		ldrb	r4, [r0, r2]
@@ -6058,7 +6058,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  905:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     }
  2343              		.loc 1 905 7 is_stmt 1 view .LVU642
  2344 0040 002D     		cmp	r5, #0
-ARM GAS  /tmp/ccKEb1ke.s 			page 102
+ARM GAS  /tmp/ccYmH5Nh.s 			page 102
 
 
  2345 0042 63D1     		bne	.L163
@@ -6118,7 +6118,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  2383              		.loc 1 932 7 is_stmt 1 view .LVU658
  2384 006c 3268     		ldr	r2, [r6]
  2385 006e D168     		ldr	r1, [r2, #12]
-ARM GAS  /tmp/ccKEb1ke.s 			page 103
+ARM GAS  /tmp/ccYmH5Nh.s 			page 103
 
 
  2386 0070 8023     		movs	r3, #128
@@ -6178,7 +6178,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  2429              		.loc 1 893 46 discriminator 5 view .LVU669
  2430 00ac 082D     		cmp	r5, #8
  2431 00ae 0DD0     		beq	.L183
-ARM GAS  /tmp/ccKEb1ke.s 			page 104
+ARM GAS  /tmp/ccYmH5Nh.s 			page 104
 
 
  893:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   {
@@ -6238,7 +6238,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  897:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   {
  2476              		.loc 1 897 51 discriminator 8 view .LVU680
  2477 00ec D2B2     		uxtb	r2, r2
-ARM GAS  /tmp/ccKEb1ke.s 			page 105
+ARM GAS  /tmp/ccYmH5Nh.s 			page 105
 
 
  2478 00ee 9EE7     		b	.L160
@@ -6298,7 +6298,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  2521 0120 20D0     		beq	.L168
  2522 0122 002D     		cmp	r5, #0
  2523 0124 91D0     		beq	.L164
-ARM GAS  /tmp/ccKEb1ke.s 			page 106
+ARM GAS  /tmp/ccYmH5Nh.s 			page 106
 
 
  2524 0126 0120     		movs	r0, #1
@@ -6358,7 +6358,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  2562 014e 38D1     		bne	.L178
  953:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       break;
  2563              		.loc 1 953 7 is_stmt 1 view .LVU708
-ARM GAS  /tmp/ccKEb1ke.s 			page 107
+ARM GAS  /tmp/ccYmH5Nh.s 			page 107
 
 
  2564 0150 3268     		ldr	r2, [r6]
@@ -6418,7 +6418,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  2602              		.loc 1 967 83 view .LVU724
  2603 0178 3C32     		adds	r2, r2, #60
  967:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****                            Length) != HAL_OK)
-ARM GAS  /tmp/ccKEb1ke.s 			page 108
+ARM GAS  /tmp/ccYmH5Nh.s 			page 108
 
 
  2604              		.loc 1 967 11 view .LVU725
@@ -6478,7 +6478,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  2646              	.LVL187:
  2647              	.L172:
  895:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   }
-ARM GAS  /tmp/ccKEb1ke.s 			page 109
+ARM GAS  /tmp/ccYmH5Nh.s 			page 109
 
 
  2648              		.loc 1 895 12 view .LVU738
@@ -6538,7 +6538,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  2693              	.L189:
  2694 01d2 C046     		.align	2
  2695              	.L188:
-ARM GAS  /tmp/ccKEb1ke.s 			page 110
+ARM GAS  /tmp/ccYmH5Nh.s 			page 110
 
 
  2696 01d4 00000000 		.word	TIM_DMADelayPulseNCplt
@@ -6598,7 +6598,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  2745              	.LVL198:
  2746              	.LVL199:
 1076:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
-ARM GAS  /tmp/ccKEb1ke.s 			page 111
+ARM GAS  /tmp/ccYmH5Nh.s 			page 111
 
 
  2747              		.loc 1 1076 1 view .LVU755
@@ -6658,7 +6658,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  2789 0044 2049     		ldr	r1, .L204+12
  2790 0046 0A40     		ands	r2, r1
  2791 0048 5A64     		str	r2, [r3, #68]
-ARM GAS  /tmp/ccKEb1ke.s 			page 112
+ARM GAS  /tmp/ccYmH5Nh.s 			page 112
 
 
  2792              	.L195:
@@ -6718,7 +6718,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  2834 007c 806A     		ldr	r0, [r0, #40]
  2835              	.LVL207:
 1042:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       break;
-ARM GAS  /tmp/ccKEb1ke.s 			page 113
+ARM GAS  /tmp/ccYmH5Nh.s 			page 113
 
 
  2836              		.loc 1 1042 13 view .LVU780
@@ -6778,7 +6778,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  2877 00a8 4523     		movs	r3, #69
  2878 00aa 0122     		movs	r2, #1
  2879 00ac EA54     		strb	r2, [r5, r3]
-ARM GAS  /tmp/ccKEb1ke.s 			page 114
+ARM GAS  /tmp/ccYmH5Nh.s 			page 114
 
 
  2880 00ae 0020     		movs	r0, #0
@@ -6838,7 +6838,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  2928              		.loc 1 1130 7 discriminator 1 view .LVU801
  2929 0008 4423     		movs	r3, #68
  2930 000a C35C     		ldrb	r3, [r0, r3]
-ARM GAS  /tmp/ccKEb1ke.s 			page 115
+ARM GAS  /tmp/ccYmH5Nh.s 			page 115
 
 
 1130:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   {
@@ -6898,7 +6898,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  2973              		.loc 1 1155 5 is_stmt 1 view .LVU813
  2974 0044 1A68     		ldr	r2, [r3]
  2975 0046 0121     		movs	r1, #1
-ARM GAS  /tmp/ccKEb1ke.s 			page 116
+ARM GAS  /tmp/ccYmH5Nh.s 			page 116
 
 
  2976 0048 0A43     		orrs	r2, r1
@@ -6958,7 +6958,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  3020 0082 0429     		cmp	r1, #4
  3021 0084 05D0     		beq	.L223
 1136:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
-ARM GAS  /tmp/ccKEb1ke.s 			page 117
+ARM GAS  /tmp/ccYmH5Nh.s 			page 117
 
 
  3022              		.loc 1 1136 3 discriminator 4 view .LVU824
@@ -7018,7 +7018,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  3065 00b8 1A60     		str	r2, [r3]
 1159:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** }
  3066              		.loc 1 1159 10 view .LVU836
-ARM GAS  /tmp/ccKEb1ke.s 			page 118
+ARM GAS  /tmp/ccYmH5Nh.s 			page 118
 
 
  3067 00ba 0020     		movs	r0, #0
@@ -7078,7 +7078,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  3117              		.cfi_offset 6, -8
  3118              		.cfi_offset 14, -4
  3119 0002 0400     		movs	r4, r0
-ARM GAS  /tmp/ccKEb1ke.s 			page 119
+ARM GAS  /tmp/ccYmH5Nh.s 			page 119
 
 
  3120 0004 0D00     		movs	r5, r1
@@ -7138,7 +7138,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  3162 003c 0121     		movs	r1, #1
  3163 003e 8A43     		bics	r2, r1
  3164 0040 1A60     		str	r2, [r3]
-ARM GAS  /tmp/ccKEb1ke.s 			page 120
+ARM GAS  /tmp/ccYmH5Nh.s 			page 120
 
 
  3165              	.L229:
@@ -7198,7 +7198,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  3208              	.L237:
  3209              		.align	2
  3210              	.L236:
-ARM GAS  /tmp/ccKEb1ke.s 			page 121
+ARM GAS  /tmp/ccYmH5Nh.s 			page 121
 
 
  3211 0070 11110000 		.word	4369
@@ -7258,7 +7258,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  3257 0016 6DD1     		bne	.L253
 1219:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  3258              		.loc 1 1219 3 is_stmt 1 view .LVU876
-ARM GAS  /tmp/ccKEb1ke.s 			page 122
+ARM GAS  /tmp/ccYmH5Nh.s 			page 122
 
 
  3259 0018 0029     		cmp	r1, #0
@@ -7318,7 +7318,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1261:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     {
  3302              		.loc 1 1261 9 discriminator 1 view .LVU888
  3303 0052 2C4A     		ldr	r2, .L261+4
-ARM GAS  /tmp/ccKEb1ke.s 			page 123
+ARM GAS  /tmp/ccYmH5Nh.s 			page 123
 
 
  3304 0054 9342     		cmp	r3, r2
@@ -7378,7 +7378,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  3349 0094 BEE7     		b	.L240
  3350              	.L244:
 1219:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
-ARM GAS  /tmp/ccKEb1ke.s 			page 124
+ARM GAS  /tmp/ccYmH5Nh.s 			page 124
 
 
  3351              		.loc 1 1219 3 discriminator 2 view .LVU898
@@ -7438,7 +7438,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1219:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  3394              		.loc 1 1219 3 is_stmt 0 view .LVU910
  3395 00c6 4623     		movs	r3, #70
-ARM GAS  /tmp/ccKEb1ke.s 			page 125
+ARM GAS  /tmp/ccYmH5Nh.s 			page 125
 
 
  3396 00c8 0222     		movs	r2, #2
@@ -7498,7 +7498,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  3437              	.LVL243:
  3438              	.L253:
 1215:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   }
-ARM GAS  /tmp/ccKEb1ke.s 			page 126
+ARM GAS  /tmp/ccYmH5Nh.s 			page 126
 
 
  3439              		.loc 1 1215 12 view .LVU924
@@ -7558,7 +7558,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  3489              		.loc 1 1292 3 is_stmt 1 view .LVU930
  3490              	.LVL248:
 1293:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
-ARM GAS  /tmp/ccKEb1ke.s 			page 127
+ARM GAS  /tmp/ccYmH5Nh.s 			page 127
 
 
  3491              		.loc 1 1293 3 view .LVU931
@@ -7618,7 +7618,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  3532              		.loc 1 1332 19 is_stmt 0 view .LVU944
  3533 002a 2B68     		ldr	r3, [r5]
 1332:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     if ((tmpccer & (TIM_CCER_CC1NE | TIM_CCER_CC2NE | TIM_CCER_CC3NE)) == (uint32_t)RESET)
-ARM GAS  /tmp/ccKEb1ke.s 			page 128
+ARM GAS  /tmp/ccYmH5Nh.s 			page 128
 
 
  3534              		.loc 1 1332 13 view .LVU945
@@ -7678,7 +7678,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  3576 005e 07D1     		bne	.L270
 1342:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  3577              		.loc 1 1342 5 discriminator 1 view .LVU958
-ARM GAS  /tmp/ccKEb1ke.s 			page 129
+ARM GAS  /tmp/ccYmH5Nh.s 			page 129
 
 
  3578 0060 196A     		ldr	r1, [r3, #32]
@@ -7738,7 +7738,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  3621              		.loc 1 1318 7 is_stmt 1 view .LVU969
 1326:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   {
  3622              		.loc 1 1326 3 view .LVU970
-ARM GAS  /tmp/ccKEb1ke.s 			page 130
+ARM GAS  /tmp/ccYmH5Nh.s 			page 130
 
 
  3623 0094 C4E7     		b	.L267
@@ -7798,7 +7798,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  3673              		@ args = 0, pretend = 0, frame = 0
  3674              		@ frame_needed = 0, uses_anonymous_args = 0
 1367:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   HAL_StatusTypeDef status = HAL_OK;
-ARM GAS  /tmp/ccKEb1ke.s 			page 131
+ARM GAS  /tmp/ccYmH5Nh.s 			page 131
 
 
  3675              		.loc 1 1367 1 is_stmt 0 view .LVU977
@@ -7858,7 +7858,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1379:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   {
  3717              		.loc 1 1379 51 discriminator 1 view .LVU990
  3718 0026 013A     		subs	r2, r2, #1
-ARM GAS  /tmp/ccKEb1ke.s 			page 132
+ARM GAS  /tmp/ccYmH5Nh.s 			page 132
 
 
  3719 0028 5042     		rsbs	r0, r2, #0
@@ -7918,7 +7918,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  3760 0054 1063     		str	r0, [r2, #48]
 1404:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  3761              		.loc 1 1404 7 is_stmt 1 view .LVU1004
-ARM GAS  /tmp/ccKEb1ke.s 			page 133
+ARM GAS  /tmp/ccYmH5Nh.s 			page 133
 
 
 1404:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
@@ -7978,7 +7978,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1474:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     {
  3804              		.loc 1 1474 5 view .LVU1017
 1474:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     {
-ARM GAS  /tmp/ccKEb1ke.s 			page 134
+ARM GAS  /tmp/ccYmH5Nh.s 			page 134
 
 
  3805              		.loc 1 1474 9 is_stmt 0 view .LVU1018
@@ -8038,7 +8038,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1375:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   {
  3850              		.loc 1 1375 7 discriminator 7 view .LVU1028
  3851 00cc 4622     		movs	r2, #70
-ARM GAS  /tmp/ccKEb1ke.s 			page 135
+ARM GAS  /tmp/ccYmH5Nh.s 			page 135
 
 
  3852 00ce 845C     		ldrb	r4, [r0, r2]
@@ -8098,7 +8098,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  3895              		.loc 1 1379 51 discriminator 7 view .LVU1039
  3896 0102 013A     		subs	r2, r2, #1
  3897 0104 5042     		rsbs	r0, r2, #0
-ARM GAS  /tmp/ccKEb1ke.s 			page 136
+ARM GAS  /tmp/ccYmH5Nh.s 			page 136
 
 
  3898 0106 4241     		adcs	r2, r2, r0
@@ -8158,7 +8158,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  3939 0136 B26A     		ldr	r2, [r6, #40]
 1422:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  3940              		.loc 1 1422 56 view .LVU1053
-ARM GAS  /tmp/ccKEb1ke.s 			page 137
+ARM GAS  /tmp/ccYmH5Nh.s 			page 137
 
 
  3941 0138 2748     		ldr	r0, .L315+4
@@ -8218,7 +8218,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  3980              		.loc 1 1442 17 is_stmt 0 view .LVU1068
  3981 0164 F26A     		ldr	r2, [r6, #44]
 1442:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       htim->hdma[TIM_DMA_ID_CC3]->XferHalfCpltCallback = TIM_DMADelayPulseHalfCplt;
-ARM GAS  /tmp/ccKEb1ke.s 			page 138
+ARM GAS  /tmp/ccYmH5Nh.s 			page 138
 
 
  3982              		.loc 1 1442 52 view .LVU1069
@@ -8278,7 +8278,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1476:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       if (!IS_TIM_SLAVEMODE_TRIGGER_ENABLED(tmpsmcr))
  4021              		.loc 1 1476 31 is_stmt 0 view .LVU1085
  4022 0192 9A68     		ldr	r2, [r3, #8]
-ARM GAS  /tmp/ccKEb1ke.s 			page 139
+ARM GAS  /tmp/ccYmH5Nh.s 			page 139
 
 
 1476:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       if (!IS_TIM_SLAVEMODE_TRIGGER_ENABLED(tmpsmcr))
@@ -8338,7 +8338,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  4065 01b6 0120     		movs	r0, #1
  4066 01b8 FCE7     		b	.L285
  4067              	.L302:
-ARM GAS  /tmp/ccKEb1ke.s 			page 140
+ARM GAS  /tmp/ccYmH5Nh.s 			page 140
 
 
  4068 01ba 0120     		movs	r0, #1
@@ -8398,7 +8398,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  4118 0000 70B5     		push	{r4, r5, r6, lr}
  4119              	.LCFI23:
  4120              		.cfi_def_cfa_offset 16
-ARM GAS  /tmp/ccKEb1ke.s 			page 141
+ARM GAS  /tmp/ccYmH5Nh.s 			page 141
 
 
  4121              		.cfi_offset 4, -16
@@ -8458,7 +8458,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1517:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     }
  4164              		.loc 1 1517 7 is_stmt 1 view .LVU1115
 1541:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   {
-ARM GAS  /tmp/ccKEb1ke.s 			page 142
+ARM GAS  /tmp/ccYmH5Nh.s 			page 142
 
 
  4165              		.loc 1 1541 3 view .LVU1116
@@ -8518,7 +8518,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  4209              	.L323:
 1550:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  4210              		.loc 1 1550 5 discriminator 5 view .LVU1127
-ARM GAS  /tmp/ccKEb1ke.s 			page 143
+ARM GAS  /tmp/ccYmH5Nh.s 			page 143
 
 
 1553:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   }
@@ -8578,7 +8578,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  4252 008e C06A     		ldr	r0, [r0, #44]
  4253              	.LVL304:
 1532:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       break;
-ARM GAS  /tmp/ccKEb1ke.s 			page 144
+ARM GAS  /tmp/ccYmH5Nh.s 			page 144
 
 
  4254              		.loc 1 1532 13 view .LVU1141
@@ -8638,7 +8638,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  4302              		.syntax unified
  4303              		.code	16
  4304              		.thumb_func
-ARM GAS  /tmp/ccKEb1ke.s 			page 145
+ARM GAS  /tmp/ccYmH5Nh.s 			page 145
 
 
  4306              	HAL_TIMEx_OnePulseN_Start:
@@ -8698,7 +8698,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  4349              		.loc 1 1600 3 is_stmt 1 discriminator 4 view .LVU1159
 1600:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  4350              		.loc 1 1600 31 is_stmt 0 discriminator 4 view .LVU1160
-ARM GAS  /tmp/ccKEb1ke.s 			page 146
+ARM GAS  /tmp/ccYmH5Nh.s 			page 146
 
 
  4351 001c 4525     		movs	r5, #69
@@ -8758,7 +8758,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1616:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   TIM_CHANNEL_N_STATE_SET(htim, TIM_CHANNEL_1, HAL_TIM_CHANNEL_STATE_BUSY);
  4392              		.loc 1 1616 3 is_stmt 0 view .LVU1174
  4393 0042 A354     		strb	r3, [r4, r2]
-ARM GAS  /tmp/ccKEb1ke.s 			page 147
+ARM GAS  /tmp/ccYmH5Nh.s 			page 147
 
 
 1617:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   TIM_CHANNEL_N_STATE_SET(htim, TIM_CHANNEL_2, HAL_TIM_CHANNEL_STATE_BUSY);
@@ -8818,7 +8818,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1629:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  4436              		.loc 1 1629 1 view .LVU1187
  4437              		@ sp needed
-ARM GAS  /tmp/ccKEb1ke.s 			page 148
+ARM GAS  /tmp/ccYmH5Nh.s 			page 148
 
 
  4438              	.LVL326:
@@ -8878,7 +8878,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  4485              		.loc 1 1651 3 discriminator 4 view .LVU1196
  4486 000a 2068     		ldr	r0, [r4]
  4487              	.LVL334:
-ARM GAS  /tmp/ccKEb1ke.s 			page 149
+ARM GAS  /tmp/ccYmH5Nh.s 			page 149
 
 
 1651:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   TIM_CCxChannelCmd(htim->Instance, input_channel, TIM_CCx_DISABLE);
@@ -8938,7 +8938,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  4531 004a 0121     		movs	r1, #1
  4532 004c 8A43     		bics	r2, r1
  4533 004e 1A60     		str	r2, [r3]
-ARM GAS  /tmp/ccKEb1ke.s 			page 150
+ARM GAS  /tmp/ccYmH5Nh.s 			page 150
 
 
  4534              	.L344:
@@ -8998,7 +8998,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1683:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   uint32_t input_channel = (OutputChannel == TIM_CHANNEL_1) ? TIM_CHANNEL_2 : TIM_CHANNEL_1;
  4581              		.loc 1 1683 1 is_stmt 1 view -0
  4582              		.cfi_startproc
-ARM GAS  /tmp/ccKEb1ke.s 			page 151
+ARM GAS  /tmp/ccYmH5Nh.s 			page 151
 
 
  4583              		@ args = 0, pretend = 0, frame = 0
@@ -9058,7 +9058,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  4626              	.LVL345:
 1691:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  4627              		.loc 1 1691 3 is_stmt 1 discriminator 4 view .LVU1229
-ARM GAS  /tmp/ccKEb1ke.s 			page 152
+ARM GAS  /tmp/ccYmH5Nh.s 			page 152
 
 
 1694:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       || (channel_2_state != HAL_TIM_CHANNEL_STATE_READY)
@@ -9118,7 +9118,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  4668              	.LVL352:
 1705:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   TIM_CHANNEL_N_STATE_SET(htim, TIM_CHANNEL_2, HAL_TIM_CHANNEL_STATE_BUSY);
  4669              		.loc 1 1705 3 is_stmt 0 view .LVU1244
-ARM GAS  /tmp/ccKEb1ke.s 			page 153
+ARM GAS  /tmp/ccYmH5Nh.s 			page 153
 
 
  4670 0046 A354     		strb	r3, [r4, r2]
@@ -9178,7 +9178,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  4712              		.loc 1 1722 10 is_stmt 0 view .LVU1256
  4713 007c 0020     		movs	r0, #0
  4714 007e 00E0     		b	.L350
-ARM GAS  /tmp/ccKEb1ke.s 			page 154
+ARM GAS  /tmp/ccYmH5Nh.s 			page 154
 
 
  4715              	.LVL359:
@@ -9238,7 +9238,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1739:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  4763              		.loc 1 1739 77 is_stmt 0 view .LVU1265
  4764 0004 0029     		cmp	r1, #0
-ARM GAS  /tmp/ccKEb1ke.s 			page 155
+ARM GAS  /tmp/ccYmH5Nh.s 			page 155
 
 
  4765 0006 38D1     		bne	.L360
@@ -9298,7 +9298,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  4809 0044 1049     		ldr	r1, .L361+8
  4810 0046 0A40     		ands	r2, r1
  4811 0048 5A64     		str	r2, [r3, #68]
-ARM GAS  /tmp/ccKEb1ke.s 			page 156
+ARM GAS  /tmp/ccYmH5Nh.s 			page 156
 
 
  4812              	.L358:
@@ -9358,7 +9358,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  4853 0078 70BD     		pop	{r4, r5, r6, pc}
  4854              	.LVL374:
  4855              	.L360:
-ARM GAS  /tmp/ccKEb1ke.s 			page 157
+ARM GAS  /tmp/ccYmH5Nh.s 			page 157
 
 
 1739:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
@@ -9418,7 +9418,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  4902              		.loc 1 1836 3 discriminator 2 view .LVU1298
 1836:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       (InputTrigger == TIM_TS_ITR2) || (InputTrigger == TIM_TS_ITR3))
  4903              		.loc 1 1836 6 is_stmt 0 discriminator 2 view .LVU1299
-ARM GAS  /tmp/ccKEb1ke.s 			page 158
+ARM GAS  /tmp/ccYmH5Nh.s 			page 158
 
 
  4904 0010 0029     		cmp	r1, #0
@@ -9478,7 +9478,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  4943 003a 4B60     		str	r3, [r1, #4]
 1848:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   htim->Instance->CR2 |= CommutationSource;
  4944              		.loc 1 1848 3 is_stmt 1 view .LVU1315
-ARM GAS  /tmp/ccKEb1ke.s 			page 159
+ARM GAS  /tmp/ccYmH5Nh.s 			page 159
 
 
 1848:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   htim->Instance->CR2 |= CommutationSource;
@@ -9538,7 +9538,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  4984              	.LVL378:
  4985              	.L364:
 1860:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
-ARM GAS  /tmp/ccKEb1ke.s 			page 160
+ARM GAS  /tmp/ccYmH5Nh.s 			page 160
 
 
  4986              		.loc 1 1860 1 view .LVU1331
@@ -9598,7 +9598,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  5033              		.loc 1 1895 3 discriminator 2 view .LVU1340
  5034 000a 3C23     		movs	r3, #60
  5035 000c 0124     		movs	r4, #1
-ARM GAS  /tmp/ccKEb1ke.s 			page 161
+ARM GAS  /tmp/ccYmH5Nh.s 			page 161
 
 
  5036 000e C454     		strb	r4, [r0, r3]
@@ -9658,7 +9658,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1912:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   /* Select the Commutation event source */
  5074              		.loc 1 1912 17 view .LVU1357
  5075 0034 4B68     		ldr	r3, [r1, #4]
-ARM GAS  /tmp/ccKEb1ke.s 			page 162
+ARM GAS  /tmp/ccYmH5Nh.s 			page 162
 
 
 1912:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   /* Select the Commutation event source */
@@ -9718,7 +9718,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1923:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  5116              		.loc 1 1923 3 view .LVU1372
 1925:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** }
-ARM GAS  /tmp/ccKEb1ke.s 			page 163
+ARM GAS  /tmp/ccYmH5Nh.s 			page 163
 
 
  5117              		.loc 1 1925 3 view .LVU1373
@@ -9778,7 +9778,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1962:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  5164              		.loc 1 1962 3 view .LVU1383
  5165 0002 3C23     		movs	r3, #60
-ARM GAS  /tmp/ccKEb1ke.s 			page 164
+ARM GAS  /tmp/ccYmH5Nh.s 			page 164
 
 
  5166 0004 C35C     		ldrb	r3, [r0, r3]
@@ -9838,7 +9838,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  5205              	.L380:
 1979:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   /* Select the Commutation event source */
  5206              		.loc 1 1979 3 is_stmt 1 view .LVU1399
-ARM GAS  /tmp/ccKEb1ke.s 			page 165
+ARM GAS  /tmp/ccYmH5Nh.s 			page 165
 
 
 1979:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   /* Select the Commutation event source */
@@ -9898,7 +9898,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 1987:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   /* Set the DMA error callback */
  5244              		.loc 1 1987 60 view .LVU1417
  5245 0056 0D4A     		ldr	r2, .L382+8
-ARM GAS  /tmp/ccKEb1ke.s 			page 166
+ARM GAS  /tmp/ccYmH5Nh.s 			page 166
 
 
  5246 0058 1A63     		str	r2, [r3, #48]
@@ -9958,7 +9958,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  5287              	.L383:
  5288              		.align	2
  5289              	.L382:
-ARM GAS  /tmp/ccKEb1ke.s 			page 167
+ARM GAS  /tmp/ccYmH5Nh.s 			page 167
 
 
  5290 0084 8FFFCFFF 		.word	-3145841
@@ -10018,7 +10018,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  5334              		.loc 1 2025 3 discriminator 2 view .LVU1442
 2025:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  5335              		.loc 1 2025 15 is_stmt 0 discriminator 2 view .LVU1443
-ARM GAS  /tmp/ccKEb1ke.s 			page 168
+ARM GAS  /tmp/ccYmH5Nh.s 			page 168
 
 
  5336 0010 0133     		adds	r3, r3, #1
@@ -10078,7 +10078,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  5373              		.loc 1 2053 6 view .LVU1460
  5374 002e 0D4A     		ldr	r2, .L391
  5375              	.LVL399:
-ARM GAS  /tmp/ccKEb1ke.s 			page 169
+ARM GAS  /tmp/ccYmH5Nh.s 			page 169
 
 
 2053:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   {
@@ -10138,7 +10138,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  5414              	.LVL403:
  5415              	.L385:
 2070:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
-ARM GAS  /tmp/ccKEb1ke.s 			page 170
+ARM GAS  /tmp/ccYmH5Nh.s 			page 170
 
 
  5416              		.loc 1 2070 1 view .LVU1477
@@ -10198,7 +10198,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  5462              		.cfi_startproc
  5463              		@ args = 0, pretend = 0, frame = 0
  5464              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccKEb1ke.s 			page 171
+ARM GAS  /tmp/ccYmH5Nh.s 			page 171
 
 
 2085:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   /* Keep this variable initialized to 0 as it is used to configure BDTR register */
@@ -10258,7 +10258,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  5501 0016 8A68     		ldr	r2, [r1, #8]
  5502 0018 1343     		orrs	r3, r2
  5503              	.LVL413:
-ARM GAS  /tmp/ccKEb1ke.s 			page 172
+ARM GAS  /tmp/ccYmH5Nh.s 			page 172
 
 
 2109:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   MODIFY_REG(tmpbdtr, TIM_BDTR_OSSR, sBreakDeadTimeConfig->OffStateRunMode);
@@ -10318,7 +10318,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  5547              	.LVL424:
 2114:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  5548              		.loc 1 2114 3 is_stmt 0 discriminator 2 view .LVU1517
-ARM GAS  /tmp/ccKEb1ke.s 			page 173
+ARM GAS  /tmp/ccYmH5Nh.s 			page 173
 
 
  5549 0046 8A69     		ldr	r2, [r1, #24]
@@ -10378,7 +10378,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  5588 0064 10BD     		pop	{r4, pc}
  5589              	.LVL430:
  5590              	.L398:
-ARM GAS  /tmp/ccKEb1ke.s 			page 174
+ARM GAS  /tmp/ccYmH5Nh.s 			page 174
 
 
 2119:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
@@ -10438,7 +10438,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  5631              		.loc 1 2137 5 is_stmt 1 view .LVU1546
 2140:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  5632              		.loc 1 2140 7 view .LVU1547
-ARM GAS  /tmp/ccKEb1ke.s 			page 175
+ARM GAS  /tmp/ccYmH5Nh.s 			page 175
 
 
 2143:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     }
@@ -10498,7 +10498,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  5682              		.cfi_startproc
  5683              		@ args = 0, pretend = 0, frame = 0
  5684              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccKEb1ke.s 			page 176
+ARM GAS  /tmp/ccYmH5Nh.s 			page 176
 
 
 2169:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   HAL_StatusTypeDef status = HAL_OK;
@@ -10558,7 +10558,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 2187:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   {
  5721              		.loc 1 2187 28 is_stmt 0 discriminator 2 view .LVU1573
  5722 0012 1068     		ldr	r0, [r2]
-ARM GAS  /tmp/ccKEb1ke.s 			page 177
+ARM GAS  /tmp/ccYmH5Nh.s 			page 177
 
 
 2187:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   {
@@ -10618,7 +10618,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  5764              		.loc 1 2213 7 is_stmt 1 view .LVU1586
 2213:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  5765              		.loc 1 2213 20 is_stmt 0 view .LVU1587
-ARM GAS  /tmp/ccKEb1ke.s 			page 178
+ARM GAS  /tmp/ccYmH5Nh.s 			page 178
 
 
  5766 0038 1D68     		ldr	r5, [r3]
@@ -10678,7 +10678,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 2230:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  5804              		.loc 1 2230 7 is_stmt 1 view .LVU1604
 2230:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
-ARM GAS  /tmp/ccKEb1ke.s 			page 179
+ARM GAS  /tmp/ccYmH5Nh.s 			page 179
 
 
  5805              		.loc 1 2230 20 is_stmt 0 view .LVU1605
@@ -10738,7 +10738,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 2185:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  5844              		.loc 1 2185 3 view .LVU1621
  5845 0070 0220     		movs	r0, #2
-ARM GAS  /tmp/ccKEb1ke.s 			page 180
+ARM GAS  /tmp/ccYmH5Nh.s 			page 180
 
 
  5846 0072 DCE7     		b	.L403
@@ -10798,7 +10798,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  5892 001a 1943     		orrs	r1, r3
  5893 001c 2166     		str	r1, [r4, #96]
 2287:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
-ARM GAS  /tmp/ccKEb1ke.s 			page 181
+ARM GAS  /tmp/ccYmH5Nh.s 			page 181
 
 
  5894              		.loc 1 2287 3 discriminator 2 view .LVU1632
@@ -10858,7 +10858,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  5940              		.cfi_def_cfa_offset 8
  5941              		.cfi_offset 4, -8
  5942              		.cfi_offset 14, -4
-ARM GAS  /tmp/ccKEb1ke.s 			page 182
+ARM GAS  /tmp/ccYmH5Nh.s 			page 182
 
 
  5943 0002 0300     		movs	r3, r0
@@ -10918,7 +10918,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  5982              	.L417:
 2350:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  5983              		.loc 1 2350 1 is_stmt 0 view .LVU1658
-ARM GAS  /tmp/ccKEb1ke.s 			page 183
+ARM GAS  /tmp/ccYmH5Nh.s 			page 183
 
 
  5984              		@ sp needed
@@ -10978,7 +10978,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  6026 004e 2240     		ands	r2, r4
  6027 0050 0A43     		orrs	r2, r1
  6028 0052 8266     		str	r2, [r0, #104]
-ARM GAS  /tmp/ccKEb1ke.s 			page 184
+ARM GAS  /tmp/ccYmH5Nh.s 			page 184
 
 
 2341:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****     default:
@@ -11038,7 +11038,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  6075 0004 3C23     		movs	r3, #60
  6076 0006 C35C     		ldrb	r3, [r0, r3]
  6077 0008 012B     		cmp	r3, #1
-ARM GAS  /tmp/ccKEb1ke.s 			page 185
+ARM GAS  /tmp/ccYmH5Nh.s 			page 185
 
 
  6078 000a 13D0     		beq	.L428
@@ -11098,7 +11098,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 2385:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** }
  6115              		.loc 1 2385 3 discriminator 2 view .LVU1698
 2385:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** }
-ARM GAS  /tmp/ccKEb1ke.s 			page 186
+ARM GAS  /tmp/ccYmH5Nh.s 			page 186
 
 
  6116              		.loc 1 2385 10 is_stmt 0 discriminator 2 view .LVU1699
@@ -11158,7 +11158,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 2442:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** }
  6162              		.loc 1 2442 3 view .LVU1710
 2443:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
-ARM GAS  /tmp/ccKEb1ke.s 			page 187
+ARM GAS  /tmp/ccYmH5Nh.s 			page 187
 
 
  6163              		.loc 1 2443 1 is_stmt 0 view .LVU1711
@@ -11218,7 +11218,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  6205              	.L431:
 2428:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       if ((READ_BIT(tmpbdtr, TIM_BDTR_BK2BID) == TIM_BDTR_BK2BID) &&
  6206              		.loc 1 2428 7 is_stmt 1 view .LVU1724
-ARM GAS  /tmp/ccKEb1ke.s 			page 188
+ARM GAS  /tmp/ccYmH5Nh.s 			page 188
 
 
 2428:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****       if ((READ_BIT(tmpbdtr, TIM_BDTR_BK2BID) == TIM_BDTR_BK2BID) &&
@@ -11278,7 +11278,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  6251              		.align	1
  6252              		.global	HAL_TIMEx_ReArmBreakInput
  6253              		.syntax unified
-ARM GAS  /tmp/ccKEb1ke.s 			page 189
+ARM GAS  /tmp/ccYmH5Nh.s 			page 189
 
 
  6254              		.code	16
@@ -11338,7 +11338,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  6297              		.loc 1 2470 10 view .LVU1747
  6298 0014 DB00     		lsls	r3, r3, #3
  6299 0016 01D4     		bmi	.L451
-ARM GAS  /tmp/ccKEb1ke.s 			page 190
+ARM GAS  /tmp/ccYmH5Nh.s 			page 190
 
 
 2458:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   uint32_t tickstart;
@@ -11398,7 +11398,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  6338 003a F2D5     		bpl	.L443
 2482:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****             }
  6339              		.loc 1 2482 22 view .LVU1764
-ARM GAS  /tmp/ccKEb1ke.s 			page 191
+ARM GAS  /tmp/ccYmH5Nh.s 			page 191
 
 
  6340 003c 0320     		movs	r0, #3
@@ -11458,7 +11458,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  6379              		.loc 1 2500 16 is_stmt 0 view .LVU1779
  6380 005e FFF7FEFF 		bl	HAL_GetTick
  6381              	.LVL523:
-ARM GAS  /tmp/ccKEb1ke.s 			page 192
+ARM GAS  /tmp/ccYmH5Nh.s 			page 192
 
 
 2500:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****           {
@@ -11518,7 +11518,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  6429              		.syntax unified
  6430              		.code	16
  6431              		.thumb_func
-ARM GAS  /tmp/ccKEb1ke.s 			page 193
+ARM GAS  /tmp/ccYmH5Nh.s 			page 193
 
 
  6433              	TIMEx_DMACommutationCplt:
@@ -11578,7 +11578,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  6479              		.loc 1 2562 3 view .LVU1799
 2567:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  6480              		.loc 1 2567 1 is_stmt 0 view .LVU1800
-ARM GAS  /tmp/ccKEb1ke.s 			page 194
+ARM GAS  /tmp/ccYmH5Nh.s 			page 194
 
 
  6481              		@ sp needed
@@ -11638,7 +11638,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  6531              	HAL_TIMEx_BreakCallback:
  6532              	.LVL532:
  6533              	.LFB253:
-ARM GAS  /tmp/ccKEb1ke.s 			page 195
+ARM GAS  /tmp/ccYmH5Nh.s 			page 195
 
 
 2575:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c ****   /* Prevent unused argument(s) compilation warning */
@@ -11698,7 +11698,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 2624:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** }
  6584              		.loc 1 2624 14 is_stmt 0 view .LVU1817
  6585 0000 3D23     		movs	r3, #61
-ARM GAS  /tmp/ccKEb1ke.s 			page 196
+ARM GAS  /tmp/ccYmH5Nh.s 			page 196
 
 
  6586 0002 C05C     		ldrb	r0, [r0, r3]
@@ -11758,7 +11758,7 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
 2644:external/drivers/stm32c0xx/src/stm32c0xx_hal_tim_ex.c **** 
  6631              		.loc 1 2644 19 discriminator 2 view .LVU1829
  6632 000c 0429     		cmp	r1, #4
-ARM GAS  /tmp/ccKEb1ke.s 			page 197
+ARM GAS  /tmp/ccYmH5Nh.s 			page 197
 
 
  6633 000e 05D0     		beq	.L467
@@ -11809,143 +11809,143 @@ ARM GAS  /tmp/ccKEb1ke.s 			page 1
  6672              		.file 7 "external/drivers/stm32c0xx/include/stm32c0xx_hal_tim.h"
  6673              		.file 8 "external/drivers/stm32c0xx/include/stm32c0xx_hal_tim_ex.h"
  6674              		.file 9 "external/drivers/stm32c0xx/include/stm32c0xx_hal.h"
-ARM GAS  /tmp/ccKEb1ke.s 			page 198
+ARM GAS  /tmp/ccYmH5Nh.s 			page 198
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32c0xx_hal_tim_ex.c
-     /tmp/ccKEb1ke.s:19     .text.TIM_CCxNChannelCmd:00000000 $t
-     /tmp/ccKEb1ke.s:24     .text.TIM_CCxNChannelCmd:00000000 TIM_CCxNChannelCmd
-     /tmp/ccKEb1ke.s:71     .text.TIM_DMAErrorCCxN:00000000 $t
-     /tmp/ccKEb1ke.s:76     .text.TIM_DMAErrorCCxN:00000000 TIM_DMAErrorCCxN
-     /tmp/ccKEb1ke.s:162    .text.TIM_DMADelayPulseNCplt:00000000 $t
-     /tmp/ccKEb1ke.s:167    .text.TIM_DMADelayPulseNCplt:00000000 TIM_DMADelayPulseNCplt
-     /tmp/ccKEb1ke.s:294    .text.HAL_TIMEx_HallSensor_MspInit:00000000 $t
-     /tmp/ccKEb1ke.s:300    .text.HAL_TIMEx_HallSensor_MspInit:00000000 HAL_TIMEx_HallSensor_MspInit
-     /tmp/ccKEb1ke.s:316    .text.HAL_TIMEx_HallSensor_Init:00000000 $t
-     /tmp/ccKEb1ke.s:322    .text.HAL_TIMEx_HallSensor_Init:00000000 HAL_TIMEx_HallSensor_Init
-     /tmp/ccKEb1ke.s:551    .text.HAL_TIMEx_HallSensor_Init:000000d0 $d
-     /tmp/ccKEb1ke.s:557    .text.HAL_TIMEx_HallSensor_MspDeInit:00000000 $t
-     /tmp/ccKEb1ke.s:563    .text.HAL_TIMEx_HallSensor_MspDeInit:00000000 HAL_TIMEx_HallSensor_MspDeInit
-     /tmp/ccKEb1ke.s:579    .text.HAL_TIMEx_HallSensor_DeInit:00000000 $t
-     /tmp/ccKEb1ke.s:585    .text.HAL_TIMEx_HallSensor_DeInit:00000000 HAL_TIMEx_HallSensor_DeInit
-     /tmp/ccKEb1ke.s:666    .text.HAL_TIMEx_HallSensor_DeInit:0000004c $d
-     /tmp/ccKEb1ke.s:672    .text.HAL_TIMEx_HallSensor_Start:00000000 $t
-     /tmp/ccKEb1ke.s:678    .text.HAL_TIMEx_HallSensor_Start:00000000 HAL_TIMEx_HallSensor_Start
-     /tmp/ccKEb1ke.s:850    .text.HAL_TIMEx_HallSensor_Start:00000094 $d
-     /tmp/ccKEb1ke.s:857    .text.HAL_TIMEx_HallSensor_Stop:00000000 $t
-     /tmp/ccKEb1ke.s:863    .text.HAL_TIMEx_HallSensor_Stop:00000000 HAL_TIMEx_HallSensor_Stop
-     /tmp/ccKEb1ke.s:928    .text.HAL_TIMEx_HallSensor_Stop:00000040 $d
-     /tmp/ccKEb1ke.s:934    .text.HAL_TIMEx_HallSensor_Start_IT:00000000 $t
-     /tmp/ccKEb1ke.s:940    .text.HAL_TIMEx_HallSensor_Start_IT:00000000 HAL_TIMEx_HallSensor_Start_IT
-     /tmp/ccKEb1ke.s:1119   .text.HAL_TIMEx_HallSensor_Start_IT:0000009c $d
-     /tmp/ccKEb1ke.s:1126   .text.HAL_TIMEx_HallSensor_Stop_IT:00000000 $t
-     /tmp/ccKEb1ke.s:1132   .text.HAL_TIMEx_HallSensor_Stop_IT:00000000 HAL_TIMEx_HallSensor_Stop_IT
-     /tmp/ccKEb1ke.s:1203   .text.HAL_TIMEx_HallSensor_Stop_IT:00000048 $d
-     /tmp/ccKEb1ke.s:1209   .text.HAL_TIMEx_HallSensor_Start_DMA:00000000 $t
-     /tmp/ccKEb1ke.s:1215   .text.HAL_TIMEx_HallSensor_Start_DMA:00000000 HAL_TIMEx_HallSensor_Start_DMA
-     /tmp/ccKEb1ke.s:1411   .text.HAL_TIMEx_HallSensor_Start_DMA:000000b8 $d
-     /tmp/ccKEb1ke.s:1421   .text.HAL_TIMEx_HallSensor_Stop_DMA:00000000 $t
-     /tmp/ccKEb1ke.s:1427   .text.HAL_TIMEx_HallSensor_Stop_DMA:00000000 HAL_TIMEx_HallSensor_Stop_DMA
-     /tmp/ccKEb1ke.s:1497   .text.HAL_TIMEx_HallSensor_Stop_DMA:00000048 $d
-     /tmp/ccKEb1ke.s:1504   .text.HAL_TIMEx_OCN_Start:00000000 $t
-     /tmp/ccKEb1ke.s:1510   .text.HAL_TIMEx_OCN_Start:00000000 HAL_TIMEx_OCN_Start
-     /tmp/ccKEb1ke.s:1693   .text.HAL_TIMEx_OCN_Start:000000cc $d
-     /tmp/ccKEb1ke.s:1700   .text.HAL_TIMEx_OCN_Stop:00000000 $t
-     /tmp/ccKEb1ke.s:1706   .text.HAL_TIMEx_OCN_Stop:00000000 HAL_TIMEx_OCN_Stop
-     /tmp/ccKEb1ke.s:1813   .text.HAL_TIMEx_OCN_Stop:00000070 $d
-     /tmp/ccKEb1ke.s:1820   .text.HAL_TIMEx_OCN_Start_IT:00000000 $t
-     /tmp/ccKEb1ke.s:1826   .text.HAL_TIMEx_OCN_Start_IT:00000000 HAL_TIMEx_OCN_Start_IT
-     /tmp/ccKEb1ke.s:2061   .text.HAL_TIMEx_OCN_Start_IT:00000100 $d
-     /tmp/ccKEb1ke.s:2068   .text.HAL_TIMEx_OCN_Stop_IT:00000000 $t
-     /tmp/ccKEb1ke.s:2074   .text.HAL_TIMEx_OCN_Stop_IT:00000000 HAL_TIMEx_OCN_Stop_IT
-     /tmp/ccKEb1ke.s:2257   .text.HAL_TIMEx_OCN_Stop_IT:000000bc $d
-     /tmp/ccKEb1ke.s:2264   .text.HAL_TIMEx_OCN_Start_DMA:00000000 $t
-     /tmp/ccKEb1ke.s:2270   .text.HAL_TIMEx_OCN_Start_DMA:00000000 HAL_TIMEx_OCN_Start_DMA
-     /tmp/ccKEb1ke.s:2696   .text.HAL_TIMEx_OCN_Start_DMA:000001d4 $d
-     /tmp/ccKEb1ke.s:2706   .text.HAL_TIMEx_OCN_Stop_DMA:00000000 $t
-     /tmp/ccKEb1ke.s:2712   .text.HAL_TIMEx_OCN_Stop_DMA:00000000 HAL_TIMEx_OCN_Stop_DMA
-     /tmp/ccKEb1ke.s:2892   .text.HAL_TIMEx_OCN_Stop_DMA:000000bc $d
-     /tmp/ccKEb1ke.s:2902   .text.HAL_TIMEx_PWMN_Start:00000000 $t
-     /tmp/ccKEb1ke.s:2908   .text.HAL_TIMEx_PWMN_Start:00000000 HAL_TIMEx_PWMN_Start
-     /tmp/ccKEb1ke.s:3091   .text.HAL_TIMEx_PWMN_Start:000000cc $d
-ARM GAS  /tmp/ccKEb1ke.s 			page 199
+     /tmp/ccYmH5Nh.s:19     .text.TIM_CCxNChannelCmd:00000000 $t
+     /tmp/ccYmH5Nh.s:24     .text.TIM_CCxNChannelCmd:00000000 TIM_CCxNChannelCmd
+     /tmp/ccYmH5Nh.s:71     .text.TIM_DMAErrorCCxN:00000000 $t
+     /tmp/ccYmH5Nh.s:76     .text.TIM_DMAErrorCCxN:00000000 TIM_DMAErrorCCxN
+     /tmp/ccYmH5Nh.s:162    .text.TIM_DMADelayPulseNCplt:00000000 $t
+     /tmp/ccYmH5Nh.s:167    .text.TIM_DMADelayPulseNCplt:00000000 TIM_DMADelayPulseNCplt
+     /tmp/ccYmH5Nh.s:294    .text.HAL_TIMEx_HallSensor_MspInit:00000000 $t
+     /tmp/ccYmH5Nh.s:300    .text.HAL_TIMEx_HallSensor_MspInit:00000000 HAL_TIMEx_HallSensor_MspInit
+     /tmp/ccYmH5Nh.s:316    .text.HAL_TIMEx_HallSensor_Init:00000000 $t
+     /tmp/ccYmH5Nh.s:322    .text.HAL_TIMEx_HallSensor_Init:00000000 HAL_TIMEx_HallSensor_Init
+     /tmp/ccYmH5Nh.s:551    .text.HAL_TIMEx_HallSensor_Init:000000d0 $d
+     /tmp/ccYmH5Nh.s:557    .text.HAL_TIMEx_HallSensor_MspDeInit:00000000 $t
+     /tmp/ccYmH5Nh.s:563    .text.HAL_TIMEx_HallSensor_MspDeInit:00000000 HAL_TIMEx_HallSensor_MspDeInit
+     /tmp/ccYmH5Nh.s:579    .text.HAL_TIMEx_HallSensor_DeInit:00000000 $t
+     /tmp/ccYmH5Nh.s:585    .text.HAL_TIMEx_HallSensor_DeInit:00000000 HAL_TIMEx_HallSensor_DeInit
+     /tmp/ccYmH5Nh.s:666    .text.HAL_TIMEx_HallSensor_DeInit:0000004c $d
+     /tmp/ccYmH5Nh.s:672    .text.HAL_TIMEx_HallSensor_Start:00000000 $t
+     /tmp/ccYmH5Nh.s:678    .text.HAL_TIMEx_HallSensor_Start:00000000 HAL_TIMEx_HallSensor_Start
+     /tmp/ccYmH5Nh.s:850    .text.HAL_TIMEx_HallSensor_Start:00000094 $d
+     /tmp/ccYmH5Nh.s:857    .text.HAL_TIMEx_HallSensor_Stop:00000000 $t
+     /tmp/ccYmH5Nh.s:863    .text.HAL_TIMEx_HallSensor_Stop:00000000 HAL_TIMEx_HallSensor_Stop
+     /tmp/ccYmH5Nh.s:928    .text.HAL_TIMEx_HallSensor_Stop:00000040 $d
+     /tmp/ccYmH5Nh.s:934    .text.HAL_TIMEx_HallSensor_Start_IT:00000000 $t
+     /tmp/ccYmH5Nh.s:940    .text.HAL_TIMEx_HallSensor_Start_IT:00000000 HAL_TIMEx_HallSensor_Start_IT
+     /tmp/ccYmH5Nh.s:1119   .text.HAL_TIMEx_HallSensor_Start_IT:0000009c $d
+     /tmp/ccYmH5Nh.s:1126   .text.HAL_TIMEx_HallSensor_Stop_IT:00000000 $t
+     /tmp/ccYmH5Nh.s:1132   .text.HAL_TIMEx_HallSensor_Stop_IT:00000000 HAL_TIMEx_HallSensor_Stop_IT
+     /tmp/ccYmH5Nh.s:1203   .text.HAL_TIMEx_HallSensor_Stop_IT:00000048 $d
+     /tmp/ccYmH5Nh.s:1209   .text.HAL_TIMEx_HallSensor_Start_DMA:00000000 $t
+     /tmp/ccYmH5Nh.s:1215   .text.HAL_TIMEx_HallSensor_Start_DMA:00000000 HAL_TIMEx_HallSensor_Start_DMA
+     /tmp/ccYmH5Nh.s:1411   .text.HAL_TIMEx_HallSensor_Start_DMA:000000b8 $d
+     /tmp/ccYmH5Nh.s:1421   .text.HAL_TIMEx_HallSensor_Stop_DMA:00000000 $t
+     /tmp/ccYmH5Nh.s:1427   .text.HAL_TIMEx_HallSensor_Stop_DMA:00000000 HAL_TIMEx_HallSensor_Stop_DMA
+     /tmp/ccYmH5Nh.s:1497   .text.HAL_TIMEx_HallSensor_Stop_DMA:00000048 $d
+     /tmp/ccYmH5Nh.s:1504   .text.HAL_TIMEx_OCN_Start:00000000 $t
+     /tmp/ccYmH5Nh.s:1510   .text.HAL_TIMEx_OCN_Start:00000000 HAL_TIMEx_OCN_Start
+     /tmp/ccYmH5Nh.s:1693   .text.HAL_TIMEx_OCN_Start:000000cc $d
+     /tmp/ccYmH5Nh.s:1700   .text.HAL_TIMEx_OCN_Stop:00000000 $t
+     /tmp/ccYmH5Nh.s:1706   .text.HAL_TIMEx_OCN_Stop:00000000 HAL_TIMEx_OCN_Stop
+     /tmp/ccYmH5Nh.s:1813   .text.HAL_TIMEx_OCN_Stop:00000070 $d
+     /tmp/ccYmH5Nh.s:1820   .text.HAL_TIMEx_OCN_Start_IT:00000000 $t
+     /tmp/ccYmH5Nh.s:1826   .text.HAL_TIMEx_OCN_Start_IT:00000000 HAL_TIMEx_OCN_Start_IT
+     /tmp/ccYmH5Nh.s:2061   .text.HAL_TIMEx_OCN_Start_IT:00000100 $d
+     /tmp/ccYmH5Nh.s:2068   .text.HAL_TIMEx_OCN_Stop_IT:00000000 $t
+     /tmp/ccYmH5Nh.s:2074   .text.HAL_TIMEx_OCN_Stop_IT:00000000 HAL_TIMEx_OCN_Stop_IT
+     /tmp/ccYmH5Nh.s:2257   .text.HAL_TIMEx_OCN_Stop_IT:000000bc $d
+     /tmp/ccYmH5Nh.s:2264   .text.HAL_TIMEx_OCN_Start_DMA:00000000 $t
+     /tmp/ccYmH5Nh.s:2270   .text.HAL_TIMEx_OCN_Start_DMA:00000000 HAL_TIMEx_OCN_Start_DMA
+     /tmp/ccYmH5Nh.s:2696   .text.HAL_TIMEx_OCN_Start_DMA:000001d4 $d
+     /tmp/ccYmH5Nh.s:2706   .text.HAL_TIMEx_OCN_Stop_DMA:00000000 $t
+     /tmp/ccYmH5Nh.s:2712   .text.HAL_TIMEx_OCN_Stop_DMA:00000000 HAL_TIMEx_OCN_Stop_DMA
+     /tmp/ccYmH5Nh.s:2892   .text.HAL_TIMEx_OCN_Stop_DMA:000000bc $d
+     /tmp/ccYmH5Nh.s:2902   .text.HAL_TIMEx_PWMN_Start:00000000 $t
+     /tmp/ccYmH5Nh.s:2908   .text.HAL_TIMEx_PWMN_Start:00000000 HAL_TIMEx_PWMN_Start
+     /tmp/ccYmH5Nh.s:3091   .text.HAL_TIMEx_PWMN_Start:000000cc $d
+ARM GAS  /tmp/ccYmH5Nh.s 			page 199
 
 
-     /tmp/ccKEb1ke.s:3098   .text.HAL_TIMEx_PWMN_Stop:00000000 $t
-     /tmp/ccKEb1ke.s:3104   .text.HAL_TIMEx_PWMN_Stop:00000000 HAL_TIMEx_PWMN_Stop
-     /tmp/ccKEb1ke.s:3211   .text.HAL_TIMEx_PWMN_Stop:00000070 $d
-     /tmp/ccKEb1ke.s:3218   .text.HAL_TIMEx_PWMN_Start_IT:00000000 $t
-     /tmp/ccKEb1ke.s:3224   .text.HAL_TIMEx_PWMN_Start_IT:00000000 HAL_TIMEx_PWMN_Start_IT
-     /tmp/ccKEb1ke.s:3459   .text.HAL_TIMEx_PWMN_Start_IT:00000100 $d
-     /tmp/ccKEb1ke.s:3466   .text.HAL_TIMEx_PWMN_Stop_IT:00000000 $t
-     /tmp/ccKEb1ke.s:3472   .text.HAL_TIMEx_PWMN_Stop_IT:00000000 HAL_TIMEx_PWMN_Stop_IT
-     /tmp/ccKEb1ke.s:3655   .text.HAL_TIMEx_PWMN_Stop_IT:000000bc $d
-     /tmp/ccKEb1ke.s:3662   .text.HAL_TIMEx_PWMN_Start_DMA:00000000 $t
-     /tmp/ccKEb1ke.s:3668   .text.HAL_TIMEx_PWMN_Start_DMA:00000000 HAL_TIMEx_PWMN_Start_DMA
-     /tmp/ccKEb1ke.s:4094   .text.HAL_TIMEx_PWMN_Start_DMA:000001d4 $d
-     /tmp/ccKEb1ke.s:4104   .text.HAL_TIMEx_PWMN_Stop_DMA:00000000 $t
-     /tmp/ccKEb1ke.s:4110   .text.HAL_TIMEx_PWMN_Stop_DMA:00000000 HAL_TIMEx_PWMN_Stop_DMA
-     /tmp/ccKEb1ke.s:4290   .text.HAL_TIMEx_PWMN_Stop_DMA:000000bc $d
-     /tmp/ccKEb1ke.s:4300   .text.HAL_TIMEx_OnePulseN_Start:00000000 $t
-     /tmp/ccKEb1ke.s:4306   .text.HAL_TIMEx_OnePulseN_Start:00000000 HAL_TIMEx_OnePulseN_Start
-     /tmp/ccKEb1ke.s:4455   .text.HAL_TIMEx_OnePulseN_Stop:00000000 $t
-     /tmp/ccKEb1ke.s:4461   .text.HAL_TIMEx_OnePulseN_Stop:00000000 HAL_TIMEx_OnePulseN_Stop
-     /tmp/ccKEb1ke.s:4565   .text.HAL_TIMEx_OnePulseN_Stop:0000006c $d
-     /tmp/ccKEb1ke.s:4572   .text.HAL_TIMEx_OnePulseN_Start_IT:00000000 $t
-     /tmp/ccKEb1ke.s:4578   .text.HAL_TIMEx_OnePulseN_Start_IT:00000000 HAL_TIMEx_OnePulseN_Start_IT
-     /tmp/ccKEb1ke.s:4740   .text.HAL_TIMEx_OnePulseN_Stop_IT:00000000 $t
-     /tmp/ccKEb1ke.s:4746   .text.HAL_TIMEx_OnePulseN_Stop_IT:00000000 HAL_TIMEx_OnePulseN_Stop_IT
-     /tmp/ccKEb1ke.s:4862   .text.HAL_TIMEx_OnePulseN_Stop_IT:00000080 $d
-     /tmp/ccKEb1ke.s:4869   .text.HAL_TIMEx_ConfigCommutEvent:00000000 $t
-     /tmp/ccKEb1ke.s:4875   .text.HAL_TIMEx_ConfigCommutEvent:00000000 HAL_TIMEx_ConfigCommutEvent
-     /tmp/ccKEb1ke.s:4999   .text.HAL_TIMEx_ConfigCommutEvent:00000070 $d
-     /tmp/ccKEb1ke.s:5005   .text.HAL_TIMEx_ConfigCommutEvent_IT:00000000 $t
-     /tmp/ccKEb1ke.s:5011   .text.HAL_TIMEx_ConfigCommutEvent_IT:00000000 HAL_TIMEx_ConfigCommutEvent_IT
-     /tmp/ccKEb1ke.s:5135   .text.HAL_TIMEx_ConfigCommutEvent_IT:00000070 $d
-     /tmp/ccKEb1ke.s:5141   .text.HAL_TIMEx_ConfigCommutEvent_DMA:00000000 $t
-     /tmp/ccKEb1ke.s:5147   .text.HAL_TIMEx_ConfigCommutEvent_DMA:00000000 HAL_TIMEx_ConfigCommutEvent_DMA
-     /tmp/ccKEb1ke.s:5290   .text.HAL_TIMEx_ConfigCommutEvent_DMA:00000084 $d
-     /tmp/ccKEb1ke.s:6433   .text.TIMEx_DMACommutationCplt:00000000 TIMEx_DMACommutationCplt
-     /tmp/ccKEb1ke.s:6493   .text.TIMEx_DMACommutationHalfCplt:00000000 TIMEx_DMACommutationHalfCplt
-     /tmp/ccKEb1ke.s:5298   .text.HAL_TIMEx_MasterConfigSynchronization:00000000 $t
-     /tmp/ccKEb1ke.s:5304   .text.HAL_TIMEx_MasterConfigSynchronization:00000000 HAL_TIMEx_MasterConfigSynchronization
-     /tmp/ccKEb1ke.s:5445   .text.HAL_TIMEx_MasterConfigSynchronization:00000064 $d
-     /tmp/ccKEb1ke.s:5452   .text.HAL_TIMEx_ConfigBreakDeadTime:00000000 $t
-     /tmp/ccKEb1ke.s:5458   .text.HAL_TIMEx_ConfigBreakDeadTime:00000000 HAL_TIMEx_ConfigBreakDeadTime
-     /tmp/ccKEb1ke.s:5655   .text.HAL_TIMEx_ConfigBreakDeadTime:00000098 $d
-     /tmp/ccKEb1ke.s:5672   .text.HAL_TIMEx_ConfigBreakInput:00000000 $t
-     /tmp/ccKEb1ke.s:5678   .text.HAL_TIMEx_ConfigBreakInput:00000000 HAL_TIMEx_ConfigBreakInput
-     /tmp/ccKEb1ke.s:5851   .text.HAL_TIMEx_RemapConfig:00000000 $t
-     /tmp/ccKEb1ke.s:5857   .text.HAL_TIMEx_RemapConfig:00000000 HAL_TIMEx_RemapConfig
-     /tmp/ccKEb1ke.s:5919   .text.HAL_TIMEx_RemapConfig:0000002c $d
-     /tmp/ccKEb1ke.s:5924   .text.HAL_TIMEx_TISelection:00000000 $t
-     /tmp/ccKEb1ke.s:5930   .text.HAL_TIMEx_TISelection:00000000 HAL_TIMEx_TISelection
-     /tmp/ccKEb1ke.s:6042   .text.HAL_TIMEx_TISelection:0000005c $d
-     /tmp/ccKEb1ke.s:6048   .text.HAL_TIMEx_GroupChannel5:00000000 $t
-     /tmp/ccKEb1ke.s:6054   .text.HAL_TIMEx_GroupChannel5:00000000 HAL_TIMEx_GroupChannel5
-     /tmp/ccKEb1ke.s:6136   .text.HAL_TIMEx_DisarmBreakInput:00000000 $t
-     /tmp/ccKEb1ke.s:6142   .text.HAL_TIMEx_DisarmBreakInput:00000000 HAL_TIMEx_DisarmBreakInput
-     /tmp/ccKEb1ke.s:6245   .text.HAL_TIMEx_DisarmBreakInput:00000050 $d
-     /tmp/ccKEb1ke.s:6251   .text.HAL_TIMEx_ReArmBreakInput:00000000 $t
-     /tmp/ccKEb1ke.s:6257   .text.HAL_TIMEx_ReArmBreakInput:00000000 HAL_TIMEx_ReArmBreakInput
-ARM GAS  /tmp/ccKEb1ke.s 			page 200
+     /tmp/ccYmH5Nh.s:3098   .text.HAL_TIMEx_PWMN_Stop:00000000 $t
+     /tmp/ccYmH5Nh.s:3104   .text.HAL_TIMEx_PWMN_Stop:00000000 HAL_TIMEx_PWMN_Stop
+     /tmp/ccYmH5Nh.s:3211   .text.HAL_TIMEx_PWMN_Stop:00000070 $d
+     /tmp/ccYmH5Nh.s:3218   .text.HAL_TIMEx_PWMN_Start_IT:00000000 $t
+     /tmp/ccYmH5Nh.s:3224   .text.HAL_TIMEx_PWMN_Start_IT:00000000 HAL_TIMEx_PWMN_Start_IT
+     /tmp/ccYmH5Nh.s:3459   .text.HAL_TIMEx_PWMN_Start_IT:00000100 $d
+     /tmp/ccYmH5Nh.s:3466   .text.HAL_TIMEx_PWMN_Stop_IT:00000000 $t
+     /tmp/ccYmH5Nh.s:3472   .text.HAL_TIMEx_PWMN_Stop_IT:00000000 HAL_TIMEx_PWMN_Stop_IT
+     /tmp/ccYmH5Nh.s:3655   .text.HAL_TIMEx_PWMN_Stop_IT:000000bc $d
+     /tmp/ccYmH5Nh.s:3662   .text.HAL_TIMEx_PWMN_Start_DMA:00000000 $t
+     /tmp/ccYmH5Nh.s:3668   .text.HAL_TIMEx_PWMN_Start_DMA:00000000 HAL_TIMEx_PWMN_Start_DMA
+     /tmp/ccYmH5Nh.s:4094   .text.HAL_TIMEx_PWMN_Start_DMA:000001d4 $d
+     /tmp/ccYmH5Nh.s:4104   .text.HAL_TIMEx_PWMN_Stop_DMA:00000000 $t
+     /tmp/ccYmH5Nh.s:4110   .text.HAL_TIMEx_PWMN_Stop_DMA:00000000 HAL_TIMEx_PWMN_Stop_DMA
+     /tmp/ccYmH5Nh.s:4290   .text.HAL_TIMEx_PWMN_Stop_DMA:000000bc $d
+     /tmp/ccYmH5Nh.s:4300   .text.HAL_TIMEx_OnePulseN_Start:00000000 $t
+     /tmp/ccYmH5Nh.s:4306   .text.HAL_TIMEx_OnePulseN_Start:00000000 HAL_TIMEx_OnePulseN_Start
+     /tmp/ccYmH5Nh.s:4455   .text.HAL_TIMEx_OnePulseN_Stop:00000000 $t
+     /tmp/ccYmH5Nh.s:4461   .text.HAL_TIMEx_OnePulseN_Stop:00000000 HAL_TIMEx_OnePulseN_Stop
+     /tmp/ccYmH5Nh.s:4565   .text.HAL_TIMEx_OnePulseN_Stop:0000006c $d
+     /tmp/ccYmH5Nh.s:4572   .text.HAL_TIMEx_OnePulseN_Start_IT:00000000 $t
+     /tmp/ccYmH5Nh.s:4578   .text.HAL_TIMEx_OnePulseN_Start_IT:00000000 HAL_TIMEx_OnePulseN_Start_IT
+     /tmp/ccYmH5Nh.s:4740   .text.HAL_TIMEx_OnePulseN_Stop_IT:00000000 $t
+     /tmp/ccYmH5Nh.s:4746   .text.HAL_TIMEx_OnePulseN_Stop_IT:00000000 HAL_TIMEx_OnePulseN_Stop_IT
+     /tmp/ccYmH5Nh.s:4862   .text.HAL_TIMEx_OnePulseN_Stop_IT:00000080 $d
+     /tmp/ccYmH5Nh.s:4869   .text.HAL_TIMEx_ConfigCommutEvent:00000000 $t
+     /tmp/ccYmH5Nh.s:4875   .text.HAL_TIMEx_ConfigCommutEvent:00000000 HAL_TIMEx_ConfigCommutEvent
+     /tmp/ccYmH5Nh.s:4999   .text.HAL_TIMEx_ConfigCommutEvent:00000070 $d
+     /tmp/ccYmH5Nh.s:5005   .text.HAL_TIMEx_ConfigCommutEvent_IT:00000000 $t
+     /tmp/ccYmH5Nh.s:5011   .text.HAL_TIMEx_ConfigCommutEvent_IT:00000000 HAL_TIMEx_ConfigCommutEvent_IT
+     /tmp/ccYmH5Nh.s:5135   .text.HAL_TIMEx_ConfigCommutEvent_IT:00000070 $d
+     /tmp/ccYmH5Nh.s:5141   .text.HAL_TIMEx_ConfigCommutEvent_DMA:00000000 $t
+     /tmp/ccYmH5Nh.s:5147   .text.HAL_TIMEx_ConfigCommutEvent_DMA:00000000 HAL_TIMEx_ConfigCommutEvent_DMA
+     /tmp/ccYmH5Nh.s:5290   .text.HAL_TIMEx_ConfigCommutEvent_DMA:00000084 $d
+     /tmp/ccYmH5Nh.s:6433   .text.TIMEx_DMACommutationCplt:00000000 TIMEx_DMACommutationCplt
+     /tmp/ccYmH5Nh.s:6493   .text.TIMEx_DMACommutationHalfCplt:00000000 TIMEx_DMACommutationHalfCplt
+     /tmp/ccYmH5Nh.s:5298   .text.HAL_TIMEx_MasterConfigSynchronization:00000000 $t
+     /tmp/ccYmH5Nh.s:5304   .text.HAL_TIMEx_MasterConfigSynchronization:00000000 HAL_TIMEx_MasterConfigSynchronization
+     /tmp/ccYmH5Nh.s:5445   .text.HAL_TIMEx_MasterConfigSynchronization:00000064 $d
+     /tmp/ccYmH5Nh.s:5452   .text.HAL_TIMEx_ConfigBreakDeadTime:00000000 $t
+     /tmp/ccYmH5Nh.s:5458   .text.HAL_TIMEx_ConfigBreakDeadTime:00000000 HAL_TIMEx_ConfigBreakDeadTime
+     /tmp/ccYmH5Nh.s:5655   .text.HAL_TIMEx_ConfigBreakDeadTime:00000098 $d
+     /tmp/ccYmH5Nh.s:5672   .text.HAL_TIMEx_ConfigBreakInput:00000000 $t
+     /tmp/ccYmH5Nh.s:5678   .text.HAL_TIMEx_ConfigBreakInput:00000000 HAL_TIMEx_ConfigBreakInput
+     /tmp/ccYmH5Nh.s:5851   .text.HAL_TIMEx_RemapConfig:00000000 $t
+     /tmp/ccYmH5Nh.s:5857   .text.HAL_TIMEx_RemapConfig:00000000 HAL_TIMEx_RemapConfig
+     /tmp/ccYmH5Nh.s:5919   .text.HAL_TIMEx_RemapConfig:0000002c $d
+     /tmp/ccYmH5Nh.s:5924   .text.HAL_TIMEx_TISelection:00000000 $t
+     /tmp/ccYmH5Nh.s:5930   .text.HAL_TIMEx_TISelection:00000000 HAL_TIMEx_TISelection
+     /tmp/ccYmH5Nh.s:6042   .text.HAL_TIMEx_TISelection:0000005c $d
+     /tmp/ccYmH5Nh.s:6048   .text.HAL_TIMEx_GroupChannel5:00000000 $t
+     /tmp/ccYmH5Nh.s:6054   .text.HAL_TIMEx_GroupChannel5:00000000 HAL_TIMEx_GroupChannel5
+     /tmp/ccYmH5Nh.s:6136   .text.HAL_TIMEx_DisarmBreakInput:00000000 $t
+     /tmp/ccYmH5Nh.s:6142   .text.HAL_TIMEx_DisarmBreakInput:00000000 HAL_TIMEx_DisarmBreakInput
+     /tmp/ccYmH5Nh.s:6245   .text.HAL_TIMEx_DisarmBreakInput:00000050 $d
+     /tmp/ccYmH5Nh.s:6251   .text.HAL_TIMEx_ReArmBreakInput:00000000 $t
+     /tmp/ccYmH5Nh.s:6257   .text.HAL_TIMEx_ReArmBreakInput:00000000 HAL_TIMEx_ReArmBreakInput
+ARM GAS  /tmp/ccYmH5Nh.s 			page 200
 
 
-     /tmp/ccKEb1ke.s:6405   .text.HAL_TIMEx_CommutCallback:00000000 $t
-     /tmp/ccKEb1ke.s:6411   .text.HAL_TIMEx_CommutCallback:00000000 HAL_TIMEx_CommutCallback
-     /tmp/ccKEb1ke.s:6427   .text.TIMEx_DMACommutationCplt:00000000 $t
-     /tmp/ccKEb1ke.s:6465   .text.HAL_TIMEx_CommutHalfCpltCallback:00000000 $t
-     /tmp/ccKEb1ke.s:6471   .text.HAL_TIMEx_CommutHalfCpltCallback:00000000 HAL_TIMEx_CommutHalfCpltCallback
-     /tmp/ccKEb1ke.s:6487   .text.TIMEx_DMACommutationHalfCplt:00000000 $t
-     /tmp/ccKEb1ke.s:6525   .text.HAL_TIMEx_BreakCallback:00000000 $t
-     /tmp/ccKEb1ke.s:6531   .text.HAL_TIMEx_BreakCallback:00000000 HAL_TIMEx_BreakCallback
-     /tmp/ccKEb1ke.s:6547   .text.HAL_TIMEx_Break2Callback:00000000 $t
-     /tmp/ccKEb1ke.s:6553   .text.HAL_TIMEx_Break2Callback:00000000 HAL_TIMEx_Break2Callback
-     /tmp/ccKEb1ke.s:6569   .text.HAL_TIMEx_HallSensor_GetState:00000000 $t
-     /tmp/ccKEb1ke.s:6575   .text.HAL_TIMEx_HallSensor_GetState:00000000 HAL_TIMEx_HallSensor_GetState
-     /tmp/ccKEb1ke.s:6597   .text.HAL_TIMEx_GetChannelNState:00000000 $t
-     /tmp/ccKEb1ke.s:6603   .text.HAL_TIMEx_GetChannelNState:00000000 HAL_TIMEx_GetChannelNState
+     /tmp/ccYmH5Nh.s:6405   .text.HAL_TIMEx_CommutCallback:00000000 $t
+     /tmp/ccYmH5Nh.s:6411   .text.HAL_TIMEx_CommutCallback:00000000 HAL_TIMEx_CommutCallback
+     /tmp/ccYmH5Nh.s:6427   .text.TIMEx_DMACommutationCplt:00000000 $t
+     /tmp/ccYmH5Nh.s:6465   .text.HAL_TIMEx_CommutHalfCpltCallback:00000000 $t
+     /tmp/ccYmH5Nh.s:6471   .text.HAL_TIMEx_CommutHalfCpltCallback:00000000 HAL_TIMEx_CommutHalfCpltCallback
+     /tmp/ccYmH5Nh.s:6487   .text.TIMEx_DMACommutationHalfCplt:00000000 $t
+     /tmp/ccYmH5Nh.s:6525   .text.HAL_TIMEx_BreakCallback:00000000 $t
+     /tmp/ccYmH5Nh.s:6531   .text.HAL_TIMEx_BreakCallback:00000000 HAL_TIMEx_BreakCallback
+     /tmp/ccYmH5Nh.s:6547   .text.HAL_TIMEx_Break2Callback:00000000 $t
+     /tmp/ccYmH5Nh.s:6553   .text.HAL_TIMEx_Break2Callback:00000000 HAL_TIMEx_Break2Callback
+     /tmp/ccYmH5Nh.s:6569   .text.HAL_TIMEx_HallSensor_GetState:00000000 $t
+     /tmp/ccYmH5Nh.s:6575   .text.HAL_TIMEx_HallSensor_GetState:00000000 HAL_TIMEx_HallSensor_GetState
+     /tmp/ccYmH5Nh.s:6597   .text.HAL_TIMEx_GetChannelNState:00000000 $t
+     /tmp/ccYmH5Nh.s:6603   .text.HAL_TIMEx_GetChannelNState:00000000 HAL_TIMEx_GetChannelNState
 
 UNDEFINED SYMBOLS
 HAL_TIM_ErrorCallback

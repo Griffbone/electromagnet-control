@@ -45,8 +45,8 @@ Once the makefile is configured, we can build the project. We can do this simply
 The ```-j$(nproc)``` flag uses all your computer's available cores so that the code is built faster by using parallel processing.
 
 ### Flashing code
-Once the program is built, we can flash the board using OpenOCD. We do this with the command: 
+This repository contains a ```stm32c0x.cfg``` file in it. Transfer this into your OpenOCD target folder (should be in ```/usr/share/openocd/scripts/target``` path or similar). Once this is done, you can use the following command to flash the compiled program: 
 
-```openocd -f interface/stlink.cfg -f target/stm32c0.cfg -c "program ./build/main/main.bin 0x08000000 verify exit reset"```
+```openocd -f interface/stlink.cfg -f target/stm32c0x.cfg -c "init" -c "reset halt" -c "load_image build/main/main.bin 0x08000000" -c "reset run" -c "exit"```
 
 Here, we first use -f to tell the program which programming method to use, then -f to tell it which processor we are targetting, followed by -c to tell OpenOCD which binary we are writing where to write it in memory. 
