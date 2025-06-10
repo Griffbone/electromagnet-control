@@ -26,7 +26,9 @@ build/main/system_stm32c0xx.o: src/system/system_stm32c0xx.c \
  external/drivers/stm32c0xx/include/stm32c0xx_hal_pwr.h \
  external/drivers/stm32c0xx/include/stm32c0xx_hal_pwr_ex.h \
  external/drivers/stm32c0xx/include/stm32c0xx_hal_tim.h \
- external/drivers/stm32c0xx/include/stm32c0xx_hal_tim_ex.h
+ external/drivers/stm32c0xx/include/stm32c0xx_hal_tim_ex.h \
+ external/drivers/stm32c0xx/include/stm32c0xx_hal_uart.h \
+ external/drivers/stm32c0xx/include/stm32c0xx_hal_uart_ex.h
 external/drivers/cmsis/include/stm32c0xx.h:
 external/drivers/cmsis/include/stm32c031xx.h:
 external/drivers/cmsis/include/core_cm0plus.h:
@@ -55,3 +57,5 @@ external/drivers/stm32c0xx/include/stm32c0xx_hal_pwr.h:
 external/drivers/stm32c0xx/include/stm32c0xx_hal_pwr_ex.h:
 external/drivers/stm32c0xx/include/stm32c0xx_hal_tim.h:
 external/drivers/stm32c0xx/include/stm32c0xx_hal_tim_ex.h:
+external/drivers/stm32c0xx/include/stm32c0xx_hal_uart.h:
+external/drivers/stm32c0xx/include/stm32c0xx_hal_uart_ex.h:

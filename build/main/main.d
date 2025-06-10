@@ -27,7 +27,10 @@ build/main/main.o: src/main.c src/low_level/type_definitions.h \
  external/drivers/stm32c0xx/include/stm32c0xx_hal_pwr_ex.h \
  external/drivers/stm32c0xx/include/stm32c0xx_hal_tim.h \
  external/drivers/stm32c0xx/include/stm32c0xx_hal_tim_ex.h \
- src/system/gpio.h src/system/init.h src/drivers/bbpwm/bbpwm.h
+ external/drivers/stm32c0xx/include/stm32c0xx_hal_uart.h \
+ external/drivers/stm32c0xx/include/stm32c0xx_hal_uart_ex.h \
+ src/system/gpio.h src/system/init.h src/system/tim.h src/system/usart.h \
+ src/drivers/bbpwm/bbpwm.h
 src/low_level/type_definitions.h:
 src/system/init.h:
 external/drivers/stm32c0xx/include/stm32c0xx_hal.h:
@@ -58,6 +61,10 @@ external/drivers/stm32c0xx/include/stm32c0xx_hal_pwr.h:
 external/drivers/stm32c0xx/include/stm32c0xx_hal_pwr_ex.h:
 external/drivers/stm32c0xx/include/stm32c0xx_hal_tim.h:
 external/drivers/stm32c0xx/include/stm32c0xx_hal_tim_ex.h:
+external/drivers/stm32c0xx/include/stm32c0xx_hal_uart.h:
+external/drivers/stm32c0xx/include/stm32c0xx_hal_uart_ex.h:
 src/system/gpio.h:
 src/system/init.h:
+src/system/tim.h:
+src/system/usart.h:
 src/drivers/bbpwm/bbpwm.h:

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccEarDFf.s 			page 1
+ARM GAS  /tmp/cc23daL6.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccEarDFf.s 			page 1
   30:external/drivers/stm32c0xx/src/stm32c0xx_hal_pwr.c **** 
   31:external/drivers/stm32c0xx/src/stm32c0xx_hal_pwr.c **** /** @addtogroup PWR
   32:external/drivers/stm32c0xx/src/stm32c0xx_hal_pwr.c ****   * @{
-ARM GAS  /tmp/ccEarDFf.s 			page 2
+ARM GAS  /tmp/cc23daL6.s 			page 2
 
 
   33:external/drivers/stm32c0xx/src/stm32c0xx_hal_pwr.c ****   */
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccEarDFf.s 			page 1
   38 000a DA62     		str	r2, [r3, #44]
   76:external/drivers/stm32c0xx/src/stm32c0xx_hal_pwr.c ****   __HAL_RCC_PWR_RELEASE_RESET();
   39              		.loc 1 76 3 view .LVU2
-ARM GAS  /tmp/ccEarDFf.s 			page 3
+ARM GAS  /tmp/cc23daL6.s 			page 3
 
 
   40 000c DA6A     		ldr	r2, [r3, #44]
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccEarDFf.s 			page 1
  108:external/drivers/stm32c0xx/src/stm32c0xx_hal_pwr.c ****            main mode.
  109:external/drivers/stm32c0xx/src/stm32c0xx_hal_pwr.c ****       (+) Standby mode: all clocks are stopped except LSI and LSE, regulator is
  110:external/drivers/stm32c0xx/src/stm32c0xx_hal_pwr.c ****           disable.
-ARM GAS  /tmp/ccEarDFf.s 			page 4
+ARM GAS  /tmp/cc23daL6.s 			page 4
 
 
  111:external/drivers/stm32c0xx/src/stm32c0xx_hal_pwr.c ****       (+) Shutdown mode: all clocks are stopped except LSE, regulator is
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccEarDFf.s 			page 1
  165:external/drivers/stm32c0xx/src/stm32c0xx_hal_pwr.c ****          and Standby/Shutdown modes control) are not impacted.
  166:external/drivers/stm32c0xx/src/stm32c0xx_hal_pwr.c **** 
  167:external/drivers/stm32c0xx/src/stm32c0xx_hal_pwr.c ****     *** Shutdown mode ***
-ARM GAS  /tmp/ccEarDFf.s 			page 5
+ARM GAS  /tmp/cc23daL6.s 			page 5
 
 
  168:external/drivers/stm32c0xx/src/stm32c0xx_hal_pwr.c ****    ======================
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccEarDFf.s 			page 1
   74 0004 2F23     		movs	r3, #47
   75 0006 0340     		ands	r3, r0
   76 0008 9A43     		bics	r2, r3
-ARM GAS  /tmp/ccEarDFf.s 			page 6
+ARM GAS  /tmp/cc23daL6.s 			page 6
 
 
   77 000a 000A     		lsrs	r0, r0, #8
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccEarDFf.s 			page 1
  114 0002 8B68     		ldr	r3, [r1, #8]
  115 0004 2F22     		movs	r2, #47
  116 0006 0240     		ands	r2, r0
-ARM GAS  /tmp/ccEarDFf.s 			page 7
+ARM GAS  /tmp/cc23daL6.s 			page 7
 
 
  117 0008 9343     		bics	r3, r2
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccEarDFf.s 			page 1
  259:external/drivers/stm32c0xx/src/stm32c0xx_hal_pwr.c ****   CLEAR_BIT(SCB->SCR, ((uint32_t)SCB_SCR_SLEEPDEEP_Msk));
  146              		.loc 1 259 3 view .LVU17
  147 0000 064A     		ldr	r2, .L14
-ARM GAS  /tmp/ccEarDFf.s 			page 8
+ARM GAS  /tmp/cc23daL6.s 			page 8
 
 
  148 0002 1369     		ldr	r3, [r2, #16]
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccEarDFf.s 			page 1
  186              	.L15:
  187 001a C046     		.align	2
  188              	.L14:
-ARM GAS  /tmp/ccEarDFf.s 			page 9
+ARM GAS  /tmp/cc23daL6.s 			page 9
 
 
  189 001c 00ED00E0 		.word	-536810240
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccEarDFf.s 			page 1
  212 0002 1368     		ldr	r3, [r2]
  213 0004 0720     		movs	r0, #7
  214              	.LVL6:
-ARM GAS  /tmp/ccEarDFf.s 			page 10
+ARM GAS  /tmp/cc23daL6.s 			page 10
 
 
  215              		.loc 1 307 3 is_stmt 0 view .LVU30
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccEarDFf.s 			page 1
  249              		.loc 1 327 3 is_stmt 0 view .LVU38
  250 0024 8B43     		bics	r3, r1
  251 0026 1361     		str	r3, [r2, #16]
-ARM GAS  /tmp/ccEarDFf.s 			page 11
+ARM GAS  /tmp/cc23daL6.s 			page 11
 
 
  328:external/drivers/stm32c0xx/src/stm32c0xx_hal_pwr.c **** }
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccEarDFf.s 			page 1
  348:external/drivers/stm32c0xx/src/stm32c0xx_hal_pwr.c ****   MODIFY_REG(PWR->CR1, PWR_CR1_LPMS, PWR_LOWPOWERMODE_STANDBY);
  287              		.loc 1 348 3 view .LVU42
  288 0000 064A     		ldr	r2, .L23
-ARM GAS  /tmp/ccEarDFf.s 			page 12
+ARM GAS  /tmp/cc23daL6.s 			page 12
 
 
  289 0002 1368     		ldr	r3, [r2]
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccEarDFf.s 			page 1
  366:external/drivers/stm32c0xx/src/stm32c0xx_hal_pwr.c ****   */
  367:external/drivers/stm32c0xx/src/stm32c0xx_hal_pwr.c **** void HAL_PWR_EnableSleepOnExit(void)
  368:external/drivers/stm32c0xx/src/stm32c0xx_hal_pwr.c **** {
-ARM GAS  /tmp/ccEarDFf.s 			page 13
+ARM GAS  /tmp/cc23daL6.s 			page 13
 
 
  328              		.loc 1 368 1 is_stmt 1 view -0
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccEarDFf.s 			page 1
  368 0008 1361     		str	r3, [r2, #16]
  385:external/drivers/stm32c0xx/src/stm32c0xx_hal_pwr.c **** }
  369              		.loc 1 385 1 is_stmt 0 view .LVU51
-ARM GAS  /tmp/ccEarDFf.s 			page 14
+ARM GAS  /tmp/cc23daL6.s 			page 14
 
 
  370              		@ sp needed
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccEarDFf.s 			page 1
  413              		.code	16
  414              		.thumb_func
  416              	HAL_PWR_DisableSEVOnPend:
-ARM GAS  /tmp/ccEarDFf.s 			page 15
+ARM GAS  /tmp/cc23daL6.s 			page 15
 
 
  417              	.LFB223:
@@ -880,40 +880,40 @@ ARM GAS  /tmp/ccEarDFf.s 			page 1
  441              		.file 2 "/usr/lib/gcc/arm-none-eabi/12.2.1/include/stdint.h"
  442              		.file 3 "external/drivers/cmsis/include/core_cm0plus.h"
  443              		.file 4 "external/drivers/cmsis/include/stm32c031xx.h"
-ARM GAS  /tmp/ccEarDFf.s 			page 16
+ARM GAS  /tmp/cc23daL6.s 			page 16
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32c0xx_hal_pwr.c
-     /tmp/ccEarDFf.s:19     .text.HAL_PWR_DeInit:00000000 $t
-     /tmp/ccEarDFf.s:25     .text.HAL_PWR_DeInit:00000000 HAL_PWR_DeInit
-     /tmp/ccEarDFf.s:50     .text.HAL_PWR_DeInit:00000018 $d
-     /tmp/ccEarDFf.s:56     .text.HAL_PWR_EnableWakeUpPin:00000000 $t
-     /tmp/ccEarDFf.s:62     .text.HAL_PWR_EnableWakeUpPin:00000000 HAL_PWR_EnableWakeUpPin
-     /tmp/ccEarDFf.s:92     .text.HAL_PWR_EnableWakeUpPin:00000018 $d
-     /tmp/ccEarDFf.s:97     .text.HAL_PWR_DisableWakeUpPin:00000000 $t
-     /tmp/ccEarDFf.s:103    .text.HAL_PWR_DisableWakeUpPin:00000000 HAL_PWR_DisableWakeUpPin
-     /tmp/ccEarDFf.s:125    .text.HAL_PWR_DisableWakeUpPin:00000010 $d
-     /tmp/ccEarDFf.s:130    .text.HAL_PWR_EnterSLEEPMode:00000000 $t
-     /tmp/ccEarDFf.s:136    .text.HAL_PWR_EnterSLEEPMode:00000000 HAL_PWR_EnterSLEEPMode
-     /tmp/ccEarDFf.s:189    .text.HAL_PWR_EnterSLEEPMode:0000001c $d
-     /tmp/ccEarDFf.s:194    .text.HAL_PWR_EnterSTOPMode:00000000 $t
-     /tmp/ccEarDFf.s:200    .text.HAL_PWR_EnterSTOPMode:00000000 HAL_PWR_EnterSTOPMode
-     /tmp/ccEarDFf.s:268    .text.HAL_PWR_EnterSTOPMode:00000030 $d
-     /tmp/ccEarDFf.s:274    .text.HAL_PWR_EnterSTANDBYMode:00000000 $t
-     /tmp/ccEarDFf.s:280    .text.HAL_PWR_EnterSTANDBYMode:00000000 HAL_PWR_EnterSTANDBYMode
-     /tmp/ccEarDFf.s:314    .text.HAL_PWR_EnterSTANDBYMode:0000001c $d
-     /tmp/ccEarDFf.s:320    .text.HAL_PWR_EnableSleepOnExit:00000000 $t
-     /tmp/ccEarDFf.s:326    .text.HAL_PWR_EnableSleepOnExit:00000000 HAL_PWR_EnableSleepOnExit
-     /tmp/ccEarDFf.s:345    .text.HAL_PWR_EnableSleepOnExit:0000000c $d
-     /tmp/ccEarDFf.s:350    .text.HAL_PWR_DisableSleepOnExit:00000000 $t
-     /tmp/ccEarDFf.s:356    .text.HAL_PWR_DisableSleepOnExit:00000000 HAL_PWR_DisableSleepOnExit
-     /tmp/ccEarDFf.s:375    .text.HAL_PWR_DisableSleepOnExit:0000000c $d
-     /tmp/ccEarDFf.s:380    .text.HAL_PWR_EnableSEVOnPend:00000000 $t
-     /tmp/ccEarDFf.s:386    .text.HAL_PWR_EnableSEVOnPend:00000000 HAL_PWR_EnableSEVOnPend
-     /tmp/ccEarDFf.s:405    .text.HAL_PWR_EnableSEVOnPend:0000000c $d
-     /tmp/ccEarDFf.s:410    .text.HAL_PWR_DisableSEVOnPend:00000000 $t
-     /tmp/ccEarDFf.s:416    .text.HAL_PWR_DisableSEVOnPend:00000000 HAL_PWR_DisableSEVOnPend
-     /tmp/ccEarDFf.s:435    .text.HAL_PWR_DisableSEVOnPend:0000000c $d
+     /tmp/cc23daL6.s:19     .text.HAL_PWR_DeInit:00000000 $t
+     /tmp/cc23daL6.s:25     .text.HAL_PWR_DeInit:00000000 HAL_PWR_DeInit
+     /tmp/cc23daL6.s:50     .text.HAL_PWR_DeInit:00000018 $d
+     /tmp/cc23daL6.s:56     .text.HAL_PWR_EnableWakeUpPin:00000000 $t
+     /tmp/cc23daL6.s:62     .text.HAL_PWR_EnableWakeUpPin:00000000 HAL_PWR_EnableWakeUpPin
+     /tmp/cc23daL6.s:92     .text.HAL_PWR_EnableWakeUpPin:00000018 $d
+     /tmp/cc23daL6.s:97     .text.HAL_PWR_DisableWakeUpPin:00000000 $t
+     /tmp/cc23daL6.s:103    .text.HAL_PWR_DisableWakeUpPin:00000000 HAL_PWR_DisableWakeUpPin
+     /tmp/cc23daL6.s:125    .text.HAL_PWR_DisableWakeUpPin:00000010 $d
+     /tmp/cc23daL6.s:130    .text.HAL_PWR_EnterSLEEPMode:00000000 $t
+     /tmp/cc23daL6.s:136    .text.HAL_PWR_EnterSLEEPMode:00000000 HAL_PWR_EnterSLEEPMode
+     /tmp/cc23daL6.s:189    .text.HAL_PWR_EnterSLEEPMode:0000001c $d
+     /tmp/cc23daL6.s:194    .text.HAL_PWR_EnterSTOPMode:00000000 $t
+     /tmp/cc23daL6.s:200    .text.HAL_PWR_EnterSTOPMode:00000000 HAL_PWR_EnterSTOPMode
+     /tmp/cc23daL6.s:268    .text.HAL_PWR_EnterSTOPMode:00000030 $d
+     /tmp/cc23daL6.s:274    .text.HAL_PWR_EnterSTANDBYMode:00000000 $t
+     /tmp/cc23daL6.s:280    .text.HAL_PWR_EnterSTANDBYMode:00000000 HAL_PWR_EnterSTANDBYMode
+     /tmp/cc23daL6.s:314    .text.HAL_PWR_EnterSTANDBYMode:0000001c $d
+     /tmp/cc23daL6.s:320    .text.HAL_PWR_EnableSleepOnExit:00000000 $t
+     /tmp/cc23daL6.s:326    .text.HAL_PWR_EnableSleepOnExit:00000000 HAL_PWR_EnableSleepOnExit
+     /tmp/cc23daL6.s:345    .text.HAL_PWR_EnableSleepOnExit:0000000c $d
+     /tmp/cc23daL6.s:350    .text.HAL_PWR_DisableSleepOnExit:00000000 $t
+     /tmp/cc23daL6.s:356    .text.HAL_PWR_DisableSleepOnExit:00000000 HAL_PWR_DisableSleepOnExit
+     /tmp/cc23daL6.s:375    .text.HAL_PWR_DisableSleepOnExit:0000000c $d
+     /tmp/cc23daL6.s:380    .text.HAL_PWR_EnableSEVOnPend:00000000 $t
+     /tmp/cc23daL6.s:386    .text.HAL_PWR_EnableSEVOnPend:00000000 HAL_PWR_EnableSEVOnPend
+     /tmp/cc23daL6.s:405    .text.HAL_PWR_EnableSEVOnPend:0000000c $d
+     /tmp/cc23daL6.s:410    .text.HAL_PWR_DisableSEVOnPend:00000000 $t
+     /tmp/cc23daL6.s:416    .text.HAL_PWR_DisableSEVOnPend:00000000 HAL_PWR_DisableSEVOnPend
+     /tmp/cc23daL6.s:435    .text.HAL_PWR_DisableSEVOnPend:0000000c $d
 
 NO UNDEFINED SYMBOLS

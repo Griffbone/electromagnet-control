@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccezHBPi.s 			page 1
+ARM GAS  /tmp/ccDgsynr.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccezHBPi.s 			page 1
   30:src/system/system_stm32c0xx.c ****   *
   31:src/system/system_stm32c0xx.c ****   ******************************************************************************
   32:src/system/system_stm32c0xx.c ****   */
-ARM GAS  /tmp/ccezHBPi.s 			page 2
+ARM GAS  /tmp/ccDgsynr.s 			page 2
 
 
   33:src/system/system_stm32c0xx.c **** 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccezHBPi.s 			page 1
   87:src/system/system_stm32c0xx.c **** /**
   88:src/system/system_stm32c0xx.c ****   * @}
   89:src/system/system_stm32c0xx.c ****   */
-ARM GAS  /tmp/ccezHBPi.s 			page 3
+ARM GAS  /tmp/ccDgsynr.s 			page 3
 
 
   90:src/system/system_stm32c0xx.c **** 
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccezHBPi.s 			page 1
  139:src/system/system_stm32c0xx.c ****   /* Configure the Vector Table location add offset address ------------------*/
  140:src/system/system_stm32c0xx.c **** #ifdef VECT_TAB_SRAM
  141:src/system/system_stm32c0xx.c ****   SCB->VTOR = SRAM_BASE | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal SRAM */
-ARM GAS  /tmp/ccezHBPi.s 			page 4
+ARM GAS  /tmp/ccDgsynr.s 			page 4
 
 
  142:src/system/system_stm32c0xx.c **** #else
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccezHBPi.s 			page 1
  173:src/system/system_stm32c0xx.c ****   *         (***) HSE_VALUE is a constant defined in stm32c0xx_hal_conf.h file (default value
  174:src/system/system_stm32c0xx.c ****   *              48 MHz), user has to ensure that HSE_VALUE is same as the real
  175:src/system/system_stm32c0xx.c ****   *              frequency of the crystal used. Otherwise, this function may
-ARM GAS  /tmp/ccezHBPi.s 			page 5
+ARM GAS  /tmp/ccDgsynr.s 			page 5
 
 
  176:src/system/system_stm32c0xx.c ****   *              have wrong result.
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccezHBPi.s 			page 1
   80 0014 114B     		ldr	r3, .L10
   81 0016 1B68     		ldr	r3, [r3]
   82              		.loc 1 206 59 view .LVU13
-ARM GAS  /tmp/ccezHBPi.s 			page 6
+ARM GAS  /tmp/ccDgsynr.s 			page 6
 
 
   83 0018 DB0A     		lsrs	r3, r3, #11
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccezHBPi.s 			page 1
  215:src/system/system_stm32c0xx.c **** }
  126              		.loc 1 215 1 view .LVU28
  127              		@ sp needed
-ARM GAS  /tmp/ccezHBPi.s 			page 7
+ARM GAS  /tmp/ccDgsynr.s 			page 7
 
 
  128 0046 7047     		bx	lr
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccezHBPi.s 			page 1
  181 000c 00000000 		.word	0
  182 0010 00000000 		.word	0
  183 0014 00000000 		.word	0
-ARM GAS  /tmp/ccezHBPi.s 			page 8
+ARM GAS  /tmp/ccDgsynr.s 			page 8
 
 
  184 0018 00000000 		.word	0
@@ -442,22 +442,22 @@ ARM GAS  /tmp/ccezHBPi.s 			page 1
  204              		.file 3 "/usr/lib/gcc/arm-none-eabi/12.2.1/include/stdint.h"
  205              		.file 4 "external/drivers/cmsis/include/system_stm32c0xx.h"
  206              		.file 5 "external/drivers/cmsis/include/stm32c031xx.h"
-ARM GAS  /tmp/ccezHBPi.s 			page 9
+ARM GAS  /tmp/ccDgsynr.s 			page 9
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 system_stm32c0xx.c
-     /tmp/ccezHBPi.s:19     .text.SystemInit:00000000 $t
-     /tmp/ccezHBPi.s:25     .text.SystemInit:00000000 SystemInit
-     /tmp/ccezHBPi.s:44     .text.SystemInit:0000000c $d
-     /tmp/ccezHBPi.s:49     .text.SystemCoreClockUpdate:00000000 $t
-     /tmp/ccezHBPi.s:55     .text.SystemCoreClockUpdate:00000000 SystemCoreClockUpdate
-     /tmp/ccezHBPi.s:151    .text.SystemCoreClockUpdate:0000005c $d
-     /tmp/ccezHBPi.s:199    .data.SystemCoreClock:00000000 SystemCoreClock
-     /tmp/ccezHBPi.s:177    .rodata.AHBPrescTable:00000000 AHBPrescTable
-     /tmp/ccezHBPi.s:163    .rodata.APBPrescTable:00000000 APBPrescTable
-     /tmp/ccezHBPi.s:160    .rodata.APBPrescTable:00000000 $d
-     /tmp/ccezHBPi.s:174    .rodata.AHBPrescTable:00000000 $d
-     /tmp/ccezHBPi.s:196    .data.SystemCoreClock:00000000 $d
+     /tmp/ccDgsynr.s:19     .text.SystemInit:00000000 $t
+     /tmp/ccDgsynr.s:25     .text.SystemInit:00000000 SystemInit
+     /tmp/ccDgsynr.s:44     .text.SystemInit:0000000c $d
+     /tmp/ccDgsynr.s:49     .text.SystemCoreClockUpdate:00000000 $t
+     /tmp/ccDgsynr.s:55     .text.SystemCoreClockUpdate:00000000 SystemCoreClockUpdate
+     /tmp/ccDgsynr.s:151    .text.SystemCoreClockUpdate:0000005c $d
+     /tmp/ccDgsynr.s:199    .data.SystemCoreClock:00000000 SystemCoreClock
+     /tmp/ccDgsynr.s:177    .rodata.AHBPrescTable:00000000 AHBPrescTable
+     /tmp/ccDgsynr.s:163    .rodata.APBPrescTable:00000000 APBPrescTable
+     /tmp/ccDgsynr.s:160    .rodata.APBPrescTable:00000000 $d
+     /tmp/ccDgsynr.s:174    .rodata.AHBPrescTable:00000000 $d
+     /tmp/ccDgsynr.s:196    .data.SystemCoreClock:00000000 $d
 
 NO UNDEFINED SYMBOLS

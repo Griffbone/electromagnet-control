@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccuXArHq.s 			page 1
+ARM GAS  /tmp/cc69rs1x.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccuXArHq.s 			page 1
   30:src/system/gpio.c **** /*----------------------------------------------------------------------------*/
   31:src/system/gpio.c **** /* USER CODE BEGIN 1 */
   32:src/system/gpio.c **** 
-ARM GAS  /tmp/ccuXArHq.s 			page 2
+ARM GAS  /tmp/cc69rs1x.s 			page 2
 
 
   33:src/system/gpio.c **** /* USER CODE END 1 */
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccuXArHq.s 			page 1
   65 001e 0A40     		ands	r2, r1
   66 0020 0092     		str	r2, [sp]
   67              		.loc 1 48 3 view .LVU7
-ARM GAS  /tmp/ccuXArHq.s 			page 3
+ARM GAS  /tmp/cc69rs1x.s 			page 3
 
 
   68 0022 009A     		ldr	r2, [sp]
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccuXArHq.s 			page 1
   52:src/system/gpio.c ****   __HAL_RCC_GPIOD_CLK_ENABLE();
  119              		.loc 1 52 3 view .LVU27
  120              	.LBB6:
-ARM GAS  /tmp/ccuXArHq.s 			page 4
+ARM GAS  /tmp/cc69rs1x.s 			page 4
 
 
  121              		.loc 1 52 3 view .LVU28
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccuXArHq.s 			page 1
  163              		.loc 1 64 3 is_stmt 1 view .LVU41
  164              		.loc 1 64 25 is_stmt 0 view .LVU42
  165 008c 0323     		movs	r3, #3
-ARM GAS  /tmp/ccuXArHq.s 			page 5
+ARM GAS  /tmp/cc69rs1x.s 			page 5
 
 
  166 008e 0893     		str	r3, [sp, #32]
@@ -293,14 +293,14 @@ ARM GAS  /tmp/ccuXArHq.s 			page 1
  206              		.file 3 "external/drivers/cmsis/include/stm32c031xx.h"
  207              		.file 4 "external/drivers/stm32c0xx/include/stm32c0xx_hal_gpio.h"
  208              		.file 5 "<built-in>"
-ARM GAS  /tmp/ccuXArHq.s 			page 6
+ARM GAS  /tmp/cc69rs1x.s 			page 6
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 gpio.c
-     /tmp/ccuXArHq.s:19     .text.MX_GPIO_Init:00000000 $t
-     /tmp/ccuXArHq.s:25     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
-     /tmp/ccuXArHq.s:198    .text.MX_GPIO_Init:000000b0 $d
+     /tmp/cc69rs1x.s:19     .text.MX_GPIO_Init:00000000 $t
+     /tmp/cc69rs1x.s:25     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
+     /tmp/cc69rs1x.s:198    .text.MX_GPIO_Init:000000b0 $d
 
 UNDEFINED SYMBOLS
 memset

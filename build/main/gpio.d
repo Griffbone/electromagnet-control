@@ -26,7 +26,9 @@ build/main/gpio.o: src/system/gpio.c src/system/gpio.h src/system/init.h \
  external/drivers/stm32c0xx/include/stm32c0xx_hal_pwr.h \
  external/drivers/stm32c0xx/include/stm32c0xx_hal_pwr_ex.h \
  external/drivers/stm32c0xx/include/stm32c0xx_hal_tim.h \
- external/drivers/stm32c0xx/include/stm32c0xx_hal_tim_ex.h
+ external/drivers/stm32c0xx/include/stm32c0xx_hal_tim_ex.h \
+ external/drivers/stm32c0xx/include/stm32c0xx_hal_uart.h \
+ external/drivers/stm32c0xx/include/stm32c0xx_hal_uart_ex.h
 src/system/gpio.h:
 src/system/init.h:
 external/drivers/stm32c0xx/include/stm32c0xx_hal.h:
@@ -57,3 +59,5 @@ external/drivers/stm32c0xx/include/stm32c0xx_hal_pwr.h:
 external/drivers/stm32c0xx/include/stm32c0xx_hal_pwr_ex.h:
 external/drivers/stm32c0xx/include/stm32c0xx_hal_tim.h:
 external/drivers/stm32c0xx/include/stm32c0xx_hal_tim_ex.h:
+external/drivers/stm32c0xx/include/stm32c0xx_hal_uart.h:
+external/drivers/stm32c0xx/include/stm32c0xx_hal_uart_ex.h:

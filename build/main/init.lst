@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccUDLldI.s 			page 1
+ARM GAS  /tmp/ccXsxzD3.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -47,158 +47,160 @@ ARM GAS  /tmp/ccUDLldI.s 			page 1
   19:src/system/init.c **** /* Includes ------------------------------------------------------------------*/
   20:src/system/init.c **** #include "init.h"
   21:src/system/init.c **** #include "tim.h"
-  22:src/system/init.c **** #include "gpio.h"
-  23:src/system/init.c **** 
-  24:src/system/init.c **** /* Private includes ----------------------------------------------------------*/
-  25:src/system/init.c **** /* USER CODE BEGIN Includes */
-  26:src/system/init.c **** 
-  27:src/system/init.c **** /* USER CODE END Includes */
-  28:src/system/init.c **** 
-  29:src/system/init.c **** /* Private typedef -----------------------------------------------------------*/
-  30:src/system/init.c **** /* USER CODE BEGIN PTD */
-  31:src/system/init.c **** 
-  32:src/system/init.c **** /* USER CODE END PTD */
-ARM GAS  /tmp/ccUDLldI.s 			page 2
+  22:src/system/init.c **** #include "usart.h"
+  23:src/system/init.c **** #include "gpio.h"
+  24:src/system/init.c **** 
+  25:src/system/init.c **** /* Private includes ----------------------------------------------------------*/
+  26:src/system/init.c **** /* USER CODE BEGIN Includes */
+  27:src/system/init.c **** 
+  28:src/system/init.c **** /* USER CODE END Includes */
+  29:src/system/init.c **** 
+  30:src/system/init.c **** /* Private typedef -----------------------------------------------------------*/
+  31:src/system/init.c **** /* USER CODE BEGIN PTD */
+  32:src/system/init.c **** 
+ARM GAS  /tmp/ccXsxzD3.s 			page 2
 
 
-  33:src/system/init.c **** 
-  34:src/system/init.c **** /* Private define ------------------------------------------------------------*/
-  35:src/system/init.c **** /* USER CODE BEGIN PD */
-  36:src/system/init.c **** 
-  37:src/system/init.c **** /* USER CODE END PD */
-  38:src/system/init.c **** 
-  39:src/system/init.c **** /* Private macro -------------------------------------------------------------*/
-  40:src/system/init.c **** /* USER CODE BEGIN PM */
-  41:src/system/init.c **** 
-  42:src/system/init.c **** /* USER CODE END PM */
-  43:src/system/init.c **** 
-  44:src/system/init.c **** /* Private variables ---------------------------------------------------------*/
-  45:src/system/init.c **** 
-  46:src/system/init.c **** /* USER CODE BEGIN PV */
-  47:src/system/init.c **** 
-  48:src/system/init.c **** /* USER CODE END PV */
-  49:src/system/init.c **** 
-  50:src/system/init.c **** /* Private function prototypes -----------------------------------------------*/
-  51:src/system/init.c **** void SystemClock_Config(void);
-  52:src/system/init.c **** /* USER CODE BEGIN PFP */
-  53:src/system/init.c **** 
-  54:src/system/init.c **** /* USER CODE END PFP */
-  55:src/system/init.c **** 
-  56:src/system/init.c **** /* Private user code ---------------------------------------------------------*/
-  57:src/system/init.c **** /* USER CODE BEGIN 0 */
-  58:src/system/init.c **** 
-  59:src/system/init.c **** /* USER CODE END 0 */
-  60:src/system/init.c **** 
-  61:src/system/init.c **** /**
-  62:src/system/init.c ****   * @brief  The application entry point.
-  63:src/system/init.c ****   * @retval int
-  64:src/system/init.c ****   */
-  65:src/system/init.c **** int init(void)
-  66:src/system/init.c **** {
-  67:src/system/init.c ****   /* USER CODE BEGIN 1 */
-  68:src/system/init.c **** 
-  69:src/system/init.c ****   /* USER CODE END 1 */
-  70:src/system/init.c **** 
-  71:src/system/init.c ****   /* MCU Configuration--------------------------------------------------------*/
-  72:src/system/init.c **** 
-  73:src/system/init.c ****   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  74:src/system/init.c ****   HAL_Init();
-  75:src/system/init.c **** 
-  76:src/system/init.c ****   /* USER CODE BEGIN Init */
-  77:src/system/init.c **** 
-  78:src/system/init.c ****   /* USER CODE END Init */
-  79:src/system/init.c **** 
-  80:src/system/init.c ****   /* Configure the system clock */
-  81:src/system/init.c ****   SystemClock_Config();
-  82:src/system/init.c **** 
-  83:src/system/init.c ****   /* USER CODE BEGIN SysInit */
-  84:src/system/init.c **** 
-  85:src/system/init.c ****   /* USER CODE END SysInit */
-  86:src/system/init.c **** 
-  87:src/system/init.c ****   /* Initialize all configured peripherals */
-  88:src/system/init.c ****   MX_GPIO_Init();
-  89:src/system/init.c ****   MX_TIM1_Init();
-ARM GAS  /tmp/ccUDLldI.s 			page 3
+  33:src/system/init.c **** /* USER CODE END PTD */
+  34:src/system/init.c **** 
+  35:src/system/init.c **** /* Private define ------------------------------------------------------------*/
+  36:src/system/init.c **** /* USER CODE BEGIN PD */
+  37:src/system/init.c **** 
+  38:src/system/init.c **** /* USER CODE END PD */
+  39:src/system/init.c **** 
+  40:src/system/init.c **** /* Private macro -------------------------------------------------------------*/
+  41:src/system/init.c **** /* USER CODE BEGIN PM */
+  42:src/system/init.c **** 
+  43:src/system/init.c **** /* USER CODE END PM */
+  44:src/system/init.c **** 
+  45:src/system/init.c **** /* Private variables ---------------------------------------------------------*/
+  46:src/system/init.c **** 
+  47:src/system/init.c **** /* USER CODE BEGIN PV */
+  48:src/system/init.c **** 
+  49:src/system/init.c **** /* USER CODE END PV */
+  50:src/system/init.c **** 
+  51:src/system/init.c **** /* Private function prototypes -----------------------------------------------*/
+  52:src/system/init.c **** void SystemClock_Config(void);
+  53:src/system/init.c **** /* USER CODE BEGIN PFP */
+  54:src/system/init.c **** 
+  55:src/system/init.c **** /* USER CODE END PFP */
+  56:src/system/init.c **** 
+  57:src/system/init.c **** /* Private user code ---------------------------------------------------------*/
+  58:src/system/init.c **** /* USER CODE BEGIN 0 */
+  59:src/system/init.c **** 
+  60:src/system/init.c **** /* USER CODE END 0 */
+  61:src/system/init.c **** 
+  62:src/system/init.c **** /**
+  63:src/system/init.c ****   * @brief  The application entry point.
+  64:src/system/init.c ****   * @retval int
+  65:src/system/init.c ****   */
+  66:src/system/init.c **** int init(void)
+  67:src/system/init.c **** {
+  68:src/system/init.c ****   /* USER CODE BEGIN 1 */
+  69:src/system/init.c **** 
+  70:src/system/init.c ****   /* USER CODE END 1 */
+  71:src/system/init.c **** 
+  72:src/system/init.c ****   /* MCU Configuration--------------------------------------------------------*/
+  73:src/system/init.c **** 
+  74:src/system/init.c ****   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  75:src/system/init.c ****   HAL_Init();
+  76:src/system/init.c **** 
+  77:src/system/init.c ****   /* USER CODE BEGIN Init */
+  78:src/system/init.c **** 
+  79:src/system/init.c ****   /* USER CODE END Init */
+  80:src/system/init.c **** 
+  81:src/system/init.c ****   /* Configure the system clock */
+  82:src/system/init.c ****   SystemClock_Config();
+  83:src/system/init.c **** 
+  84:src/system/init.c ****   /* USER CODE BEGIN SysInit */
+  85:src/system/init.c **** 
+  86:src/system/init.c ****   /* USER CODE END SysInit */
+  87:src/system/init.c **** 
+  88:src/system/init.c ****   /* Initialize all configured peripherals */
+  89:src/system/init.c ****   MX_GPIO_Init();
+ARM GAS  /tmp/ccXsxzD3.s 			page 3
 
 
-  90:src/system/init.c ****   MX_TIM3_Init();
-  91:src/system/init.c ****   MX_TIM14_Init();
-  92:src/system/init.c ****   MX_TIM16_Init();
-  93:src/system/init.c ****   MX_TIM17_Init();
-  94:src/system/init.c ****   /* USER CODE BEGIN 2 */
-  95:src/system/init.c **** 
-  96:src/system/init.c ****   /* USER CODE END 2 */
+  90:src/system/init.c ****   MX_TIM1_Init();
+  91:src/system/init.c ****   MX_TIM3_Init();
+  92:src/system/init.c ****   MX_TIM14_Init();
+  93:src/system/init.c ****   MX_TIM16_Init();
+  94:src/system/init.c ****   MX_TIM17_Init();
+  95:src/system/init.c ****   MX_USART2_UART_Init();
+  96:src/system/init.c ****   /* USER CODE BEGIN 2 */
   97:src/system/init.c **** 
-  98:src/system/init.c ****   /* Infinite loop */
-  99:src/system/init.c ****   /* USER CODE BEGIN WHILE */
- 100:src/system/init.c ****   return 0;
- 101:src/system/init.c ****   {
- 102:src/system/init.c ****     /* USER CODE END WHILE */
- 103:src/system/init.c **** 
- 104:src/system/init.c ****     /* USER CODE BEGIN 3 */
- 105:src/system/init.c ****   }
- 106:src/system/init.c ****   /* USER CODE END 3 */
- 107:src/system/init.c **** }
- 108:src/system/init.c **** 
- 109:src/system/init.c **** /**
- 110:src/system/init.c ****   * @brief System Clock Configuration
- 111:src/system/init.c ****   * @retval None
- 112:src/system/init.c ****   */
- 113:src/system/init.c **** void SystemClock_Config(void)
- 114:src/system/init.c **** {
- 115:src/system/init.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
- 116:src/system/init.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
- 117:src/system/init.c **** 
- 118:src/system/init.c ****   /** Initializes the RCC Oscillators according to the specified parameters
- 119:src/system/init.c ****   * in the RCC_OscInitTypeDef structure.
- 120:src/system/init.c ****   */
- 121:src/system/init.c ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
- 122:src/system/init.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
- 123:src/system/init.c ****   RCC_OscInitStruct.HSIDiv = RCC_HSI_DIV1;
- 124:src/system/init.c ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
- 125:src/system/init.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
- 126:src/system/init.c ****   {
- 127:src/system/init.c ****     Error_Handler();
- 128:src/system/init.c ****   }
- 129:src/system/init.c **** 
- 130:src/system/init.c ****   /** Initializes the CPU, AHB and APB buses clocks
- 131:src/system/init.c ****   */
- 132:src/system/init.c ****   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
- 133:src/system/init.c ****                               |RCC_CLOCKTYPE_PCLK1;
- 134:src/system/init.c ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
- 135:src/system/init.c ****   RCC_ClkInitStruct.SYSCLKDivider = RCC_SYSCLK_DIV1;
- 136:src/system/init.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_HCLK_DIV1;
- 137:src/system/init.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_APB1_DIV1;
- 138:src/system/init.c **** 
- 139:src/system/init.c ****   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
- 140:src/system/init.c ****   {
- 141:src/system/init.c ****     Error_Handler();
- 142:src/system/init.c ****   }
- 143:src/system/init.c **** }
- 144:src/system/init.c **** 
- 145:src/system/init.c **** /* USER CODE BEGIN 4 */
+  98:src/system/init.c ****   /* USER CODE END 2 */
+  99:src/system/init.c **** 
+ 100:src/system/init.c ****   /* Infinite loop */
+ 101:src/system/init.c ****   /* USER CODE BEGIN WHILE */
+ 102:src/system/init.c ****   return 0;
+ 103:src/system/init.c ****   {
+ 104:src/system/init.c ****     /* USER CODE END WHILE */
+ 105:src/system/init.c **** 
+ 106:src/system/init.c ****     /* USER CODE BEGIN 3 */
+ 107:src/system/init.c ****   }
+ 108:src/system/init.c ****   /* USER CODE END 3 */
+ 109:src/system/init.c **** }
+ 110:src/system/init.c **** 
+ 111:src/system/init.c **** /**
+ 112:src/system/init.c ****   * @brief System Clock Configuration
+ 113:src/system/init.c ****   * @retval None
+ 114:src/system/init.c ****   */
+ 115:src/system/init.c **** void SystemClock_Config(void)
+ 116:src/system/init.c **** {
+ 117:src/system/init.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+ 118:src/system/init.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+ 119:src/system/init.c **** 
+ 120:src/system/init.c ****   /** Initializes the RCC Oscillators according to the specified parameters
+ 121:src/system/init.c ****   * in the RCC_OscInitTypeDef structure.
+ 122:src/system/init.c ****   */
+ 123:src/system/init.c ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+ 124:src/system/init.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+ 125:src/system/init.c ****   RCC_OscInitStruct.HSIDiv = RCC_HSI_DIV1;
+ 126:src/system/init.c ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+ 127:src/system/init.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 128:src/system/init.c ****   {
+ 129:src/system/init.c ****     Error_Handler();
+ 130:src/system/init.c ****   }
+ 131:src/system/init.c **** 
+ 132:src/system/init.c ****   /** Initializes the CPU, AHB and APB buses clocks
+ 133:src/system/init.c ****   */
+ 134:src/system/init.c ****   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+ 135:src/system/init.c ****                               |RCC_CLOCKTYPE_PCLK1;
+ 136:src/system/init.c ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
+ 137:src/system/init.c ****   RCC_ClkInitStruct.SYSCLKDivider = RCC_SYSCLK_DIV1;
+ 138:src/system/init.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_HCLK_DIV1;
+ 139:src/system/init.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_APB1_DIV1;
+ 140:src/system/init.c **** 
+ 141:src/system/init.c ****   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
+ 142:src/system/init.c ****   {
+ 143:src/system/init.c ****     Error_Handler();
+ 144:src/system/init.c ****   }
+ 145:src/system/init.c **** }
  146:src/system/init.c **** 
-ARM GAS  /tmp/ccUDLldI.s 			page 4
+ARM GAS  /tmp/ccXsxzD3.s 			page 4
 
 
- 147:src/system/init.c **** /* USER CODE END 4 */
+ 147:src/system/init.c **** /* USER CODE BEGIN 4 */
  148:src/system/init.c **** 
- 149:src/system/init.c **** /**
- 150:src/system/init.c ****   * @brief  This function is executed in case of error occurrence.
- 151:src/system/init.c ****   * @retval None
- 152:src/system/init.c ****   */
- 153:src/system/init.c **** void Error_Handler(void)
- 154:src/system/init.c **** {
-  27              		.loc 1 154 1 view -0
+ 149:src/system/init.c **** /* USER CODE END 4 */
+ 150:src/system/init.c **** 
+ 151:src/system/init.c **** /**
+ 152:src/system/init.c ****   * @brief  This function is executed in case of error occurrence.
+ 153:src/system/init.c ****   * @retval None
+ 154:src/system/init.c ****   */
+ 155:src/system/init.c **** void Error_Handler(void)
+ 156:src/system/init.c **** {
+  27              		.loc 1 156 1 view -0
   28              		.cfi_startproc
   29              		@ Volatile: function does not return.
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              		@ link register save eliminated.
- 155:src/system/init.c ****   /* USER CODE BEGIN Error_Handler_Debug */
- 156:src/system/init.c ****   /* User can add his own implementation to report the HAL error return state */
- 157:src/system/init.c ****   __disable_irq();
-  33              		.loc 1 157 3 view .LVU1
+ 157:src/system/init.c ****   /* USER CODE BEGIN Error_Handler_Debug */
+ 158:src/system/init.c ****   /* User can add his own implementation to report the HAL error return state */
+ 159:src/system/init.c ****   __disable_irq();
+  33              		.loc 1 159 3 view .LVU1
   34              	.LBB4:
   35              	.LBI4:
   36              		.file 2 "external/drivers/cmsis/include/cmsis_gcc.h"
@@ -236,11 +238,11 @@ ARM GAS  /tmp/ccUDLldI.s 			page 1
   32:external/drivers/cmsis/include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wunused-parameter"
   33:external/drivers/cmsis/include/cmsis_gcc.h **** 
   34:external/drivers/cmsis/include/cmsis_gcc.h **** /* Fallback for __has_builtin */
+ARM GAS  /tmp/ccXsxzD3.s 			page 5
+
+
   35:external/drivers/cmsis/include/cmsis_gcc.h **** #ifndef __has_builtin
   36:external/drivers/cmsis/include/cmsis_gcc.h ****   #define __has_builtin(x) (0)
-ARM GAS  /tmp/ccUDLldI.s 			page 5
-
-
   37:external/drivers/cmsis/include/cmsis_gcc.h **** #endif
   38:external/drivers/cmsis/include/cmsis_gcc.h **** 
   39:external/drivers/cmsis/include/cmsis_gcc.h **** /* CMSIS compiler specific defines */
@@ -296,11 +298,11 @@ ARM GAS  /tmp/ccUDLldI.s 			page 1
   89:external/drivers/cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
   90:external/drivers/cmsis/include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_READ { uint16_t v; };
   91:external/drivers/cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+ARM GAS  /tmp/ccXsxzD3.s 			page 6
+
+
   92:external/drivers/cmsis/include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_READ(addr)          (((const struct T_UINT16_READ *)(const void *)(add
   93:external/drivers/cmsis/include/cmsis_gcc.h **** #endif
-ARM GAS  /tmp/ccUDLldI.s 			page 6
-
-
   94:external/drivers/cmsis/include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_WRITE
   95:external/drivers/cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic push
   96:external/drivers/cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
@@ -356,11 +358,11 @@ ARM GAS  /tmp/ccUDLldI.s 			page 1
  146:external/drivers/cmsis/include/cmsis_gcc.h ****   extern const __copy_table_t __copy_table_start__;
  147:external/drivers/cmsis/include/cmsis_gcc.h ****   extern const __copy_table_t __copy_table_end__;
  148:external/drivers/cmsis/include/cmsis_gcc.h ****   extern const __zero_table_t __zero_table_start__;
+ARM GAS  /tmp/ccXsxzD3.s 			page 7
+
+
  149:external/drivers/cmsis/include/cmsis_gcc.h ****   extern const __zero_table_t __zero_table_end__;
  150:external/drivers/cmsis/include/cmsis_gcc.h **** 
-ARM GAS  /tmp/ccUDLldI.s 			page 7
-
-
  151:external/drivers/cmsis/include/cmsis_gcc.h ****   for (__copy_table_t const* pTable = &__copy_table_start__; pTable < &__copy_table_end__; ++pTable
  152:external/drivers/cmsis/include/cmsis_gcc.h ****     for(uint32_t i=0u; i<pTable->wlen; ++i) {
  153:external/drivers/cmsis/include/cmsis_gcc.h ****       pTable->dest[i] = pTable->src[i];
@@ -416,11 +418,11 @@ ARM GAS  /tmp/ccUDLldI.s 			page 1
  203:external/drivers/cmsis/include/cmsis_gcc.h **** 
  204:external/drivers/cmsis/include/cmsis_gcc.h **** 
  205:external/drivers/cmsis/include/cmsis_gcc.h **** /* ##########################  Core Instruction Access  ######################### */
+ARM GAS  /tmp/ccXsxzD3.s 			page 8
+
+
  206:external/drivers/cmsis/include/cmsis_gcc.h **** /** \defgroup CMSIS_Core_InstructionInterface CMSIS Core Instruction Interface
  207:external/drivers/cmsis/include/cmsis_gcc.h ****   Access to dedicated instructions
-ARM GAS  /tmp/ccUDLldI.s 			page 8
-
-
  208:external/drivers/cmsis/include/cmsis_gcc.h ****   @{
  209:external/drivers/cmsis/include/cmsis_gcc.h **** */
  210:external/drivers/cmsis/include/cmsis_gcc.h **** 
@@ -476,11 +478,11 @@ ARM GAS  /tmp/ccUDLldI.s 			page 1
  260:external/drivers/cmsis/include/cmsis_gcc.h ****   __ASM volatile ("isb 0xF":::"memory");
  261:external/drivers/cmsis/include/cmsis_gcc.h **** }
  262:external/drivers/cmsis/include/cmsis_gcc.h **** 
+ARM GAS  /tmp/ccXsxzD3.s 			page 9
+
+
  263:external/drivers/cmsis/include/cmsis_gcc.h **** 
  264:external/drivers/cmsis/include/cmsis_gcc.h **** /**
-ARM GAS  /tmp/ccUDLldI.s 			page 9
-
-
  265:external/drivers/cmsis/include/cmsis_gcc.h ****   \brief   Data Synchronization Barrier
  266:external/drivers/cmsis/include/cmsis_gcc.h ****   \details Acts as a special kind of Data Memory Barrier.
  267:external/drivers/cmsis/include/cmsis_gcc.h ****            It completes when all explicit memory accesses before this instruction complete.
@@ -536,11 +538,11 @@ ARM GAS  /tmp/ccUDLldI.s 			page 1
  317:external/drivers/cmsis/include/cmsis_gcc.h **** }
  318:external/drivers/cmsis/include/cmsis_gcc.h **** 
  319:external/drivers/cmsis/include/cmsis_gcc.h **** 
+ARM GAS  /tmp/ccXsxzD3.s 			page 10
+
+
  320:external/drivers/cmsis/include/cmsis_gcc.h **** /**
  321:external/drivers/cmsis/include/cmsis_gcc.h ****   \brief   Reverse byte order (16 bit)
-ARM GAS  /tmp/ccUDLldI.s 			page 10
-
-
  322:external/drivers/cmsis/include/cmsis_gcc.h ****   \details Reverses the byte order in a 16-bit value and returns the signed 16-bit result. For exam
  323:external/drivers/cmsis/include/cmsis_gcc.h ****   \param [in]    value  Value to reverse
  324:external/drivers/cmsis/include/cmsis_gcc.h ****   \return               Reversed value
@@ -596,11 +598,11 @@ ARM GAS  /tmp/ccUDLldI.s 			page 1
  374:external/drivers/cmsis/include/cmsis_gcc.h **** {
  375:external/drivers/cmsis/include/cmsis_gcc.h ****   uint32_t result;
  376:external/drivers/cmsis/include/cmsis_gcc.h **** 
+ARM GAS  /tmp/ccXsxzD3.s 			page 11
+
+
  377:external/drivers/cmsis/include/cmsis_gcc.h **** #if ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \
  378:external/drivers/cmsis/include/cmsis_gcc.h ****      (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \
-ARM GAS  /tmp/ccUDLldI.s 			page 11
-
-
  379:external/drivers/cmsis/include/cmsis_gcc.h ****      (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1))    )
  380:external/drivers/cmsis/include/cmsis_gcc.h ****    __ASM ("rbit %0, %1" : "=r" (result) : "r" (value) );
  381:external/drivers/cmsis/include/cmsis_gcc.h **** #else
@@ -656,11 +658,11 @@ ARM GAS  /tmp/ccUDLldI.s 			page 1
  431:external/drivers/cmsis/include/cmsis_gcc.h ****  */
  432:external/drivers/cmsis/include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint8_t __LDREXB(volatile uint8_t *addr)
  433:external/drivers/cmsis/include/cmsis_gcc.h **** {
+ARM GAS  /tmp/ccXsxzD3.s 			page 12
+
+
  434:external/drivers/cmsis/include/cmsis_gcc.h ****     uint32_t result;
  435:external/drivers/cmsis/include/cmsis_gcc.h **** 
-ARM GAS  /tmp/ccUDLldI.s 			page 12
-
-
  436:external/drivers/cmsis/include/cmsis_gcc.h **** #if (__GNUC__ > 4) || (__GNUC__ == 4 && __GNUC_MINOR__ >= 8)
  437:external/drivers/cmsis/include/cmsis_gcc.h ****    __ASM volatile ("ldrexb %0, %1" : "=r" (result) : "Q" (*addr) );
  438:external/drivers/cmsis/include/cmsis_gcc.h **** #else
@@ -716,11 +718,11 @@ ARM GAS  /tmp/ccUDLldI.s 			page 1
  488:external/drivers/cmsis/include/cmsis_gcc.h ****   \param [in]  value  Value to store
  489:external/drivers/cmsis/include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to location
  490:external/drivers/cmsis/include/cmsis_gcc.h ****   \return          0  Function succeeded
+ARM GAS  /tmp/ccXsxzD3.s 			page 13
+
+
  491:external/drivers/cmsis/include/cmsis_gcc.h ****   \return          1  Function failed
  492:external/drivers/cmsis/include/cmsis_gcc.h ****  */
-ARM GAS  /tmp/ccUDLldI.s 			page 13
-
-
  493:external/drivers/cmsis/include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __STREXB(uint8_t value, volatile uint8_t *addr)
  494:external/drivers/cmsis/include/cmsis_gcc.h **** {
  495:external/drivers/cmsis/include/cmsis_gcc.h ****    uint32_t result;
@@ -776,11 +778,11 @@ ARM GAS  /tmp/ccUDLldI.s 			page 1
  545:external/drivers/cmsis/include/cmsis_gcc.h **** #endif /* ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \
  546:external/drivers/cmsis/include/cmsis_gcc.h ****            (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \
  547:external/drivers/cmsis/include/cmsis_gcc.h ****            (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \
+ARM GAS  /tmp/ccXsxzD3.s 			page 14
+
+
  548:external/drivers/cmsis/include/cmsis_gcc.h ****            (defined (__ARM_ARCH_8M_BASE__ ) && (__ARM_ARCH_8M_BASE__ == 1))    ) */
  549:external/drivers/cmsis/include/cmsis_gcc.h **** 
-ARM GAS  /tmp/ccUDLldI.s 			page 14
-
-
  550:external/drivers/cmsis/include/cmsis_gcc.h **** 
  551:external/drivers/cmsis/include/cmsis_gcc.h **** #if ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \
  552:external/drivers/cmsis/include/cmsis_gcc.h ****      (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \
@@ -836,11 +838,11 @@ ARM GAS  /tmp/ccUDLldI.s 			page 1
  602:external/drivers/cmsis/include/cmsis_gcc.h **** /**
  603:external/drivers/cmsis/include/cmsis_gcc.h ****   \brief   LDRT Unprivileged (8 bit)
  604:external/drivers/cmsis/include/cmsis_gcc.h ****   \details Executes a Unprivileged LDRT instruction for 8 bit value.
+ARM GAS  /tmp/ccXsxzD3.s 			page 15
+
+
  605:external/drivers/cmsis/include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to data
  606:external/drivers/cmsis/include/cmsis_gcc.h ****   \return             value of type uint8_t at (*ptr)
-ARM GAS  /tmp/ccUDLldI.s 			page 15
-
-
  607:external/drivers/cmsis/include/cmsis_gcc.h ****  */
  608:external/drivers/cmsis/include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint8_t __LDRBT(volatile uint8_t *ptr)
  609:external/drivers/cmsis/include/cmsis_gcc.h **** {
@@ -896,11 +898,11 @@ ARM GAS  /tmp/ccUDLldI.s 			page 1
  659:external/drivers/cmsis/include/cmsis_gcc.h **** 
  660:external/drivers/cmsis/include/cmsis_gcc.h **** 
  661:external/drivers/cmsis/include/cmsis_gcc.h **** /**
+ARM GAS  /tmp/ccXsxzD3.s 			page 16
+
+
  662:external/drivers/cmsis/include/cmsis_gcc.h ****   \brief   STRT Unprivileged (8 bit)
  663:external/drivers/cmsis/include/cmsis_gcc.h ****   \details Executes a Unprivileged STRT instruction for 8 bit values.
-ARM GAS  /tmp/ccUDLldI.s 			page 16
-
-
  664:external/drivers/cmsis/include/cmsis_gcc.h ****   \param [in]  value  Value to store
  665:external/drivers/cmsis/include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to location
  666:external/drivers/cmsis/include/cmsis_gcc.h ****  */
@@ -956,11 +958,11 @@ ARM GAS  /tmp/ccUDLldI.s 			page 1
  716:external/drivers/cmsis/include/cmsis_gcc.h ****     }
  717:external/drivers/cmsis/include/cmsis_gcc.h ****     else if (val < min)
  718:external/drivers/cmsis/include/cmsis_gcc.h ****     {
+ARM GAS  /tmp/ccXsxzD3.s 			page 17
+
+
  719:external/drivers/cmsis/include/cmsis_gcc.h ****       return min;
  720:external/drivers/cmsis/include/cmsis_gcc.h ****     }
-ARM GAS  /tmp/ccUDLldI.s 			page 17
-
-
  721:external/drivers/cmsis/include/cmsis_gcc.h ****   }
  722:external/drivers/cmsis/include/cmsis_gcc.h ****   return val;
  723:external/drivers/cmsis/include/cmsis_gcc.h **** }
@@ -1016,11 +1018,11 @@ ARM GAS  /tmp/ccUDLldI.s 			page 1
  773:external/drivers/cmsis/include/cmsis_gcc.h ****   \details Executes a LDAH instruction for 16 bit values.
  774:external/drivers/cmsis/include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to data
  775:external/drivers/cmsis/include/cmsis_gcc.h ****   \return        value of type uint16_t at (*ptr)
+ARM GAS  /tmp/ccXsxzD3.s 			page 18
+
+
  776:external/drivers/cmsis/include/cmsis_gcc.h ****  */
  777:external/drivers/cmsis/include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint16_t __LDAH(volatile uint16_t *ptr)
-ARM GAS  /tmp/ccUDLldI.s 			page 18
-
-
  778:external/drivers/cmsis/include/cmsis_gcc.h **** {
  779:external/drivers/cmsis/include/cmsis_gcc.h ****     uint32_t result;
  780:external/drivers/cmsis/include/cmsis_gcc.h **** 
@@ -1076,11 +1078,11 @@ ARM GAS  /tmp/ccUDLldI.s 			page 1
  830:external/drivers/cmsis/include/cmsis_gcc.h ****  */
  831:external/drivers/cmsis/include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __STL(uint32_t value, volatile uint32_t *ptr)
  832:external/drivers/cmsis/include/cmsis_gcc.h **** {
+ARM GAS  /tmp/ccXsxzD3.s 			page 19
+
+
  833:external/drivers/cmsis/include/cmsis_gcc.h ****    __ASM volatile ("stl %1, %0" : "=Q" (*ptr) : "r" ((uint32_t)value) : "memory" );
  834:external/drivers/cmsis/include/cmsis_gcc.h **** }
-ARM GAS  /tmp/ccUDLldI.s 			page 19
-
-
  835:external/drivers/cmsis/include/cmsis_gcc.h **** 
  836:external/drivers/cmsis/include/cmsis_gcc.h **** 
  837:external/drivers/cmsis/include/cmsis_gcc.h **** /**
@@ -1136,11 +1138,11 @@ ARM GAS  /tmp/ccUDLldI.s 			page 1
  887:external/drivers/cmsis/include/cmsis_gcc.h ****   \return          0  Function succeeded
  888:external/drivers/cmsis/include/cmsis_gcc.h ****   \return          1  Function failed
  889:external/drivers/cmsis/include/cmsis_gcc.h ****  */
+ARM GAS  /tmp/ccXsxzD3.s 			page 20
+
+
  890:external/drivers/cmsis/include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __STLEXB(uint8_t value, volatile uint8_t *ptr)
  891:external/drivers/cmsis/include/cmsis_gcc.h **** {
-ARM GAS  /tmp/ccUDLldI.s 			page 20
-
-
  892:external/drivers/cmsis/include/cmsis_gcc.h ****    uint32_t result;
  893:external/drivers/cmsis/include/cmsis_gcc.h **** 
  894:external/drivers/cmsis/include/cmsis_gcc.h ****    __ASM volatile ("stlexb %0, %2, %1" : "=&r" (result), "=Q" (*ptr) : "r" ((uint32_t)value) : "mem
@@ -1196,11 +1198,11 @@ ARM GAS  /tmp/ccUDLldI.s 			page 1
  944:external/drivers/cmsis/include/cmsis_gcc.h **** /**
  945:external/drivers/cmsis/include/cmsis_gcc.h ****   \brief   Enable IRQ Interrupts
  946:external/drivers/cmsis/include/cmsis_gcc.h ****   \details Enables IRQ interrupts by clearing special-purpose register PRIMASK.
+ARM GAS  /tmp/ccXsxzD3.s 			page 21
+
+
  947:external/drivers/cmsis/include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
  948:external/drivers/cmsis/include/cmsis_gcc.h ****  */
-ARM GAS  /tmp/ccUDLldI.s 			page 21
-
-
  949:external/drivers/cmsis/include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __enable_irq(void)
  950:external/drivers/cmsis/include/cmsis_gcc.h **** {
  951:external/drivers/cmsis/include/cmsis_gcc.h ****   __ASM volatile ("cpsie i" : : : "memory");
@@ -1227,13 +1229,13 @@ ARM GAS  /tmp/ccUDLldI.s 			page 1
   46              	.L2:
   47              	.LBE5:
   48              	.LBE4:
- 158:src/system/init.c ****   while (1)
-  49              		.loc 1 158 3 discriminator 1 view .LVU4
- 159:src/system/init.c ****   {
- 160:src/system/init.c ****   }
-  50              		.loc 1 160 3 discriminator 1 view .LVU5
- 158:src/system/init.c ****   while (1)
-  51              		.loc 1 158 9 discriminator 1 view .LVU6
+ 160:src/system/init.c ****   while (1)
+  49              		.loc 1 160 3 discriminator 1 view .LVU4
+ 161:src/system/init.c ****   {
+ 162:src/system/init.c ****   }
+  50              		.loc 1 162 3 discriminator 1 view .LVU5
+ 160:src/system/init.c ****   while (1)
+  51              		.loc 1 160 9 discriminator 1 view .LVU6
   52 0002 FEE7     		b	.L2
   53              		.cfi_endproc
   54              	.LFE216:
@@ -1245,8 +1247,8 @@ ARM GAS  /tmp/ccUDLldI.s 			page 1
   61              		.thumb_func
   63              	SystemClock_Config:
   64              	.LFB215:
- 114:src/system/init.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-  65              		.loc 1 114 1 view -0
+ 116:src/system/init.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  65              		.loc 1 116 1 view -0
   66              		.cfi_startproc
   67              		@ args = 0, pretend = 0, frame = 48
   68              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1256,114 +1258,114 @@ ARM GAS  /tmp/ccUDLldI.s 			page 1
   72              		.cfi_offset 14, -4
   73 0002 8DB0     		sub	sp, sp, #52
   74              	.LCFI1:
+ARM GAS  /tmp/ccXsxzD3.s 			page 22
+
+
   75              		.cfi_def_cfa_offset 56
- 115:src/system/init.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-ARM GAS  /tmp/ccUDLldI.s 			page 22
-
-
-  76              		.loc 1 115 3 view .LVU8
- 115:src/system/init.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-  77              		.loc 1 115 22 is_stmt 0 view .LVU9
+ 117:src/system/init.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  76              		.loc 1 117 3 view .LVU8
+ 117:src/system/init.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  77              		.loc 1 117 22 is_stmt 0 view .LVU9
   78 0004 1C22     		movs	r2, #28
   79 0006 0021     		movs	r1, #0
   80 0008 05A8     		add	r0, sp, #20
   81 000a FFF7FEFF 		bl	memset
   82              	.LVL0:
- 116:src/system/init.c **** 
-  83              		.loc 1 116 3 is_stmt 1 view .LVU10
- 116:src/system/init.c **** 
-  84              		.loc 1 116 22 is_stmt 0 view .LVU11
+ 118:src/system/init.c **** 
+  83              		.loc 1 118 3 is_stmt 1 view .LVU10
+ 118:src/system/init.c **** 
+  84              		.loc 1 118 22 is_stmt 0 view .LVU11
   85 000e 1422     		movs	r2, #20
   86 0010 0021     		movs	r1, #0
   87 0012 6846     		mov	r0, sp
   88 0014 FFF7FEFF 		bl	memset
   89              	.LVL1:
- 121:src/system/init.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  90              		.loc 1 121 3 is_stmt 1 view .LVU12
- 121:src/system/init.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  91              		.loc 1 121 36 is_stmt 0 view .LVU13
+ 123:src/system/init.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  90              		.loc 1 123 3 is_stmt 1 view .LVU12
+ 123:src/system/init.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  91              		.loc 1 123 36 is_stmt 0 view .LVU13
   92 0018 0223     		movs	r3, #2
   93 001a 0593     		str	r3, [sp, #20]
- 122:src/system/init.c ****   RCC_OscInitStruct.HSIDiv = RCC_HSI_DIV1;
-  94              		.loc 1 122 3 is_stmt 1 view .LVU14
- 122:src/system/init.c ****   RCC_OscInitStruct.HSIDiv = RCC_HSI_DIV1;
-  95              		.loc 1 122 30 is_stmt 0 view .LVU15
+ 124:src/system/init.c ****   RCC_OscInitStruct.HSIDiv = RCC_HSI_DIV1;
+  94              		.loc 1 124 3 is_stmt 1 view .LVU14
+ 124:src/system/init.c ****   RCC_OscInitStruct.HSIDiv = RCC_HSI_DIV1;
+  95              		.loc 1 124 30 is_stmt 0 view .LVU15
   96 001c FE33     		adds	r3, r3, #254
   97 001e 0893     		str	r3, [sp, #32]
- 123:src/system/init.c ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
-  98              		.loc 1 123 3 is_stmt 1 view .LVU16
- 124:src/system/init.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
-  99              		.loc 1 124 3 view .LVU17
- 124:src/system/init.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
- 100              		.loc 1 124 41 is_stmt 0 view .LVU18
+ 125:src/system/init.c ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  98              		.loc 1 125 3 is_stmt 1 view .LVU16
+ 126:src/system/init.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+  99              		.loc 1 126 3 view .LVU17
+ 126:src/system/init.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 100              		.loc 1 126 41 is_stmt 0 view .LVU18
  101 0020 C03B     		subs	r3, r3, #192
  102 0022 0A93     		str	r3, [sp, #40]
- 125:src/system/init.c ****   {
- 103              		.loc 1 125 3 is_stmt 1 view .LVU19
- 125:src/system/init.c ****   {
- 104              		.loc 1 125 7 is_stmt 0 view .LVU20
+ 127:src/system/init.c ****   {
+ 103              		.loc 1 127 3 is_stmt 1 view .LVU19
+ 127:src/system/init.c ****   {
+ 104              		.loc 1 127 7 is_stmt 0 view .LVU20
  105 0024 05A8     		add	r0, sp, #20
  106 0026 FFF7FEFF 		bl	HAL_RCC_OscConfig
  107              	.LVL2:
- 125:src/system/init.c ****   {
- 108              		.loc 1 125 6 view .LVU21
+ 127:src/system/init.c ****   {
+ 108              		.loc 1 127 6 view .LVU21
  109 002a 0028     		cmp	r0, #0
  110 002c 0ED1     		bne	.L6
- 132:src/system/init.c ****                               |RCC_CLOCKTYPE_PCLK1;
- 111              		.loc 1 132 3 is_stmt 1 view .LVU22
- 132:src/system/init.c ****                               |RCC_CLOCKTYPE_PCLK1;
- 112              		.loc 1 132 31 is_stmt 0 view .LVU23
+ 134:src/system/init.c ****                               |RCC_CLOCKTYPE_PCLK1;
+ 111              		.loc 1 134 3 is_stmt 1 view .LVU22
+ 134:src/system/init.c ****                               |RCC_CLOCKTYPE_PCLK1;
+ 112              		.loc 1 134 31 is_stmt 0 view .LVU23
  113 002e 0723     		movs	r3, #7
  114 0030 0093     		str	r3, [sp]
- 134:src/system/init.c ****   RCC_ClkInitStruct.SYSCLKDivider = RCC_SYSCLK_DIV1;
- 115              		.loc 1 134 3 is_stmt 1 view .LVU24
- 134:src/system/init.c ****   RCC_ClkInitStruct.SYSCLKDivider = RCC_SYSCLK_DIV1;
-ARM GAS  /tmp/ccUDLldI.s 			page 23
+ 136:src/system/init.c ****   RCC_ClkInitStruct.SYSCLKDivider = RCC_SYSCLK_DIV1;
+ARM GAS  /tmp/ccXsxzD3.s 			page 23
 
 
- 116              		.loc 1 134 34 is_stmt 0 view .LVU25
+ 115              		.loc 1 136 3 is_stmt 1 view .LVU24
+ 136:src/system/init.c ****   RCC_ClkInitStruct.SYSCLKDivider = RCC_SYSCLK_DIV1;
+ 116              		.loc 1 136 34 is_stmt 0 view .LVU25
  117 0032 0023     		movs	r3, #0
  118 0034 0193     		str	r3, [sp, #4]
- 135:src/system/init.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_HCLK_DIV1;
- 119              		.loc 1 135 3 is_stmt 1 view .LVU26
- 135:src/system/init.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_HCLK_DIV1;
- 120              		.loc 1 135 35 is_stmt 0 view .LVU27
+ 137:src/system/init.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_HCLK_DIV1;
+ 119              		.loc 1 137 3 is_stmt 1 view .LVU26
+ 137:src/system/init.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_HCLK_DIV1;
+ 120              		.loc 1 137 35 is_stmt 0 view .LVU27
  121 0036 0293     		str	r3, [sp, #8]
- 136:src/system/init.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_APB1_DIV1;
- 122              		.loc 1 136 3 is_stmt 1 view .LVU28
- 136:src/system/init.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_APB1_DIV1;
- 123              		.loc 1 136 35 is_stmt 0 view .LVU29
+ 138:src/system/init.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_APB1_DIV1;
+ 122              		.loc 1 138 3 is_stmt 1 view .LVU28
+ 138:src/system/init.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_APB1_DIV1;
+ 123              		.loc 1 138 35 is_stmt 0 view .LVU29
  124 0038 0393     		str	r3, [sp, #12]
- 137:src/system/init.c **** 
- 125              		.loc 1 137 3 is_stmt 1 view .LVU30
- 137:src/system/init.c **** 
- 126              		.loc 1 137 36 is_stmt 0 view .LVU31
+ 139:src/system/init.c **** 
+ 125              		.loc 1 139 3 is_stmt 1 view .LVU30
+ 139:src/system/init.c **** 
+ 126              		.loc 1 139 36 is_stmt 0 view .LVU31
  127 003a 0493     		str	r3, [sp, #16]
- 139:src/system/init.c ****   {
- 128              		.loc 1 139 3 is_stmt 1 view .LVU32
- 139:src/system/init.c ****   {
- 129              		.loc 1 139 7 is_stmt 0 view .LVU33
+ 141:src/system/init.c ****   {
+ 128              		.loc 1 141 3 is_stmt 1 view .LVU32
+ 141:src/system/init.c ****   {
+ 129              		.loc 1 141 7 is_stmt 0 view .LVU33
  130 003c 0121     		movs	r1, #1
  131 003e 6846     		mov	r0, sp
  132 0040 FFF7FEFF 		bl	HAL_RCC_ClockConfig
  133              	.LVL3:
- 139:src/system/init.c ****   {
- 134              		.loc 1 139 6 view .LVU34
+ 141:src/system/init.c ****   {
+ 134              		.loc 1 141 6 view .LVU34
  135 0044 0028     		cmp	r0, #0
  136 0046 03D1     		bne	.L7
- 143:src/system/init.c **** 
- 137              		.loc 1 143 1 view .LVU35
+ 145:src/system/init.c **** 
+ 137              		.loc 1 145 1 view .LVU35
  138 0048 0DB0     		add	sp, sp, #52
  139              		@ sp needed
  140 004a 00BD     		pop	{pc}
  141              	.L6:
- 127:src/system/init.c ****   }
- 142              		.loc 1 127 5 is_stmt 1 view .LVU36
+ 129:src/system/init.c ****   }
+ 142              		.loc 1 129 5 is_stmt 1 view .LVU36
  143 004c FFF7FEFF 		bl	Error_Handler
  144              	.LVL4:
  145              	.L7:
- 141:src/system/init.c ****   }
- 146              		.loc 1 141 5 view .LVU37
+ 143:src/system/init.c ****   }
+ 146              		.loc 1 143 5 view .LVU37
  147 0050 FFF7FEFF 		bl	Error_Handler
  148              	.LVL5:
  149              		.cfi_endproc
@@ -1376,11 +1378,11 @@ ARM GAS  /tmp/ccUDLldI.s 			page 1
  157              		.thumb_func
  159              	init:
  160              	.LFB214:
-  66:src/system/init.c ****   /* USER CODE BEGIN 1 */
- 161              		.loc 1 66 1 view -0
-ARM GAS  /tmp/ccUDLldI.s 			page 24
+ARM GAS  /tmp/ccXsxzD3.s 			page 24
 
 
+  67:src/system/init.c ****   /* USER CODE BEGIN 1 */
+ 161              		.loc 1 67 1 view -0
  162              		.cfi_startproc
  163              		@ args = 0, pretend = 0, frame = 0
  164              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1389,72 +1391,77 @@ ARM GAS  /tmp/ccUDLldI.s 			page 1
  167              		.cfi_def_cfa_offset 8
  168              		.cfi_offset 4, -8
  169              		.cfi_offset 14, -4
-  74:src/system/init.c **** 
- 170              		.loc 1 74 3 view .LVU39
+  75:src/system/init.c **** 
+ 170              		.loc 1 75 3 view .LVU39
  171 0002 FFF7FEFF 		bl	HAL_Init
  172              	.LVL6:
-  81:src/system/init.c **** 
- 173              		.loc 1 81 3 view .LVU40
+  82:src/system/init.c **** 
+ 173              		.loc 1 82 3 view .LVU40
  174 0006 FFF7FEFF 		bl	SystemClock_Config
  175              	.LVL7:
-  88:src/system/init.c ****   MX_TIM1_Init();
- 176              		.loc 1 88 3 view .LVU41
+  89:src/system/init.c ****   MX_TIM1_Init();
+ 176              		.loc 1 89 3 view .LVU41
  177 000a FFF7FEFF 		bl	MX_GPIO_Init
  178              	.LVL8:
-  89:src/system/init.c ****   MX_TIM3_Init();
- 179              		.loc 1 89 3 view .LVU42
+  90:src/system/init.c ****   MX_TIM3_Init();
+ 179              		.loc 1 90 3 view .LVU42
  180 000e FFF7FEFF 		bl	MX_TIM1_Init
  181              	.LVL9:
-  90:src/system/init.c ****   MX_TIM14_Init();
- 182              		.loc 1 90 3 view .LVU43
+  91:src/system/init.c ****   MX_TIM14_Init();
+ 182              		.loc 1 91 3 view .LVU43
  183 0012 FFF7FEFF 		bl	MX_TIM3_Init
  184              	.LVL10:
-  91:src/system/init.c ****   MX_TIM16_Init();
- 185              		.loc 1 91 3 view .LVU44
+  92:src/system/init.c ****   MX_TIM16_Init();
+ 185              		.loc 1 92 3 view .LVU44
  186 0016 FFF7FEFF 		bl	MX_TIM14_Init
  187              	.LVL11:
-  92:src/system/init.c ****   MX_TIM17_Init();
- 188              		.loc 1 92 3 view .LVU45
+  93:src/system/init.c ****   MX_TIM17_Init();
+ 188              		.loc 1 93 3 view .LVU45
  189 001a FFF7FEFF 		bl	MX_TIM16_Init
  190              	.LVL12:
-  93:src/system/init.c ****   /* USER CODE BEGIN 2 */
- 191              		.loc 1 93 3 view .LVU46
+  94:src/system/init.c ****   MX_USART2_UART_Init();
+ 191              		.loc 1 94 3 view .LVU46
  192 001e FFF7FEFF 		bl	MX_TIM17_Init
  193              	.LVL13:
- 100:src/system/init.c ****   {
- 194              		.loc 1 100 3 view .LVU47
- 105:src/system/init.c ****   /* USER CODE END 3 */
- 195              		.loc 1 105 3 view .LVU48
- 107:src/system/init.c **** 
- 196              		.loc 1 107 1 is_stmt 0 view .LVU49
- 197 0022 0020     		movs	r0, #0
- 198              		@ sp needed
- 199 0024 10BD     		pop	{r4, pc}
- 200              		.cfi_endproc
- 201              	.LFE214:
- 203              		.text
- 204              	.Letext0:
- 205              		.file 3 "/usr/lib/gcc/arm-none-eabi/12.2.1/include/stdint.h"
- 206              		.file 4 "external/drivers/stm32c0xx/include/stm32c0xx_hal_def.h"
- 207              		.file 5 "external/drivers/stm32c0xx/include/stm32c0xx_hal_rcc.h"
- 208              		.file 6 "src/system/tim.h"
-ARM GAS  /tmp/ccUDLldI.s 			page 25
+  95:src/system/init.c ****   /* USER CODE BEGIN 2 */
+ 194              		.loc 1 95 3 view .LVU47
+ 195 0022 FFF7FEFF 		bl	MX_USART2_UART_Init
+ 196              	.LVL14:
+ 102:src/system/init.c ****   {
+ 197              		.loc 1 102 3 view .LVU48
+ 107:src/system/init.c ****   /* USER CODE END 3 */
+ 198              		.loc 1 107 3 view .LVU49
+ 109:src/system/init.c **** 
+ 199              		.loc 1 109 1 is_stmt 0 view .LVU50
+ 200 0026 0020     		movs	r0, #0
+ 201              		@ sp needed
+ 202 0028 10BD     		pop	{r4, pc}
+ 203              		.cfi_endproc
+ 204              	.LFE214:
+ARM GAS  /tmp/ccXsxzD3.s 			page 25
 
 
- 209              		.file 7 "src/system/gpio.h"
- 210              		.file 8 "external/drivers/stm32c0xx/include/stm32c0xx_hal.h"
- 211              		.file 9 "<built-in>"
-ARM GAS  /tmp/ccUDLldI.s 			page 26
+ 206              		.text
+ 207              	.Letext0:
+ 208              		.file 3 "/usr/lib/gcc/arm-none-eabi/12.2.1/include/stdint.h"
+ 209              		.file 4 "external/drivers/stm32c0xx/include/stm32c0xx_hal_def.h"
+ 210              		.file 5 "external/drivers/stm32c0xx/include/stm32c0xx_hal_rcc.h"
+ 211              		.file 6 "src/system/usart.h"
+ 212              		.file 7 "src/system/tim.h"
+ 213              		.file 8 "src/system/gpio.h"
+ 214              		.file 9 "external/drivers/stm32c0xx/include/stm32c0xx_hal.h"
+ 215              		.file 10 "<built-in>"
+ARM GAS  /tmp/ccXsxzD3.s 			page 26
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 init.c
-     /tmp/ccUDLldI.s:19     .text.Error_Handler:00000000 $t
-     /tmp/ccUDLldI.s:25     .text.Error_Handler:00000000 Error_Handler
-     /tmp/ccUDLldI.s:57     .text.SystemClock_Config:00000000 $t
-     /tmp/ccUDLldI.s:63     .text.SystemClock_Config:00000000 SystemClock_Config
-     /tmp/ccUDLldI.s:153    .text.init:00000000 $t
-     /tmp/ccUDLldI.s:159    .text.init:00000000 init
+     /tmp/ccXsxzD3.s:19     .text.Error_Handler:00000000 $t
+     /tmp/ccXsxzD3.s:25     .text.Error_Handler:00000000 Error_Handler
+     /tmp/ccXsxzD3.s:57     .text.SystemClock_Config:00000000 $t
+     /tmp/ccXsxzD3.s:63     .text.SystemClock_Config:00000000 SystemClock_Config
+     /tmp/ccXsxzD3.s:153    .text.init:00000000 $t
+     /tmp/ccXsxzD3.s:159    .text.init:00000000 init
 
 UNDEFINED SYMBOLS
 memset
@@ -1467,3 +1474,4 @@ MX_TIM3_Init
 MX_TIM14_Init
 MX_TIM16_Init
 MX_TIM17_Init
+MX_USART2_UART_Init
