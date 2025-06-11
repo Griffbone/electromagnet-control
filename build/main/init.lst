@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccP0mP2z.s 			page 1
+ARM GAS  /tmp/ccJSP884.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -10,7 +10,7 @@ ARM GAS  /tmp/ccP0mP2z.s 			page 1
    7              		.eabi_attribute 24, 1
    8              		.eabi_attribute 25, 1
    9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 30, 2
   11              		.eabi_attribute 34, 0
   12              		.eabi_attribute 18, 4
   13              		.file	"init.c"
@@ -18,14 +18,15 @@ ARM GAS  /tmp/ccP0mP2z.s 			page 1
   15              	.Ltext0:
   16              		.cfi_sections	.debug_frame
   17              		.file 1 "src/system/init.c"
-  18              		.section	.text.Error_Handler,"ax",%progbits
+  18              		.section	.text.init,"ax",%progbits
   19              		.align	1
-  20              		.global	Error_Handler
-  21              		.syntax unified
-  22              		.code	16
-  23              		.thumb_func
-  25              	Error_Handler:
-  26              	.LFB216:
+  20              		.p2align 2,,3
+  21              		.global	init
+  22              		.syntax unified
+  23              		.code	16
+  24              		.thumb_func
+  26              	init:
+  27              	.LFB214:
    1:src/system/init.c **** /* USER CODE BEGIN Header */
    2:src/system/init.c **** /**
    3:src/system/init.c ****   ******************************************************************************
@@ -57,10 +58,10 @@ ARM GAS  /tmp/ccP0mP2z.s 			page 1
   29:src/system/init.c **** 
   30:src/system/init.c **** /* Private typedef -----------------------------------------------------------*/
   31:src/system/init.c **** /* USER CODE BEGIN PTD */
+ARM GAS  /tmp/ccJSP884.s 			page 2
+
+
   32:src/system/init.c **** 
-ARM GAS  /tmp/ccP0mP2z.s 			page 2
-
-
   33:src/system/init.c **** /* USER CODE END PTD */
   34:src/system/init.c **** 
   35:src/system/init.c **** /* Private define ------------------------------------------------------------*/
@@ -96,6 +97,10 @@ ARM GAS  /tmp/ccP0mP2z.s 			page 1
   65:src/system/init.c ****   */
   66:src/system/init.c **** int init(void)
   67:src/system/init.c **** {
+  28              		.loc 1 67 1 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 48
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
   68:src/system/init.c ****   /* USER CODE BEGIN 1 */
   69:src/system/init.c **** 
   70:src/system/init.c ****   /* USER CODE END 1 */
@@ -104,6 +109,22 @@ ARM GAS  /tmp/ccP0mP2z.s 			page 1
   73:src/system/init.c **** 
   74:src/system/init.c ****   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   75:src/system/init.c ****   HAL_Init();
+  32              		.loc 1 75 3 view .LVU1
+  67:src/system/init.c ****   /* USER CODE BEGIN 1 */
+  33              		.loc 1 67 1 is_stmt 0 view .LVU2
+  34 0000 00B5     		push	{lr}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 4
+  37              		.cfi_offset 14, -4
+  38 0002 8DB0     		sub	sp, sp, #52
+  39              	.LCFI1:
+ARM GAS  /tmp/ccJSP884.s 			page 3
+
+
+  40              		.cfi_def_cfa_offset 56
+  41              		.loc 1 75 3 view .LVU3
+  42 0004 FFF7FEFF 		bl	HAL_Init
+  43              	.LVL0:
   76:src/system/init.c **** 
   77:src/system/init.c ****   /* USER CODE BEGIN Init */
   78:src/system/init.c **** 
@@ -111,6 +132,9 @@ ARM GAS  /tmp/ccP0mP2z.s 			page 1
   80:src/system/init.c **** 
   81:src/system/init.c ****   /* Configure the system clock */
   82:src/system/init.c ****   SystemClock_Config();
+  44              		.loc 1 82 3 is_stmt 1 view .LVU4
+  45              	.LBB20:
+  46              	.LBI20:
   83:src/system/init.c **** 
   84:src/system/init.c ****   /* USER CODE BEGIN SysInit */
   85:src/system/init.c **** 
@@ -118,9 +142,6 @@ ARM GAS  /tmp/ccP0mP2z.s 			page 1
   87:src/system/init.c **** 
   88:src/system/init.c ****   /* Initialize all configured peripherals */
   89:src/system/init.c ****   MX_GPIO_Init();
-ARM GAS  /tmp/ccP0mP2z.s 			page 3
-
-
   90:src/system/init.c ****   MX_TIM1_Init();
   91:src/system/init.c ****   MX_TIM3_Init();
   92:src/system/init.c ****   MX_TIM14_Init();
@@ -147,20 +168,65 @@ ARM GAS  /tmp/ccP0mP2z.s 			page 1
  113:src/system/init.c ****   * @retval None
  114:src/system/init.c ****   */
  115:src/system/init.c **** void SystemClock_Config(void)
+  47              		.loc 1 115 6 view .LVU5
+  48              	.LBB21:
  116:src/system/init.c **** {
  117:src/system/init.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  49              		.loc 1 117 3 view .LVU6
+  50              		.loc 1 117 22 is_stmt 0 view .LVU7
+  51 0008 1822     		movs	r2, #24
+  52 000a 0021     		movs	r1, #0
+  53 000c 06A8     		add	r0, sp, #24
+  54 000e FFF7FEFF 		bl	memset
+ARM GAS  /tmp/ccJSP884.s 			page 4
+
+
+  55              	.LVL1:
  118:src/system/init.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  56              		.loc 1 118 3 is_stmt 1 view .LVU8
+  57              		.loc 1 118 22 is_stmt 0 view .LVU9
+  58 0012 1422     		movs	r2, #20
+  59 0014 0021     		movs	r1, #0
+  60 0016 6846     		mov	r0, sp
+  61 0018 FFF7FEFF 		bl	memset
+  62              	.LVL2:
  119:src/system/init.c **** 
  120:src/system/init.c ****   /** Initializes the RCC Oscillators according to the specified parameters
  121:src/system/init.c ****   * in the RCC_OscInitTypeDef structure.
  122:src/system/init.c ****   */
  123:src/system/init.c ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  63              		.loc 1 123 3 is_stmt 1 view .LVU10
+  64              		.loc 1 123 36 is_stmt 0 view .LVU11
+  65 001c 0223     		movs	r3, #2
+  66 001e 0593     		str	r3, [sp, #20]
  124:src/system/init.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  67              		.loc 1 124 3 is_stmt 1 view .LVU12
+  68              		.loc 1 124 30 is_stmt 0 view .LVU13
+  69 0020 FE33     		adds	r3, r3, #254
+  70 0022 0893     		str	r3, [sp, #32]
  125:src/system/init.c ****   RCC_OscInitStruct.HSIDiv = RCC_HSI_DIV1;
+  71              		.loc 1 125 3 is_stmt 1 view .LVU14
  126:src/system/init.c ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  72              		.loc 1 126 3 view .LVU15
  127:src/system/init.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+  73              		.loc 1 127 7 is_stmt 0 view .LVU16
+  74 0024 05A8     		add	r0, sp, #20
+ 126:src/system/init.c ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  75              		.loc 1 126 41 view .LVU17
+  76 0026 C03B     		subs	r3, r3, #192
+  77 0028 0A93     		str	r3, [sp, #40]
+  78              		.loc 1 127 3 is_stmt 1 view .LVU18
+  79              		.loc 1 127 7 is_stmt 0 view .LVU19
+  80 002a FFF7FEFF 		bl	HAL_RCC_OscConfig
+  81              	.LVL3:
+  82              		.loc 1 127 6 view .LVU20
+  83 002e 0028     		cmp	r0, #0
+  84 0030 01D0     		beq	.L2
  128:src/system/init.c ****   {
  129:src/system/init.c ****     Error_Handler();
+  85              		.loc 1 129 5 is_stmt 1 view .LVU21
+  86              	.LBB22:
+  87              	.LBI22:
  130:src/system/init.c ****   }
  131:src/system/init.c **** 
  132:src/system/init.c ****   /** Initializes the CPU, AHB and APB buses clocks
@@ -172,15 +238,15 @@ ARM GAS  /tmp/ccP0mP2z.s 			page 1
  138:src/system/init.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_HCLK_DIV1;
  139:src/system/init.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_APB1_DIV1;
  140:src/system/init.c **** 
+ARM GAS  /tmp/ccJSP884.s 			page 5
+
+
  141:src/system/init.c ****   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
  142:src/system/init.c ****   {
  143:src/system/init.c ****     Error_Handler();
  144:src/system/init.c ****   }
  145:src/system/init.c **** }
  146:src/system/init.c **** 
-ARM GAS  /tmp/ccP0mP2z.s 			page 4
-
-
  147:src/system/init.c **** /* USER CODE BEGIN 4 */
  148:src/system/init.c **** 
  149:src/system/init.c **** /* USER CODE END 4 */
@@ -190,20 +256,15 @@ ARM GAS  /tmp/ccP0mP2z.s 			page 1
  153:src/system/init.c ****   * @retval None
  154:src/system/init.c ****   */
  155:src/system/init.c **** void Error_Handler(void)
+  88              		.loc 1 155 6 view .LVU22
  156:src/system/init.c **** {
-  27              		.loc 1 156 1 view -0
-  28              		.cfi_startproc
-  29              		@ Volatile: function does not return.
-  30              		@ args = 0, pretend = 0, frame = 0
-  31              		@ frame_needed = 0, uses_anonymous_args = 0
-  32              		@ link register save eliminated.
  157:src/system/init.c ****   /* USER CODE BEGIN Error_Handler_Debug */
  158:src/system/init.c ****   /* User can add his own implementation to report the HAL error return state */
  159:src/system/init.c ****   __disable_irq();
-  33              		.loc 1 159 3 view .LVU1
-  34              	.LBB4:
-  35              	.LBI4:
-  36              		.file 2 "external/drivers/cmsis/include/cmsis_gcc.h"
+  89              		.loc 1 159 3 view .LVU23
+  90              	.LBB23:
+  91              	.LBI23:
+  92              		.file 2 "external/drivers/cmsis/include/cmsis_gcc.h"
    1:external/drivers/cmsis/include/cmsis_gcc.h **** /**************************************************************************//**
    2:external/drivers/cmsis/include/cmsis_gcc.h ****  * @file     cmsis_gcc.h
    3:external/drivers/cmsis/include/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
@@ -237,10 +298,10 @@ ARM GAS  /tmp/ccP0mP2z.s 			page 1
   31:external/drivers/cmsis/include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wconversion"
   32:external/drivers/cmsis/include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wunused-parameter"
   33:external/drivers/cmsis/include/cmsis_gcc.h **** 
+ARM GAS  /tmp/ccJSP884.s 			page 6
+
+
   34:external/drivers/cmsis/include/cmsis_gcc.h **** /* Fallback for __has_builtin */
-ARM GAS  /tmp/ccP0mP2z.s 			page 5
-
-
   35:external/drivers/cmsis/include/cmsis_gcc.h **** #ifndef __has_builtin
   36:external/drivers/cmsis/include/cmsis_gcc.h ****   #define __has_builtin(x) (0)
   37:external/drivers/cmsis/include/cmsis_gcc.h **** #endif
@@ -297,10 +358,10 @@ ARM GAS  /tmp/ccP0mP2z.s 			page 1
   88:external/drivers/cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
   89:external/drivers/cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
   90:external/drivers/cmsis/include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_READ { uint16_t v; };
+ARM GAS  /tmp/ccJSP884.s 			page 7
+
+
   91:external/drivers/cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
-ARM GAS  /tmp/ccP0mP2z.s 			page 6
-
-
   92:external/drivers/cmsis/include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_READ(addr)          (((const struct T_UINT16_READ *)(const void *)(add
   93:external/drivers/cmsis/include/cmsis_gcc.h **** #endif
   94:external/drivers/cmsis/include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_WRITE
@@ -357,10 +418,10 @@ ARM GAS  /tmp/ccP0mP2z.s 			page 1
  145:external/drivers/cmsis/include/cmsis_gcc.h **** 
  146:external/drivers/cmsis/include/cmsis_gcc.h ****   extern const __copy_table_t __copy_table_start__;
  147:external/drivers/cmsis/include/cmsis_gcc.h ****   extern const __copy_table_t __copy_table_end__;
+ARM GAS  /tmp/ccJSP884.s 			page 8
+
+
  148:external/drivers/cmsis/include/cmsis_gcc.h ****   extern const __zero_table_t __zero_table_start__;
-ARM GAS  /tmp/ccP0mP2z.s 			page 7
-
-
  149:external/drivers/cmsis/include/cmsis_gcc.h ****   extern const __zero_table_t __zero_table_end__;
  150:external/drivers/cmsis/include/cmsis_gcc.h **** 
  151:external/drivers/cmsis/include/cmsis_gcc.h ****   for (__copy_table_t const* pTable = &__copy_table_start__; pTable < &__copy_table_end__; ++pTable
@@ -417,10 +478,10 @@ ARM GAS  /tmp/ccP0mP2z.s 			page 1
  202:external/drivers/cmsis/include/cmsis_gcc.h **** #endif
  203:external/drivers/cmsis/include/cmsis_gcc.h **** 
  204:external/drivers/cmsis/include/cmsis_gcc.h **** 
+ARM GAS  /tmp/ccJSP884.s 			page 9
+
+
  205:external/drivers/cmsis/include/cmsis_gcc.h **** /* ##########################  Core Instruction Access  ######################### */
-ARM GAS  /tmp/ccP0mP2z.s 			page 8
-
-
  206:external/drivers/cmsis/include/cmsis_gcc.h **** /** \defgroup CMSIS_Core_InstructionInterface CMSIS Core Instruction Interface
  207:external/drivers/cmsis/include/cmsis_gcc.h ****   Access to dedicated instructions
  208:external/drivers/cmsis/include/cmsis_gcc.h ****   @{
@@ -477,10 +538,10 @@ ARM GAS  /tmp/ccP0mP2z.s 			page 1
  259:external/drivers/cmsis/include/cmsis_gcc.h **** {
  260:external/drivers/cmsis/include/cmsis_gcc.h ****   __ASM volatile ("isb 0xF":::"memory");
  261:external/drivers/cmsis/include/cmsis_gcc.h **** }
+ARM GAS  /tmp/ccJSP884.s 			page 10
+
+
  262:external/drivers/cmsis/include/cmsis_gcc.h **** 
-ARM GAS  /tmp/ccP0mP2z.s 			page 9
-
-
  263:external/drivers/cmsis/include/cmsis_gcc.h **** 
  264:external/drivers/cmsis/include/cmsis_gcc.h **** /**
  265:external/drivers/cmsis/include/cmsis_gcc.h ****   \brief   Data Synchronization Barrier
@@ -537,10 +598,10 @@ ARM GAS  /tmp/ccP0mP2z.s 			page 1
  316:external/drivers/cmsis/include/cmsis_gcc.h ****   return result;
  317:external/drivers/cmsis/include/cmsis_gcc.h **** }
  318:external/drivers/cmsis/include/cmsis_gcc.h **** 
+ARM GAS  /tmp/ccJSP884.s 			page 11
+
+
  319:external/drivers/cmsis/include/cmsis_gcc.h **** 
-ARM GAS  /tmp/ccP0mP2z.s 			page 10
-
-
  320:external/drivers/cmsis/include/cmsis_gcc.h **** /**
  321:external/drivers/cmsis/include/cmsis_gcc.h ****   \brief   Reverse byte order (16 bit)
  322:external/drivers/cmsis/include/cmsis_gcc.h ****   \details Reverses the byte order in a 16-bit value and returns the signed 16-bit result. For exam
@@ -597,10 +658,10 @@ ARM GAS  /tmp/ccP0mP2z.s 			page 1
  373:external/drivers/cmsis/include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __RBIT(uint32_t value)
  374:external/drivers/cmsis/include/cmsis_gcc.h **** {
  375:external/drivers/cmsis/include/cmsis_gcc.h ****   uint32_t result;
+ARM GAS  /tmp/ccJSP884.s 			page 12
+
+
  376:external/drivers/cmsis/include/cmsis_gcc.h **** 
-ARM GAS  /tmp/ccP0mP2z.s 			page 11
-
-
  377:external/drivers/cmsis/include/cmsis_gcc.h **** #if ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \
  378:external/drivers/cmsis/include/cmsis_gcc.h ****      (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \
  379:external/drivers/cmsis/include/cmsis_gcc.h ****      (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1))    )
@@ -657,10 +718,10 @@ ARM GAS  /tmp/ccP0mP2z.s 			page 1
  430:external/drivers/cmsis/include/cmsis_gcc.h ****   \return             value of type uint8_t at (*ptr)
  431:external/drivers/cmsis/include/cmsis_gcc.h ****  */
  432:external/drivers/cmsis/include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint8_t __LDREXB(volatile uint8_t *addr)
+ARM GAS  /tmp/ccJSP884.s 			page 13
+
+
  433:external/drivers/cmsis/include/cmsis_gcc.h **** {
-ARM GAS  /tmp/ccP0mP2z.s 			page 12
-
-
  434:external/drivers/cmsis/include/cmsis_gcc.h ****     uint32_t result;
  435:external/drivers/cmsis/include/cmsis_gcc.h **** 
  436:external/drivers/cmsis/include/cmsis_gcc.h **** #if (__GNUC__ > 4) || (__GNUC__ == 4 && __GNUC_MINOR__ >= 8)
@@ -717,10 +778,10 @@ ARM GAS  /tmp/ccP0mP2z.s 			page 1
  487:external/drivers/cmsis/include/cmsis_gcc.h ****   \details Executes a exclusive STR instruction for 8 bit values.
  488:external/drivers/cmsis/include/cmsis_gcc.h ****   \param [in]  value  Value to store
  489:external/drivers/cmsis/include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to location
+ARM GAS  /tmp/ccJSP884.s 			page 14
+
+
  490:external/drivers/cmsis/include/cmsis_gcc.h ****   \return          0  Function succeeded
-ARM GAS  /tmp/ccP0mP2z.s 			page 13
-
-
  491:external/drivers/cmsis/include/cmsis_gcc.h ****   \return          1  Function failed
  492:external/drivers/cmsis/include/cmsis_gcc.h ****  */
  493:external/drivers/cmsis/include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __STREXB(uint8_t value, volatile uint8_t *addr)
@@ -777,10 +838,10 @@ ARM GAS  /tmp/ccP0mP2z.s 			page 1
  544:external/drivers/cmsis/include/cmsis_gcc.h **** 
  545:external/drivers/cmsis/include/cmsis_gcc.h **** #endif /* ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \
  546:external/drivers/cmsis/include/cmsis_gcc.h ****            (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \
+ARM GAS  /tmp/ccJSP884.s 			page 15
+
+
  547:external/drivers/cmsis/include/cmsis_gcc.h ****            (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \
-ARM GAS  /tmp/ccP0mP2z.s 			page 14
-
-
  548:external/drivers/cmsis/include/cmsis_gcc.h ****            (defined (__ARM_ARCH_8M_BASE__ ) && (__ARM_ARCH_8M_BASE__ == 1))    ) */
  549:external/drivers/cmsis/include/cmsis_gcc.h **** 
  550:external/drivers/cmsis/include/cmsis_gcc.h **** 
@@ -837,10 +898,10 @@ ARM GAS  /tmp/ccP0mP2z.s 			page 1
  601:external/drivers/cmsis/include/cmsis_gcc.h **** 
  602:external/drivers/cmsis/include/cmsis_gcc.h **** /**
  603:external/drivers/cmsis/include/cmsis_gcc.h ****   \brief   LDRT Unprivileged (8 bit)
+ARM GAS  /tmp/ccJSP884.s 			page 16
+
+
  604:external/drivers/cmsis/include/cmsis_gcc.h ****   \details Executes a Unprivileged LDRT instruction for 8 bit value.
-ARM GAS  /tmp/ccP0mP2z.s 			page 15
-
-
  605:external/drivers/cmsis/include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to data
  606:external/drivers/cmsis/include/cmsis_gcc.h ****   \return             value of type uint8_t at (*ptr)
  607:external/drivers/cmsis/include/cmsis_gcc.h ****  */
@@ -897,10 +958,10 @@ ARM GAS  /tmp/ccP0mP2z.s 			page 1
  658:external/drivers/cmsis/include/cmsis_gcc.h **** }
  659:external/drivers/cmsis/include/cmsis_gcc.h **** 
  660:external/drivers/cmsis/include/cmsis_gcc.h **** 
+ARM GAS  /tmp/ccJSP884.s 			page 17
+
+
  661:external/drivers/cmsis/include/cmsis_gcc.h **** /**
-ARM GAS  /tmp/ccP0mP2z.s 			page 16
-
-
  662:external/drivers/cmsis/include/cmsis_gcc.h ****   \brief   STRT Unprivileged (8 bit)
  663:external/drivers/cmsis/include/cmsis_gcc.h ****   \details Executes a Unprivileged STRT instruction for 8 bit values.
  664:external/drivers/cmsis/include/cmsis_gcc.h ****   \param [in]  value  Value to store
@@ -957,10 +1018,10 @@ ARM GAS  /tmp/ccP0mP2z.s 			page 1
  715:external/drivers/cmsis/include/cmsis_gcc.h ****       return max;
  716:external/drivers/cmsis/include/cmsis_gcc.h ****     }
  717:external/drivers/cmsis/include/cmsis_gcc.h ****     else if (val < min)
+ARM GAS  /tmp/ccJSP884.s 			page 18
+
+
  718:external/drivers/cmsis/include/cmsis_gcc.h ****     {
-ARM GAS  /tmp/ccP0mP2z.s 			page 17
-
-
  719:external/drivers/cmsis/include/cmsis_gcc.h ****       return min;
  720:external/drivers/cmsis/include/cmsis_gcc.h ****     }
  721:external/drivers/cmsis/include/cmsis_gcc.h ****   }
@@ -1017,10 +1078,10 @@ ARM GAS  /tmp/ccP0mP2z.s 			page 1
  772:external/drivers/cmsis/include/cmsis_gcc.h ****   \brief   Load-Acquire (16 bit)
  773:external/drivers/cmsis/include/cmsis_gcc.h ****   \details Executes a LDAH instruction for 16 bit values.
  774:external/drivers/cmsis/include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to data
+ARM GAS  /tmp/ccJSP884.s 			page 19
+
+
  775:external/drivers/cmsis/include/cmsis_gcc.h ****   \return        value of type uint16_t at (*ptr)
-ARM GAS  /tmp/ccP0mP2z.s 			page 18
-
-
  776:external/drivers/cmsis/include/cmsis_gcc.h ****  */
  777:external/drivers/cmsis/include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint16_t __LDAH(volatile uint16_t *ptr)
  778:external/drivers/cmsis/include/cmsis_gcc.h **** {
@@ -1077,10 +1138,10 @@ ARM GAS  /tmp/ccP0mP2z.s 			page 1
  829:external/drivers/cmsis/include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to location
  830:external/drivers/cmsis/include/cmsis_gcc.h ****  */
  831:external/drivers/cmsis/include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __STL(uint32_t value, volatile uint32_t *ptr)
+ARM GAS  /tmp/ccJSP884.s 			page 20
+
+
  832:external/drivers/cmsis/include/cmsis_gcc.h **** {
-ARM GAS  /tmp/ccP0mP2z.s 			page 19
-
-
  833:external/drivers/cmsis/include/cmsis_gcc.h ****    __ASM volatile ("stl %1, %0" : "=Q" (*ptr) : "r" ((uint32_t)value) : "memory" );
  834:external/drivers/cmsis/include/cmsis_gcc.h **** }
  835:external/drivers/cmsis/include/cmsis_gcc.h **** 
@@ -1137,10 +1198,10 @@ ARM GAS  /tmp/ccP0mP2z.s 			page 1
  886:external/drivers/cmsis/include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to location
  887:external/drivers/cmsis/include/cmsis_gcc.h ****   \return          0  Function succeeded
  888:external/drivers/cmsis/include/cmsis_gcc.h ****   \return          1  Function failed
+ARM GAS  /tmp/ccJSP884.s 			page 21
+
+
  889:external/drivers/cmsis/include/cmsis_gcc.h ****  */
-ARM GAS  /tmp/ccP0mP2z.s 			page 20
-
-
  890:external/drivers/cmsis/include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __STLEXB(uint8_t value, volatile uint8_t *ptr)
  891:external/drivers/cmsis/include/cmsis_gcc.h **** {
  892:external/drivers/cmsis/include/cmsis_gcc.h ****    uint32_t result;
@@ -1197,10 +1258,10 @@ ARM GAS  /tmp/ccP0mP2z.s 			page 1
  943:external/drivers/cmsis/include/cmsis_gcc.h **** 
  944:external/drivers/cmsis/include/cmsis_gcc.h **** /**
  945:external/drivers/cmsis/include/cmsis_gcc.h ****   \brief   Enable IRQ Interrupts
+ARM GAS  /tmp/ccJSP884.s 			page 22
+
+
  946:external/drivers/cmsis/include/cmsis_gcc.h ****   \details Enables IRQ interrupts by clearing special-purpose register PRIMASK.
-ARM GAS  /tmp/ccP0mP2z.s 			page 21
-
-
  947:external/drivers/cmsis/include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
  948:external/drivers/cmsis/include/cmsis_gcc.h ****  */
  949:external/drivers/cmsis/include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __enable_irq(void)
@@ -1215,259 +1276,438 @@ ARM GAS  /tmp/ccP0mP2z.s 			page 1
  958:external/drivers/cmsis/include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
  959:external/drivers/cmsis/include/cmsis_gcc.h ****  */
  960:external/drivers/cmsis/include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __disable_irq(void)
-  37              		.loc 2 960 27 view .LVU2
-  38              	.LBB5:
+  93              		.loc 2 960 27 view .LVU24
+  94              	.LBB24:
  961:external/drivers/cmsis/include/cmsis_gcc.h **** {
  962:external/drivers/cmsis/include/cmsis_gcc.h ****   __ASM volatile ("cpsid i" : : : "memory");
-  39              		.loc 2 962 3 view .LVU3
-  40              		.syntax divided
-  41              	@ 962 "external/drivers/cmsis/include/cmsis_gcc.h" 1
-  42 0000 72B6     		cpsid i
-  43              	@ 0 "" 2
-  44              		.thumb
-  45              		.syntax unified
-  46              	.L2:
-  47              	.LBE5:
-  48              	.LBE4:
+  95              		.loc 2 962 3 view .LVU25
+  96              		.syntax divided
+  97              	@ 962 "external/drivers/cmsis/include/cmsis_gcc.h" 1
+  98 0032 72B6     		cpsid i
+  99              	@ 0 "" 2
+ 100              		.thumb
+ 101              		.syntax unified
+ 102              	.L3:
+ 103              	.LBE24:
+ 104              	.LBE23:
  160:src/system/init.c ****   while (1)
-  49              		.loc 1 160 3 discriminator 1 view .LVU4
+ 105              		.loc 1 160 3 view .LVU26
  161:src/system/init.c ****   {
  162:src/system/init.c ****   }
-  50              		.loc 1 162 3 discriminator 1 view .LVU5
+ 106              		.loc 1 162 3 view .LVU27
  160:src/system/init.c ****   while (1)
-  51              		.loc 1 160 9 discriminator 1 view .LVU6
-  52 0002 FEE7     		b	.L2
-  53              		.cfi_endproc
-  54              	.LFE216:
-  56              		.section	.text.SystemClock_Config,"ax",%progbits
-  57              		.align	1
-  58              		.global	SystemClock_Config
-  59              		.syntax unified
-  60              		.code	16
-  61              		.thumb_func
-  63              	SystemClock_Config:
-  64              	.LFB215:
- 116:src/system/init.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-  65              		.loc 1 116 1 view -0
-  66              		.cfi_startproc
-  67              		@ args = 0, pretend = 0, frame = 48
-  68              		@ frame_needed = 0, uses_anonymous_args = 0
-  69 0000 00B5     		push	{lr}
-  70              	.LCFI0:
-  71              		.cfi_def_cfa_offset 4
-  72              		.cfi_offset 14, -4
-  73 0002 8DB0     		sub	sp, sp, #52
-  74              	.LCFI1:
-ARM GAS  /tmp/ccP0mP2z.s 			page 22
-
-
-  75              		.cfi_def_cfa_offset 56
- 117:src/system/init.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-  76              		.loc 1 117 3 view .LVU8
- 117:src/system/init.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-  77              		.loc 1 117 22 is_stmt 0 view .LVU9
-  78 0004 1C22     		movs	r2, #28
-  79 0006 0021     		movs	r1, #0
-  80 0008 05A8     		add	r0, sp, #20
-  81 000a FFF7FEFF 		bl	memset
-  82              	.LVL0:
- 118:src/system/init.c **** 
-  83              		.loc 1 118 3 is_stmt 1 view .LVU10
- 118:src/system/init.c **** 
-  84              		.loc 1 118 22 is_stmt 0 view .LVU11
-  85 000e 1422     		movs	r2, #20
-  86 0010 0021     		movs	r1, #0
-  87 0012 6846     		mov	r0, sp
-  88 0014 FFF7FEFF 		bl	memset
-  89              	.LVL1:
- 123:src/system/init.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  90              		.loc 1 123 3 is_stmt 1 view .LVU12
- 123:src/system/init.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  91              		.loc 1 123 36 is_stmt 0 view .LVU13
-  92 0018 0223     		movs	r3, #2
-  93 001a 0593     		str	r3, [sp, #20]
- 124:src/system/init.c ****   RCC_OscInitStruct.HSIDiv = RCC_HSI_DIV1;
-  94              		.loc 1 124 3 is_stmt 1 view .LVU14
- 124:src/system/init.c ****   RCC_OscInitStruct.HSIDiv = RCC_HSI_DIV1;
-  95              		.loc 1 124 30 is_stmt 0 view .LVU15
-  96 001c FE33     		adds	r3, r3, #254
-  97 001e 0893     		str	r3, [sp, #32]
- 125:src/system/init.c ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
-  98              		.loc 1 125 3 is_stmt 1 view .LVU16
- 126:src/system/init.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
-  99              		.loc 1 126 3 view .LVU17
- 126:src/system/init.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
- 100              		.loc 1 126 41 is_stmt 0 view .LVU18
- 101 0020 C03B     		subs	r3, r3, #192
- 102 0022 0A93     		str	r3, [sp, #40]
- 127:src/system/init.c ****   {
- 103              		.loc 1 127 3 is_stmt 1 view .LVU19
- 127:src/system/init.c ****   {
- 104              		.loc 1 127 7 is_stmt 0 view .LVU20
- 105 0024 05A8     		add	r0, sp, #20
- 106 0026 FFF7FEFF 		bl	HAL_RCC_OscConfig
- 107              	.LVL2:
- 127:src/system/init.c ****   {
- 108              		.loc 1 127 6 view .LVU21
- 109 002a 0028     		cmp	r0, #0
- 110 002c 0ED1     		bne	.L6
+ 107              		.loc 1 160 9 view .LVU28
+ 160:src/system/init.c ****   while (1)
+ 108              		.loc 1 160 3 view .LVU29
+ 109              		.loc 1 162 3 view .LVU30
+ 160:src/system/init.c ****   while (1)
+ 110              		.loc 1 160 9 view .LVU31
+ 111 0034 FEE7     		b	.L3
+ 112              	.L2:
+ 113              	.LBE22:
  134:src/system/init.c ****                               |RCC_CLOCKTYPE_PCLK1;
- 111              		.loc 1 134 3 is_stmt 1 view .LVU22
+ 114              		.loc 1 134 3 view .LVU32
+ 136:src/system/init.c ****   RCC_ClkInitStruct.SYSCLKDivider = RCC_SYSCLK_DIV1;
+ 115              		.loc 1 136 3 view .LVU33
+ 137:src/system/init.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_HCLK_DIV1;
+ 116              		.loc 1 137 3 view .LVU34
+ 138:src/system/init.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_APB1_DIV1;
+ 117              		.loc 1 138 3 view .LVU35
  134:src/system/init.c ****                               |RCC_CLOCKTYPE_PCLK1;
- 112              		.loc 1 134 31 is_stmt 0 view .LVU23
- 113 002e 0723     		movs	r3, #7
- 114 0030 0093     		str	r3, [sp]
- 136:src/system/init.c ****   RCC_ClkInitStruct.SYSCLKDivider = RCC_SYSCLK_DIV1;
-ARM GAS  /tmp/ccP0mP2z.s 			page 23
+ 118              		.loc 1 134 31 is_stmt 0 view .LVU36
+ 119 0036 0722     		movs	r2, #7
+ 120 0038 0023     		movs	r3, #0
+ 121 003a 0092     		str	r2, [sp]
+ARM GAS  /tmp/ccJSP884.s 			page 23
 
 
- 115              		.loc 1 136 3 is_stmt 1 view .LVU24
- 136:src/system/init.c ****   RCC_ClkInitStruct.SYSCLKDivider = RCC_SYSCLK_DIV1;
- 116              		.loc 1 136 34 is_stmt 0 view .LVU25
- 117 0032 0023     		movs	r3, #0
- 118 0034 0193     		str	r3, [sp, #4]
- 137:src/system/init.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_HCLK_DIV1;
- 119              		.loc 1 137 3 is_stmt 1 view .LVU26
- 137:src/system/init.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_HCLK_DIV1;
- 120              		.loc 1 137 35 is_stmt 0 view .LVU27
- 121 0036 0293     		str	r3, [sp, #8]
- 138:src/system/init.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_APB1_DIV1;
- 122              		.loc 1 138 3 is_stmt 1 view .LVU28
- 138:src/system/init.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_APB1_DIV1;
- 123              		.loc 1 138 35 is_stmt 0 view .LVU29
- 124 0038 0393     		str	r3, [sp, #12]
+ 122 003c 0193     		str	r3, [sp, #4]
+ 123 003e 0022     		movs	r2, #0
+ 124 0040 0023     		movs	r3, #0
  139:src/system/init.c **** 
- 125              		.loc 1 139 3 is_stmt 1 view .LVU30
+ 125              		.loc 1 139 36 view .LVU37
+ 126 0042 0490     		str	r0, [sp, #16]
+ 141:src/system/init.c ****   {
+ 127              		.loc 1 141 7 view .LVU38
+ 128 0044 0121     		movs	r1, #1
+ 129 0046 6846     		mov	r0, sp
+ 134:src/system/init.c ****                               |RCC_CLOCKTYPE_PCLK1;
+ 130              		.loc 1 134 31 view .LVU39
+ 131 0048 0292     		str	r2, [sp, #8]
+ 132 004a 0393     		str	r3, [sp, #12]
  139:src/system/init.c **** 
- 126              		.loc 1 139 36 is_stmt 0 view .LVU31
- 127 003a 0493     		str	r3, [sp, #16]
+ 133              		.loc 1 139 3 is_stmt 1 view .LVU40
  141:src/system/init.c ****   {
- 128              		.loc 1 141 3 is_stmt 1 view .LVU32
+ 134              		.loc 1 141 3 view .LVU41
  141:src/system/init.c ****   {
- 129              		.loc 1 141 7 is_stmt 0 view .LVU33
- 130 003c 0121     		movs	r1, #1
- 131 003e 6846     		mov	r0, sp
- 132 0040 FFF7FEFF 		bl	HAL_RCC_ClockConfig
- 133              	.LVL3:
+ 135              		.loc 1 141 7 is_stmt 0 view .LVU42
+ 136 004c FFF7FEFF 		bl	HAL_RCC_ClockConfig
+ 137              	.LVL4:
  141:src/system/init.c ****   {
- 134              		.loc 1 141 6 view .LVU34
- 135 0044 0028     		cmp	r0, #0
- 136 0046 03D1     		bne	.L7
- 145:src/system/init.c **** 
- 137              		.loc 1 145 1 view .LVU35
- 138 0048 0DB0     		add	sp, sp, #52
- 139              		@ sp needed
- 140 004a 00BD     		pop	{pc}
- 141              	.L6:
- 129:src/system/init.c ****   }
- 142              		.loc 1 129 5 is_stmt 1 view .LVU36
- 143 004c FFF7FEFF 		bl	Error_Handler
- 144              	.LVL4:
- 145              	.L7:
+ 138              		.loc 1 141 6 view .LVU43
+ 139 0050 0028     		cmp	r0, #0
+ 140 0052 01D0     		beq	.L4
  143:src/system/init.c ****   }
- 146              		.loc 1 143 5 view .LVU37
- 147 0050 FFF7FEFF 		bl	Error_Handler
- 148              	.LVL5:
- 149              		.cfi_endproc
- 150              	.LFE215:
- 152              		.section	.text.init,"ax",%progbits
- 153              		.align	1
- 154              		.global	init
- 155              		.syntax unified
- 156              		.code	16
- 157              		.thumb_func
- 159              	init:
- 160              	.LFB214:
-ARM GAS  /tmp/ccP0mP2z.s 			page 24
+ 141              		.loc 1 143 5 is_stmt 1 view .LVU44
+ 142              	.LBB25:
+ 143              	.LBI25:
+ 155:src/system/init.c **** {
+ 144              		.loc 1 155 6 view .LVU45
+ 159:src/system/init.c ****   while (1)
+ 145              		.loc 1 159 3 view .LVU46
+ 146              	.LBB26:
+ 147              	.LBI26:
+ 960:external/drivers/cmsis/include/cmsis_gcc.h **** {
+ 148              		.loc 2 960 27 view .LVU47
+ 149              	.LBB27:
+ 150              		.loc 2 962 3 view .LVU48
+ 151              		.syntax divided
+ 152              	@ 962 "external/drivers/cmsis/include/cmsis_gcc.h" 1
+ 153 0054 72B6     		cpsid i
+ 154              	@ 0 "" 2
+ 155              		.thumb
+ 156              		.syntax unified
+ 157              	.L5:
+ 158              	.LBE27:
+ 159              	.LBE26:
+ 160:src/system/init.c ****   {
+ 160              		.loc 1 160 3 view .LVU49
+ 161              		.loc 1 162 3 view .LVU50
+ 160:src/system/init.c ****   {
+ 162              		.loc 1 160 9 view .LVU51
+ 160:src/system/init.c ****   {
+ 163              		.loc 1 160 3 view .LVU52
+ 164              		.loc 1 162 3 view .LVU53
+ARM GAS  /tmp/ccJSP884.s 			page 24
 
 
-  67:src/system/init.c ****   /* USER CODE BEGIN 1 */
- 161              		.loc 1 67 1 view -0
- 162              		.cfi_startproc
- 163              		@ args = 0, pretend = 0, frame = 0
- 164              		@ frame_needed = 0, uses_anonymous_args = 0
- 165 0000 10B5     		push	{r4, lr}
- 166              	.LCFI2:
- 167              		.cfi_def_cfa_offset 8
- 168              		.cfi_offset 4, -8
- 169              		.cfi_offset 14, -4
-  75:src/system/init.c **** 
- 170              		.loc 1 75 3 view .LVU39
- 171 0002 FFF7FEFF 		bl	HAL_Init
- 172              	.LVL6:
-  82:src/system/init.c **** 
- 173              		.loc 1 82 3 view .LVU40
- 174 0006 FFF7FEFF 		bl	SystemClock_Config
- 175              	.LVL7:
+ 160:src/system/init.c ****   {
+ 165              		.loc 1 160 9 view .LVU54
+ 166 0056 FEE7     		b	.L5
+ 167              	.L4:
+ 168              	.LBE25:
+ 169              	.LBE21:
+ 170              	.LBE20:
   89:src/system/init.c ****   MX_TIM1_Init();
- 176              		.loc 1 89 3 view .LVU41
- 177 000a FFF7FEFF 		bl	MX_GPIO_Init
- 178              	.LVL8:
+ 171              		.loc 1 89 3 view .LVU55
+ 172 0058 FFF7FEFF 		bl	MX_GPIO_Init
+ 173              	.LVL5:
   90:src/system/init.c ****   MX_TIM3_Init();
- 179              		.loc 1 90 3 view .LVU42
- 180 000e FFF7FEFF 		bl	MX_TIM1_Init
- 181              	.LVL9:
+ 174              		.loc 1 90 3 view .LVU56
+ 175 005c FFF7FEFF 		bl	MX_TIM1_Init
+ 176              	.LVL6:
   91:src/system/init.c ****   MX_TIM14_Init();
- 182              		.loc 1 91 3 view .LVU43
- 183 0012 FFF7FEFF 		bl	MX_TIM3_Init
- 184              	.LVL10:
+ 177              		.loc 1 91 3 view .LVU57
+ 178 0060 FFF7FEFF 		bl	MX_TIM3_Init
+ 179              	.LVL7:
   92:src/system/init.c ****   MX_TIM16_Init();
- 185              		.loc 1 92 3 view .LVU44
- 186 0016 FFF7FEFF 		bl	MX_TIM14_Init
- 187              	.LVL11:
+ 180              		.loc 1 92 3 view .LVU58
+ 181 0064 FFF7FEFF 		bl	MX_TIM14_Init
+ 182              	.LVL8:
   93:src/system/init.c ****   MX_TIM17_Init();
- 188              		.loc 1 93 3 view .LVU45
- 189 001a FFF7FEFF 		bl	MX_TIM16_Init
- 190              	.LVL12:
+ 183              		.loc 1 93 3 view .LVU59
+ 184 0068 FFF7FEFF 		bl	MX_TIM16_Init
+ 185              	.LVL9:
   94:src/system/init.c ****   MX_USART2_UART_Init();
- 191              		.loc 1 94 3 view .LVU46
- 192 001e FFF7FEFF 		bl	MX_TIM17_Init
- 193              	.LVL13:
+ 186              		.loc 1 94 3 view .LVU60
+ 187 006c FFF7FEFF 		bl	MX_TIM17_Init
+ 188              	.LVL10:
   95:src/system/init.c ****   /* USER CODE BEGIN 2 */
- 194              		.loc 1 95 3 view .LVU47
- 195 0022 FFF7FEFF 		bl	MX_USART2_UART_Init
- 196              	.LVL14:
+ 189              		.loc 1 95 3 view .LVU61
+ 190 0070 FFF7FEFF 		bl	MX_USART2_UART_Init
+ 191              	.LVL11:
  102:src/system/init.c ****   {
- 197              		.loc 1 102 3 view .LVU48
+ 192              		.loc 1 102 3 view .LVU62
  107:src/system/init.c ****   /* USER CODE END 3 */
- 198              		.loc 1 107 3 view .LVU49
+ 193              		.loc 1 107 3 view .LVU63
  109:src/system/init.c **** 
- 199              		.loc 1 109 1 is_stmt 0 view .LVU50
- 200 0026 0020     		movs	r0, #0
- 201              		@ sp needed
- 202 0028 10BD     		pop	{r4, pc}
- 203              		.cfi_endproc
- 204              	.LFE214:
-ARM GAS  /tmp/ccP0mP2z.s 			page 25
+ 194              		.loc 1 109 1 is_stmt 0 view .LVU64
+ 195 0074 0020     		movs	r0, #0
+ 196 0076 0DB0     		add	sp, sp, #52
+ 197              		@ sp needed
+ 198 0078 00BD     		pop	{pc}
+ 199              		.cfi_endproc
+ 200              	.LFE214:
+ 202 007a C046     		.section	.text.SystemClock_Config,"ax",%progbits
+ 203              		.align	1
+ 204              		.p2align 2,,3
+ 205              		.global	SystemClock_Config
+ 206              		.syntax unified
+ 207              		.code	16
+ 208              		.thumb_func
+ 210              	SystemClock_Config:
+ 211              	.LFB215:
+ 116:src/system/init.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+ARM GAS  /tmp/ccJSP884.s 			page 25
 
 
- 206              		.text
- 207              	.Letext0:
- 208              		.file 3 "/usr/lib/gcc/arm-none-eabi/12.2.1/include/stdint.h"
- 209              		.file 4 "external/drivers/stm32c0xx/include/stm32c0xx_hal_def.h"
- 210              		.file 5 "external/drivers/stm32c0xx/include/stm32c0xx_hal_rcc.h"
- 211              		.file 6 "src/system/usart.h"
- 212              		.file 7 "src/system/tim.h"
- 213              		.file 8 "src/system/gpio.h"
- 214              		.file 9 "external/drivers/stm32c0xx/include/stm32c0xx_hal.h"
- 215              		.file 10 "<built-in>"
-ARM GAS  /tmp/ccP0mP2z.s 			page 26
+ 212              		.loc 1 116 1 is_stmt 1 view -0
+ 213              		.cfi_startproc
+ 214              		@ args = 0, pretend = 0, frame = 48
+ 215              		@ frame_needed = 0, uses_anonymous_args = 0
+ 117:src/system/init.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+ 216              		.loc 1 117 3 view .LVU66
+ 116:src/system/init.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+ 217              		.loc 1 116 1 is_stmt 0 view .LVU67
+ 218 0000 00B5     		push	{lr}
+ 219              	.LCFI2:
+ 220              		.cfi_def_cfa_offset 4
+ 221              		.cfi_offset 14, -4
+ 222 0002 8DB0     		sub	sp, sp, #52
+ 223              	.LCFI3:
+ 224              		.cfi_def_cfa_offset 56
+ 117:src/system/init.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+ 225              		.loc 1 117 22 view .LVU68
+ 226 0004 1822     		movs	r2, #24
+ 227 0006 0021     		movs	r1, #0
+ 228 0008 06A8     		add	r0, sp, #24
+ 229 000a FFF7FEFF 		bl	memset
+ 230              	.LVL12:
+ 118:src/system/init.c **** 
+ 231              		.loc 1 118 3 is_stmt 1 view .LVU69
+ 118:src/system/init.c **** 
+ 232              		.loc 1 118 22 is_stmt 0 view .LVU70
+ 233 000e 1422     		movs	r2, #20
+ 234 0010 0021     		movs	r1, #0
+ 235 0012 6846     		mov	r0, sp
+ 236 0014 FFF7FEFF 		bl	memset
+ 237              	.LVL13:
+ 123:src/system/init.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+ 238              		.loc 1 123 3 is_stmt 1 view .LVU71
+ 123:src/system/init.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+ 239              		.loc 1 123 36 is_stmt 0 view .LVU72
+ 240 0018 0223     		movs	r3, #2
+ 241 001a 0593     		str	r3, [sp, #20]
+ 124:src/system/init.c ****   RCC_OscInitStruct.HSIDiv = RCC_HSI_DIV1;
+ 242              		.loc 1 124 3 is_stmt 1 view .LVU73
+ 124:src/system/init.c ****   RCC_OscInitStruct.HSIDiv = RCC_HSI_DIV1;
+ 243              		.loc 1 124 30 is_stmt 0 view .LVU74
+ 244 001c FE33     		adds	r3, r3, #254
+ 245 001e 0893     		str	r3, [sp, #32]
+ 125:src/system/init.c ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+ 246              		.loc 1 125 3 is_stmt 1 view .LVU75
+ 126:src/system/init.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 247              		.loc 1 126 3 view .LVU76
+ 127:src/system/init.c ****   {
+ 248              		.loc 1 127 7 is_stmt 0 view .LVU77
+ 249 0020 05A8     		add	r0, sp, #20
+ 126:src/system/init.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 250              		.loc 1 126 41 view .LVU78
+ 251 0022 C03B     		subs	r3, r3, #192
+ 252 0024 0A93     		str	r3, [sp, #40]
+ 127:src/system/init.c ****   {
+ 253              		.loc 1 127 3 is_stmt 1 view .LVU79
+ 127:src/system/init.c ****   {
+ARM GAS  /tmp/ccJSP884.s 			page 26
+
+
+ 254              		.loc 1 127 7 is_stmt 0 view .LVU80
+ 255 0026 FFF7FEFF 		bl	HAL_RCC_OscConfig
+ 256              	.LVL14:
+ 127:src/system/init.c ****   {
+ 257              		.loc 1 127 6 view .LVU81
+ 258 002a 0028     		cmp	r0, #0
+ 259 002c 01D0     		beq	.L8
+ 129:src/system/init.c ****   }
+ 260              		.loc 1 129 5 is_stmt 1 view .LVU82
+ 261              	.LBB28:
+ 262              	.LBI28:
+ 155:src/system/init.c **** {
+ 263              		.loc 1 155 6 view .LVU83
+ 159:src/system/init.c ****   while (1)
+ 264              		.loc 1 159 3 view .LVU84
+ 265              	.LBB29:
+ 266              	.LBI29:
+ 960:external/drivers/cmsis/include/cmsis_gcc.h **** {
+ 267              		.loc 2 960 27 view .LVU85
+ 268              	.LBB30:
+ 269              		.loc 2 962 3 view .LVU86
+ 270              		.syntax divided
+ 271              	@ 962 "external/drivers/cmsis/include/cmsis_gcc.h" 1
+ 272 002e 72B6     		cpsid i
+ 273              	@ 0 "" 2
+ 274              		.thumb
+ 275              		.syntax unified
+ 276              	.L9:
+ 277              	.LBE30:
+ 278              	.LBE29:
+ 160:src/system/init.c ****   {
+ 279              		.loc 1 160 3 view .LVU87
+ 280              		.loc 1 162 3 view .LVU88
+ 160:src/system/init.c ****   {
+ 281              		.loc 1 160 9 view .LVU89
+ 160:src/system/init.c ****   {
+ 282              		.loc 1 160 3 view .LVU90
+ 283              		.loc 1 162 3 view .LVU91
+ 160:src/system/init.c ****   {
+ 284              		.loc 1 160 9 view .LVU92
+ 285 0030 FEE7     		b	.L9
+ 286              	.L8:
+ 287              	.LBE28:
+ 134:src/system/init.c ****                               |RCC_CLOCKTYPE_PCLK1;
+ 288              		.loc 1 134 3 view .LVU93
+ 136:src/system/init.c ****   RCC_ClkInitStruct.SYSCLKDivider = RCC_SYSCLK_DIV1;
+ 289              		.loc 1 136 3 view .LVU94
+ 137:src/system/init.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_HCLK_DIV1;
+ 290              		.loc 1 137 3 view .LVU95
+ 138:src/system/init.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_APB1_DIV1;
+ 291              		.loc 1 138 3 view .LVU96
+ 134:src/system/init.c ****                               |RCC_CLOCKTYPE_PCLK1;
+ 292              		.loc 1 134 31 is_stmt 0 view .LVU97
+ 293 0032 0722     		movs	r2, #7
+ 294 0034 0023     		movs	r3, #0
+ 295 0036 0092     		str	r2, [sp]
+ 296 0038 0193     		str	r3, [sp, #4]
+ARM GAS  /tmp/ccJSP884.s 			page 27
+
+
+ 297 003a 0022     		movs	r2, #0
+ 298 003c 0023     		movs	r3, #0
+ 139:src/system/init.c **** 
+ 299              		.loc 1 139 36 view .LVU98
+ 300 003e 0490     		str	r0, [sp, #16]
+ 141:src/system/init.c ****   {
+ 301              		.loc 1 141 7 view .LVU99
+ 302 0040 0121     		movs	r1, #1
+ 303 0042 6846     		mov	r0, sp
+ 134:src/system/init.c ****                               |RCC_CLOCKTYPE_PCLK1;
+ 304              		.loc 1 134 31 view .LVU100
+ 305 0044 0292     		str	r2, [sp, #8]
+ 306 0046 0393     		str	r3, [sp, #12]
+ 139:src/system/init.c **** 
+ 307              		.loc 1 139 3 is_stmt 1 view .LVU101
+ 141:src/system/init.c ****   {
+ 308              		.loc 1 141 3 view .LVU102
+ 141:src/system/init.c ****   {
+ 309              		.loc 1 141 7 is_stmt 0 view .LVU103
+ 310 0048 FFF7FEFF 		bl	HAL_RCC_ClockConfig
+ 311              	.LVL15:
+ 141:src/system/init.c ****   {
+ 312              		.loc 1 141 6 view .LVU104
+ 313 004c 0028     		cmp	r0, #0
+ 314 004e 01D0     		beq	.L7
+ 143:src/system/init.c ****   }
+ 315              		.loc 1 143 5 is_stmt 1 view .LVU105
+ 316              	.LBB31:
+ 317              	.LBI31:
+ 155:src/system/init.c **** {
+ 318              		.loc 1 155 6 view .LVU106
+ 159:src/system/init.c ****   while (1)
+ 319              		.loc 1 159 3 view .LVU107
+ 320              	.LBB32:
+ 321              	.LBI32:
+ 960:external/drivers/cmsis/include/cmsis_gcc.h **** {
+ 322              		.loc 2 960 27 view .LVU108
+ 323              	.LBB33:
+ 324              		.loc 2 962 3 view .LVU109
+ 325              		.syntax divided
+ 326              	@ 962 "external/drivers/cmsis/include/cmsis_gcc.h" 1
+ 327 0050 72B6     		cpsid i
+ 328              	@ 0 "" 2
+ 329              		.thumb
+ 330              		.syntax unified
+ 331              	.L11:
+ 332              	.LBE33:
+ 333              	.LBE32:
+ 160:src/system/init.c ****   {
+ 334              		.loc 1 160 3 view .LVU110
+ 335              		.loc 1 162 3 view .LVU111
+ 160:src/system/init.c ****   {
+ 336              		.loc 1 160 9 view .LVU112
+ 160:src/system/init.c ****   {
+ 337              		.loc 1 160 3 view .LVU113
+ 338              		.loc 1 162 3 view .LVU114
+ 160:src/system/init.c ****   {
+ARM GAS  /tmp/ccJSP884.s 			page 28
+
+
+ 339              		.loc 1 160 9 view .LVU115
+ 340 0052 FEE7     		b	.L11
+ 341              	.L7:
+ 342              	.LBE31:
+ 145:src/system/init.c **** 
+ 343              		.loc 1 145 1 is_stmt 0 view .LVU116
+ 344 0054 0DB0     		add	sp, sp, #52
+ 345              		@ sp needed
+ 346 0056 00BD     		pop	{pc}
+ 347              		.cfi_endproc
+ 348              	.LFE215:
+ 350              		.section	.text.Error_Handler,"ax",%progbits
+ 351              		.align	1
+ 352              		.p2align 2,,3
+ 353              		.global	Error_Handler
+ 354              		.syntax unified
+ 355              		.code	16
+ 356              		.thumb_func
+ 358              	Error_Handler:
+ 359              	.LFB216:
+ 156:src/system/init.c ****   /* USER CODE BEGIN Error_Handler_Debug */
+ 360              		.loc 1 156 1 is_stmt 1 view -0
+ 361              		.cfi_startproc
+ 362              		@ Volatile: function does not return.
+ 363              		@ args = 0, pretend = 0, frame = 0
+ 364              		@ frame_needed = 0, uses_anonymous_args = 0
+ 365              		@ link register save eliminated.
+ 159:src/system/init.c ****   while (1)
+ 366              		.loc 1 159 3 view .LVU118
+ 367              	.LBB34:
+ 368              	.LBI34:
+ 960:external/drivers/cmsis/include/cmsis_gcc.h **** {
+ 369              		.loc 2 960 27 view .LVU119
+ 370              	.LBB35:
+ 371              		.loc 2 962 3 view .LVU120
+ 372              		.syntax divided
+ 373              	@ 962 "external/drivers/cmsis/include/cmsis_gcc.h" 1
+ 374 0000 72B6     		cpsid i
+ 375              	@ 0 "" 2
+ 376              		.thumb
+ 377              		.syntax unified
+ 378              	.L13:
+ 379              	.LBE35:
+ 380              	.LBE34:
+ 160:src/system/init.c ****   {
+ 381              		.loc 1 160 3 discriminator 1 view .LVU121
+ 382              		.loc 1 162 3 discriminator 1 view .LVU122
+ 160:src/system/init.c ****   {
+ 383              		.loc 1 160 9 discriminator 1 view .LVU123
+ 160:src/system/init.c ****   {
+ 384              		.loc 1 160 3 discriminator 1 view .LVU124
+ 385              		.loc 1 162 3 discriminator 1 view .LVU125
+ 160:src/system/init.c ****   {
+ 386              		.loc 1 160 9 discriminator 1 view .LVU126
+ 387 0002 FEE7     		b	.L13
+ 388              		.cfi_endproc
+ 389              	.LFE216:
+ARM GAS  /tmp/ccJSP884.s 			page 29
+
+
+ 391              		.text
+ 392              	.Letext0:
+ 393              		.file 3 "/usr/lib/gcc/arm-none-eabi/12.2.1/include/stdint.h"
+ 394              		.file 4 "external/drivers/stm32c0xx/include/stm32c0xx_hal_def.h"
+ 395              		.file 5 "external/drivers/stm32c0xx/include/stm32c0xx_hal_rcc.h"
+ 396              		.file 6 "src/system/usart.h"
+ 397              		.file 7 "src/system/tim.h"
+ 398              		.file 8 "src/system/gpio.h"
+ 399              		.file 9 "external/drivers/stm32c0xx/include/stm32c0xx_hal.h"
+ 400              		.file 10 "<built-in>"
+ARM GAS  /tmp/ccJSP884.s 			page 30
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 init.c
-     /tmp/ccP0mP2z.s:19     .text.Error_Handler:00000000 $t
-     /tmp/ccP0mP2z.s:25     .text.Error_Handler:00000000 Error_Handler
-     /tmp/ccP0mP2z.s:57     .text.SystemClock_Config:00000000 $t
-     /tmp/ccP0mP2z.s:63     .text.SystemClock_Config:00000000 SystemClock_Config
-     /tmp/ccP0mP2z.s:153    .text.init:00000000 $t
-     /tmp/ccP0mP2z.s:159    .text.init:00000000 init
+     /tmp/ccJSP884.s:19     .text.init:00000000 $t
+     /tmp/ccJSP884.s:26     .text.init:00000000 init
+     /tmp/ccJSP884.s:203    .text.SystemClock_Config:00000000 $t
+     /tmp/ccJSP884.s:210    .text.SystemClock_Config:00000000 SystemClock_Config
+     /tmp/ccJSP884.s:351    .text.Error_Handler:00000000 $t
+     /tmp/ccJSP884.s:358    .text.Error_Handler:00000000 Error_Handler
 
 UNDEFINED SYMBOLS
+HAL_Init
 memset
 HAL_RCC_OscConfig
 HAL_RCC_ClockConfig
-HAL_Init
 MX_GPIO_Init
 MX_TIM1_Init
 MX_TIM3_Init

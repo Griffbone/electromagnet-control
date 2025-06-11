@@ -28,7 +28,8 @@ build/main/bbpwm.o: src/drivers/bbpwm/bbpwm.c src/drivers/bbpwm/bbpwm.h \
  external/drivers/stm32c0xx/include/stm32c0xx_hal_tim.h \
  external/drivers/stm32c0xx/include/stm32c0xx_hal_tim_ex.h \
  external/drivers/stm32c0xx/include/stm32c0xx_hal_uart.h \
- external/drivers/stm32c0xx/include/stm32c0xx_hal_uart_ex.h
+ external/drivers/stm32c0xx/include/stm32c0xx_hal_uart_ex.h \
+ src/low_level/type_definitions.h
 src/drivers/bbpwm/bbpwm.h:
 external/drivers/stm32c0xx/include/stm32c0xx_hal.h:
 external/drivers/stm32c0xx/include/stm32c0xx_ll_system.h:
@@ -60,3 +61,4 @@ external/drivers/stm32c0xx/include/stm32c0xx_hal_tim.h:
 external/drivers/stm32c0xx/include/stm32c0xx_hal_tim_ex.h:
 external/drivers/stm32c0xx/include/stm32c0xx_hal_uart.h:
 external/drivers/stm32c0xx/include/stm32c0xx_hal_uart_ex.h:
+src/low_level/type_definitions.h:

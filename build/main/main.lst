@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccZ2HL5r.s 			page 1
+ARM GAS  /tmp/ccUxvj82.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -10,7 +10,7 @@ ARM GAS  /tmp/ccZ2HL5r.s 			page 1
    7              		.eabi_attribute 24, 1
    8              		.eabi_attribute 25, 1
    9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 30, 2
   11              		.eabi_attribute 34, 0
   12              		.eabi_attribute 18, 4
   13              		.file	"main.c"
@@ -18,21 +18,15 @@ ARM GAS  /tmp/ccZ2HL5r.s 			page 1
   15              	.Ltext0:
   16              		.cfi_sections	.debug_frame
   17              		.file 1 "src/main.c"
-  18              		.section	.rodata.main.str1.4,"aMS",%progbits,1
-  19              		.align	2
-  20              	.LC1:
-  21 0000 68656C6C 		.ascii	"hello world\015\012\000"
-  21      6F20776F 
-  21      726C640D 
-  21      0A00
-  22              		.section	.text.main,"ax",%progbits
-  23              		.align	1
-  24              		.global	main
-  25              		.syntax unified
-  26              		.code	16
-  27              		.thumb_func
-  29              	main:
-  30              	.LFB217:
+  18              		.section	.text.startup.main,"ax",%progbits
+  19              		.align	1
+  20              		.p2align 2,,3
+  21              		.global	main
+  22              		.syntax unified
+  23              		.code	16
+  24              		.thumb_func
+  26              	main:
+  27              	.LFB217:
    1:src/main.c    **** /* SYSTEM IMPORTS*/
    2:src/main.c    **** #include "low_level/type_definitions.h"
    3:src/main.c    **** 
@@ -46,129 +40,291 @@ ARM GAS  /tmp/ccZ2HL5r.s 			page 1
   11:src/main.c    **** #include "drivers/bbpwm/bbpwm.h"
   12:src/main.c    **** 
   13:src/main.c    **** /* ==================== declare up BBPWM structs ==================== */
-  14:src/main.c    **** 
-  15:src/main.c    **** int main(void) {
-  31              		.loc 1 15 16 view -0
-  32              		.cfi_startproc
-  33              		@ args = 0, pretend = 0, frame = 16
-  34              		@ frame_needed = 0, uses_anonymous_args = 0
-  35 0000 30B5     		push	{r4, r5, lr}
+  14:src/main.c    **** bbpwm_device_t led_pwm;
+  15:src/main.c    **** bbpwm_device_t pwm2;
+  16:src/main.c    **** 
+  17:src/main.c    **** int main(void) {
+  28              		.loc 1 17 16 view -0
+  29              		.cfi_startproc
+  30              		@ Volatile: function does not return.
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  18:src/main.c    ****   init();
+  33              		.loc 1 18 3 view .LVU1
+  17:src/main.c    ****   init();
+  34              		.loc 1 17 16 is_stmt 0 view .LVU2
+  35 0000 70B5     		push	{r4, r5, r6, lr}
   36              	.LCFI0:
-  37              		.cfi_def_cfa_offset 12
-  38              		.cfi_offset 4, -12
-  39              		.cfi_offset 5, -8
-  40              		.cfi_offset 14, -4
-ARM GAS  /tmp/ccZ2HL5r.s 			page 2
+  37              		.cfi_def_cfa_offset 16
+  38              		.cfi_offset 4, -16
+  39              		.cfi_offset 5, -12
+ARM GAS  /tmp/ccUxvj82.s 			page 2
 
 
-  41 0002 85B0     		sub	sp, sp, #20
-  42              	.LCFI1:
-  43              		.cfi_def_cfa_offset 32
-  16:src/main.c    ****   init();
-  44              		.loc 1 16 3 view .LVU1
-  45 0004 FFF7FEFF 		bl	init
-  46              	.LVL0:
-  17:src/main.c    **** 
-  18:src/main.c    ****   // Initialize timer
-  19:src/main.c    ****   HAL_TIM_Base_Start(&htim1);
-  47              		.loc 1 19 3 view .LVU2
-  48 0008 0E48     		ldr	r0, .L3
-  49 000a FFF7FEFF 		bl	HAL_TIM_Base_Start
-  50              	.LVL1:
-  20:src/main.c    **** 
-  21:src/main.c    ****   /* ==================== initialize up BBPWM structs ==================== */
+  40              		.cfi_offset 6, -8
+  41              		.cfi_offset 14, -4
+  42              		.loc 1 18 3 view .LVU3
+  43 0002 FFF7FEFF 		bl	init
+  44              	.LVL0:
+  19:src/main.c    **** 
+  20:src/main.c    ****   // Initialize timer
+  21:src/main.c    ****   HAL_TIM_Base_Start(&htim1);
+  45              		.loc 1 21 3 is_stmt 1 view .LVU4
+  46 0006 164E     		ldr	r6, .L4
+  47 0008 3000     		movs	r0, r6
+  48 000a FFF7FEFF 		bl	HAL_TIM_Base_Start
+  49              	.LVL1:
   22:src/main.c    **** 
-  23:src/main.c    ****   /* ==================== infinite while loop structs ==================== */
-  24:src/main.c    ****   const char msg[] = "hello world\r\n";
-  51              		.loc 1 24 3 view .LVU3
-  52              		.loc 1 24 14 is_stmt 0 view .LVU4
-  53 000e 6A46     		mov	r2, sp
-  54 0010 0D4B     		ldr	r3, .L3+4
-  55 0012 1800     		movs	r0, r3
-  56 0014 38C8     		ldmia	r0!, {r3, r4, r5}
-  57 0016 38C2     		stmia	r2!, {r3, r4, r5}
-  58 0018 0388     		ldrh	r3, [r0]
-  59 001a 1380     		strh	r3, [r2]
-  60              	.L2:
-  25:src/main.c    **** 
-  26:src/main.c    ****   while (1) {
-  61              		.loc 1 26 3 is_stmt 1 discriminator 1 view .LVU5
-  62              	.LBB2:
-  27:src/main.c    ****     uint16_t count = htim1.Instance->CNT;
-  63              		.loc 1 27 5 discriminator 1 view .LVU6
-  64              		.loc 1 27 27 is_stmt 0 discriminator 1 view .LVU7
-  65 001c 094B     		ldr	r3, .L3
-  66 001e 1B68     		ldr	r3, [r3]
-  67              		.loc 1 27 36 discriminator 1 view .LVU8
-  68 0020 5B6A     		ldr	r3, [r3, #36]
-  28:src/main.c    ****     HAL_UART_Transmit(&huart2, (uint8_t *)msg, sizeof(msg) - 1, HAL_MAX_DELAY);
-  69              		.loc 1 28 5 is_stmt 1 discriminator 1 view .LVU9
-  70 0022 0123     		movs	r3, #1
-  71 0024 0948     		ldr	r0, .L3+8
-  72 0026 5B42     		rsbs	r3, r3, #0
-  73 0028 0D22     		movs	r2, #13
-  74 002a 6946     		mov	r1, sp
-  75 002c FFF7FEFF 		bl	HAL_UART_Transmit
-  76              	.LVL2:
-  29:src/main.c    **** 
-  30:src/main.c    ****   //  printf("hello world\r\n");
-  31:src/main.c    ****   //  printf("%d\r\n", count);
-  32:src/main.c    ****     HAL_GPIO_TogglePin(LEDPIN_GPIO_Port, LEDPIN_Pin);
-  77              		.loc 1 32 5 discriminator 1 view .LVU10
-  78 0030 A020     		movs	r0, #160
-  79 0032 2021     		movs	r1, #32
-  80 0034 C005     		lsls	r0, r0, #23
-ARM GAS  /tmp/ccZ2HL5r.s 			page 3
+  23:src/main.c    ****   /* ==================== Initialize PWM ====================*/
+  24:src/main.c    ****   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+  50              		.loc 1 24 3 view .LVU5
+  51 000e 0021     		movs	r1, #0
+  52 0010 3000     		movs	r0, r6
+  53 0012 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+  54              	.LVL2:
+  25:src/main.c    ****   TIM1->CCR1 = 30;
+  55              		.loc 1 25 3 view .LVU6
+  56              		.loc 1 25 14 is_stmt 0 view .LVU7
+  57 0016 1E22     		movs	r2, #30
+  58 0018 124B     		ldr	r3, .L4+4
+  26:src/main.c    **** 
+  27:src/main.c    ****   /* ==================== Initialize up BBPWM structs ==================== */
+  28:src/main.c    ****   led_pwm.gpio_pin = LEDPIN_Pin;
+  59              		.loc 1 28 20 view .LVU8
+  60 001a 134D     		ldr	r5, .L4+8
+  25:src/main.c    ****   TIM1->CCR1 = 30;
+  61              		.loc 1 25 14 view .LVU9
+  62 001c 5A63     		str	r2, [r3, #52]
+  63              		.loc 1 28 3 is_stmt 1 view .LVU10
+  64              		.loc 1 28 20 is_stmt 0 view .LVU11
+  65 001e 2023     		movs	r3, #32
+  66 0020 AB81     		strh	r3, [r5, #12]
+  29:src/main.c    ****   led_pwm.gpio_port = LEDPIN_GPIO_Port;
+  67              		.loc 1 29 3 is_stmt 1 view .LVU12
+  68              		.loc 1 29 21 is_stmt 0 view .LVU13
+  69 0022 A023     		movs	r3, #160
+  30:src/main.c    ****   led_pwm.htim = &htim1;
+  31:src/main.c    ****   bbpwm_init(&led_pwm);
+  70              		.loc 1 31 3 view .LVU14
+  71 0024 2800     		movs	r0, r5
+  29:src/main.c    ****   led_pwm.gpio_port = LEDPIN_GPIO_Port;
+  72              		.loc 1 29 21 view .LVU15
+  73 0026 DB05     		lsls	r3, r3, #23
+  74 0028 AB60     		str	r3, [r5, #8]
+  30:src/main.c    ****   led_pwm.htim = &htim1;
+  75              		.loc 1 30 3 is_stmt 1 view .LVU16
+  30:src/main.c    ****   led_pwm.htim = &htim1;
+  76              		.loc 1 30 16 is_stmt 0 view .LVU17
+  77 002a 2E61     		str	r6, [r5, #16]
+  78              		.loc 1 31 3 is_stmt 1 view .LVU18
+  79 002c FFF7FEFF 		bl	bbpwm_init
+ARM GAS  /tmp/ccUxvj82.s 			page 3
 
 
-  81 0036 FFF7FEFF 		bl	HAL_GPIO_TogglePin
-  82              	.LVL3:
-  33:src/main.c    ****     HAL_Delay(1000);
-  83              		.loc 1 33 5 discriminator 1 view .LVU11
-  84 003a FA20     		movs	r0, #250
-  85 003c 8000     		lsls	r0, r0, #2
-  86 003e FFF7FEFF 		bl	HAL_Delay
-  87              	.LVL4:
-  88              	.LBE2:
-  26:src/main.c    ****     uint16_t count = htim1.Instance->CNT;
-  89              		.loc 1 26 9 discriminator 1 view .LVU12
-  90 0042 EBE7     		b	.L2
-  91              	.L4:
-  92              		.align	2
-  93              	.L3:
-  94 0044 00000000 		.word	htim1
-  95 0048 00000000 		.word	.LC1
-  96 004c 00000000 		.word	huart2
-  97              		.cfi_endproc
-  98              	.LFE217:
- 100              		.text
- 101              	.Letext0:
- 102              		.file 2 "/usr/lib/gcc/arm-none-eabi/12.2.1/include/stdint.h"
- 103              		.file 3 "external/drivers/cmsis/include/stm32c031xx.h"
- 104              		.file 4 "external/drivers/stm32c0xx/include/stm32c0xx_hal_def.h"
- 105              		.file 5 "external/drivers/stm32c0xx/include/stm32c0xx_hal_dma.h"
- 106              		.file 6 "external/drivers/stm32c0xx/include/stm32c0xx_hal_tim.h"
- 107              		.file 7 "external/drivers/stm32c0xx/include/stm32c0xx_hal_uart.h"
- 108              		.file 8 "src/system/tim.h"
- 109              		.file 9 "src/system/usart.h"
- 110              		.file 10 "external/drivers/stm32c0xx/include/stm32c0xx_hal.h"
- 111              		.file 11 "external/drivers/stm32c0xx/include/stm32c0xx_hal_gpio.h"
- 112              		.file 12 "src/system/init.h"
-ARM GAS  /tmp/ccZ2HL5r.s 			page 4
+  80              	.LVL3:
+  32:src/main.c    ****   bbpwm_set_dc(&led_pwm, 128);
+  81              		.loc 1 32 3 view .LVU19
+  82 0030 8021     		movs	r1, #128
+  83 0032 2800     		movs	r0, r5
+  84 0034 FFF7FEFF 		bl	bbpwm_set_dc
+  85              	.LVL4:
+  33:src/main.c    **** 
+  34:src/main.c    ****   pwm2.gpio_pin = TESTPIN_Pin;
+  86              		.loc 1 34 3 view .LVU20
+  87              		.loc 1 34 17 is_stmt 0 view .LVU21
+  88 0038 0123     		movs	r3, #1
+  89 003a 0C4C     		ldr	r4, .L4+12
+  90 003c A381     		strh	r3, [r4, #12]
+  35:src/main.c    ****   pwm2.gpio_port = TESTPIN_GPIO_Port;
+  91              		.loc 1 35 3 is_stmt 1 view .LVU22
+  92              		.loc 1 35 18 is_stmt 0 view .LVU23
+  93 003e 0C4B     		ldr	r3, .L4+16
+  36:src/main.c    ****   pwm2.htim = &htim1;
+  37:src/main.c    ****   bbpwm_init(&pwm2);
+  94              		.loc 1 37 3 view .LVU24
+  95 0040 2000     		movs	r0, r4
+  35:src/main.c    ****   pwm2.gpio_port = TESTPIN_GPIO_Port;
+  96              		.loc 1 35 18 view .LVU25
+  97 0042 A360     		str	r3, [r4, #8]
+  36:src/main.c    ****   pwm2.htim = &htim1;
+  98              		.loc 1 36 3 is_stmt 1 view .LVU26
+  36:src/main.c    ****   pwm2.htim = &htim1;
+  99              		.loc 1 36 13 is_stmt 0 view .LVU27
+ 100 0044 2661     		str	r6, [r4, #16]
+ 101              		.loc 1 37 3 is_stmt 1 view .LVU28
+ 102 0046 FFF7FEFF 		bl	bbpwm_init
+ 103              	.LVL5:
+  38:src/main.c    ****   bbpwm_set_dc(&pwm2, 64);
+ 104              		.loc 1 38 3 view .LVU29
+ 105 004a 4021     		movs	r1, #64
+ 106 004c 2000     		movs	r0, r4
+ 107 004e FFF7FEFF 		bl	bbpwm_set_dc
+ 108              	.LVL6:
+ 109              	.L2:
+  39:src/main.c    **** 
+  40:src/main.c    **** 
+  41:src/main.c    **** 
+  42:src/main.c    ****   /* ==================== infinite while loop structs ==================== */
+  43:src/main.c    **** 
+  44:src/main.c    ****   while (1) {
+ 110              		.loc 1 44 3 discriminator 1 view .LVU30
+  45:src/main.c    ****     // GPIOA->ODR = (1 << 5);
+  46:src/main.c    ****     // GPIOA->ODR = (0 << 5);
+  47:src/main.c    ****     // GPIOA->ODR = (1 << 21);
+  48:src/main.c    ****     // HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+  49:src/main.c    ****     // *GPIOA = 0b0000000000000000;
+  50:src/main.c    ****     bbpwm_update(&led_pwm);
+ 111              		.loc 1 50 5 discriminator 1 view .LVU31
+ 112 0052 2800     		movs	r0, r5
+ 113 0054 FFF7FEFF 		bl	bbpwm_update
+ 114              	.LVL7:
+ARM GAS  /tmp/ccUxvj82.s 			page 4
+
+
+  51:src/main.c    ****     bbpwm_update(&pwm2);
+ 115              		.loc 1 51 5 discriminator 1 view .LVU32
+ 116 0058 2000     		movs	r0, r4
+ 117 005a FFF7FEFF 		bl	bbpwm_update
+ 118              	.LVL8:
+  44:src/main.c    ****     // GPIOA->ODR = (1 << 5);
+ 119              		.loc 1 44 9 discriminator 1 view .LVU33
+ 120 005e F8E7     		b	.L2
+ 121              	.L5:
+ 122              		.align	2
+ 123              	.L4:
+ 124 0060 00000000 		.word	htim1
+ 125 0064 002C0140 		.word	1073818624
+ 126 0068 00000000 		.word	led_pwm
+ 127 006c 00000000 		.word	pwm2
+ 128 0070 00040050 		.word	1342178304
+ 129              		.cfi_endproc
+ 130              	.LFE217:
+ 132              		.section	.text._write,"ax",%progbits
+ 133              		.align	1
+ 134              		.p2align 2,,3
+ 135              		.global	_write
+ 136              		.syntax unified
+ 137              		.code	16
+ 138              		.thumb_func
+ 140              	_write:
+ 141              	.LVL9:
+ 142              	.LFB218:
+  52:src/main.c    ****     // printf("%d %d %d\r\n", led_pwm.toff, led_pwm.ton, led_pwm.ton + led_pwm.toff);
+  53:src/main.c    ****     
+  54:src/main.c    ****     // printf("%i %i\r\n", led_pwm.last_update, led_pwm.state);
+  55:src/main.c    **** 
+  56:src/main.c    **** 
+  57:src/main.c    ****   }
+  58:src/main.c    ****   return 0;
+  59:src/main.c    **** }
+  60:src/main.c    **** 
+  61:src/main.c    **** int _write(int file, char *ptr, int len) {
+ 143              		.loc 1 61 42 view -0
+ 144              		.cfi_startproc
+ 145              		@ args = 0, pretend = 0, frame = 0
+ 146              		@ frame_needed = 0, uses_anonymous_args = 0
+  62:src/main.c    ****   HAL_UART_Transmit(&huart2, (uint8_t *)ptr, len, HAL_MAX_DELAY);
+ 147              		.loc 1 62 3 view .LVU35
+ 148 0000 0123     		movs	r3, #1
+  61:src/main.c    ****   HAL_UART_Transmit(&huart2, (uint8_t *)ptr, len, HAL_MAX_DELAY);
+ 149              		.loc 1 61 42 is_stmt 0 view .LVU36
+ 150 0002 10B5     		push	{r4, lr}
+ 151              	.LCFI1:
+ 152              		.cfi_def_cfa_offset 8
+ 153              		.cfi_offset 4, -8
+ 154              		.cfi_offset 14, -4
+  61:src/main.c    ****   HAL_UART_Transmit(&huart2, (uint8_t *)ptr, len, HAL_MAX_DELAY);
+ 155              		.loc 1 61 42 view .LVU37
+ 156 0004 1400     		movs	r4, r2
+  63:src/main.c    ****   return len;
+  64:src/main.c    **** }...
+ARM GAS  /tmp/ccUxvj82.s 			page 5
+
+
+ 157              		.loc 1 64 1 view .LVU38
+ 158              		@ sp needed
+  62:src/main.c    ****   HAL_UART_Transmit(&huart2, (uint8_t *)ptr, len, HAL_MAX_DELAY);
+ 159              		.loc 1 62 3 view .LVU39
+ 160 0006 92B2     		uxth	r2, r2
+ 161              	.LVL10:
+  62:src/main.c    ****   HAL_UART_Transmit(&huart2, (uint8_t *)ptr, len, HAL_MAX_DELAY);
+ 162              		.loc 1 62 3 view .LVU40
+ 163 0008 5B42     		rsbs	r3, r3, #0
+ 164 000a 0248     		ldr	r0, .L7
+ 165              	.LVL11:
+  62:src/main.c    ****   HAL_UART_Transmit(&huart2, (uint8_t *)ptr, len, HAL_MAX_DELAY);
+ 166              		.loc 1 62 3 view .LVU41
+ 167 000c FFF7FEFF 		bl	HAL_UART_Transmit
+ 168              	.LVL12:
+  63:src/main.c    ****   return len;
+ 169              		.loc 1 63 3 is_stmt 1 view .LVU42
+ 170              		.loc 1 64 1 is_stmt 0 view .LVU43
+ 171 0010 2000     		movs	r0, r4
+ 172              	.LVL13:
+ 173              		.loc 1 64 1 view .LVU44
+ 174 0012 10BD     		pop	{r4, pc}
+ 175              	.L8:
+ 176              		.align	2
+ 177              	.L7:
+ 178 0014 00000000 		.word	huart2
+ 179              		.cfi_endproc
+ 180              	.LFE218:
+ 182              		.global	pwm2
+ 183              		.section	.bss.pwm2,"aw",%nobits
+ 184              		.align	2
+ 187              	pwm2:
+ 188 0000 00000000 		.space	20
+ 188      00000000 
+ 188      00000000 
+ 188      00000000 
+ 188      00000000 
+ 189              		.global	led_pwm
+ 190              		.section	.bss.led_pwm,"aw",%nobits
+ 191              		.align	2
+ 194              	led_pwm:
+ 195 0000 00000000 		.space	20
+ 195      00000000 
+ 195      00000000 
+ 195      00000000 
+ 195      00000000 
+ 196              		.text
+ 197              	.Letext0:
+ 198              		.file 2 "/usr/lib/gcc/arm-none-eabi/12.2.1/include/stdint.h"
+ 199              		.file 3 "external/drivers/cmsis/include/stm32c031xx.h"
+ 200              		.file 4 "external/drivers/stm32c0xx/include/stm32c0xx_hal_def.h"
+ 201              		.file 5 "external/drivers/stm32c0xx/include/stm32c0xx_hal_dma.h"
+ 202              		.file 6 "external/drivers/stm32c0xx/include/stm32c0xx_hal_tim.h"
+ 203              		.file 7 "external/drivers/stm32c0xx/include/stm32c0xx_hal_uart.h"
+ 204              		.file 8 "src/system/tim.h"
+ 205              		.file 9 "src/system/usart.h"
+ 206              		.file 10 "src/drivers/bbpwm/bbpwm.h"
+ARM GAS  /tmp/ccUxvj82.s 			page 6
+
+
+ 207              		.file 11 "src/system/init.h"
+ARM GAS  /tmp/ccUxvj82.s 			page 7
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-     /tmp/ccZ2HL5r.s:19     .rodata.main.str1.4:00000000 $d
-     /tmp/ccZ2HL5r.s:23     .text.main:00000000 $t
-     /tmp/ccZ2HL5r.s:29     .text.main:00000000 main
-     /tmp/ccZ2HL5r.s:94     .text.main:00000044 $d
+     /tmp/ccUxvj82.s:19     .text.startup.main:00000000 $t
+     /tmp/ccUxvj82.s:26     .text.startup.main:00000000 main
+     /tmp/ccUxvj82.s:124    .text.startup.main:00000060 $d
+     /tmp/ccUxvj82.s:194    .bss.led_pwm:00000000 led_pwm
+     /tmp/ccUxvj82.s:187    .bss.pwm2:00000000 pwm2
+     /tmp/ccUxvj82.s:133    .text._write:00000000 $t
+     /tmp/ccUxvj82.s:140    .text._write:00000000 _write
+     /tmp/ccUxvj82.s:178    .text._write:00000014 $d
+     /tmp/ccUxvj82.s:184    .bss.pwm2:00000000 $d
+     /tmp/ccUxvj82.s:191    .bss.led_pwm:00000000 $d
 
 UNDEFINED SYMBOLS
 init
 HAL_TIM_Base_Start
-HAL_UART_Transmit
-HAL_GPIO_TogglePin
-HAL_Delay
+HAL_TIM_PWM_Start
+bbpwm_init
+bbpwm_set_dc
+bbpwm_update
 htim1
+HAL_UART_Transmit
 huart2

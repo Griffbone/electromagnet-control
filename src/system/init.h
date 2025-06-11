@@ -60,6 +60,8 @@ int init(void);
 /* Private defines -----------------------------------------------------------*/
 #define LEDPIN_Pin GPIO_PIN_5
 #define LEDPIN_GPIO_Port GPIOA
+#define TESTPIN_Pin GPIO_PIN_0
+#define TESTPIN_GPIO_Port GPIOB
 #define BBPWM_1_Pin GPIO_PIN_9
 #define BBPWM_1_GPIO_Port GPIOB
 

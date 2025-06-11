@@ -11,6 +11,8 @@
 #include "drivers/bbpwm/bbpwm.h"
 
 /* ==================== declare up BBPWM structs ==================== */
+bbpwm_device_t led_pwm;
+bbpwm_device_t pwm2;
 
 int main(void) {
   init();
@@ -18,24 +20,45 @@ int main(void) {
   // Initialize timer
   HAL_TIM_Base_Start(&htim1);
 
-  /* ==================== initialize up BBPWM structs ==================== */
+  /* ==================== Initialize PWM ====================*/
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+  TIM1->CCR1 = 30;
+
+  /* ==================== Initialize up BBPWM structs ==================== */
+  led_pwm.gpio_pin = LEDPIN_Pin;
+  led_pwm.gpio_port = LEDPIN_GPIO_Port;
+  led_pwm.htim = &htim1;
+  bbpwm_init(&led_pwm);
+  bbpwm_set_dc(&led_pwm, 128);
+
+  pwm2.gpio_pin = TESTPIN_Pin;
+  pwm2.gpio_port = TESTPIN_GPIO_Port;
+  pwm2.htim = &htim1;
+  bbpwm_init(&pwm2);
+  bbpwm_set_dc(&pwm2, 64);
+
+
 
   /* ==================== infinite while loop structs ==================== */
-  const char msg[] = "hello world\r\n";
 
   while (1) {
-    uint16_t count = htim1.Instance->CNT;
-    HAL_UART_Transmit(&huart2, (uint8_t *)msg, sizeof(msg) - 1, HAL_MAX_DELAY);
+    // GPIOA->ODR = (1 << 5);
+    // GPIOA->ODR = (0 << 5);
+    // GPIOA->ODR = (1 << 21);
+    // HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+    // *GPIOA = 0b0000000000000000;
+    bbpwm_update(&led_pwm);
+    bbpwm_update(&pwm2);
+    // printf("%d %d %d\r\n", led_pwm.toff, led_pwm.ton, led_pwm.ton + led_pwm.toff);
+    
+    // printf("%i %i\r\n", led_pwm.last_update, led_pwm.state);
 
-  //  printf("hello world\r\n");
-  //  printf("%d\r\n", count);
-    HAL_GPIO_TogglePin(LEDPIN_GPIO_Port, LEDPIN_Pin);
-    HAL_Delay(1000);
+
   }
   return 0;
 }
 
-// int _write(int file, char *ptr, int len) {
-//   HAL_UART_Transmit(&huart2, (uint8_t *)ptr, len, HAL_MAX_DELAY);
-//   return len;
-// }
+int _write(int file, char *ptr, int len) {
+  HAL_UART_Transmit(&huart2, (uint8_t *)ptr, len, HAL_MAX_DELAY);
+  return len;
+}
